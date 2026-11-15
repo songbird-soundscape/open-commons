@@ -508,7 +508,7 @@ a.way:hover{border-color:var(--moss)}
 .copybtn:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
 .copied{font-family:var(--mono);font-size:.74rem;color:var(--moss)}
 /* outline */
-.ol-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:12px}
+.ol-head{display:flex;justify-content:flex-end}
 .outline{display:grid;gap:8px}
 .olp{border:1px solid var(--rule);border-radius:12px;background:var(--slab);overflow:hidden}
 .olp > summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:5.5rem minmax(0,1fr) auto;gap:4px 14px;align-items:center;padding:14px 18px}
@@ -603,9 +603,8 @@ footer{padding-block:40px 0;border-top:1px solid var(--rule);color:var(--ink-sof
     </div>
   </header>
 
-  <section id="outline" aria-labelledby="ol-h">
+  <section id="outline" aria-label="Outline of the site">
     <div class="ol-head">
-      <div class="intro col"><span class="label">The whole site at a glance</span><h2 id="ol-h">Outline</h2><p>Open any part to see what's in it. Read more when something catches your interest, and come back here any time.</p></div>
       <button type="button" class="chip" id="olAll" aria-pressed="false">Open all</button>
     </div>
     <div class="outline" id="olList"></div>
