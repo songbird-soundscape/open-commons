@@ -565,6 +565,12 @@ a.way:hover{border-color:var(--moss)}
 .backol{font-family:var(--mono);font-size:.78rem;color:var(--moss);text-decoration:none;justify-self:start}
 .backol:hover{text-decoration:underline}
 @media (prefers-reduced-motion:reduce){.olbody{animation:none}.olp .olc{transition:none}}
+.sitenav a.navabout{font-family:var(--mono);font-size:.78rem;color:var(--ink);text-decoration:none;border:1px solid var(--rule);border-radius:999px;padding:3px 12px;margin-left:auto}
+.sitenav a.navabout:hover{border-color:var(--moss)}
+.sitenav a.navabout[aria-current="page"]{border-color:var(--moss);color:var(--moss)}
+.sitenav .brand{margin-right:0}
+.aboutlist{margin:0;padding-left:20px;display:grid;gap:6px}
+@media (max-width:720px){.sitenav .brand{flex:1 1 100%}.sitenav a.navabout{margin-left:0}}
 /* examples */
 .exgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
 .ex{background:var(--slab);border:1px solid var(--rule);border-radius:10px;padding:16px;display:grid;gap:8px;align-content:start}
@@ -605,6 +611,7 @@ footer{padding-block:40px 0;border-top:1px solid var(--rule);color:var(--ink-sof
   <div class="navbar" id="navbar">
     <nav class="sitenav" aria-label="Pages">
       <a class="brand" href="#home">The Open Commons of Learning</a>
+      <a class="navabout" href="#about" data-page="about">About</a>
       <a class="navcta" href="#get-together" data-page="get-together">Get together</a>
       <div class="navlinks"><a href="#open-knowledge" data-page="open-knowledge">Open knowledge</a><a href="#learning" data-page="learning">Learning and research</a><a href="#pathways" data-page="pathways">Pathways</a><a href="#standards-habits" data-page="standards-habits">Standards and habits</a><a href="#context" data-page="context">Context</a><a href="#network" data-page="network">Network</a><a href="#ethical-statement" data-page="ethical-statement">Ethical statement</a></div>
       <button type="button" class="menubtn" id="menuBtn" aria-expanded="false" aria-controls="menuPanel">Parts ▾</button>
@@ -1234,6 +1241,52 @@ footer{padding-block:40px 0;border-top:1px solid var(--rule);color:var(--ink-sof
     </div>
   </section>
     <nav class="next"><a class="prev" href="#ethical-statement">← Ethical statement</a><a href="#home">Back to the start →</a></nav>
+  </main>
+
+  <main class="view" id="about" hidden>
+    <header class="pagehead"><a class="backol" href="#outline">↑ Back to the outline</a><span class="label">Contact and joining</span><h1>About this project</h1><p>Who's behind it, how to reach out, and how to join.</p></header>
+
+  <section id="about-who" aria-labelledby="ab-who-h">
+    <div class="intro col">
+      <span class="label">Who we are</span>
+      <h2 id="ab-who-h">An open framework, still growing</h2>
+      <p>The Open Commons of Learning is a working framework for teaching, education, and research, created by <a href="https://github.com/songbird-soundscape" target="_blank" rel="noopener">songbird-soundscape</a>. It is meant to be shared, questioned, and built on by anyone who cares about learning.</p>
+    </div>
+  </section>
+
+  <section id="about-contact" aria-labelledby="ab-c-h">
+    <div class="intro col">
+      <span class="label">Get in touch</span>
+      <h2 id="ab-c-h">Reach out for discussion</h2>
+      <p class="contact"><a class="email" href="mailto:stephen.caird@tamu.edu">stephen.caird@tamu.edu</a> <button type="button" class="copybtn" data-copy="stephen.caird@tamu.edu">Copy</button> <span class="copied" role="status"></span></p>
+      <p>News and updates will be posted in the project's forum on GitHub Discussions. There are no newsletters or system emails.</p>
+    </div>
+  </section>
+
+  <section id="about-join" aria-labelledby="ab-j-h">
+    <div class="intro col">
+      <span class="label">Join in</span>
+      <h2 id="ab-j-h">Ways to take part</h2>
+      <ul class="aboutlist">
+        <li><strong>Make a hub</strong> for a question in your field.</li>
+        <li><strong>Join a hub</strong> and help review and improve it.</li>
+        <li><strong>Link your lab,</strong> field station, museum, or program to the network.</li>
+        <li><strong>Share what you know,</strong> especially if you're a senior scholar or practitioner.</li>
+        <li><strong>Offer hosting,</strong> which the network still needs.</li>
+      </ul>
+      <a class="dtlink" href="#get-together">See how to get together →</a>
+    </div>
+  </section>
+
+  <section id="about-open" aria-labelledby="ab-o-h">
+    <div class="intro col">
+      <span class="label">Open by design</span>
+      <h2 id="ab-o-h">Free to use, copy, and improve</h2>
+      <p>The text and design are licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a>: share and adapt freely, with credit. All the files are on GitHub: <a href="https://github.com/songbird-soundscape/open-commons" target="_blank" rel="noopener">open-commons</a> and <a href="https://github.com/songbird-soundscape/drifting-through-deep-time" target="_blank" rel="noopener">drifting-through-deep-time</a>.</p>
+      <p>Parts of this site were drafted with the help of AI, so errors are possible. Corrections are welcome, and finding them is part of <a href="#critique">how this project teaches</a>.</p>
+    </div>
+  </section>
+    <nav class="next"><a class="prev" href="#get-together">← Get together</a><a href="#home">Back to the start →</a></nav>
   </main>
 
   <footer class="col">
@@ -1975,6 +2028,12 @@ $("#corpChips").addEventListener("click",e=>{const b=e.target.closest(".chip");i
 $("#copyEmail").addEventListener("click",()=>{const t=$("#contactEmail").textContent,m=$("#copiedMsg");
   const sel=()=>{const r=document.createRange();r.selectNodeContents($("#contactEmail"));const s=getSelection();s.removeAllRanges();s.addRange(r);m.textContent="Selected. Press Ctrl+C or ⌘C to copy."};
   try{navigator.clipboard.writeText(t).then(()=>{m.textContent="Copied";setTimeout(()=>m.textContent="",2500)},sel)}catch(e){sel()}});
+
+/* ---------- any copy button with data-copy ---------- */
+document.addEventListener("click",e=>{const b=e.target.closest("[data-copy]");if(!b)return;const t=b.dataset.copy,m=b.parentElement.querySelector(".copied");
+  const done=()=>{if(m){m.textContent="Copied";setTimeout(()=>m.textContent="",2500)}};
+  const sel=()=>{const el=b.parentElement.querySelector(".email");if(el){const r=document.createRange();r.selectNodeContents(el);const s=getSelection();s.removeAllRanges();s.addRange(r)}if(m)m.textContent="Selected. Press Ctrl+C or ⌘C to copy."};
+  try{navigator.clipboard.writeText(t).then(done,sel)}catch(_){sel()}});
 
 /* ---------- examples filter ---------- */
 $("#exChips").addEventListener("click",e=>{const b=e.target.closest(".chip");if(!b)return;const t=b.dataset.t;
