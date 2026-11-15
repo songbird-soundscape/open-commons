@@ -318,11 +318,11 @@ details.more[open] summary::before{content:"\2212 "}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:21;background:var(--ground)}
 .navbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--ground);border-bottom:1px solid var(--rule)}
 .navbar .sitenav{padding-block:12px 6px;align-items:center}
-.navlinks{display:flex;flex:1 1 100%;order:3;flex-wrap:nowrap;gap:6px 16px;overflow-x:auto;white-space:nowrap;scrollbar-width:none}
+.navlinks{display:flex;flex:1 1 100%;order:3;flex-wrap:wrap;gap:4px 14px;white-space:nowrap}
 .navlinks::-webkit-scrollbar{display:none}
 .sitenav a.navcta{font-family:var(--mono);font-size:.78rem;text-decoration:none}
 .menubtn{order:2}
-.navlinks a{font-family:var(--mono);font-size:.76rem;text-decoration:none;color:var(--ink-soft)}
+.navlinks a{font-family:var(--mono);font-size:.74rem;text-decoration:none;color:var(--ink-soft);padding-block:2px}
 .navlinks a:hover{color:var(--moss)}
 .menubtn{all:unset;display:none;cursor:pointer;font-family:var(--mono);font-size:.78rem;border:1px solid var(--rule);border-radius:999px;padding:5px 12px;background:var(--slab);color:var(--ink)}
 .menubtn:focus-visible,.backbtn:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
@@ -339,7 +339,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .menupanel{position:absolute;left:0;right:0;top:100%;background:var(--slab);border:1px solid var(--rule);border-top:0;border-radius:0 0 12px 12px;box-shadow:0 14px 28px rgba(0,0,0,.14);padding:8px;display:grid;gap:2px;animation:drop .2s ease}
 .menupanel a{display:grid;gap:2px;padding:10px 12px;border-radius:8px;color:var(--ink);text-decoration:none;font-family:var(--display);font-weight:600}
 .menupanel a:hover,.menupanel a[aria-current="page"]{background:var(--ground)}
-@media (max-width:720px){.navlinks{display:none}.menubtn{display:inline-block}.sitenav .brand{flex:1 1 100%}.sitenav a.navcta{order:3}.crumbs li:not(:first-child):not(:last-child){display:none}}
+@media (max-width:720px){.navlinks{gap:2px 12px}.navlinks a{font-size:.7rem}.sitenav .brand{flex:1 1 auto;font-size:.72rem}.crumbs li:not(:first-child):not(:last-child){display:none}}
 section,header.hero,.pagehead{scroll-margin-top:calc(var(--navh,90px) + 14px)}
 .view.entering{animation:viewin .32s ease}
 @keyframes viewin{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
