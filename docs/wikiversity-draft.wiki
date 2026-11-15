@@ -1,0 +1,56 @@
+{{Original research}}
+'''The Open Commons of Learning''' is a working philosophical framework for teaching, education, and research. It asks how schools, universities, and labs could share what they know openly, learn together across fields and generations, and keep the thinking human in the age of AI.
+
+This page is a learning project: read it, question it, and help build it. The full framework, with diagrams and an interactive network map, is at [https://songbird-soundscape.github.io/open-commons/ The Open Commons of Learning]. It was created by the user songbird-soundscape and is licensed CC BY 4.0. Text added here is shared under Wikiversity's CC BY-SA 4.0 license.
+
+== Three elements ==
+Everything in the framework rests on three elements:
+* '''Self-knowledge:''' know how you learn, what you believe, and where your gaps are.
+* '''Praxis:''' learn by doing, and let the doing be shaped by reflection.
+* '''Universality:''' knowledge open to everyone, and fields connected into a whole. The word ''university'' comes from the Latin ''universitas'', the whole community of teachers and scholars.
+
+The model is the [[w:Lyceum (classical)|Lyceum]] of ancient Greece, where natural philosophy was one study of nature, taught through seminar, symposium, and mentorship.
+
+== Open knowledge ==
+* Knowledge that could improve people's lives or the health of the environment should be shared as soon as possible, and publishing costs should be publicly funded, the way we fund roads and libraries.
+* Reading lists and lecture subjects shouldn't be proprietary. [[w:MIT OpenCourseWare|MIT OpenCourseWare]] shows how.
+* ''Cooperate and collaborate, not compete and eliminate.''
+* '''Knowledge hubs''' gather the layers of a question (data, readings, people, and projects) and link outward to other hubs, like a living encyclopedia. The first example hub is [https://songbird-soundscape.github.io/drifting-through-deep-time/ Drifting Through Deep Time], which layers moving continents, ancient plants, climate, and human migration across 540 million years.
+
+== Learning and research ==
+* Learning should be rewarding, challenging, and worth doing: matched to skill, as in [[w:Flow (psychology)|flow]] and the [[w:Zone of proximal development|zone of proximal development]].
+* '''AI drafts. Students correct. Everyone learns.''' Students check AI-compiled entries against the scholarly literature, find the errors, fix them, and present their corrections.
+* '''The lab as a mentoring network:''' PhD students mentor master's and undergraduate students, everyone hosts visitors, and expertise runs as a gradient rather than a hierarchy.
+* '''Elders on the record:''' bring in the knowledge of experienced practitioners and families, and record it before it is lost.
+
+== Pathways ==
+* '''A foundation year''' before anyone has to choose a major: growing food, cooking, and caring for animals, alongside students and faculty.
+* '''Semester one:''' learn to teach, think, and tend, including one combined survey course in ethics and pedagogy, so students understand why teachers do what they do.
+* '''Halls full of conversation:''' seminars, symposia, and public talks.
+
+== Standards and habits ==
+* Admission by a handwritten or oral exam on material the student has studied, measured against a standard of work, not against other applicants.
+* Freedom takes discipline: habits for an examined life.
+
+== Activities ==
+Ways to take part on Wikiversity:
+# '''Critique an AI draft.''' Pick an entry in Drifting Through Deep Time, check it against the original sources, and post what you found on the talk page.
+# '''Propose a knowledge hub.''' Start a subpage, ''The Open Commons of Learning/Hubs/Your topic'', with a question, the fields that help answer it, and links outward.
+# '''Map existing efforts.''' Add field stations, open courses, databases, and colleges that already do part of this.
+# '''Question the framework.''' Use the talk page to argue with any part of it.
+
+== See also ==
+* [[w:Open educational resources|Open educational resources]]
+* [[w:Open science|Open science]]
+* [[w:Peripatetic school|Peripatetic school]]
+* [[w:Critical pedagogy|Critical pedagogy]]
+
+== External links ==
+* [https://songbird-soundscape.github.io/open-commons/ The Open Commons of Learning] (full framework)
+* [https://github.com/songbird-soundscape/open-commons Source files on GitHub]
+* [https://songbird-soundscape.github.io/drifting-through-deep-time/ Drifting Through Deep Time] (example knowledge hub)
+
+[[Category:Education]]
+[[Category:Pedagogy]]
+[[Category:Open educational resources]]
+[[Category:Research projects]]
