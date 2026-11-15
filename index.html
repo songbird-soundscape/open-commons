@@ -507,6 +507,33 @@ a.way:hover{border-color:var(--moss)}
 .copybtn:hover{border-color:var(--moss)}
 .copybtn:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
 .copied{font-family:var(--mono);font-size:.74rem;color:var(--moss)}
+/* outline */
+.ol-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:12px}
+.outline{display:grid;gap:8px}
+.olp{border:1px solid var(--rule);border-radius:12px;background:var(--slab);overflow:hidden}
+.olp > summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:5.5rem minmax(0,1fr) auto;gap:4px 14px;align-items:center;padding:14px 18px}
+.olp > summary::-webkit-details-marker{display:none}
+.olp > summary:hover{background:var(--ground)}
+.olp > summary:focus-visible{outline:3px solid var(--teal);outline-offset:-3px}
+.olp .oln{font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft)}
+.olp .olt{font-family:var(--display);font-weight:600;font-size:1.15rem;line-height:1.25}
+.olp .old{grid-column:2;font-size:.92rem;color:var(--ink-soft);line-height:1.45}
+.olp .olc{grid-row:1/span 2;grid-column:3;width:30px;height:30px;border-radius:50%;border:1px solid var(--rule);display:grid;place-items:center;color:var(--moss);transition:transform .25s}
+.olp[open] .olc{transform:rotate(90deg)}
+.olp.cta{border-color:var(--moss)}
+.olbody{padding:4px 18px 16px;display:grid;gap:2px;animation:drop .25s ease}
+.olbody ol{list-style:none;margin:0;padding:0;display:grid;gap:2px;border-left:2px solid var(--rule);margin-left:2.3rem}
+.olbody li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 14px;align-items:baseline;padding:8px 0 8px 16px}
+.olbody li + li{border-top:1px dashed var(--rule)}
+.olbody li strong{font-family:var(--display);font-weight:600}
+.olbody li p{grid-column:1;font-size:.9rem;color:var(--ink-soft);line-height:1.45}
+.olbody li a{grid-row:1/span 2;grid-column:2;font-family:var(--mono);font-size:.76rem;color:var(--moss);text-decoration:none;white-space:nowrap}
+.olbody li a:hover{text-decoration:underline}
+.olbody .olgo{justify-self:start;margin:8px 0 0 2.3rem;font-family:var(--mono);font-size:.78rem;color:var(--ground);background:var(--moss);border-radius:999px;padding:6px 14px;text-decoration:none}
+@media (max-width:560px){.olp > summary{grid-template-columns:minmax(0,1fr) auto}.olp .oln{grid-column:1}.olp .olt{grid-column:1}.olp .old{grid-column:1/-1}.olp .olc{grid-row:1/span 2;grid-column:2}.olbody ol{margin-left:0}.olbody .olgo{margin-left:0}.olbody li{grid-template-columns:minmax(0,1fr)}.olbody li a{grid-row:auto;grid-column:1}}
+.backol{font-family:var(--mono);font-size:.78rem;color:var(--moss);text-decoration:none;justify-self:start}
+.backol:hover{text-decoration:underline}
+@media (prefers-reduced-motion:reduce){.olbody{animation:none}.olp .olc{transition:none}}
 /* examples */
 .exgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
 .ex{background:var(--slab);border:1px solid var(--rule);border-radius:10px;padding:16px;display:grid;gap:8px;align-content:start}
@@ -576,6 +603,14 @@ footer{padding-block:40px 0;border-top:1px solid var(--rule);color:var(--ink-sof
     </div>
   </header>
 
+  <section id="outline" aria-labelledby="ol-h">
+    <div class="ol-head">
+      <div class="intro col"><span class="label">The whole site at a glance</span><h2 id="ol-h">Outline</h2><p>Open any part to see what's in it. Read more when something catches your interest, and come back here any time.</p></div>
+      <button type="button" class="chip" id="olAll" aria-pressed="false">Open all</button>
+    </div>
+    <div class="outline" id="olList"></div>
+  </section>
+
   <section aria-labelledby="el-h">
     <div class="intro col">
       <span class="label">The framework</span>
@@ -589,20 +624,7 @@ footer{padding-block:40px 0;border-top:1px solid var(--rule);color:var(--ink-sof
     </div>
   </section>
 
-  <section aria-labelledby="map-h">
-    <div class="intro col">
-      <span class="label">Explore</span>
-      <h2 id="map-h">Five parts, one idea</h2>
-    </div>
-    <div class="pgrid2">
-      <a class="pcard2" href="#open-knowledge"><span class="label">Part 1</span><strong>Open knowledge</strong><p>Free articles and courses, cooperation over competition, and hubs that link the fields.</p><span class="go">Open →</span></a>
-      <a class="pcard2" href="#learning"><span class="label">Part 2</span><strong>Learning and research</strong><p>Learning that rewards and challenges, students improving AI-drafted knowledge, the lab as a mentoring network, and elders on the record.</p><span class="go">Open →</span></a>
-      <a class="pcard2" href="#pathways"><span class="label">Part 3</span><strong>Pathways</strong><p>A foundation year, a shared first semester, and halls full of conversation.</p><span class="go">Open →</span></a>
-      <a class="pcard2" href="#standards-habits"><span class="label">Part 4</span><strong>Standards and habits</strong><p>Real standards in your own words, and habits for an examined life.</p><span class="go">Open →</span></a>
-      <a class="pcard2" href="#context"><span class="label">Part 5</span><strong>Context</strong><p>Who's already doing this, the books behind it, and further reading.</p><span class="go">Open →</span></a>
-    </div>
-    <a class="gtbanner" href="#get-together"><span><span class="label">Join in</span><strong>Get together</strong><span class="gtsub">Join an open network of scholars and knowledge hubs. No passwords, no sign-ups, no ads.</span></span><span class="go">Join the network →</span></a>
-  </section>
+
 
   <section id="roots" aria-labelledby="roots-h">
     <div class="intro col">
@@ -646,7 +668,7 @@ footer{padding-block:40px 0;border-top:1px solid var(--rule);color:var(--ink-sof
   </main>
 
   <main class="view" id="open-knowledge" hidden>
-    <header class="pagehead"><span class="label">Part 1 of 5</span><h1>Open knowledge</h1><p>Free articles and courses, cooperation over competition, and hubs that link the fields.</p></header>
+    <header class="pagehead"><a class="backol" href="#outline">↑ Back to the outline</a><span class="label">Part 1 of 5</span><h1>Open knowledge</h1><p>Free articles and courses, cooperation over competition, and hubs that link the fields.</p></header>
   <section class="col" aria-labelledby="open-h">
     <span class="label">Open by default</span>
     <h2 id="open-h">Knowledge should be free to everyone who wants it</h2>
@@ -755,7 +777,7 @@ footer{padding-block:40px 0;border-top:1px solid var(--rule);color:var(--ink-sof
   </main>
 
   <main class="view" id="learning" hidden>
-    <header class="pagehead"><span class="label">Part 2 of 5</span><h1>Learning and research</h1><p>Learning that rewards and challenges, students improving AI-drafted knowledge, the lab as a mentoring network, and elders on the record.</p></header>
+    <header class="pagehead"><a class="backol" href="#outline">↑ Back to the outline</a><span class="label">Part 2 of 5</span><h1>Learning and research</h1><p>Learning that rewards and challenges, students improving AI-drafted knowledge, the lab as a mentoring network, and elders on the record.</p></header>
   <section id="flow" aria-labelledby="flow-h">
     <div class="intro col">
       <span class="label">Flow</span>
@@ -842,7 +864,7 @@ footer{padding-block:40px 0;border-top:1px solid var(--rule);color:var(--ink-sof
   </main>
 
   <main class="view" id="pathways" hidden>
-    <header class="pagehead"><span class="label">Part 3 of 5</span><h1>Pathways</h1><p>A foundation year, a shared first semester, and halls full of conversation.</p></header>
+    <header class="pagehead"><a class="backol" href="#outline">↑ Back to the outline</a><span class="label">Part 3 of 5</span><h1>Pathways</h1><p>A foundation year, a shared first semester, and halls full of conversation.</p></header>
   <section id="paths" aria-labelledby="path-h">
     <div class="intro col">
       <span class="label">A new front door</span>
@@ -917,7 +939,7 @@ footer{padding-block:40px 0;border-top:1px solid var(--rule);color:var(--ink-sof
   </main>
 
   <main class="view" id="standards-habits" hidden>
-    <header class="pagehead"><span class="label">Part 4 of 5</span><h1>Standards and habits</h1><p>Real standards in your own words, and habits for an examined life.</p></header>
+    <header class="pagehead"><a class="backol" href="#outline">↑ Back to the outline</a><span class="label">Part 4 of 5</span><h1>Standards and habits</h1><p>Real standards in your own words, and habits for an examined life.</p></header>
   <section id="standards" aria-labelledby="std-h">
     <div class="intro col">
       <span class="label">Rigor</span>
@@ -971,7 +993,7 @@ footer{padding-block:40px 0;border-top:1px solid var(--rule);color:var(--ink-sof
   </main>
 
   <main class="view" id="context" hidden>
-    <header class="pagehead"><span class="label">Part 5 of 5</span><h1>Context</h1><p>Who's already doing this, the books behind it, and further reading.</p></header>
+    <header class="pagehead"><a class="backol" href="#outline">↑ Back to the outline</a><span class="label">Part 5 of 5</span><h1>Context</h1><p>Who's already doing this, the books behind it, and further reading.</p></header>
   <section id="examples" aria-labelledby="ex-h">
     <div class="intro col">
       <span class="label">Already happening</span>
@@ -1052,7 +1074,7 @@ footer{padding-block:40px 0;border-top:1px solid var(--rule);color:var(--ink-sof
   </main>
 
   <main class="view" id="network" hidden>
-    <header class="pagehead"><span class="label">Map</span><h1>The network</h1><p>The people, organizations, books, and hubs this project draws on, in three dimensions.</p></header>
+    <header class="pagehead"><a class="backol" href="#outline">↑ Back to the outline</a><span class="label">Map</span><h1>The network</h1><p>The people, organizations, books, and hubs this project draws on, in three dimensions.</p></header>
   <section id="project-network" aria-labelledby="pn-h">
     <div class="intro col">
       <span class="label">This project as a hub</span>
@@ -1107,7 +1129,7 @@ footer{padding-block:40px 0;border-top:1px solid var(--rule);color:var(--ink-sof
   </main>
 
   <main class="view" id="ethical-statement" hidden>
-    <header class="pagehead"><span class="label">A personal note</span><h1>Ethical statement</h1><p>The costs of the tools behind this work, and why I use them anyway.</p></header>
+    <header class="pagehead"><a class="backol" href="#outline">↑ Back to the outline</a><span class="label">A personal note</span><h1>Ethical statement</h1><p>The costs of the tools behind this work, and why I use them anyway.</p></header>
   <section id="ethics" aria-labelledby="eth-h">
     <div class="intro col">
       <span class="label">The costs</span>
@@ -1125,7 +1147,7 @@ footer{padding-block:40px 0;border-top:1px solid var(--rule);color:var(--ink-sof
   </main>
 
   <main class="view" id="get-together" hidden>
-    <header class="pagehead"><span class="label">Join in</span><h1>Get together</h1><p>An open invitation to join a network of scholars and knowledge hubs.</p></header>
+    <header class="pagehead"><a class="backol" href="#outline">↑ Back to the outline</a><span class="label">Join in</span><h1>Get together</h1><p>An open invitation to join a network of scholars and knowledge hubs.</p></header>
 
   <section aria-labelledby="gt-h">
     <div class="intro col">
@@ -1936,6 +1958,26 @@ function drawClaims(){
   $("#tally").innerHTML=done?`Reviewed <b>${done} of ${CLAIMS.length}</b> claims · <b>${ok}</b> matched a careful reviewer`:`${CLAIMS.length} claims to review. Most are right, and some aren't.`;
 }
 $("#claims").addEventListener("click",e=>{const b=e.target.closest(".vbtn");if(!b)return;picks[b.dataset.i]=b.dataset.v;drawClaims()});
+
+/* ---------- outline: built from the pages, so it stays current ---------- */
+function buildOutline(){
+  const list=$("#olList"); if(!list) return;
+  const first=t=>{t=(t||"").replace(/\s+/g," ").trim();const m=t.match(/^.{40,}?[.!?](?=\s|$)/);t=m?m[0]:t;return t.length>170?t.slice(0,167).replace(/\s\S*$/,"")+"…":t};
+  let html="";
+  [...document.querySelectorAll(".view")].filter(v=>v.id!=="home").forEach(v=>{
+    const lab=v.querySelector(".pagehead .label")?.textContent||"", title=v.querySelector(".pagehead h1")?.textContent||v.id, desc=v.querySelector(".pagehead p")?.textContent||"";
+    const items=[...v.querySelectorAll(":scope > section")].map((sec,k)=>{
+      const h=sec.querySelector("h2"); if(!h) return "";
+      if(!sec.id) sec.id=(sec.getAttribute("aria-labelledby")||v.id+"-"+k).replace(/-h$/,"")+"-sec";
+      const ptxt=sec.querySelector(".intro > p:not(.pull):not(.sub), :scope > p:not(.pull)")?.textContent;
+      return `<li><strong>${h.textContent}</strong>${ptxt?`<p>${first(ptxt)}</p>`:""}<a href="#${sec.id}">Read more →</a></li>`}).join("");
+    html+=`<details class="olp${v.id==="get-together"?" cta":""}" data-view="${v.id}"><summary><span class="oln">${lab.replace(/ of \d+/,"")}</span><span class="olt">${title}</span><span class="old">${desc}</span><span class="olc" aria-hidden="true">▸</span></summary><div class="olbody"><ol>${items}</ol><a class="olgo" href="#${v.id}">Open the full page →</a></div></details>`;
+  });
+  list.innerHTML=html;
+  const btn=$("#olAll");
+  btn.addEventListener("click",()=>{const open=btn.getAttribute("aria-pressed")!=="true";list.querySelectorAll("details").forEach(d=>d.open=open);btn.setAttribute("aria-pressed",String(open));btn.textContent=open?"Close all":"Open all"});
+}
+buildOutline();
 
 /* ---------- navigator: views, back button, breadcrumbs ---------- */
 const NAVBAR=$("#navbar");
