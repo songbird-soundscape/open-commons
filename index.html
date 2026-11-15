@@ -17,7 +17,16 @@
 <meta name="twitter:title" content="Invitation to Collaborate">
 <meta name="twitter:description" content="An open network of scholars and knowledge hubs, built for teaching, education, and research. Make a hub, join a hub, or link your lab.">
 <meta name="twitter:image" content="https://songbird-soundscape.github.io/open-commons/share-card.png">
-<style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
+<style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif}img{max-width:100%}[hidden]{display:none!important}
+.explore{margin:0 0 14px;padding:12px 14px;border:1px solid var(--rule);border-radius:12px;display:grid;gap:8px;scroll-margin-top:64px}
+.explore .xsteps{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.explore .xstep{font:inherit;font-size:.92rem;padding:6px 12px;border-radius:999px;border:1px solid currentColor;background:transparent;color:inherit;cursor:pointer;opacity:.75}
+.explore .xstep b{display:inline-grid;place-items:center;width:1.4em;height:1.4em;border-radius:50%;margin-right:4px;font-size:.8em;border:1px solid currentColor}
+.explore .xstep[aria-pressed="true"]{opacity:1;background:var(--teal);border-color:var(--teal);color:var(--ground)}
+.explore .xnote a{color:var(--teal)}
+.explore .xnote{margin:0;font-size:.95rem;line-height:1.5;max-width:70ch}
+.explore .xnext,.explore .xagain{font:inherit;font-weight:600;background:none;border:0;padding:0;color:var(--teal);cursor:pointer;text-decoration:underline}
+</style>
 <title>The Open Commons of Learning</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -316,7 +325,10 @@ details.more[open] summary::before{content:"\2212 "}
 /* navigator */
 [hidden]{display:none!important}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:21;background:var(--ground)}
-.navbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--ground);border-bottom:1px solid var(--rule)}
+.navbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--ground);border-bottom:1px solid var(--rule);transition:transform .25s ease}
+.navbar.tuck{transform:translateY(calc(-1 * var(--navh, 0px)))}
+.showban{display:none;margin-left:auto;flex:none;font:inherit;font-size:.82rem;padding:4px 11px;border-radius:999px;border:1px solid var(--rule);background:var(--ground);color:var(--ink);cursor:pointer;white-space:nowrap}
+.navbar.tuck .showban{display:inline-block}
 .navbar .sitenav{padding-block:12px 6px;align-items:center}
 .navlinks{display:flex;flex:1 1 100%;order:3;flex-wrap:wrap;gap:4px 14px;white-space:nowrap}
 .navlinks::-webkit-scrollbar{display:none}
@@ -619,6 +631,7 @@ footer{padding-block:40px 0;border-top:1px solid var(--rule);color:var(--ink-sof
     <div class="crumbbar">
       <button type="button" class="backbtn" id="backBtn" disabled>↩ Back</button>
       <ol class="crumbs" id="crumbs" aria-label="You are here"></ol>
+      <button type="button" class="showban" id="showBan" aria-controls="navbar">☰ Show banner</button>
     </div>
     <div class="menupanel" id="menuPanel" hidden><a href="#home" data-page="home"><span class="label">Start</span>Home</a><a href="#open-knowledge" data-page="open-knowledge"><span class="label">Part 1</span>Open knowledge</a><a href="#learning" data-page="learning"><span class="label">Part 2</span>Learning and research</a><a href="#pathways" data-page="pathways"><span class="label">Part 3</span>Pathways</a><a href="#standards-habits" data-page="standards-habits"><span class="label">Part 4</span>Standards and habits</a><a href="#context" data-page="context"><span class="label">Part 5</span>Context</a><a href="#network" data-page="network"><span class="label">Map</span>The network</a><a href="#ethical-statement" data-page="ethical-statement"><span class="label">A personal note</span>Ethical statement</a><a href="#get-together" data-page="get-together"><span class="label">Join in</span>Get together</a></div>
   </div>
@@ -1120,6 +1133,15 @@ footer{padding-block:40px 0;border-top:1px solid var(--rule);color:var(--ink-sof
       <h2 id="pn-h">The network this project joins</h2>
       <p>Grouped by self-knowledge, praxis, universality, open access, and knowledge hubs. Lines show documented relationships only.</p>
       <p class="screennote">Works best on a computer screen. On a phone, tap a spoke and then tap names to explore, swipe sideways to turn the network, and pinch to zoom.</p>
+    </div>
+    <div class="explore" id="explore" role="group" aria-label="Explore projects, step by step">
+      <span class="label">Explore projects</span>
+      <ol class="xsteps">
+        <li><button type="button" class="xstep" data-x="1" aria-pressed="false"><b>1</b> My projects</button></li>
+        <li><button type="button" class="xstep" data-x="2" aria-pressed="false"><b>2</b> Projects they link to</button></li>
+        <li><button type="button" class="xstep" data-x="3" aria-pressed="false"><b>3</b> The whole network</button></li>
+      </ol>
+      <p class="xnote" id="xnote">Start with the projects by songbird-soundscape, then follow their links outward.</p>
     </div>
     <div class="panel">
       <div class="pn-controls">
@@ -1920,6 +1942,7 @@ document.addEventListener("click",e=>{const b=e.target.closest("#pnInfo .pnmore"
   const start=()=>{if(on)return;set(true);step=0;next()};
   const stop=()=>{if(!on)return;clearTimeout(timer);set(false)};
   btn.addEventListener("click",e=>{e.stopPropagation();on?stop():(touched=false,start())});
+  window.pnDemoStop=()=>{touched=true;stop()};
   stage.addEventListener("pointerdown",e=>{if(e.target.closest("#pnDemo"))return;touched=true;stop()},true);
   document.querySelector("#project-network .panel")?.addEventListener("pointerdown",e=>{if(e.target.closest("#pnDemo"))return;if(!e.target.closest(".pnstage")){touched=true;stop()}},true);
   if(!reduce&&"IntersectionObserver" in window) new IntersectionObserver(es=>{const vis=es[0].isIntersecting&&!stage.closest(".view").hidden;
@@ -1928,6 +1951,19 @@ document.addEventListener("click",e=>{const b=e.target.closest("#pnInfo .pnmore"
 })();
 if(pnMQ.addEventListener) pnMQ.addEventListener("change",()=>{if(PNL){renderPN()}});
 let pnSpoke=null, pnLast=null; const pnOpen=new Set();
+/* Explore projects: my projects -> what they link to -> the whole network */
+const XNOTE={1:`<b>My projects.</b> The Open Commons of Learning sits at the centre; <a href="https://songbird-soundscape.github.io/drifting-through-deep-time/#tutorial" target="_blank" rel="noopener">Drifting Through Deep Time ↗</a> is its first knowledge hub. Next: the projects it links to.`,
+  2:`<b>Projects they link to.</b> Bright nodes are the archives, organizations, and thinkers Drifting Through Deep Time draws on. Tap any of them to keep following links.`,
+  3:`<b>The whole network.</b> Every spoke, organization, person, and book. Tap a spoke to narrow it down, or start again from <button type="button" class="xagain" data-x="1">my projects</button>.`};
+function exploreStep(n){
+  if(window.pnDemoStop) pnDemoStop();
+  if(n===1){pnSpoke="h";pnLast=null;pnOpen.clear();hiPN()}
+  else if(n===2){pnSpoke="h";pnOpen.clear();pnOpen.add("dtdt");pnLast="dtdt";hiPN()}
+  else pnReset();
+  document.querySelectorAll("#explore .xstep").forEach(b=>b.setAttribute("aria-pressed",String(+b.dataset.x===n)));
+  const x=$("#xnote"); if(x) x.innerHTML=XNOTE[n]+(n<3?` <button type="button" class="xnext" data-x="${n+1}">Next →</button>`:"");
+}
+document.addEventListener("click",e=>{const b=e.target.closest("#explore [data-x]");if(b){e.preventDefault();exploreStep(+b.dataset.x)}});
 function hiPN(){
   const kindOf=Object.fromEntries(PN.nodes.map(n=>[n.id,n.kind])), elOf=Object.fromEntries(PN.nodes.map(n=>[n.id,n.el]));
   const adj={}; PN.links.forEach(l=>{(adj[l.source]=adj[l.source]||[]).push(l.target);(adj[l.target]=adj[l.target]||[]).push(l.source)});
@@ -2176,8 +2212,20 @@ let ticking=false;
 addEventListener("scroll",()=>{if(!ticking){ticking=true;requestAnimationFrame(()=>{ticking=false;updateCrumbs()})}},{passive:true});
 addEventListener("hashchange",()=>go(decodeURIComponent(location.hash.slice(1))||"home"));
 function route(){go(decodeURIComponent(location.hash.slice(1))||"home",{push:false,animate:false})}
+function xAuto(){if(location.hash==="#explore")setTimeout(()=>exploreStep(1),350)}
+addEventListener("hashchange",xAuto);
+/* the page tabs slide up out of the way when scrolling down, and come back when scrolling up; Back and the breadcrumbs stay */
+(function(){const nb=$("#navbar"),sn=nb&&nb.querySelector(".sitenav");if(!sn)return;let lastY=scrollY,raf=0;
+  const setH=()=>nb.style.setProperty("--navh",sn.offsetHeight+"px");setH();addEventListener("resize",setH);
+  addEventListener("scroll",()=>{if(raf)return;raf=requestAnimationFrame(()=>{raf=0;const y=scrollY;
+    if(!$("#menuPanel").hidden||y<120){nb.classList.remove("tuck");pinAt=null}
+    else if(pinAt!=null){if(y>pinAt+200){nb.classList.add("tuck");pinAt=null}}
+    else if(y>lastY+6)nb.classList.add("tuck");
+    lastY=y})},{passive:true});
+  let pinAt=null; $("#showBan").addEventListener("click",()=>{pinAt=scrollY;nb.classList.remove("tuck")});
+  nb.addEventListener("focusin",e=>{if(!e.target.closest(".crumbbar"))nb.classList.remove("tuck")});})();
 
-drawMap(); drawNet(); drawPath(); drawDay(); drawInt(); drawCoop(); setCoop(); initCoopFx(); drawFee(); drawClaims(); route();
+drawMap(); drawNet(); drawPath(); drawDay(); drawInt(); drawCoop(); setCoop(); initCoopFx(); drawFee(); drawClaims(); route(); xAuto();
 </script>
 
 </body>
