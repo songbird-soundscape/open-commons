@@ -441,6 +441,12 @@ a.way:hover{border-color:var(--moss)}
 .pnauto:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
 @media (max-width:700px){.pninfo{position:static;width:auto;max-height:none;margin:0 10px 10px;animation:none}}
 .pnmore{display:none}
+.pndemo{display:none}
+@media (max-width:700px){
+  .pndemo{all:unset;display:inline-block;position:absolute;left:8px;top:8px;z-index:2;cursor:pointer;font-family:var(--mono);font-size:.68rem;color:#DCE4E9;border:1px solid #2A3844;border-radius:999px;padding:4px 10px;background:rgb(10 15 19 / .7)}
+  .pndemo[aria-pressed="true"]{color:#07090B;background:var(--teal);border-color:var(--teal)}
+  .pndemo:focus-visible{outline:3px solid #fff;outline-offset:2px}
+}
 @media (max-width:700px){
   .pninfo:not(.expanded){display:flex;align-items:center;gap:10px;padding:10px 12px}
   .pninfo:not(.expanded) > *:not(h3):not(.pnmore){display:none}
@@ -1125,7 +1131,7 @@ footer{padding-block:40px 0;border-top:1px solid var(--rule);color:var(--ink-sof
         </fieldset>
                 <label class="pn-native" for="pnNative"><input type="checkbox" id="pnNative"> Show names in their original language</label>
       </div>
-      <div class="pnstage"><svg id="pnet" class="pnsvg" viewBox="-620 -620 1240 1240" role="group" aria-label="Network of thinkers, schools, and programs related to this project"></svg><div class="pninfo" id="pnInfo" aria-live="polite"></div><button type="button" class="pnauto" id="pnAuto" aria-pressed="true">⟳ Auto-rotate</button></div>
+      <div class="pnstage"><svg id="pnet" class="pnsvg" viewBox="-620 -620 1240 1240" role="group" aria-label="Network of thinkers, schools, and programs related to this project"></svg><div class="pninfo" id="pnInfo" aria-live="polite"></div><button type="button" class="pnauto" id="pnAuto" aria-pressed="true">⟳ Auto-rotate</button><button type="button" class="pndemo" id="pnDemo" aria-pressed="false">▶ Play demo</button></div>
       <details class="more"><summary>Key: colors, shapes, and lines</summary><div class="more-body">
       <div class="legend">
         <span><svg width="16" height="16" aria-hidden="true"><circle cx="8" cy="8" r="6" fill="var(--f1)"/></svg>Self-knowledge</span>
@@ -1836,6 +1842,34 @@ function pnInfoFill(){
 }
 function drawPN(){layoutPN();renderPN()}
 document.addEventListener("click",e=>{const b=e.target.closest("#pnInfo .pnmore");if(!b)return;pnInfoOpen=!pnInfoOpen;pnInfo()});
+/* phone demo: the network explores itself until someone touches it */
+(function(){
+  const btn=$("#pnDemo"), stage=document.querySelector(".pnstage"); if(!btn||!stage) return;
+  const reduce=!!(window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches);
+  const deg={}; PN.links.forEach(l=>{deg[l.source]=(deg[l.source]||0)+1;deg[l.target]=(deg[l.target]||0)+1});
+  const kind=Object.fromEntries(PN.nodes.map(n=>[n.id,n.kind]));
+  const nb=id=>PN.links.filter(l=>l.source===id||l.target===id).map(l=>l.source===id?l.target:l.source);
+  const seq=[];
+  ["p","s","u","o","h"].forEach(k=>{
+    seq.push(()=>{pnSpoke=k;pnLast=null;pnOpen.clear();hiPN()});
+    const orgs=PN.nodes.filter(n=>n.el===k&&(n.kind==="i"||n.kind==="h")).sort((a,b)=>(deg[b.id]||0)-(deg[a.id]||0));
+    const org=orgs.find(o=>nb(o.id).some(x=>kind[x]==="p"))||orgs[0]; if(!org) return;
+    seq.push(()=>pnToggle(org.id));
+    const person=nb(org.id).filter(x=>kind[x]==="p").sort((a,b)=>(deg[b]||0)-(deg[a]||0))[0];
+    if(person) seq.push(()=>pnToggle(person));
+  });
+  let on=false, step=0, timer=0, touched=false, seen=false;
+  const set=v=>{on=v;btn.setAttribute("aria-pressed",String(v));btn.textContent=v?"Demo playing · tap to explore":"▶ Play demo"};
+  const next=()=>{if(!on)return;seq[step%seq.length]();step++;timer=setTimeout(next,step%seq.length===0?5200:3800)};
+  const start=()=>{if(on)return;set(true);step=0;next()};
+  const stop=()=>{if(!on)return;clearTimeout(timer);set(false)};
+  btn.addEventListener("click",e=>{e.stopPropagation();on?stop():(touched=false,start())});
+  stage.addEventListener("pointerdown",e=>{if(e.target.closest("#pnDemo"))return;touched=true;stop()},true);
+  document.querySelector("#project-network .panel")?.addEventListener("pointerdown",e=>{if(e.target.closest("#pnDemo"))return;if(!e.target.closest(".pnstage")){touched=true;stop()}},true);
+  if(!reduce&&"IntersectionObserver" in window) new IntersectionObserver(es=>{const vis=es[0].isIntersecting&&!stage.closest(".view").hidden;
+    if(vis&&pnMob&&!touched&&!seen){seen=true;setTimeout(()=>{if(!touched&&pnMob)start()},900)}
+    if(!vis)stop()},{threshold:.4}).observe(stage);
+})();
 if(pnMQ.addEventListener) pnMQ.addEventListener("change",()=>{if(PNL){renderPN()}});
 let pnSpoke=null, pnLast=null; const pnOpen=new Set();
 function hiPN(){
