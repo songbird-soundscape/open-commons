@@ -423,6 +423,11 @@ a.way:hover{border-color:var(--moss)}
   --ink:#E7ECEF;--ink-soft:#8E9AA3;--slab:#0E1216;--rule:#24303A;--ground:#07090B;--teal:#71BCCD;--moss:#7CC796;color-scheme:dark;color:var(--ink)}
 .pnstage::after{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(1px 1px at 12% 18%,#fff8 50%,transparent 51%),radial-gradient(1px 1px at 78% 12%,#fff6 50%,transparent 51%),radial-gradient(1px 1px at 64% 82%,#fff5 50%,transparent 51%),radial-gradient(1px 1px at 28% 72%,#fff6 50%,transparent 51%),radial-gradient(1.5px 1.5px at 90% 56%,#fff5 50%,transparent 51%),radial-gradient(1px 1px at 8% 90%,#fff4 50%,transparent 51%)}
 .pnsvg{display:block;min-width:0;width:100%;max-width:1040px;margin:0 auto;cursor:grab;touch-action:none;transition:box-shadow .2s}
+@media (max-width:700px){.pnsvg{touch-action:pan-y}}
+.pnsvg{overflow:hidden}
+.pnstage{contain:paint;max-width:100%;min-width:0}
+#project-network .panel{grid-template-columns:minmax(0,1fr)}
+#project-network .panel > *{min-width:0}
 .pninfo{position:absolute;left:14px;top:14px;z-index:2;width:min(330px,42%);max-height:calc(100% - 28px);overflow:auto;background:rgb(10 15 19 / .82);backdrop-filter:blur(6px);border:1px solid #2A3844;border-radius:12px;padding:14px 16px;display:grid;gap:6px;font-size:.9rem;line-height:1.5;color:#DCE4E9;animation:drop .3s ease}
 .pninfo .label{color:#9FB3BF}
 .pninfo h3{font-size:1.25rem;color:#fff;line-height:1.2}
@@ -452,6 +457,18 @@ a.way:hover{border-color:var(--moss)}
 .pnsvg .pn.hubn text{font-weight:700;font-size:13px}
 .pncard .orglink{color:var(--ink);text-decoration:underline;text-decoration-color:var(--moss);text-decoration-thickness:2px;text-underline-offset:4px}
 .pn-rot{display:flex;flex-wrap:wrap;gap:6px}
+.screennote{font-family:var(--mono);font-size:.8rem;color:var(--ink-soft);border-left:3px solid var(--ochre);padding:4px 0 4px 10px}
+@media (max-width:700px){
+  #project-network .panel{padding:12px;gap:12px}
+  #project-network .chips .chip,.pn-rot .chip{font-size:.72rem;padding:5px 10px}
+  #pnEl{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin-inline:-4px;padding-inline:4px}
+  #pnEl::-webkit-scrollbar{display:none}
+  .layers{gap:4px 12px}.layers label{font-size:.74rem}
+  .pn-native{font-size:.72rem}
+  .pnstage{border-radius:12px;margin-inline:-6px}
+  .pnauto{right:8px;top:8px;bottom:auto;font-size:.68rem;padding:4px 10px}
+  .pninfo{font-size:.86rem}
+}
 .layers{border:0;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px 16px;align-items:center}
 .layers legend{float:left;margin-right:4px;padding:0}
 .layers label{display:flex;align-items:center;gap:6px;font-family:var(--mono);font-size:.8rem;cursor:pointer}
@@ -1079,6 +1096,7 @@ footer{padding-block:40px 0;border-top:1px solid var(--rule);color:var(--ink-sof
       <span class="label">This project as a hub</span>
       <h2 id="pn-h">The network this project joins</h2>
       <p>Grouped by self-knowledge, praxis, universality, open access, and knowledge hubs. Lines show documented relationships only.</p>
+      <p class="screennote">Works best on a computer screen. On a phone, tap a spoke and then tap names to explore, swipe sideways to turn the network, and pinch to zoom.</p>
     </div>
     <div class="panel">
       <div class="pn-controls">
@@ -1676,6 +1694,9 @@ let pnSel=null, pnFilter="all", pnKind="all", pnNative=false;
 /* 3D network: the four spokes sit at the corners of a tetrahedron around "This project" */
 const PR=460, E3={s:[0,-PR,0],p:[-.866*PR,0,-.5*PR],u:[.866*PR,0,-.5*PR],o:[0,0,PR],h:[0,PR,0]};
 let PNL=null, cam={yaw:.45,pitch:-.22,zoom:1}, pnDom=null;
+const pnMQ=window.matchMedia?matchMedia("(max-width: 700px)"):{matches:false};
+let pnMob=pnMQ.matches, pnVB=pnMob?520:620;
+if(pnMob) cam.zoom=.92;
 function layoutPN(){
   const all=PN.nodes.map((n,i)=>{const e=E3[n.el]||[0,0,0],a=i*2.39996,b=i*1.3,r=60+8*Math.sqrt(i);
     return {...n,x:e[0]+r*Math.cos(a)*Math.cos(b),y:e[1]+r*Math.sin(b),z:e[2]+r*Math.sin(a)*Math.cos(b)}});
@@ -1702,8 +1723,9 @@ function proj(x,y,z){const cy=Math.cos(cam.yaw),sy=Math.sin(cam.yaw),cp=Math.cos
   return {x:X*k,y:Y*k,k,z:Z}}
 function renderPN(){ // build the DOM once; updatePN moves it
   const svg=$("#pnet");
-  svg.setAttribute("viewBox","-620 -620 1240 1240");
-  let h=`<defs>${Object.entries(EL).map(([k,e])=>`<radialGradient id="rg-${k}" cx="35%" cy="35%" r="70%"><stop offset="0" stop-color="#fff" stop-opacity=".9"/><stop offset=".35" stop-color="${e.c}"/><stop offset="1" stop-color="${e.c}"/></radialGradient>`).join("")}${Object.entries(EL).map(([k,e])=>`<radialGradient id="rgm-${k}" cx="40%" cy="38%" r="70%"><stop offset="0" stop-color="#fff" stop-opacity=".22"/><stop offset=".55" stop-color="${e.c}" stop-opacity=".9"/><stop offset="1" stop-color="${e.c}" stop-opacity=".8"/></radialGradient>`).join("")}<radialGradient id="rg-ctr" cx="40%" cy="35%" r="75%"><stop offset="0" stop-color="#3A5566"/><stop offset="1" stop-color="#0E1216"/></radialGradient></defs><rect x="-620" y="-620" width="1240" height="1240" fill="transparent"/>`;
+  pnMob=pnMQ.matches; pnVB=pnMob?520:620;
+  svg.setAttribute("viewBox",`${-pnVB} ${-pnVB} ${2*pnVB} ${2*pnVB}`);
+  let h=`<defs>${Object.entries(EL).map(([k,e])=>`<radialGradient id="rg-${k}" cx="35%" cy="35%" r="70%"><stop offset="0" stop-color="#fff" stop-opacity=".9"/><stop offset=".35" stop-color="${e.c}"/><stop offset="1" stop-color="${e.c}"/></radialGradient>`).join("")}${Object.entries(EL).map(([k,e])=>`<radialGradient id="rgm-${k}" cx="40%" cy="38%" r="70%"><stop offset="0" stop-color="#fff" stop-opacity=".22"/><stop offset=".55" stop-color="${e.c}" stop-opacity=".9"/><stop offset="1" stop-color="${e.c}" stop-opacity=".8"/></radialGradient>`).join("")}<radialGradient id="rg-ctr" cx="40%" cy="35%" r="75%"><stop offset="0" stop-color="#3A5566"/><stop offset="1" stop-color="#0E1216"/></radialGradient></defs><rect x="${-pnVB}" y="${-pnVB}" width="${2*pnVB}" height="${2*pnVB}" fill="transparent"/>`;
   h+=Object.keys(E3).map(k=>`<line class="esp" data-k="${k}" stroke="${k==="h"?"var(--teal)":"var(--rule)"}" stroke-width="${k==="h"?3:2}"/>`).join("");
   h+=`<line class="ho" stroke="var(--teal)" stroke-width="3" stroke-dasharray="2 7" stroke-linecap="round"/>`;
   const reach=pnReach(); h+=`<line class="hu" stroke="var(--f2)" stroke-width="${(1.2+reach.n*.9).toFixed(1)}" stroke-opacity="${(.35+reach.n*.12).toFixed(2)}" stroke-dasharray="8 7" stroke-linecap="round"/>`;
@@ -1752,7 +1774,7 @@ function updatePN(sort){
     let cx=0,cy=0;Bi.forEach(i=>{cx+=P[i].x;cy+=P[i].y});cx/=Bi.length;cy/=Bi.length;
     const f=Bi.length<10?1.6:Bi.length<25?1.35:1.15;
     Bi.forEach(i=>{P[i].x=cx+(P[i].x-cx)*f;P[i].y=cy+(P[i].y-cy)*f});
-    const box=i=>{const n=PNL.nodes[i],k=Math.max(.55,Math.min(1.7,P[i].k)),lines=pnLines(pnNative?n.native:n.name);return {w:(Math.max(...lines.map(t=>t.length))*6.7+14)*k,h:(26+lines.length*13)*k}};
+    const box=i=>{const n=PNL.nodes[i],k=Math.max(.55,Math.min(1.7,P[i].k))*(pnMob?2.1:1),lines=pnLines(pnNative?n.native:n.name);return {w:(Math.max(...lines.map(t=>t.length))*6.7+14)*k,h:(26+lines.length*13)*k}};
     const bx=Bi.map(box);
     for(let it=0;it<40;it++){let moved=false;
       for(let a=0;a<Bi.length;a++)for(let b=a+1;b<Bi.length;b++){const A=P[Bi[a]],B=P[Bi[b]];
@@ -1761,21 +1783,21 @@ function updatePN(sort){
       if(!moved)break;}
   } PNL.nodes.forEach((n,i)=>byId[n.id]=P[i]);
   const EP=Object.fromEntries(Object.entries(E3).map(([k,e])=>[k,proj(e[0],e[1],e[2])]));
-    const c0=proj(0,0,0); pnDom.ctr.setAttribute("transform",`translate(${c0.x.toFixed(1)},${c0.y.toFixed(1)}) scale(${Math.min(1.6,c0.k).toFixed(3)})`);
+    const c0=proj(0,0,0); const M=pnMob?2.1:1; pnDom.ctr.setAttribute("transform",`translate(${c0.x.toFixed(1)},${c0.y.toFixed(1)}) scale(${(Math.min(1.6,c0.k)*(pnMob?1.5:1)).toFixed(3)})`);
   const set=(el,a,b)=>{el.setAttribute("x1",a.x.toFixed(1));el.setAttribute("y1",a.y.toFixed(1));el.setAttribute("x2",b.x.toFixed(1));el.setAttribute("y2",b.y.toFixed(1))};
   pnDom.esp.forEach(l=>set(l,c0,EP[l.dataset.k])); set(pnDom.ho,EP.h,EP.o); set(pnDom.hu,EP.h,EP.u);
   pnDom.sp.forEach(l=>{const n=PNL.nodes.find(x=>x.id===l.dataset.a);set(l,EP[n.el],byId[n.id])});
   pnDom.lk.forEach(l=>{const L=PNL.links[+l.dataset.i],a=byId[L.source.id],b=byId[L.target.id],mx=(a.x+b.x)/2,my=(a.y+b.y)/2,cx=mx-(mx-c0.x)*.18,cy=my-(my-c0.y)*.18;
     l.setAttribute("d",`M${a.x.toFixed(1)},${a.y.toFixed(1)} Q${cx.toFixed(1)},${cy.toFixed(1)} ${b.x.toFixed(1)},${b.y.toFixed(1)}`)});
   const fade=z=>Math.max(.28,Math.min(1,1-(z+PR)/(2.6*PR)+.35));
-  pnDom.pn.forEach(g=>{const p=P[+g.dataset.i];g.setAttribute("transform",`translate(${p.x.toFixed(1)},${p.y.toFixed(1)}) scale(${Math.max(.55,Math.min(1.7,p.k)).toFixed(3)})`);g.setAttribute("opacity",fade(p.z).toFixed(2));g._z=p.z;g.classList.toggle("far",p.z>PR*.12&&cam.zoom<1.6)});
+  pnDom.pn.forEach(g=>{const p=P[+g.dataset.i];g.setAttribute("transform",`translate(${p.x.toFixed(1)},${p.y.toFixed(1)}) scale(${(Math.max(.55,Math.min(1.7,p.k))*M).toFixed(3)})`);g.setAttribute("opacity",fade(p.z).toFixed(2));g._z=p.z;g.classList.toggle("far",pnMob?(p.z>-PR*.25&&cam.zoom<2.2):(p.z>PR*.12&&cam.zoom<1.6))});
   if(sort){pnDom.pn.slice().sort((a,b)=>b._z-a._z).forEach(g=>pnDom.wrap.appendChild(g))}
-  pnDom.tag.forEach(t=>{const p=EP[t.dataset.k];t.setAttribute("transform",`translate(${p.x.toFixed(1)},${p.y.toFixed(1)})`)});
+  pnDom.tag.forEach(t=>{const p=EP[t.dataset.k];t.setAttribute("transform",`translate(${p.x.toFixed(1)},${p.y.toFixed(1)})${pnMob?" scale(1.75)":""}`)});
   // frame the bright part of the network: center it and zoom to fit
   let tx=0,ty=0,ts=1; const ids=[...pnB].filter(id=>byId[id]);
   if(ids.length){let cx=0,cy=0;ids.forEach(id=>{cx+=byId[id].x;cy+=byId[id].y});cx/=ids.length;cy/=ids.length;
     let r=0;ids.forEach(id=>{r=Math.max(r,Math.hypot(byId[id].x-cx,byId[id].y-cy))});
-    ts=Math.max(1,Math.min(1.8,360/(r+80)));tx=-cx*ts+70;ty=-cy*ts}
+    ts=Math.max(1,Math.min(1.8,(pnMob?300:360)/(r+80)));tx=-cx*ts+(pnMob?0:70);ty=-cy*ts}
   pnView.tx=tx;pnView.ty=ty;pnView.ts=ts;pnViewStep();
 }
 function pnReach(id){ // which other spokes a hub's own links reach
@@ -1799,6 +1821,7 @@ function pnInfo(){
   box.innerHTML=`<span class="label"><span class="sw" style="background:${EL[n.el].c}"></span>${kind} · ${EL[n.el].name}</span><h3>${n.url?`<a href="${n.url}" target="_blank" rel="noopener">${n.name}</a>`:n.name}</h3>${n.native!==n.name?`<p class="native">${n.native}</p>`:""}<p class="meta">${n.meta}</p><p>${n.desc}</p>${n.url?`<a class="go" href="${n.url}" target="_blank" rel="noopener">${n.kind==="h"?"Open this hub":"Visit the site"} ↗</a>`:""}<p class="meta">${links?`${links} connection${links>1?"s":""}, listed below the map`:"No direct links yet"}${pnOpen.size>1?` · ${pnOpen.size} open`:""}</p><p class="meta">Click it again to close it, or click the center to start over.</p>`;
 }
 function drawPN(){layoutPN();renderPN()}
+if(pnMQ.addEventListener) pnMQ.addEventListener("change",()=>{if(PNL){renderPN()}});
 let pnSpoke=null, pnLast=null; const pnOpen=new Set();
 function hiPN(){
   const kindOf=Object.fromEntries(PN.nodes.map(n=>[n.id,n.kind])), elOf=Object.fromEntries(PN.nodes.map(n=>[n.id,n.el]));
@@ -1859,7 +1882,7 @@ $("#pnNative").addEventListener("change",e=>{pnNative=e.target.checked;renderPN(
     if(!drag) return; const dx=e.clientX-drag.x, dy=e.clientY-drag.y;
     if(!moved&&Math.hypot(dx,dy)<5) return;
     if(!moved){moved=true;svg.classList.add("rotating");try{svg.setPointerCapture(e.pointerId)}catch(_){}}
-    cam.yaw=drag.yaw+dx*.008; cam.pitch=Math.max(-1.45,Math.min(1.45,drag.pitch+dy*.008)); frame(false); });
+    cam.yaw=drag.yaw+dx*.008; if(!(pnMob&&e.pointerType==="touch")) cam.pitch=Math.max(-1.45,Math.min(1.45,drag.pitch+dy*.008)); frame(false); });
   const end=e=>{pts.delete(e.pointerId); if(pts.size<2) pinch0=null; if(!drag&&!moved) return; drag=null; svg.classList.remove("rotating");
     if(moved){updatePN(true); setTimeout(()=>{moved=false},0)}};
   addEventListener("pointerup",end); addEventListener("pointercancel",end);
