@@ -440,6 +440,14 @@ a.way:hover{border-color:var(--moss)}
 .pnauto[aria-pressed="true"]{border-color:var(--teal);color:var(--teal)}
 .pnauto:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
 @media (max-width:700px){.pninfo{position:static;width:auto;max-height:none;margin:0 10px 10px;animation:none}}
+.pnmore{display:none}
+@media (max-width:700px){
+  .pninfo:not(.expanded){display:flex;align-items:center;gap:10px;padding:10px 12px}
+  .pninfo:not(.expanded) > *:not(h3):not(.pnmore){display:none}
+  .pninfo:not(.expanded) h3{flex:1 1 auto;min-width:0;font-size:1rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .pnmore{all:unset;display:inline-block;flex:none;justify-self:start;cursor:pointer;font-family:var(--mono);font-size:.74rem;color:#07090B;background:var(--teal);border-radius:999px;padding:4px 12px}
+  .pnmore:focus-visible{outline:3px solid #fff;outline-offset:2px}
+}
 .pnsvg.active{box-shadow:inset 0 0 0 2px #2A3844}
 .pnsvg .pn text{transition:opacity .35s}
 .pnsvg .pn.far:not(.keep):not(:hover):not(:focus-visible) text{opacity:0}
@@ -1812,7 +1820,13 @@ const PB={
  o:"Knowledge free to read, use, and build on: open data, open software, open courses, and open licenses. It is what knowledge hubs are built from, and the commons they give back to.",
  h:"Knowledge hubs gather a question's fields, data, and people into one place anyone can explore. Every hub connects to this project and to open access, and participates in universality as its links reach across the other spokes."};
 const PROJECT_BLURB="The Open Commons of Learning: a philosophical framework for teaching, education, and research, resting on self-knowledge, praxis, and universality, built from open access and growing through knowledge hubs.";
+let pnInfoOpen=false;
 function pnInfo(){
+  pnInfoFill(); const box=$("#pnInfo"); if(!box) return;
+  box.insertAdjacentHTML("beforeend",`<button type="button" class="pnmore" aria-expanded="${pnInfoOpen}">${pnInfoOpen?"Less":"More"}</button>`);
+  box.classList.toggle("expanded",pnInfoOpen);
+}
+function pnInfoFill(){
   const box=$("#pnInfo"); if(!box) return;
   if(!pnSel){box.innerHTML=`<span class="label">This project</span><h3>The Open Commons of Learning</h3><p>${PROJECT_BLURB}</p><p class="meta">Click a spoke to see its organizations, then click organizations and people to brighten the network step by step.</p>`;return}
   if(pnSel.startsWith("el:")){const k=pnSel.slice(3);box.innerHTML=`<span class="label"><span class="sw" style="background:${EL[k].c}"></span>Spoke</span><h3>${EL[k].name}</h3><p>${PB[k]}</p><p class="meta">Click an organization to bring up its thinkers. Click it again to close it.</p>`;return}
@@ -1821,6 +1835,7 @@ function pnInfo(){
   box.innerHTML=`<span class="label"><span class="sw" style="background:${EL[n.el].c}"></span>${kind} · ${EL[n.el].name}</span><h3>${n.url?`<a href="${n.url}" target="_blank" rel="noopener">${n.name}</a>`:n.name}</h3>${n.native!==n.name?`<p class="native">${n.native}</p>`:""}<p class="meta">${n.meta}</p><p>${n.desc}</p>${n.url?`<a class="go" href="${n.url}" target="_blank" rel="noopener">${n.kind==="h"?"Open this hub":"Visit the site"} ↗</a>`:""}<p class="meta">${links?`${links} connection${links>1?"s":""}, listed below the map`:"No direct links yet"}${pnOpen.size>1?` · ${pnOpen.size} open`:""}</p><p class="meta">Click it again to close it, or click the center to start over.</p>`;
 }
 function drawPN(){layoutPN();renderPN()}
+document.addEventListener("click",e=>{const b=e.target.closest("#pnInfo .pnmore");if(!b)return;pnInfoOpen=!pnInfoOpen;pnInfo()});
 if(pnMQ.addEventListener) pnMQ.addEventListener("change",()=>{if(PNL){renderPN()}});
 let pnSpoke=null, pnLast=null; const pnOpen=new Set();
 function hiPN(){
