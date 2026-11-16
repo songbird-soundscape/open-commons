@@ -187,11 +187,17 @@ a.ext{color:var(--hub);font-weight:500;text-decoration:none;align-self:flex-star
 
   <!-- EXPLORE -->
   <div class="panel" id="panel-explore">
+  <section id="nodeSec">
+    <p class="lbl"><label for="nodePick">Participating node</label></p>
+    <div class="row"><select id="nodePick"></select><button class="act" id="nodeAnother" type="button">Show another</button></div>
+    <p class="hint" id="nodeSummary">The network shows one participating node at a time, alongside the shared hubs and library.</p>
+    <p class="hint"><a id="nodeSite" href="#" target="_blank" rel="noopener"></a></p>
+  </section>
 
   <section>
     <p class="lbl">Shelf</p>
     <div class="seg shelfseg" role="group" aria-label="Shelf">
-      <button data-shelf="mine">Founding</button><button data-shelf="sample">A&amp;M sample</button><button data-shelf="parrots">Parrots Project</button><button data-shelf="commons">Added</button><button data-shelf="both">All</button>
+      <button data-shelf="mine">Founding</button><button data-shelf="sample">A&amp;M sample</button><button data-shelf="node">Node's works</button><button data-shelf="commons">Added</button><button data-shelf="both">All</button>
     </div>
     <p class="readout" id="counts"></p>
   </section>
@@ -586,7 +592,7 @@ function render(reheat=true){
       return d3.arc()({innerRadius:0,outerRadius:rr,startAngle:0,endAngle:2*Math.PI});
     })
     .attr("fill", d=> (d.type==="book"&&d.set==="sample")||d.type==="lab" ? css("--bg") : col(d.c))
-    .attr("stroke", d=> (d.type==="book"&&d.set==="sample")||d.type==="lab" ? col(d.c) : d.type==="book"&&(d.set==="commons"||d.set==="parrots") ? css("--hi") : css("--panel"))
+    .attr("stroke", d=> (d.type==="book"&&d.set==="sample")||d.type==="lab" ? col(d.c) : d.type==="book"&&(d.set==="commons"||d.set==="parrots"||d.set==="node") ? css("--hi") : css("--panel"))
     .attr("stroke-width", d=> d.type==="lab" ? 2.5 : d.type==="book"&&d.set!=="mine" ? 2 : 1.5);
   nodeSel.select("text").attr("x",d=>r(d)+4).attr("y",4)
     .attr("font-size",d=>d.type==="hub"?(d.kind==="hub"?14:12.5):d.type==="uni"?11.5:11)
@@ -687,7 +693,7 @@ function select(id){
   if(!d){ box.innerHTML='<p class="hint">Select a node.</p>'; highlight(); return; }
   let head="", meta="", pills="";
   if(d.type==="book"){
-    head="Book"+({sample:" · A&amp;M sample",mine:" · founding shelf",commons:" · added to the commons",parrots:" · The Parrots Project"}[d.set]||"");
+    head="Book"+({sample:" · A&amp;M sample",mine:" · founding shelf",commons:" · added to the commons",parrots:" · The Parrots Project",node:" · participating node"}[d.set]||"");
     meta=`<p class="meta">${esc(d.a)}${d.yr?" · "+esc(d.yr):""}${d.p?" · "+esc(d.p):""}</p>`;
     pills = ({ok:'<span class="pill ok">verified</span>',likely:'<span class="pill likely">best match</span>',unv:'<span class="pill unv">unconfirmed</span>',user:'<span class="pill likely">contributed</span>'}[d.s]||"")
       + (D.tamuSet.has(d.id)?'<span class="pill tamu">Texas A&amp;M tie</span>':"");
@@ -1097,20 +1103,37 @@ function showTab(name){
 }
 document.querySelectorAll("[data-tab]").forEach(b=>b.onclick=()=>showTab(b.dataset.tab));
 
-// ---- load the published snapshot ----
+// ---- load the published snapshot: the shared base plus one participating node ----
 document.getElementById("copyJson2").onclick=()=>document.getElementById("copyJson").click();
+let ALL=null, NODES=[], activeNode=null;
+function loadNode(nodeId, focus){
+  const n = NODES.find(x=>x.id===nodeId) || NODES[0]; activeNode = n ? n.id : null;
+  const keep = x => !x.node || x.node===activeNode;
+  C.hubs = new Map(ALL.hubs.filter(keep).map(h=>[h.id,h]));
+  C.books = new Map(ALL.books.filter(keep).map(b=>[b.id,b]));
+  C.orgs = new Map(ALL.orgs.filter(keep).map(o=>[o.id,o]));
+  themeFocus = null; selected = null;
+  applyCommons();
+  setStatus("live", `Snapshot of ${ALL.asOf||"the commons"} · ${HUBS.length} hubs · ${C.books.size} works · ${C.orgs.size} organizations`);
+  $("nodePick").value = activeNode || "";
+  $("nodeSummary").textContent = n ? n.summary : "";
+  const a=$("nodeSite"); if(n && n.url){ a.href=n.url; a.textContent="Visit "+new URL(n.url).hostname.replace(/^www\./,"")+" ↗"; a.hidden=false; } else a.hidden=true;
+  if(focus!==false && n){ const id=[n.network, n.id, "o_"+n.id].find(x=>D.nodes.some(d=>d.id===x)); if(id) setTimeout(()=>select(id), 500); }
+  try{ history.replaceState(null,"","#"+encodeURIComponent(activeNode)); }catch(_){}
+}
+$("nodePick").onchange = e => loadNode(e.target.value);
+$("nodeAnother").onclick = () => { const others=NODES.filter(n=>n.id!==activeNode); if(others.length) loadNode(others[Math.floor(Math.random()*others.length)].id); };
 (async function load(){
   readOnly = true; canWrite = false; applyRO();
   try {
     const r = await fetch("data/commons.json", {cache:"no-cache"});
     if(!r.ok) throw new Error(r.status);
-    const j = await r.json();
-    (j.hubs||[]).forEach(h=>C.hubs.set(h.id,h)); (j.books||[]).forEach(b=>C.books.set(b.id,b)); (j.orgs||[]).forEach(o=>C.orgs.set(o.id,o));
-    C.names = j.institutions||{}; C.loaded.hubs = C.loaded.books = true;
-    applyCommons();
-    setStatus("live", `Snapshot of ${j.asOf||"the commons"} · ${HUBS.length} hubs · ${C.books.size} works · ${C.orgs.size} organizations`);
+    ALL = await r.json(); NODES = ALL.nodes||[]; C.names = ALL.institutions||{}; C.loaded.hubs = C.loaded.books = true;
+    const pick=$("nodePick"); NODES.forEach(n=>pick.add(new Option(n.name,n.id)));
+    $("nodeSec").hidden = !NODES.length;
     const want = decodeURIComponent(location.hash.slice(1));
-    if(want){ const id = [want, "o_"+want].find(x=>D.nodes.some(n=>n.id===x)); if(id) setTimeout(()=>select(id), 500); }
+    const fromHash = NODES.find(n=>n.id===want || n.network===want);
+    loadNode(fromHash ? fromHash.id : (NODES.length ? NODES[Math.floor(Math.random()*NODES.length)].id : null), !!fromHash);
   } catch(e) {
     setStatus("warn","The network data didn't load. Reload the page to try again.");
   }

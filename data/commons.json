@@ -59,7 +59,8 @@
    },
    "starter": true,
    "t": "Animals & Wildlife",
-   "id": "animals"
+   "id": "animals",
+   "node": "parrots-project"
   },
   {
    "color": "--c-arch",
@@ -87,7 +88,8 @@
    },
    "starter": true,
    "t": "Birds",
-   "id": "birds"
+   "id": "birds",
+   "node": "parrots-project"
   },
   {
    "color": "--c-comp",
@@ -146,7 +148,8 @@
    },
    "starter": true,
    "t": "Paleoclimate",
-   "id": "dt-clim"
+   "id": "dt-clim",
+   "node": "drifting"
   },
   {
    "color": "#5a6b80",
@@ -159,7 +162,8 @@
    },
    "starter": true,
    "t": "Ancient DNA",
-   "id": "dt-dna"
+   "id": "dt-dna",
+   "node": "drifting"
   },
   {
    "color": "#3f7d3a",
@@ -174,7 +178,8 @@
    },
    "starter": true,
    "t": "Ecology & conservation",
-   "id": "dt-eco"
+   "id": "dt-eco",
+   "node": "drifting"
   },
   {
    "color": "#2f5d9b",
@@ -188,7 +193,8 @@
    },
    "starter": true,
    "t": "Geoscience education",
-   "id": "dt-geoed"
+   "id": "dt-geoed",
+   "node": "drifting"
   },
   {
    "color": "#b0476a",
@@ -202,7 +208,8 @@
    },
    "starter": true,
    "t": "Historical linguistics",
-   "id": "dt-ling"
+   "id": "dt-ling",
+   "node": "drifting"
   },
   {
    "color": "#9a5b3f",
@@ -215,7 +222,8 @@
    },
    "starter": true,
    "t": "Human migration",
-   "id": "dt-mig"
+   "id": "dt-mig",
+   "node": "drifting"
   },
   {
    "color": "#6d5a8f",
@@ -229,7 +237,8 @@
    },
    "starter": true,
    "t": "Myth, memory & dreams",
-   "id": "dt-myth"
+   "id": "dt-myth",
+   "node": "drifting"
   },
   {
    "color": "#7a8a2a",
@@ -244,7 +253,8 @@
    },
    "starter": true,
    "t": "Oral history & traditional knowledge",
-   "id": "dt-oral"
+   "id": "dt-oral",
+   "node": "drifting"
   },
   {
    "color": "#7a4f9a",
@@ -259,7 +269,8 @@
    },
    "starter": true,
    "t": "Philosophy of time",
-   "id": "dt-phen"
+   "id": "dt-phen",
+   "node": "drifting"
   },
   {
    "color": "#4d5fa8",
@@ -273,7 +284,8 @@
    },
    "starter": true,
    "t": "Climate policy",
-   "id": "dt-pol"
+   "id": "dt-pol",
+   "node": "drifting"
   },
   {
    "color": "#8a5a2b",
@@ -286,7 +298,8 @@
    },
    "starter": true,
    "t": "Plate tectonics",
-   "id": "dt-tect"
+   "id": "dt-tect",
+   "node": "drifting"
   },
   {
    "color": "#6b6b24",
@@ -300,7 +313,8 @@
    },
    "starter": true,
    "t": "Ancient vegetation & pollen",
-   "id": "dt-veg"
+   "id": "dt-veg",
+   "node": "drifting"
   },
   {
    "color": "--c-eco",
@@ -411,7 +425,8 @@
    "starter": true,
    "t": "The Parrots Project",
    "url": "https://theparrotsproject.org/",
-   "id": "parrots-project"
+   "id": "parrots-project",
+   "node": "parrots-project"
   },
   {
    "color": "#2f9a5f",
@@ -425,7 +440,8 @@
    },
    "starter": true,
    "t": "Parrots (Psittaciformes)",
-   "id": "parrots"
+   "id": "parrots",
+   "node": "parrots-project"
   },
   {
    "color": "--c-phys",
@@ -467,7 +483,8 @@
    "role": "theme",
    "starter": true,
    "t": "Preservation and the Archive",
-   "id": "pp-archive"
+   "id": "pp-archive",
+   "node": "parrots-project"
   },
   {
    "createdAt": 1794801125009,
@@ -480,7 +497,8 @@
    "role": "theme",
    "starter": true,
    "t": "Diet, Wild and Captive",
-   "id": "pp-diet"
+   "id": "pp-diet",
+   "node": "parrots-project"
   },
   {
    "createdAt": 1794801125015,
@@ -494,7 +512,8 @@
    "role": "theme",
    "starter": true,
    "t": "Ethics and Coexistence",
-   "id": "pp-ethics"
+   "id": "pp-ethics",
+   "node": "parrots-project"
   },
   {
    "createdAt": 1794801125012,
@@ -506,7 +525,8 @@
    "role": "theme",
    "starter": true,
    "t": "Feathers and Light",
-   "id": "pp-feathers"
+   "id": "pp-feathers",
+   "node": "parrots-project"
   },
   {
    "createdAt": 1794801125011,
@@ -518,7 +538,8 @@
    "role": "theme",
    "starter": true,
    "t": "Knowledge Graphs as Maps of the Literature",
-   "id": "pp-graphs"
+   "id": "pp-graphs",
+   "node": "parrots-project"
   },
   {
    "createdAt": 1794801125010,
@@ -530,7 +551,8 @@
    "role": "theme",
    "starter": true,
    "t": "Parrot Health and One Health",
-   "id": "pp-health"
+   "id": "pp-health",
+   "node": "parrots-project"
   },
   {
    "createdAt": 1794801125008,
@@ -543,7 +565,8 @@
    "role": "theme",
    "starter": true,
    "t": "Many Names, Many Languages",
-   "id": "pp-multilingual"
+   "id": "pp-multilingual",
+   "node": "parrots-project"
   },
   {
    "createdAt": 1794801125007,
@@ -555,7 +578,8 @@
    "role": "theme",
    "starter": true,
    "t": "Names Through Time",
-   "id": "pp-names"
+   "id": "pp-names",
+   "node": "parrots-project"
   },
   {
    "createdAt": 1794801125006,
@@ -569,7 +593,8 @@
    "role": "theme",
    "starter": true,
    "t": "Records Keep Their Sources",
-   "id": "pp-provenance"
+   "id": "pp-provenance",
+   "node": "parrots-project"
   },
   {
    "createdAt": 1794801125014,
@@ -582,7 +607,8 @@
    "role": "theme",
    "starter": true,
    "t": "Everyone Teaches",
-   "id": "pp-teachers"
+   "id": "pp-teachers",
+   "node": "parrots-project"
   },
   {
    "color": "--c-sea",
@@ -2079,12 +2105,13 @@
    "p": "Avicultural Society of America",
    "people": [],
    "s": "ok",
-   "shelf": "parrots",
+   "shelf": "node",
    "starter": true,
    "t": "Avicultural Bulletin",
    "url": "",
    "y": "1931–",
-   "id": "pp_asa"
+   "id": "pp_asa",
+   "node": "parrots-project"
   },
   {
    "a": "Ella Rydell, mentored by EV Voltura",
@@ -2118,12 +2145,13 @@
     }
    ],
    "s": "ok",
-   "shelf": "parrots",
+   "shelf": "node",
    "starter": true,
    "t": "Sustaining Psittacine Research in Aviculture through Digital Preservation of Physical Media",
    "url": "",
    "y": "2026",
-   "id": "pp_bulletin"
+   "id": "pp_bulletin",
+   "node": "parrots-project"
   },
   {
    "a": "The Parrots' Project",
@@ -2148,12 +2176,13 @@
    "p": "The Parrots' Project",
    "people": [],
    "s": "ok",
-   "shelf": "parrots",
+   "shelf": "node",
    "starter": true,
    "t": "Cockatoo Knowledge Graph (Version 2)",
    "url": "https://theparrotsproject.org/graphs/cockatoo/",
    "y": "2026",
-   "id": "pp_cockatoo_kg"
+   "id": "pp_cockatoo_kg",
+   "node": "parrots-project"
   },
   {
    "a": "EV Voltura",
@@ -2185,12 +2214,13 @@
     }
    ],
    "s": "ok",
-   "shelf": "parrots",
+   "shelf": "node",
    "starter": true,
    "t": "The Hidden Colors of Feathers: Building a Hyperspectral Library",
    "url": "https://theparrotsproject.org/blog/hidden-colors-of-feathers/",
    "y": "2026",
-   "id": "pp_feathers"
+   "id": "pp_feathers",
+   "node": "parrots-project"
   },
   {
    "a": "The Parrots' Project",
@@ -2211,12 +2241,13 @@
    "p": "The Parrots' Project",
    "people": [],
    "s": "ok",
-   "shelf": "parrots",
+   "shelf": "node",
    "starter": true,
    "t": "Parrot Health Knowledge Graph (Version 2)",
    "url": "https://theparrotsproject.org/graphs/health/",
    "y": "2026",
-   "id": "pp_health_kg"
+   "id": "pp_health_kg",
+   "node": "parrots-project"
   },
   {
    "a": "Benedict G. Hogan & Mary Caswell Stoddard",
@@ -2250,12 +2281,13 @@
     }
    ],
    "s": "ok",
-   "shelf": "parrots",
+   "shelf": "node",
    "starter": true,
    "t": "Hyperspectral imaging in animal coloration research",
    "url": "https://doi.org/10.1371/journal.pbio.3002867",
    "y": "2024",
-   "id": "pp_hogan"
+   "id": "pp_hogan",
+   "node": "parrots-project"
   },
   {
    "a": "The Parrots' Project",
@@ -2275,12 +2307,13 @@
    "p": "iNaturalist",
    "people": [],
    "s": "ok",
-   "shelf": "parrots",
+   "shelf": "node",
    "starter": true,
    "t": "The Parrots' Project on iNaturalist",
    "url": "https://www.inaturalist.org/projects/the-parrots-project",
    "y": "2026",
-   "id": "pp_inat"
+   "id": "pp_inat",
+   "node": "parrots-project"
   },
   {
    "a": "Carl Linnaeus",
@@ -2314,12 +2347,13 @@
     }
    ],
    "s": "ok",
-   "shelf": "parrots",
+   "shelf": "node",
    "starter": true,
    "t": "Systema Naturae (10th edition)",
    "url": "",
    "y": "1758",
-   "id": "pp_linnaeus"
+   "id": "pp_linnaeus",
+   "node": "parrots-project"
   },
   {
    "a": "James Guo, EV Voltura and undergraduate researchers",
@@ -2363,12 +2397,13 @@
     }
    ],
    "s": "ok",
-   "shelf": "parrots",
+   "shelf": "node",
    "starter": true,
    "t": "Parrots by Many Names: Connecting Languages, Cultures, and Scientific Taxonomy",
    "url": "https://theparrotsproject.org/taxonomy.html",
    "y": "2026",
-   "id": "pp_manynames"
+   "id": "pp_manynames",
+   "node": "parrots-project"
   },
   {
    "a": "The Parrots' Project",
@@ -2394,12 +2429,13 @@
    "p": "The Parrots' Project",
    "people": [],
    "s": "ok",
-   "shelf": "parrots",
+   "shelf": "node",
    "starter": true,
    "t": "Parrot Names Through Time: 1758–2026 (Version 0.1)",
    "url": "https://theparrotsproject.org/graphs/parrot-name-history/",
    "y": "2026",
-   "id": "pp_names_tl"
+   "id": "pp_names_tl",
+   "node": "parrots-project"
   },
   {
    "a": "National Geographic",
@@ -2420,12 +2456,13 @@
    "p": "National Geographic",
    "people": [],
    "s": "likely",
-   "shelf": "parrots",
+   "shelf": "node",
    "starter": true,
    "t": "Macaws: Winged Rainbows",
    "url": "",
    "y": "January 1994",
-   "id": "pp_natgeo"
+   "id": "pp_natgeo",
+   "node": "parrots-project"
   },
   {
    "a": "Jenna Henry, Ella Rydell, Jason Crean, Tatiana Tatum & EV Voltura",
@@ -2488,12 +2525,13 @@
     }
    ],
    "s": "ok",
-   "shelf": "parrots",
+   "shelf": "node",
    "starter": true,
    "t": "A Synthesis of Wild and Captive Cockatoo Diets: Integrating Historical and Contemporary Data Sources",
    "url": "https://theparrotsproject.org/assets/research/cockatoo-diet-poster.pdf",
    "y": "2025",
-   "id": "pp_poster"
+   "id": "pp_poster",
+   "node": "parrots-project"
   },
   {
    "a": "EV Voltura",
@@ -2520,12 +2558,13 @@
     }
    ],
    "s": "ok",
-   "shelf": "parrots",
+   "shelf": "node",
    "starter": true,
    "t": "When All Parrots Were Psittacus: How Scientific Names Change",
    "url": "https://theparrotsproject.org/blog/when-all-parrots-were-psittacus/",
    "y": "2026",
-   "id": "pp_psittacus"
+   "id": "pp_psittacus",
+   "node": "parrots-project"
   },
   {
    "a": "The Parrots' Project",
@@ -2539,12 +2578,13 @@
    "p": "The Parrots' Project",
    "people": [],
    "s": "ok",
-   "shelf": "parrots",
+   "shelf": "node",
    "starter": true,
    "t": "Pyrrhura Knowledge Graph (Version 2)",
    "url": "https://theparrotsproject.org/graphs/pyrrhura/",
    "y": "2026",
-   "id": "pp_pyrrhura_kg"
+   "id": "pp_pyrrhura_kg",
+   "node": "parrots-project"
   },
   {
    "a": "EV Voltura",
@@ -2572,12 +2612,13 @@
     }
    ],
    "s": "ok",
-   "shelf": "parrots",
+   "shelf": "node",
    "starter": true,
    "t": "How The Parrots' Project Began",
    "url": "https://theparrotsproject.org/blog.html?post=how-the-parrots-project-began",
    "y": "2026",
-   "id": "pp_story"
+   "id": "pp_story",
+   "node": "parrots-project"
   },
   {
    "a": "The Parrots' Project",
@@ -2592,12 +2633,13 @@
    "p": "The Parrots' Project",
    "people": [],
    "s": "ok",
-   "shelf": "parrots",
+   "shelf": "node",
    "starter": true,
    "t": "The Parrots' Project Zotero Library",
    "url": "https://www.zotero.org/groups/5755966/the_parrots_project/library",
    "y": "2026",
-   "id": "pp_zotero"
+   "id": "pp_zotero",
+   "node": "parrots-project"
   },
   {
    "a": "John T. Cacioppo, Louis G. Tassinary & Gary G. Berntson (eds.)",
@@ -6162,7 +6204,8 @@
    "starter": true,
    "t": "Association of Avian Veterinarians",
    "url": "",
-   "id": "aav"
+   "id": "aav",
+   "node": "parrots-project"
   },
   {
    "affil": [],
@@ -6180,7 +6223,8 @@
    "starter": true,
    "t": "American Federation of Aviculture",
    "url": "",
-   "id": "afa"
+   "id": "afa",
+   "node": "parrots-project"
   },
   {
    "affil": [],
@@ -6209,7 +6253,8 @@
    "starter": true,
    "t": "Avicultural Society of America",
    "url": "",
-   "id": "asa"
+   "id": "asa",
+   "node": "parrots-project"
   },
   {
    "affil": [],
@@ -6238,7 +6283,8 @@
    "starter": true,
    "t": "Avibase (Birds Canada)",
    "url": "https://avibase.bsc-eoc.org/",
-   "id": "avibase"
+   "id": "avibase",
+   "node": "parrots-project"
   },
   {
    "affil": [],
@@ -6262,7 +6308,8 @@
    "starter": true,
    "t": "Biodiversity Heritage Library",
    "url": "https://www.biodiversitylibrary.org/",
-   "id": "bhl"
+   "id": "bhl",
+   "node": "parrots-project"
   },
   {
    "affil": [],
@@ -6291,7 +6338,8 @@
    "starter": true,
    "t": "BirdLife International",
    "url": "https://www.birdlife.org/",
-   "id": "birdlife"
+   "id": "birdlife",
+   "node": "parrots-project"
   },
   {
    "affil": [],
@@ -6307,7 +6355,8 @@
    "starter": true,
    "t": "British Ornithologists' Union",
    "url": "",
-   "id": "bou"
+   "id": "bou",
+   "node": "parrots-project"
   },
   {
    "affil": [],
@@ -6336,7 +6385,8 @@
    "starter": true,
    "t": "Cornell Lab of Ornithology",
    "url": "https://www.birds.cornell.edu/",
-   "id": "cornell"
+   "id": "cornell",
+   "node": "parrots-project"
   },
   {
    "affil": [],
@@ -6354,7 +6404,8 @@
    "starter": true,
    "t": "Difficult Bird Research Group",
    "url": "",
-   "id": "difficultbird"
+   "id": "difficultbird",
+   "node": "parrots-project"
   },
   {
    "affil": [],
@@ -6372,7 +6423,8 @@
    "starter": true,
    "t": "Hagen Avicultural Research Institute",
    "url": "",
-   "id": "hari"
+   "id": "hari",
+   "node": "parrots-project"
   },
   {
    "affil": [],
@@ -6400,7 +6452,8 @@
    "starter": true,
    "t": "iNaturalist",
    "url": "https://www.inaturalist.org/",
-   "id": "inat"
+   "id": "inat",
+   "node": "parrots-project"
   },
   {
    "affil": [],
@@ -6417,7 +6470,8 @@
    "starter": true,
    "t": "ITIS (Integrated Taxonomic Information System)",
    "url": "",
-   "id": "itis"
+   "id": "itis",
+   "node": "parrots-project"
   },
   {
    "affil": [],
@@ -6446,7 +6500,8 @@
    "starter": true,
    "t": "IUCN Red List of Threatened Species",
    "url": "https://www.iucnredlist.org/",
-   "id": "iucn"
+   "id": "iucn",
+   "node": "parrots-project"
   },
   {
    "affil": [],
@@ -6464,7 +6519,8 @@
    "starter": true,
    "t": "Kākāpō Recovery",
    "url": "",
-   "id": "kakapo"
+   "id": "kakapo",
+   "node": "parrots-project"
   },
   {
    "affil": [],
@@ -6482,7 +6538,8 @@
    "starter": true,
    "t": "Lafeber Company",
    "url": "",
-   "id": "lafeber"
+   "id": "lafeber",
+   "node": "parrots-project"
   },
   {
    "affil": [],
@@ -6499,7 +6556,8 @@
    "starter": true,
    "t": "Loro Parque Fundación",
    "url": "",
-   "id": "lpf"
+   "id": "lpf",
+   "node": "parrots-project"
   },
   {
    "affil": [],
@@ -6517,7 +6575,8 @@
    "starter": true,
    "t": "Many Parrots Project",
    "url": "",
-   "id": "manyparrots"
+   "id": "manyparrots",
+   "node": "parrots-project"
   },
   {
    "affil": [],
@@ -6540,7 +6599,8 @@
    "starter": true,
    "t": "National Geographic Society",
    "url": "https://archive.nationalgeographic.com/",
-   "id": "natgeo"
+   "id": "natgeo",
+   "node": "parrots-project"
   },
   {
    "affil": [],
@@ -6558,7 +6618,8 @@
    "starter": true,
    "t": "One Earth Conservation",
    "url": "",
-   "id": "oneearth"
+   "id": "oneearth",
+   "node": "parrots-project"
   },
   {
    "affil": [
@@ -6677,7 +6738,8 @@
    "starter": true,
    "t": "The Parrots' Project",
    "url": "https://theparrotsproject.org/",
-   "id": "parrots-project-lab"
+   "id": "parrots-project-lab",
+   "node": "parrots-project"
   },
   {
    "affil": [],
@@ -6695,7 +6757,8 @@
    "starter": true,
    "t": "Phoenix Landing",
    "url": "",
-   "id": "phoenix"
+   "id": "phoenix",
+   "node": "parrots-project"
   },
   {
    "affil": [],
@@ -6712,7 +6775,8 @@
    "starter": true,
    "t": "Parrot Researchers Group",
    "url": "",
-   "id": "prg"
+   "id": "prg",
+   "node": "parrots-project"
   },
   {
    "affil": [],
@@ -6736,7 +6800,8 @@
    "starter": true,
    "t": "Rio Brazos Audubon Society",
    "url": "",
-   "id": "riobrazos"
+   "id": "riobrazos",
+   "node": "parrots-project"
   },
   {
    "affil": [
@@ -6774,7 +6839,8 @@
    "t": "Schubot Center for Avian Health",
    "tamu": true,
    "url": "",
-   "id": "schubot"
+   "id": "schubot",
+   "node": "parrots-project"
   },
   {
    "affil": [
@@ -6799,7 +6865,8 @@
    "starter": true,
    "t": "Saint Xavier University, Biological Sciences",
    "url": "",
-   "id": "sxu"
+   "id": "sxu",
+   "node": "parrots-project"
   },
   {
    "affil": [
@@ -6832,7 +6899,8 @@
    "t": "Tambopata Macaw Project",
    "tamu": true,
    "url": "",
-   "id": "tambopata"
+   "id": "tambopata",
+   "node": "parrots-project"
   },
   {
    "affil": [],
@@ -6856,7 +6924,8 @@
    "starter": true,
    "t": "World Parrot Trust",
    "url": "https://www.parrots.org/",
-   "id": "wpt"
+   "id": "wpt",
+   "node": "parrots-project"
   }
  ],
  "institutions": {
