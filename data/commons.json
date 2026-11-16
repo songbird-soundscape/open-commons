@@ -4093,6 +4093,20 @@
     "subjects": [
      "society"
     ]
+   },
+   {
+    "id": "rogers",
+    "name": "Carl Rogers",
+    "native": "Carl Rogers",
+    "kind": "p",
+    "el": "s",
+    "meta": "United States · 1902–1987 · English",
+    "desc": "Psychologist who founded person-centered therapy. In Freedom to Learn he argued that teachers should facilitate significant, self-directed learning rather than simply transmit knowledge.",
+    "subjects": [
+     "mind",
+     "education",
+     "philosophy"
+    ]
    }
   ],
   "links": [
@@ -4599,6 +4613,18 @@
     "target": "humancond",
     "w": 3,
     "t": "Wrote it"
+   },
+   {
+    "source": "dewey",
+    "target": "rogers",
+    "w": 1,
+    "t": "Rogers built on Dewey's progressive education, studying under Dewey's student William Heard Kilpatrick at Teachers College"
+   },
+   {
+    "source": "rogers",
+    "target": "kolb",
+    "w": 1,
+    "t": "Kolb drew on Rogers's experiential, learner-centered learning"
    }
   ]
  }
