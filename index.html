@@ -293,12 +293,27 @@ section{padding-block:52px;border-top:1px solid var(--rule);display:grid;gap:24p
 .statement-box{border-left:4px solid var(--ochre);padding:4px 0 4px 18px;display:grid;gap:12px}
 .statement-box p{font-size:1.12rem;line-height:1.6}
 .statement-box ol{margin:0;padding-left:1.8em;display:grid;gap:6px;font-size:1.12rem;line-height:1.6}
-.nodes{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px}
-.node-card{border:1px solid var(--rule);border-radius:10px;padding:16px;background:var(--slab);display:grid;gap:8px;align-content:start;color:inherit;text-decoration:none}
-.node-card:hover{border-color:var(--teal)}
-.node-card strong{font-family:var(--display);font-weight:600;font-size:1.05rem}
-.node-card p{font-size:.92rem;line-height:1.5;color:var(--ink-soft)}
-.node-card .via{font-size:.85rem}
+.nodes{display:grid;grid-template-columns:minmax(0,1fr);gap:10px;max-width:660px}
+.node-card{border:1px solid var(--rule);border-radius:10px;padding:16px;background:var(--slab);display:grid;gap:8px;align-content:start}
+.node-card h3{font-family:var(--display);font-weight:600;font-size:1.1rem;margin:0}
+.node-card h3 a{color:inherit;text-decoration:none}
+.node-card h3 a:hover{text-decoration:underline}
+.node-card p{font-size:.95rem;line-height:1.55;color:var(--ink-soft);margin:0}
+.node-card .fitbtn{justify-self:start}
+.fits{list-style:none;margin:4px 0 0;padding:0;display:grid;gap:8px}
+.fits li{display:grid;grid-template-columns:12px 1fr;gap:10px;align-items:start;font-size:.92rem;line-height:1.5}
+.fits i{width:10px;height:10px;border-radius:50%;margin-top:.45em}
+.fits b{font-family:var(--mono);font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;font-weight:500;display:block;color:var(--ink)}
+.nodesearch{display:grid;gap:6px}
+.nodesearch input{font:inherit;font-size:1rem;padding:9px 12px;border:1px solid var(--rule);border-radius:8px;background:var(--slab);color:var(--ink);width:100%}
+.nodesearch input:focus-visible{outline:2px solid var(--teal);outline-offset:1px}
+.nodeactions{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.nodeactions .dtlink{margin-top:0}
+.nodelist{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.nodelist button{all:unset;cursor:pointer;display:grid;gap:2px;padding:8px 10px;border-radius:8px;width:100%;box-sizing:border-box}
+.nodelist button:hover,.nodelist button:focus-visible{background:var(--slab);outline:1px solid var(--rule)}
+.nodelist b{font-family:var(--display);font-weight:600}
+.nodelist span{font-size:.85rem;color:var(--ink-soft)}
 .eth-sources{display:grid;gap:8px}
 .eth-sources h3{font-family:var(--display);font-weight:600;font-size:1.02rem}
 .eth-sources ul{margin:0;padding-left:1.2em;display:grid;gap:6px;font-size:.88rem;line-height:1.5;color:var(--ink-soft)}
@@ -1224,15 +1239,21 @@ footer{padding-block:40px 0;border-top:1px solid var(--rule);color:var(--ink-sof
     <div class="intro col">
       <span class="label">Joining the commons</span>
       <h2 id="nodes-h">Participating nodes</h2>
-      <p>Projects, labs, and communities that have joined the Open Commons of Learning. Each keeps its own work and its own home, and connects to the rest through shared themes.</p>
+      <p>Projects, labs, and communities that have joined the Open Commons of Learning. Each keeps its own work and its own home, and connects to the rest through shared themes. One is shown below, picked at random each visit.</p>
     </div>
-    <div class="nodes">
-      <a class="node-card" href="https://theparrotsproject.org/" target="_blank" rel="noopener">
-        <strong>The Parrots' Project ↗</strong>
-        <p>A living library that gathers what people have recorded about parrots, from scientific papers and veterinary case reports to avicultural journals and citizen-science observations, and connects it while keeping every record's source and context. Founded and directed by EV Voltura, PhD.</p>
-        <p class="via">Connects through names through time, names across languages, wild and captive diets, preserving the archive, and everyone as a teacher.</p>
-      </a>
+    <div class="nodesearch col">
+      <label class="label" for="nodeQ">Find a node</label>
+      <input type="search" id="nodeQ" placeholder="Type a keyword: parrots, deep time, languages, archaeology…" autocomplete="off">
+      <p class="hint" id="nodeHint" aria-live="polite"></p>
     </div>
+    <div id="nodeFeature" class="nodes"></div>
+    <div class="nodeactions">
+      <button type="button" class="chip" id="nodeShuffle">Show another</button>
+      <a class="dtlink" id="nodeFull" href="network.html">Open the full network →</a>
+    </div>
+    <details class="more" id="nodeAll"><summary>All participating nodes (<span id="nodeCount">0</span>)</summary>
+      <div class="more-body"><ul class="nodelist" id="nodeList"></ul></div>
+    </details>
     <p class="hint col">Want your project or lab to join? <a href="https://github.com/songbird-soundscape/open-commons/discussions" target="_blank" rel="noopener">Start a thread in Discussions</a>.</p>
   </section>
     <nav class="next"><a class="prev" href="#context">← Context</a><a href="#ethical-statement">Next: Ethical statement →</a></nav>
@@ -2297,6 +2318,42 @@ addEventListener("hashchange",xAuto);
   nb.addEventListener("focusin",e=>{if(!e.target.closest(".crumbbar"))nb.classList.remove("tuck")});})();
 
 drawMap(); drawNet(); drawPath(); drawDay(); drawInt(); drawCoop(); setCoop(); initCoopFx(); drawFee(); drawClaims(); route(); xAuto();
+
+/* ---------- participating nodes ---------- */
+(function(){
+  const THREADS=[["s","Self-knowledge","var(--f1)"],["p","Praxis","var(--f3)"],["u","Universality","var(--f2)"],["o","Open access","var(--f4)"],["h","Knowledge hubs","var(--teal)"]];
+  const feat=document.getElementById("nodeFeature"), list=document.getElementById("nodeList"), q=document.getElementById("nodeQ"),
+        hint=document.getElementById("nodeHint"), all=document.getElementById("nodeAll"), full=document.getElementById("nodeFull");
+  let NODES=[], shown=null, pool=[];
+  const el=(tag,props={},...kids)=>{ const e=document.createElement(tag); Object.assign(e,props); kids.forEach(k=>e.append(k)); return e; };
+  function card(n){
+    const h=el("h3"); h.append(el("a",{href:n.url,target:"_blank",rel:"noopener",textContent:n.name+" ↗"}));
+    const fits=el("ul",{className:"fits"}); fits.hidden=true;
+    THREADS.forEach(([k,label,c])=>{ if(!n.fits||!n.fits[k]) return; const i=el("i"); i.style.background=c; const t=el("div"); t.append(el("b",{textContent:label}), n.fits[k]); fits.append(el("li",{},i,t)); });
+    const btn=el("button",{type:"button",className:"chip fitbtn",textContent:"How it fits"}); btn.setAttribute("aria-expanded","false");
+    btn.onclick=()=>{ fits.hidden=!fits.hidden; btn.setAttribute("aria-expanded",String(!fits.hidden)); btn.textContent=fits.hidden?"How it fits":"Hide"; };
+    const c=el("article",{className:"node-card"},h,el("p",{textContent:n.summary}),btn,fits);
+    return c;
+  }
+  function show(n){ shown=n; feat.replaceChildren(card(n)); full.href="network.html#"+encodeURIComponent(n.network||n.id); }
+  function pick(){ const from=(pool.length?pool:NODES).filter(n=>n!==shown||NODES.length===1); if(from.length) show(from[Math.floor(Math.random()*from.length)]); }
+  function renderList(items){
+    list.replaceChildren(...items.map(n=>{ const b=el("button",{type:"button"},el("b",{textContent:n.name}),el("span",{textContent:n.summary})); b.onclick=()=>{ show(n); feat.scrollIntoView({behavior:"smooth",block:"nearest"}); }; return el("li",{},b); }));
+  }
+  function search(){
+    const terms=q.value.toLowerCase().split(/\s+/).filter(Boolean);
+    if(!terms.length){ pool=[]; renderList(NODES); hint.textContent=""; return; }
+    pool=NODES.filter(n=>{ const t=(n.name+" "+n.summary+" "+(n.keywords||"")+" "+Object.values(n.fits||{}).join(" ")).toLowerCase(); return terms.every(x=>t.includes(x)); });
+    renderList(pool); all.open=true;
+    hint.textContent = pool.length ? `${pool.length} of ${NODES.length} nodes match` : "No nodes match yet. Try another word.";
+    if(pool.length && !pool.includes(shown)) show(pool[0]);
+  }
+  document.getElementById("nodeShuffle").onclick=pick;
+  q.addEventListener("input",search);
+  fetch("data/commons.json",{cache:"no-cache"}).then(r=>r.json()).then(j=>{
+    NODES=j.nodes||[]; document.getElementById("nodeCount").textContent=NODES.length; renderList(NODES); pick();
+  }).catch(()=>{ feat.replaceChildren(el("p",{className:"hint",textContent:"The list of nodes didn't load. Reload the page, or open the full network."})); });
+})();
 </script>
 
 </body>

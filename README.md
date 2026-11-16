@@ -9,6 +9,8 @@ Everything here is open. Take any code, concepts, or text and adapt them for you
 ## What's here
 
 - `index.html`: the whole site in one file (no build step, no accounts, no tracking).
+- `network.html`: Hub Space Commons, the full searchable network of participating nodes, hubs, works, people and organizations.
+- `data/commons.json`: the network data. Edit it and open a pull request to add a node, hub, work or organization.
 
 ## Join in
 

@@ -1,0 +1,1120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="The full network of The Open Commons of Learning: participating nodes, hubs, works, people and organizations. Searchable and adjustable.">
+<title>Hub Space Commons · The Open Commons of Learning</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400;7..72,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+*{box-sizing:border-box}
+body{margin:0;font:14px/1.5 var(--sans)}
+[hidden]{display:none!important}
+img{max-width:100%}
+/* Layout: two-pane app. Control + reading panel on the left, force-directed network fills the rest; stacks on phones. */
+:root{
+  --bg:#eef0ec; --panel:#f7f8f5; --ink:#1d2622; --muted:#5b6862; --rule:#d3d9d3;
+  --hub:#1f5f5b; --cohub:#a8741a; --side:#6d5a8f; --book:#8a948f;
+  --edge:#4b5a54; --hi:#c2410c; --field:#ffffff;
+  --c-deep:#8a5a2b; --c-eco:#3f7d3a; --c-teach:#2f5d9b; --c-evo:#a8741a; --c-cx:#7a4f9a; --c-mind:#b0476a;
+  --c-paly:#6b6b24; --c-place:#2f8a86; --c-field:#557a2f; --c-lab:#5a6b80;
+  --c-comp:#3a6ea5; --c-phys:#4d5fa8; --c-soc:#9a5b3f; --c-eng:#6b7d8f; --c-ag:#7a8a2a; --c-sea:#1f7896; --c-arch:#8f6a4a;
+  --person:#4f5b66; --uni:#3d4a63; --tamu:#6b1a1a;
+  --display:"Literata", Georgia, "Times New Roman", serif;
+  --sans:"IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#141a18; --panel:#1b2220; --ink:#e4e9e5; --muted:#9aa7a0; --rule:#2e3834;
+  --hub:#5fb3ab; --cohub:#e0a64a; --side:#a892cc; --book:#7f8a85; --edge:#9fb0a8; --hi:#fb8a4c; --field:#222b28;
+  --c-deep:#d39a5f; --c-eco:#7cc06f; --c-teach:#78a6e6; --c-evo:#e0a64a; --c-cx:#b58ad8; --c-mind:#e2789c;
+  --c-paly:#b9b95a; --c-place:#5fc4bf; --c-field:#9cc86a; --c-lab:#97a9c0; --c-comp:#7fb0e8; --c-phys:#97a6ec; --c-soc:#dc9a7c; --c-eng:#a9b9c9; --c-ag:#c2cf6a; --c-sea:#5cc0de; --c-arch:#d6ad88; --person:#aeb8c2; --uni:#9fb0d0; --tamu:#e08a8a; color-scheme:dark }}
+:root[data-theme="dark"]{
+  --bg:#141a18; --panel:#1b2220; --ink:#e4e9e5; --muted:#9aa7a0; --rule:#2e3834;
+  --hub:#5fb3ab; --cohub:#e0a64a; --side:#a892cc; --book:#7f8a85; --edge:#9fb0a8; --hi:#fb8a4c; --field:#222b28;
+  --c-deep:#d39a5f; --c-eco:#7cc06f; --c-teach:#78a6e6; --c-evo:#e0a64a; --c-cx:#b58ad8; --c-mind:#e2789c;
+  --c-paly:#b9b95a; --c-place:#5fc4bf; --c-field:#9cc86a; --c-lab:#97a9c0; --c-comp:#7fb0e8; --c-phys:#97a6ec; --c-soc:#dc9a7c; --c-eng:#a9b9c9; --c-ag:#c2cf6a; --c-sea:#5cc0de; --c-arch:#d6ad88; --person:#aeb8c2; --uni:#9fb0d0; --tamu:#e08a8a; color-scheme:dark }
+html,body{height:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:14px;line-height:1.5}
+.app{display:grid;grid-template-columns:minmax(300px,360px) 1fr;height:100%}
+aside{background:var(--panel);border-right:1px solid var(--rule);overflow-y:auto;
+  padding-block:20px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:16px;display:flex;flex-direction:column;gap:18px;min-width:0}
+main{position:relative;min-width:0;overflow:hidden}
+svg#net{width:100%;height:100%;display:block;touch-action:none}
+h1{font-family:var(--display);font-weight:600;font-size:22px;line-height:1.2;margin:0;text-wrap:balance}
+.sub{color:var(--muted);margin:4px 0 0;font-size:13px}
+.lbl{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600;margin:0 0 6px}
+section{display:flex;flex-direction:column;gap:8px}
+.seg{display:flex;border:1px solid var(--rule);border-radius:6px;overflow:hidden}
+.seg button{flex:1;padding:7px 8px;background:transparent;border:0;color:var(--ink);font:500 13px var(--sans);cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--hub);color:var(--panel)}
+.seg button+button{border-left:1px solid var(--rule)}
+.presets{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.presets button,.spot{padding:6px 8px;border:1px solid var(--rule);background:transparent;color:var(--ink);border-radius:6px;font:500 12.5px var(--sans);cursor:pointer}
+.presets button:hover{border-color:var(--hub)}
+.spot{border-color:var(--tamu);color:var(--tamu)}
+.spot[aria-pressed="true"]{background:var(--tamu);color:var(--panel)}
+.layers{display:grid;grid-template-columns:1fr auto;gap:6px 10px;align-items:center;font-size:13px}
+.shelfseg{flex-wrap:wrap} .shelfseg button{flex:1 1 30%;border-top:1px solid var(--rule)} .shelfseg button+button{border-left:1px solid var(--rule)}
+.seg.sm button{padding:4px 9px;font-size:12px;flex:none}
+.overlay button[aria-pressed="true"]{border-color:var(--hub);color:var(--hub)}
+input[type=range]{width:100%;accent-color:var(--hub)}
+.scale{display:flex;justify-content:space-between;font-size:11px;color:var(--muted)}
+.readout{font-family:var(--mono);font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.readout b{color:var(--ink);font-weight:500}
+input[type=text],input[type=search],select{width:100%;box-sizing:border-box;padding:7px 9px;border:1px solid var(--rule);border-radius:6px;background:var(--field);color:var(--ink);font:13px var(--sans)}
+button.act{padding:7px 10px;border:1px solid var(--hub);background:transparent;color:var(--hub);border-radius:6px;font:500 13px var(--sans);cursor:pointer}
+button.act:hover{background:var(--hub);color:var(--panel)}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--hi);outline-offset:2px}
+.legend{display:grid;grid-template-columns:1fr 1fr;gap:4px 10px;font-size:12px}
+.legend span{display:flex;align-items:center;gap:6px;min-width:0}
+.dot{width:10px;height:10px;border-radius:50%;flex:none}
+.kinds{display:flex;flex-wrap:wrap;gap:10px;font-size:12px;color:var(--muted)}
+.kinds span{display:flex;align-items:center;gap:5px}
+#detail{border-top:1px solid var(--rule);padding-top:14px}
+#detail h2{font-family:var(--display);font-size:18px;font-weight:600;margin:0;line-height:1.25;text-wrap:balance}
+#detail .meta{color:var(--muted);font-size:13px;margin:2px 0 6px}
+#detail p{margin:0 0 8px}
+.pill{display:inline-block;font:500 11px var(--mono);padding:1px 7px;border-radius:999px;border:1px solid currentColor;margin-right:4px}
+.pill.ok{color:var(--c-eco)} .pill.tamu{color:var(--tamu)} .pill.likely{color:var(--cohub)} .pill.unv{color:var(--hi)}
+.links{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:3px}
+.links li{display:grid;grid-template-columns:38px 1fr;gap:8px;cursor:pointer;padding:3px 4px;border-radius:4px}
+.links li:hover{background:var(--bg)}
+#findList .w{font-size:11px;text-transform:uppercase;letter-spacing:.04em}
+.links .w{font-family:var(--mono);font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.links .why{display:block;color:var(--muted);font-size:12px}
+details summary{cursor:pointer;font-weight:600;font-size:13px}
+details form{display:flex;flex-direction:column;gap:6px;margin-top:8px}
+.row{display:flex;gap:6px} .row>*{flex:1;min-width:0}
+.hint{font-size:12px;color:var(--muted)}
+.hintbar{position:absolute;left:max(12px,env(safe-area-inset-left,0px));bottom:14px;font-size:12px;color:var(--muted);pointer-events:none}
+svg#net{cursor:grab} svg#net.rotating{cursor:grabbing}
+.node path.shape{opacity:var(--depth,1)}
+.overlay{position:absolute;right:max(12px,env(safe-area-inset-right,0px));bottom:12px;display:flex;gap:6px}
+.overlay button{background:var(--panel);border:1px solid var(--rule);color:var(--ink);border-radius:6px;padding:6px 10px;font:500 12px var(--sans);cursor:pointer}
+/* svg */
+.edge{stroke:var(--edge);fill:none}
+.node circle{stroke:var(--panel);stroke-width:1.5px;cursor:pointer}
+.node text{font-family:var(--sans);fill:var(--ink);paint-order:stroke;stroke:var(--bg);stroke-width:3px;stroke-linejoin:round;pointer-events:none}
+.node.hubn text{font-family:var(--display);font-weight:600}
+.node.dim{opacity:.15} .edge.dim{opacity:.04}
+.node.ldim{opacity:.3} .edge.ldim{opacity:.06}
+.node.dim.ldim{opacity:.1}
+.node path.shape{cursor:pointer}
+.node.match path.shape{stroke:var(--hi);stroke-width:3px}
+.node.sel path.shape{stroke:var(--hi);stroke-width:3.5px}
+.node.match circle{stroke:var(--hi);stroke-width:3px}
+.node.sel circle{stroke:var(--hi);stroke-width:3.5px}
+@media (max-width:760px){
+  .app{grid-template-columns:1fr;grid-template-rows:62vh auto;height:auto}
+  main{order:-1;height:62vh}
+  aside{border-right:0;border-top:1px solid var(--rule);padding-right:max(16px,env(safe-area-inset-right,0px))}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* commons */
+[hidden]{display:none!important}
+textarea{width:100%;box-sizing:border-box;padding:8px 9px;border:1px solid var(--rule);border-radius:6px;background:var(--field);color:var(--ink);font:13px/1.45 var(--sans);resize:vertical}
+.back{margin:0 0 6px;font-size:13px}.back a{color:var(--hub);text-decoration:none}.back a:hover{text-decoration:underline}
+.status{display:flex;align-items:center;gap:7px;margin:10px 0 0;font-size:12.5px;color:var(--muted)}
+.status i{width:8px;height:8px;border-radius:50%;background:var(--muted);flex:none}
+.status[data-kind="live"] i{background:var(--c-eco);box-shadow:0 0 0 3px color-mix(in srgb,var(--c-eco) 25%,transparent)}
+.status[data-kind="warn"] i{background:var(--hi)}
+.tabs{display:flex;border-bottom:1px solid var(--rule);gap:2px;position:sticky;top:-20px;background:var(--panel);z-index:2;margin-top:-4px}
+.tabs button{flex:1;padding:9px 6px;border:0;background:transparent;color:var(--muted);font:600 13px var(--sans);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px}
+.tabs button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--hub)}
+.tabs b{font:500 11px var(--mono);color:var(--muted);margin-left:2px}
+.panel{display:flex;flex-direction:column;gap:18px}
+.cform{display:flex;flex-direction:column;gap:9px}
+.cform label{display:flex;flex-direction:column;gap:4px;font-size:12px;color:var(--muted);font-weight:500;min-width:0}
+.cform label.check{flex-direction:row;align-items:center;gap:7px;color:var(--ink);font-size:13px}
+fieldset{border:1px solid var(--rule);border-radius:6px;padding:8px 10px 10px;margin:0;display:flex;flex-direction:column;gap:6px;min-width:0}
+legend{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600;padding:0 4px}
+button.act.primary{background:var(--hub);color:var(--panel)}
+button.act.danger,.link.danger{color:var(--hi);border-color:var(--hi)}
+button.act:disabled{opacity:.45;cursor:not-allowed}
+.link{background:none;border:0;padding:0;color:var(--hub);font:500 13px var(--sans);cursor:pointer;text-align:left}
+.link.danger{font-size:12px}
+.notice{margin:0;padding:9px 11px;border:1px solid var(--rule);border-left:3px solid var(--hi);border-radius:4px;font-size:13px}
+.actions{display:flex;flex-direction:column;gap:10px;margin:4px 0 10px}
+.actions .row{flex-wrap:wrap}
+form.mini{display:flex;flex-direction:column;gap:6px;padding-top:8px;border-top:1px dashed var(--rule)}
+form.mini .lbl{margin:0}
+ul.threads{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+ul.threads li{padding:10px 4px;border-bottom:1px solid var(--rule);cursor:pointer;display:flex;flex-direction:column;gap:3px}
+ul.threads li:hover{background:var(--bg)}
+ul.threads b{font-weight:600;font-size:14px;text-wrap:balance}
+.chip{align-self:flex-start;font:500 11px var(--mono);padding:1px 7px;border-radius:999px;background:var(--bg);border:1px solid var(--rule);color:var(--muted)}
+.why{display:block;color:var(--muted);font-size:12px}
+#threadView{display:flex;flex-direction:column;gap:10px}
+#threadView h2{font-family:var(--display);font-size:18px;margin:0;text-wrap:balance}
+ol.posts{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
+ol.posts li{border-left:2px solid var(--rule);padding-left:10px}
+ol.posts li:first-child{border-left-color:var(--hub)}
+.ph{margin:0 0 3px;font-size:12px;color:var(--muted)} .ph b{color:var(--ink);font-weight:600}
+.pb{white-space:pre-wrap;overflow-wrap:anywhere}
+.empty{position:absolute;inset:0;display:grid;place-items:center;padding:24px;text-align:center;color:var(--muted);pointer-events:none}
+.empty p{max-width:32ch;font-size:15px}
+#recent li{cursor:pointer}
+ul.plain{margin:0;padding-left:1.2em;display:grid;gap:6px}
+a.linkbtn{display:inline-block;text-decoration:none}
+.themes{display:flex;flex-direction:column;gap:8px}
+.themes .grp{font-size:12px;color:var(--muted);font-weight:600;margin:0}
+.themes .chiprow{display:flex;flex-wrap:wrap;gap:5px}
+.themes button{font:500 12px var(--sans);padding:4px 9px;border-radius:999px;border:1px solid var(--rule);background:transparent;color:var(--ink);cursor:pointer;text-align:left}
+.themes button[aria-pressed="true"]{background:var(--ink);color:var(--panel);border-color:var(--ink)}
+a.ext{color:var(--hub);font-weight:500;text-decoration:none;align-self:flex-start} a.ext:hover{text-decoration:underline}
+</style>
+</head>
+<body>
+
+<div class="app">
+<aside>
+  <div>
+    <p class="back"><a href="./#network">← The Open Commons of Learning</a></p>
+    <h1>Hub Space Commons</h1>
+    <p class="sub">The full network of the Open Commons: participating nodes, hubs, works, people and organizations. Search it, filter it, and turn it in 3D.</p>
+    <p class="status" id="status" data-kind="wait"><i></i><span>Loading the network…</span></p>
+  </div>
+
+  <nav class="tabs" role="tablist" aria-label="Sections">
+    <button role="tab" id="tab-explore" aria-selected="true" data-tab="explore">Explore</button>
+    <button role="tab" id="tab-contribute" aria-selected="false" data-tab="contribute">Add to it</button>
+    <button role="tab" id="tab-forum" aria-selected="false" data-tab="forum">Discuss <b id="forumCount"></b></button>
+  </nav>
+
+  <!-- EXPLORE -->
+  <div class="panel" id="panel-explore">
+
+  <section>
+    <p class="lbl">Shelf</p>
+    <div class="seg shelfseg" role="group" aria-label="Shelf">
+      <button data-shelf="mine">Founding</button><button data-shelf="sample">A&amp;M sample</button><button data-shelf="parrots">Parrots Project</button><button data-shelf="commons">Added</button><button data-shelf="both">All</button>
+    </div>
+    <p class="readout" id="counts"></p>
+  </section>
+
+  <section>
+    <p class="lbl">Views</p>
+    <div class="presets">
+      <button data-preset="hub">Hub space</button><button data-preset="lib">Library only</button>
+      <button data-preset="people">People &amp; institutions</button><button data-preset="all">Everything</button>
+    </div>
+    <button class="spot" id="spot" aria-pressed="false">Spotlight Texas A&amp;M</button>
+    <div class="layers">
+      <span>Hubs &amp; hub links</span><div class="seg sm" role="group" aria-label="Hubs layer"><button data-layer="hubs" data-mode="on">On</button><button data-layer="hubs" data-mode="dim">Dim</button><button data-layer="hubs" data-mode="off">Off</button></div>
+      <span>Book ↔ book links</span><div class="seg sm" role="group" aria-label="Book links layer"><button data-layer="bb" data-mode="on">On</button><button data-layer="bb" data-mode="dim">Dim</button><button data-layer="bb" data-mode="off">Off</button></div>
+      <span>People &amp; labs</span><div class="seg sm" role="group" aria-label="People layer"><button data-layer="people" data-mode="on">On</button><button data-layer="people" data-mode="dim">Dim</button><button data-layer="people" data-mode="off">Off</button></div>
+      <span>Universities</span><div class="seg sm" role="group" aria-label="Institutions layer"><button data-layer="unis" data-mode="on">On</button><button data-layer="unis" data-mode="dim">Dim</button><button data-layer="unis" data-mode="off">Off</button></div>
+    </div>
+  </section>
+
+  <section id="themeSec" hidden>
+    <p class="lbl">Connection themes</p>
+    <div id="themeChips" class="themes"></div>
+    <p class="hint" id="themeNote">How a joining node connects to the rest of the commons. Pick a theme to light up the links it makes.</p>
+  </section>
+
+  <section>
+    <p class="lbl"><label for="thr">Relevance threshold</label></p>
+    <input type="range" id="thr" min="0" max="0.95" step="0.05" value="0.35">
+    <div class="scale"><span>Show peripheral</span><span>Only very relevant</span></div>
+    <div class="readout">≥ <b id="thrV">0.35</b> · <b id="edgeCount">0</b> links shown · <b id="isoCount">0</b> books unlinked</div>
+  </section>
+
+  <section>
+    <p class="lbl"><label for="q">Find</label></p>
+    <input type="search" id="q" placeholder="Title, author, topic, or lab (e.g. palynology, Grossman, isotope)">
+    <p class="readout" id="findCount" hidden></p>
+    <ul class="links" id="findList"></ul>
+  </section>
+
+  <section>
+    <p class="lbl"><label for="brief">Describe what you want to do</label></p>
+    <textarea id="brief" rows="4">I want to reconstruct the Pennsylvanian coal swamps of Illinois from fossil spores, and understand how those plant communities changed through time.</textarea>
+    <div class="row"><button class="act" id="runBrief">Rank the shelf</button><button class="act" id="clearBrief">Clear</button></div>
+    <ol id="ranked" class="links"></ol>
+  </section>
+
+  <section>
+    <p class="lbl">Hubs</p>
+    <div class="kinds">
+      <span><svg width="10" height="10"><circle cx="5" cy="5" r="3.5" fill="var(--book)"/></svg>Book</span>
+      <span><svg width="10" height="10"><circle cx="5" cy="5" r="3.5" fill="none" stroke="var(--book)" stroke-width="1.6"/></svg>A&amp;M sample</span>
+      <span><svg width="10" height="10"><circle cx="5" cy="5" r="3.5" fill="var(--book)" stroke="var(--hi)" stroke-width="1.6"/></svg>Added</span>
+      <span><svg width="12" height="12"><path d="M6 0.5L11.5 6L6 11.5L0.5 6Z" fill="var(--person)"/></svg>Person</span>
+      <span><svg width="14" height="14"><path d="M7 1L13 7L7 13L1 7Z" fill="none" stroke="var(--person)" stroke-width="2"/></svg>Lab / project</span>
+      <span><svg width="12" height="12"><rect x="1" y="1" width="10" height="10" fill="var(--uni)"/></svg>Institution or organization</span>
+      <span><svg width="12" height="12"><rect x="1" y="1" width="10" height="10" fill="var(--tamu)"/></svg>Texas A&amp;M</span>
+    </div>
+    <div class="legend" id="legend"></div>
+  </section>
+  <section id="detail"><p class="hint">Select a node to see its links, who added it, and its discussions.</p></section>
+  </div>
+
+  <!-- CONTRIBUTE -->
+  <div class="panel" id="panel-contribute" hidden>
+    <section>
+      <p class="lbl">Add to the network</p>
+      <p>This page is a public snapshot of Hub Space Commons. To add a book, hub, lab, organization, or a whole participating node:</p>
+      <ul class="plain">
+        <li><a href="https://github.com/songbird-soundscape/open-commons/discussions" target="_blank" rel="noopener">Start a thread in Discussions</a> with what you'd like to add and how it connects.</li>
+        <li>Or edit <a href="https://github.com/songbird-soundscape/open-commons/blob/main/data/commons.json" target="_blank" rel="noopener">data/commons.json</a> and open a pull request.</li>
+      </ul>
+    </section>
+    <div hidden>
+    <p class="notice" id="roNote" hidden>You can explore and read the forum, but not add to the commons. Ask the owner to give you Contributor access.</p>
+    <div class="seg" role="group" aria-label="What to add">
+      <button data-form="book" aria-pressed="true">Book</button><button data-form="hub" aria-pressed="false">Hub</button><button data-form="org" aria-pressed="false">Organization</button><button data-form="fork" aria-pressed="false">Fork a hub</button>
+    </div>
+
+    <form id="formBook" class="cform">
+      <label>Title<input type="text" id="bTitle" required></label>
+      <label>Author or editors<input type="text" id="bAuthor"></label>
+      <div class="row"><label>Year<input type="text" id="bYear" inputmode="numeric"></label><label>Publisher<input type="text" id="bPub"></label></div>
+      <label>What it's about<textarea id="bNote" rows="2"></textarea></label>
+      <fieldset><legend>Hubs it feeds</legend>
+        <div class="row hubrow"><select class="hubSel" aria-label="Hub 1"></select><select class="wSel" aria-label="Relevance 1"></select></div>
+        <div class="row hubrow"><select class="hubSel" aria-label="Hub 2"></select><select class="wSel" aria-label="Relevance 2"></select></div>
+        <div class="row hubrow"><select class="hubSel" aria-label="Hub 3"></select><select class="wSel" aria-label="Relevance 3"></select></div>
+      </fieldset>
+      <fieldset><legend>Related book (optional)</legend>
+        <input type="text" id="bRel" list="bookList" placeholder="Start typing a title in the network">
+        <input type="text" id="bWhy" placeholder="Why they connect">
+      </fieldset>
+      <fieldset><legend>Person and lab (optional)</legend>
+        <div class="row"><input type="text" id="bPerson" placeholder="Name"><select id="bRole" aria-label="Role"><option>author</option><option>editor</option><option>chapter</option><option>translator</option><option>mentor</option><option>subject</option></select></div>
+        <input type="text" id="bInst" list="instList" placeholder="University or institution">
+        <input type="text" id="bLab" placeholder="Department or lab">
+      </fieldset>
+      <button class="act primary" type="submit">Add book to the commons</button>
+    </form>
+
+    <form id="formHub" class="cform" hidden>
+      <label>Hub name<input type="text" id="hName" required></label>
+      <div class="row"><label>Kind<select id="hKind"><option value="hub">Hub</option><option value="cohub">Co-hub</option><option value="side" selected>Side hub</option><option value="member">Joining node</option><option value="theme">Connection theme</option></select></label>
+        <label>Color<select id="hColor"></select></label></div>
+      <div class="row"><label>Connects to<select id="hParent"></select></label><label>Strength<select id="hW"></select></label></div>
+      <label>What it gathers<textarea id="hNote" rows="2"></textarea></label>
+      <label>Website (optional)<input type="url" id="hUrl" placeholder="https://"></label>
+      <p class="hint">A joining node is a project, lab or community that connects its own work to the commons. A connection theme belongs to a joining node (pick it under “Connects to”) and names why its links exist. It is drawn as links, not as a node.</p>
+      <button class="act primary" type="submit">Add hub</button>
+    </form>
+
+    <form id="formOrg" class="cform" hidden>
+      <label>Name<input type="text" id="oName" required></label>
+      <div class="row"><label>Kind<select id="oKind"><option value="lab">Lab or project</option><option>conservation</option><option>research</option><option>aviculture</option><option>veterinary</option><option>welfare and rescue</option><option>database</option><option>library or archive</option><option>citizen science</option><option>education</option><option>community</option></select></label>
+        <label>Website<input type="url" id="oUrl" placeholder="https://"></label></div>
+      <label>What it does<textarea id="oNote" rows="2"></textarea></label>
+      <div class="row"><label>Hub<select id="oHub"></select></label><label>Strength<select id="oW"></select></label></div>
+      <label>Related work (optional)<input type="text" id="oItem" list="bookList" placeholder="Start typing a title"></label>
+      <div class="row"><label>Member (optional)<input type="text" id="oMember" placeholder="Name"></label><label>Role<input type="text" id="oRole" placeholder="e.g. Director"></label></div>
+      <button class="act primary" type="submit">Add organization</button>
+    </form>
+    <form id="formFork" class="cform" hidden>
+      <p class="hint">Forking copies a hub as your own starting point. Keep what you like, then change the rest.</p>
+      <label>Hub to fork<select id="fFrom"></select></label>
+      <label>New name<input type="text" id="fName" required></label>
+      <label>How yours differs<textarea id="fNote" rows="2"></textarea></label>
+      <label class="check"><input type="checkbox" id="fBooks" checked> Bring its books along</label>
+      <button class="act primary" type="submit">Fork hub</button>
+    </form>
+    <p class="hint" id="formMsg" role="status"></p>
+
+    <section>
+      <p class="lbl">Recent additions</p>
+      <ul class="links" id="recent"></ul>
+    </section>
+    <section>
+      <p class="lbl">Take a copy</p>
+      <p class="hint">The commons is open. Copy the whole network as JSON to build your own.</p>
+      <button class="act" id="copyJson">Copy network JSON</button>
+      <textarea id="jsonFallback" hidden rows="6"></textarea>
+    </section>
+    </div>
+    <section>
+      <p class="lbl">Take a copy</p>
+      <p class="hint">Everything here is open (CC BY 4.0). Copy the whole network as JSON to build your own.</p>
+      <button class="act" id="copyJson2">Copy network JSON</button>
+    </section>
+  </div>
+
+  <!-- FORUM -->
+  <div class="panel" id="panel-forum" hidden>
+    <section>
+      <p class="lbl">Talk it over</p>
+      <p>Questions, ideas and new connections are discussed on GitHub, where anyone can read along.</p>
+      <p><a class="act linkbtn" href="https://github.com/songbird-soundscape/open-commons/discussions" target="_blank" rel="noopener">Open Discussions ↗</a></p>
+    </section>
+    <div hidden>
+    <div id="forumList">
+      <div class="row"><select id="fFilter" aria-label="Show"><option value="all">All threads</option><option value="sel">About the selected item</option><option value="general">General only</option></select>
+        <button class="act primary" id="newThreadBtn">New thread</button></div>
+      <form id="threadForm" class="cform" hidden>
+        <label>Title<input type="text" id="tTitle" required maxlength="160"></label>
+        <label>Message<textarea id="tBody" rows="4" required maxlength="8000"></textarea></label>
+        <label class="check" id="tAboutWrap" hidden><input type="checkbox" id="tAbout" checked> <span id="tAboutLabel"></span></label>
+        <div class="row"><button class="act primary" type="submit">Post thread</button><button class="act" type="button" id="cancelThread">Cancel</button></div>
+      </form>
+      <ul class="threads" id="threads"></ul>
+    </div>
+    <div id="threadView" hidden>
+      <button class="link" id="backThreads">← All threads</button>
+      <h2 id="tvTitle"></h2>
+      <p class="meta" id="tvMeta"></p>
+      <ol class="posts" id="posts"></ol>
+      <form id="replyForm" class="cform">
+        <label>Reply<textarea id="rBody" rows="3" required maxlength="8000"></textarea></label>
+        <button class="act primary" type="submit">Post reply</button>
+      </form>
+    </div>
+    </div>
+  </div>
+
+  <datalist id="bookList"></datalist>
+  <datalist id="instList"></datalist>
+</aside>
+
+<main>
+  <div class="empty" id="emptyState" hidden><p>The commons is empty. Open Contribute to add the first hub or book.</p></div>
+  <svg id="net" aria-label="Network of books and hubs"></svg>
+  <p class="hintbar">Drag to rotate · scroll or pinch to zoom · shift-drag to pan</p>
+  <div class="overlay">
+    <button id="spin" aria-pressed="false">Spin</button>
+    <button id="labels" aria-pressed="false">All titles</button>
+    <button id="fit">Reset view</button>
+  </div>
+</main>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/d3-binarytree@1.0.2/dist/d3-binarytree.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/d3-octree@1.0.2/dist/d3-octree.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/d3-force-3d@3.0.5/dist/d3-force-3d.min.js"></script>
+<script>
+// ---------- DATA lives in the shared commons (see COMMONS below) ----------
+let HUBS = [], HUB_LINKS = [], BOOKS = [], BOOK_LINKS = [], AUTH = {}, UNIS = {}, ORGS = [], THEMES = {};
+let themeFocus = null, themeSet = new Set();
+const ROLE_W = {author:1, editor:.85, mentor:.7, chapter:.6, translator:.6, subject:.5};
+const TAMU_IDS = new Set(["tamu","tamucc"]);
+
+// ---------- STATE ----------
+const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+let hubById = {};
+const col = c => (c||"").startsWith("--") ? css(c) : (c||css("--book"));
+let ranks = new Map();
+let thr = .35, allLabels = false, selected = null, spotlight = false, shelf = "both";
+// layer modes: on | dim | off
+const L = {hubs:"on", bb:"on", people:"off", unis:"off"};
+const slug = s => "p_"+s.toLowerCase().normalize("NFD").replace(/[^a-z0-9]+/g,"_");
+
+function buildData(){
+  const nodes = HUBS.map(h=>({...h, type:"hub"}));
+  const links = HUB_LINKS.map(([s,t,w])=>({source:s,target:t,w,kind:"hh",why:"Hub connection"}));
+  const books = BOOKS.map(b=>{ const meta=b[9]||{}, themes=meta.themes||{}; return {id:b[0],t:b[1],a:b[2],yr:b[3],p:b[4],s:b[5],note:b[6],hubs:b[7],set:b[8]||"commons",meta,themes,tt:Object.keys(themes).map(k=>THEMES[k]?THEMES[k].t+" "+THEMES[k].note:"").join(" ")}; });
+  const TL = new Map();
+  const addTL = (src,dst,w,th)=>{ if(!th||!hubById[th.of]||src===dst) return; const key=[src,dst].sort().join("|"); const x=TL.get(key);
+    if(x){ x.w=Math.max(x.w,w); if(!x.themeIds.includes(th.id)){ x.themeIds.push(th.id); x.why+=" · "+th.t; } }
+    else TL.set(key,{source:src,target:dst,w,kind:"th",why:"Via "+th.t,themeIds:[th.id],col:hubById[th.of].c}); };
+  Object.values(THEMES).forEach(th=>Object.entries(th.targets).forEach(([h,w])=>{ if(hubById[h] && h!==th.of) addTL(th.of,h,+w||.5,th); }));
+  books.forEach(b=>Object.entries(b.themes).forEach(([k,w])=>addTL(b.id,(THEMES[k]||{}).of,+w||.5,THEMES[k])));
+  books.forEach(b=>{
+    const top = Object.entries(b.hubs).filter(([h])=>h!=="learn").sort((x,y)=>y[1]-x[1])[0];
+    b.type="book"; b.kind="book"; b.c = top ? hubById[top[0]].c : "--book";
+    nodes.push(b);
+    Object.entries(b.hubs).forEach(([h,w])=>links.push({source:b.id,target:h,w,kind:"bh",why:"Feeds "+hubById[h].t}));
+  });
+  BOOK_LINKS.forEach(([s,t,w,why])=>links.push({source:s,target:t,w,kind:"bb",why}));
+  // people and institutions
+  const people = {}, unis = {};
+  Object.entries(AUTH).forEach(([bid,arr])=>{
+    if(!books.find(b=>b.id===bid)) return;
+    arr.forEach(([name,inst,role,lab])=>{
+      const id = slug(name);
+      const p = people[id] || (people[id] = {id,t:name,type:"person",kind:"person",insts:new Set(),labs:[],tamu:false,c:"--person"});
+      (inst||"").split("|").map(u=>u.trim()).filter(Boolean).forEach(u=>{ p.insts.add(u); if(isTamu(u)) p.tamu=true; });
+      if(lab) p.labs.push(lab);
+      role = ROLE_W[role] ? role : "author";
+      links.push({source:id,target:bid,w:ROLE_W[role],kind:"pb",why:role[0].toUpperCase()+role.slice(1)+(lab&&role==="chapter"&&lab.includes("Chapter: ")?" ("+lab.split("Chapter: ")[1]+")":"")});
+    });
+  });
+  Object.values(people).forEach(p=>{
+    if(p.tamu) p.c="--tamu";
+    nodes.push(p);
+    p.insts.forEach(u=>{
+      if(!unis[u]) unis[u] = {id:"u_"+u, key:u, t:UNIS[u]||u, type:"uni", kind:"uni", tamu:isTamu(u), c:isTamu(u)?"--tamu":"--uni"};
+      links.push({source:p.id,target:"u_"+u,w:1,kind:"pu",why:"Affiliation"});
+    });
+  });
+  Object.values(unis).forEach(u=>nodes.push(u));
+  // organizations (institutions layer) and labs or projects (people & labs layer)
+  ORGS.forEach(o=>{
+    const isLab = o.kind==="lab", id = "o_"+o.id, pre = isLab?"l":"o";
+    const tam = !!o.tamu;
+    nodes.push({id, t:o.t||"Untitled", type:isLab?"lab":"uni", kind:isLab?"lab":"uni", okind:o.kind||"organization", note:o.note||"", url:o.url||"", onSite:o.onSite!==false, tamu:tam, c:tam?"--tamu":(isLab?"--person":"--uni")});
+    Object.entries(o.hubs||{}).forEach(([h,w])=>{ if(hubById[h]) links.push({source:id,target:h,w:+w||.5,kind:pre+"h",why:(isLab?"Works on ":"Active in ")+hubById[h].t}); });
+    (o.items||[]).forEach(it=>{ if(it && books.some(b=>b.id===it.to)) links.push({source:id,target:it.to,w:+it.w||.6,kind:pre+"b",why:it.why||"Related"}); });
+    (o.affil||[]).forEach(u=>{ if(!u) return; const uid="u_"+u; if(!unis[u]){ unis[u]={id:uid,key:u,t:UNIS[u]||u,type:"uni",kind:"uni",tamu:isTamu(u),c:isTamu(u)?"--tamu":"--uni"}; nodes.push(unis[u]); } links.push({source:id,target:uid,w:1,kind:"ou",why:o.affilWhy||"Based at"}); });
+    Object.entries(o.themes||{}).forEach(([k,w])=>addTL(id,(THEMES[k]||{}).of,+w||.5,THEMES[k]));
+    (o.members||[]).forEach(m=>{ if(!m||!m.name) return; const pid=slug(m.name); if(!people[pid]){ people[pid]={id:pid,t:m.name,type:"person",kind:"person",insts:new Set(),labs:[],tamu:false,c:"--person"}; nodes.push(people[pid]); } people[pid].labs.push((m.role?m.role+", ":"")+o.t); links.push({source:pid,target:id,w:1,kind:"pl",why:m.role||"Member"}); });
+  });
+  TL.forEach(l=>links.push(l));
+  // implied book-book links through shared hubs (shown when hubs are off)
+  const implied=[]; const have=new Set(BOOK_LINKS.map(l=>[l[0],l[1]].sort().join("|")));
+  for(let i=0;i<books.length;i++)for(let j=i+1;j<books.length;j++){
+    const A=books[i],B=books[j]; let best=0,hub=null;
+    for(const h in A.hubs) if(B.hubs[h] && h!=="learn"){ const v=Math.min(A.hubs[h],B.hubs[h])*.75; if(v>best){best=v;hub=h;} }
+    if(best>=.3 && !have.has([A.id,B.id].sort().join("|"))) implied.push({source:A.id,target:B.id,w:+best.toFixed(2),kind:"imp",why:"Both feed "+hubById[hub].t});
+  }
+  // TAMU spotlight set: A&M people, their books, A&M nodes
+  const tamuSet = new Set();
+  Object.values(unis).forEach(u=>{ if(u.tamu) tamuSet.add(u.id); });
+  Object.values(people).forEach(p=>{ if(p.tamu){ tamuSet.add(p.id); links.forEach(l=>{ if(l.kind==="pb"&&l.source===p.id) tamuSet.add(l.target); }); } });
+  nodes.filter(n=>n.okind && n.tamu).forEach(n=>{ tamuSet.add(n.id); links.forEach(l=>{ if(l.source===n.id && (l.kind==="ob"||l.kind==="lb")) tamuSet.add(l.target); }); });
+  return {nodes,links,implied,books,tamuSet,people:Object.values(people),unis:Object.values(unis)};
+}
+const isTamu = u => TAMU_IDS.has(u) || /texas a&m/i.test(UNIS[u]||u);
+let D = buildData();
+
+// ---------- RENDER ----------
+const svg = d3.select("#net"), g = svg.append("g");
+const gE = g.append("g"), gN = g.append("g");
+let k = 1;
+// wheel or pinch zooms, shift-drag pans, plain drag rotates the ball
+const zoom = d3.zoom().scaleExtent([.15,6])
+  .filter(e=> e.type==="wheel" || (e.type==="mousedown" && e.shiftKey && !e.button) || (e.type==="touchstart" && e.touches.length>1))
+  .on("zoom",e=>{g.attr("transform",e.transform); k=e.transform.k; labelVis();});
+svg.call(zoom).on("dblclick.zoom",null);
+let yaw = 0, pitch = -.25, spinning = false, spinTimer = null;
+const F = 1100;
+function project(d){
+  const cy=Math.cos(yaw), sy=Math.sin(yaw), cp=Math.cos(pitch), sp=Math.sin(pitch);
+  const x=d.x||0, y=d.y||0, z=d.z||0;
+  const x1 = x*cy + z*sy, z1 = -x*sy + z*cy;
+  const y2 = y*cp - z1*sp, z2 = y*sp + z1*cp;
+  const s = Math.max(.35, Math.min(2.2, F/(F - z2)));
+  d._sx = x1*s; d._sy = y2*s; d._s = s; d._z = z2;
+}
+function draw(){
+  if(!nodeSel) return;
+  nodeSel.each(project);
+  edgeSel.attr("x1",l=>l.source._sx).attr("y1",l=>l.source._sy).attr("x2",l=>l.target._sx).attr("y2",l=>l.target._sy);
+  nodeSel.attr("transform",d=>`translate(${d._sx},${d._sy}) scale(${Math.max(.55,Math.min(1.6,d._s))})`)
+    .style("--depth", d=>Math.max(.35, Math.min(1, .55 + d._z/700)));
+  nodeSel.sort((a,b)=>a._z-b._z);
+}
+svg.call(d3.drag()
+  .filter(e=> !e.shiftKey && !e.button && (e.target===svg.node() || e.target.classList.contains("edge")))
+  .on("start",()=>{ svg.classed("rotating",true); })
+  .on("drag",e=>{ yaw += e.dx*.007; pitch = Math.max(-1.45, Math.min(1.45, pitch - e.dy*.007)); draw(); })
+  .on("end",()=>svg.classed("rotating",false)));
+function setSpin(on){
+  spinning = on; document.getElementById("spin").setAttribute("aria-pressed", on);
+  if(spinTimer){ spinTimer.stop(); spinTimer=null; }
+  if(on){ let last=0; spinTimer = d3.timer(t=>{ yaw += (t-last)*.00025; last=t; draw(); }); }
+}
+const sim = d3.forceSimulation().numDimensions(3).alphaDecay(.03)
+  .force("charge", d3.forceManyBody().strength(d=>d.type==="hub"? -420 : d.type==="uni"? -160 : d.type==="person"? -50 : -80).distanceMax(600))
+  .force("collide", d3.forceCollide().radius(d=>r(d)+3))
+  .force("x", d3.forceX().strength(.05)).force("y", d3.forceY().strength(.05)).force("z", d3.forceZ().strength(.05));
+function r(d){ return d.type==="book"? (d.set==="sample"?4.5:5.5) : d.type==="person"? 4.5 : d.type==="lab"? 7.5 : d.type==="uni"? (d.tamu?11:(d.okind?8:7)) : (d.kind==="hub"||d.kind==="member")?(d.id==="learn"?18:15) : d.kind==="cohub"?12:10; }
+function size(){ const b=svg.node().getBoundingClientRect(); return [b.width||800,b.height||600]; }
+const layerOf = l => (l.kind==="hh"||l.kind==="bh"||l.kind==="th") ? "hubs" : (l.kind==="bb"||l.kind==="imp") ? "bb" : (l.kind==="pb"||l.kind==="pl"||l.kind==="lh"||l.kind==="lb") ? "people" : "unis";
+const SOFT = new Set(["pu","ub","pb","pl","lh","lb","ou","oh","ob"]);
+const nodeLayer = d => d.type==="hub"?"hubs":(d.type==="person"||d.type==="lab")?"people":d.type==="uni"?"unis":"books";
+
+let edgeSel, nodeSel;
+function visibleNodes(){
+  return D.nodes.filter(n=>{
+    if(n.type==="book") return shelf==="both" || n.set===shelf;
+    const lay = nodeLayer(n); return L[lay]!=="off";
+  });
+}
+function render(reheat=true){
+  const nodes = visibleNodes(), ids=new Set(nodes.map(n=>n.id));
+  let raw = D.links.slice();
+  if(L.hubs==="off") raw = raw.concat(D.implied);
+  // when people are hidden but institutions shown, connect institutions straight to books
+  if(L.people==="off" && L.unis!=="off"){
+    const byP={}; D.links.forEach(l=>{ if(l.kind==="pu") (byP[l.source]=byP[l.source]||[]).push(l.target); });
+    D.links.forEach(l=>{ if(l.kind==="pb") (byP[l.source]||[]).forEach(u=>raw.push({source:u,target:l.target,w:l.w,kind:"ub",why:l.why+" via "+D.nodes.find(n=>n.id===l.source).t})); });
+  }
+  const links = raw.filter(l=>l.w>=thr && L[layerOf(l)]!=="off")
+    .map(l=>({...l, source:l.source.id||l.source, target:l.target.id||l.target}))
+    .filter(l=>ids.has(l.source)&&ids.has(l.target));
+  // drop people / unis left with no visible link (e.g. their books are on the hidden shelf)
+  const deg={}; links.forEach(l=>{deg[l.source]=(deg[l.source]||0)+1;deg[l.target]=(deg[l.target]||0)+1;});
+  const shown = nodes.filter(n=> n.type==="book"||n.type==="hub"||deg[n.id]);
+  const iso = shown.filter(n=>n.type==="book" && !deg[n.id]).length;
+  const nb = shown.filter(n=>n.type==="book").length, np = shown.filter(n=>n.type==="person").length, nu = shown.filter(n=>n.type==="uni").length;
+  d3.select("#edgeCount").text(links.length); d3.select("#isoCount").text(iso); d3.select("#thrV").text(thr.toFixed(2));
+  d3.select("#counts").text(`${nb} books · ${np} people · ${nu} institutions`);
+
+  edgeSel = gE.selectAll("line").data(links, l=>l.kind+l.source+"|"+l.target)
+    .join("line").attr("class",l=>"edge k-"+l.kind)
+    .attr("stroke-width", l=> l.kind==="hh"? 2.2 : (l.kind==="pu"||l.kind==="ub"||l.kind==="ou") ? .9 : .6 + l.w*2)
+    .attr("stroke", l=> l.kind==="th" ? col(l.col) : SOFT.has(l.kind) ? css("--person") : css("--edge"))
+    .attr("stroke-opacity", l=> .12 + l.w*.5)
+    .attr("stroke-dasharray", l=> l.kind==="imp" ? "2 3" : (l.kind==="pu"||l.kind==="ub"||l.kind==="ou") ? "1 2" : null)
+    .classed("ldim", l=>L[layerOf(l)]==="dim");
+
+  nodeSel = gN.selectAll("g.node").data(shown, d=>d.id).join(enter=>{
+    const n = enter.append("g").attr("class",d=>"node t-"+d.type+(d.type==="hub"?" hubn":""))
+      .attr("tabindex",0).attr("role","button").attr("aria-label",d=>d.t)
+      .on("click",(e,d)=>{e.stopPropagation(); select(d.id);})
+      .on("keydown",(e,d)=>{ if(e.key==="Enter"||e.key===" "){e.preventDefault(); select(d.id);} })
+      .on("mouseenter",function(){ d3.select(this).select("text").attr("display",null); })
+      .on("mouseleave",()=>labelVis())
+      .call(d3.drag().subject(e=>({x:e.x,y:e.y}))
+        .on("start",(e,d)=>{ if(!e.active) sim.alphaTarget(.2).restart(); d.fx=d.x; d.fy=d.y; d.fz=d.z; })
+        .on("drag",(e,d)=>{
+          // move the node in the plane facing the viewer: undo perspective, then undo the rotation
+          const dx=e.dx/d._s, dy=e.dy/d._s, cy=Math.cos(yaw), sy=Math.sin(yaw), cp=Math.cos(pitch), sp=Math.sin(pitch);
+          const y = dy*cp, z1 = -dy*sp;
+          d.fx += dx*cy - z1*sy; d.fy += y; d.fz += dx*sy + z1*cy; })
+        .on("end",(e,d)=>{ if(!e.active) sim.alphaTarget(0); d.fx=null; d.fy=null; d.fz=null; }));
+    n.append("path").attr("class","shape");
+    n.append("text");
+    return n;
+  });
+  nodeSel.select("path.shape").attr("d", d=>{
+      const rr=r(d);
+      if(d.type==="uni") return `M${-rr},${-rr}h${2*rr}v${2*rr}h${-2*rr}Z`;
+      if(d.type==="person"||d.type==="lab") return `M0,${-rr*1.3}L${rr*1.3},0L0,${rr*1.3}L${-rr*1.3},0Z`;
+      return d3.arc()({innerRadius:0,outerRadius:rr,startAngle:0,endAngle:2*Math.PI});
+    })
+    .attr("fill", d=> (d.type==="book"&&d.set==="sample")||d.type==="lab" ? css("--bg") : col(d.c))
+    .attr("stroke", d=> (d.type==="book"&&d.set==="sample")||d.type==="lab" ? col(d.c) : d.type==="book"&&(d.set==="commons"||d.set==="parrots") ? css("--hi") : css("--panel"))
+    .attr("stroke-width", d=> d.type==="lab" ? 2.5 : d.type==="book"&&d.set!=="mine" ? 2 : 1.5);
+  nodeSel.select("text").attr("x",d=>r(d)+4).attr("y",4)
+    .attr("font-size",d=>d.type==="hub"?(d.kind==="hub"?14:12.5):d.type==="uni"?11.5:11)
+    .attr("font-weight",d=>d.type==="uni"?600:null);
+  nodeSel.selectAll("circle.ring").remove();
+  nodeSel.filter(d=>d.type==="hub").insert("circle","text").attr("class","ring").attr("r",d=>r(d)+4)
+    .attr("fill","none").attr("stroke",d=>col(d.c)).attr("stroke-width",d=>d.kind==="hub"||d.kind==="member"?2.5:1.3)
+    .attr("stroke-dasharray",d=>d.kind==="cohub"?"4 3":d.kind==="member"?"1.5 3":null).style("pointer-events","none");
+  nodeSel.classed("ldim", d=> d.type!=="book" && L[nodeLayer(d)]==="dim");
+
+  sim.nodes(shown).force("link", d3.forceLink(links).id(d=>d.id)
+      .distance(l=> l.kind==="hh"? 160 : l.kind==="pu"? 45 : l.kind==="pb"? 30 : 30 + (1-l.w)*120)
+      .strength(l=> l.kind==="hh"? .5 : l.kind==="pu"? .4 : .12 + l.w*.45));
+  sim.on("tick",draw);
+  if(reheat) sim.alpha(typeof reheat==="number"?reheat:.8).restart();
+  draw(); highlight();
+}
+function short(t){ const s=t.split(":")[0]; return s.length>34? s.slice(0,32)+"…" : s; }
+function labelText(d){ return (ranks.has(d.id)&&!selected?`#${ranks.get(d.id)} `:"")+short(d.t); }
+function labelVis(){
+  if(!nodeSel) return;
+  nodeSel.select("text").text(labelText).attr("display", d=> (
+    (d.type==="hub" && L.hubs==="on") || (d.type==="uni" && (L.unis==="on" && (d.tamu || d.okind || k>.9))) || (d.type==="lab" && L.people==="on") ||
+    allLabels || k>1.7 || d.id===selected || (ranks.size&&!selected&&ranks.has(d.id)) ||
+    (spotlight && !selected && D.tamuSet.has(d.id) && d.type!=="book" ) || (themeFocus && !selected && themeSet.has(d.id)) ) ? null : "none");
+}
+function neighbors(id){
+  const out=[]; edgeSel.each(l=>{ if(l.source.id===id) out.push([l.target,l]); else if(l.target.id===id) out.push([l.source,l]); });
+  return out.sort((a,b)=>b[1].w-a[1].w);
+}
+function focusOn(set, edgeTest){
+  nodeSel.classed("dim", d=>!set.has(d.id));
+  edgeSel.classed("dim", l=>!edgeTest(l));
+}
+function highlight(){
+  if(!nodeSel) return;
+  const q = document.getElementById("q").value.trim().toLowerCase();
+  const hits = findHits(q);
+  const match = d => hits.has(d.id);
+  nodeSel.classed("match", match).classed("sel", d=>d.id===selected);
+  if(selected && nodeSel.data().some(d=>d.id===selected)){
+    const nb = new Set(neighbors(selected).map(x=>x[0].id)); nb.add(selected);
+    focusOn(nb, l=> l.source.id===selected || l.target.id===selected);
+  } else if(themeFocus){
+    themeSet = new Set(); edgeSel.each(l=>{ if(l.themeIds && l.themeIds.includes(themeFocus)){ themeSet.add(l.source.id); themeSet.add(l.target.id); } });
+    focusOn(themeSet, l=> !!(l.themeIds && l.themeIds.includes(themeFocus)));
+  } else if(spotlight){
+    focusOn(D.tamuSet, l=> D.tamuSet.has(l.source.id) && D.tamuSet.has(l.target.id));
+  } else if(ranks.size){
+    const set = new Set(ranks.keys());
+    D.links.forEach(l=>{ const s=l.source.id||l.source, t=l.target.id||l.target; if(l.kind==="bh" && ranks.has(s) && l.w>=.5) set.add(t); });
+    focusOn(set, l=> ranks.has(l.source.id)||ranks.has(l.target.id));
+  } else if(q){
+    nodeSel.classed("dim", d=>!match(d)); edgeSel.classed("dim", l=>!(match(l.source)&&match(l.target)));
+  } else { nodeSel.classed("dim",false); edgeSel.classed("dim",false); }
+  labelVis();
+}
+// Find: title, author, topic (note, publisher, hub themes) and lab/department/institution, all words must match
+function searchText(d){
+  if(d._st) return d._st;
+  let s = d.t+" "+(d.note||"")+" "+(d.okind||"")+" "+(d.tt||"");
+  if(d.type==="book"){
+    s += " "+d.a+" "+d.p+" "+Object.keys(d.hubs).map(h=>hubById[h].t+(d.hubs[h]>=.6?" "+(HUB_WORDS[h]||hubById[h].note||""):"")).join(" ")+" "+(d.set==="sample"?"a&m sample":"");
+    (AUTH[d.id]||[]).forEach(([n,inst,role,lab])=>{ s += " "+n+" "+(lab||"")+" "+(inst||"").split("|").map(u=>UNIS[u]||"").join(" "); });
+  } else if(d.type==="person"){ s += " "+d.labs.join(" ")+" "+[...d.insts].map(u=>UNIS[u]||u).join(" "); }
+  return d._st = s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"");
+}
+let lastQ = null;
+function findHits(q){
+  const out = new Set(); const list = document.getElementById("findList"), cnt = document.getElementById("findCount");
+  const terms = q.normalize("NFD").replace(/[̀-ͯ]/g,"").split(/\s+/).filter(Boolean);
+  const visible = new Set(nodeSel ? nodeSel.data().map(d=>d.id) : []);
+  const found = terms.length ? D.nodes.filter(d=>visible.has(d.id) && terms.every(t=>searchText(d).includes(t))) : [];
+  found.forEach(d=>out.add(d.id));
+  const thHits = terms.length ? Object.values(THEMES).filter(th=>{ const x=(th.t+" "+th.note).toLowerCase(); return terms.every(t=>x.includes(t)); }) : [];
+  if(edgeSel) thHits.forEach(th=>edgeSel.each(l=>{ if(l.themeIds && l.themeIds.includes(th.id)){ out.add(l.source.id); out.add(l.target.id); } }));
+  const key = q+"|"+visible.size;
+  if(key!==lastQ){
+    lastQ = key;
+    const order = {book:0, person:1, uni:2, hub:3};
+    found.sort((a,b)=>order[a.type]-order[b.type] || a.t.localeCompare(b.t));
+    cnt.hidden = !terms.length;
+    const nb = found.filter(d=>d.type==="book").length;
+    cnt.textContent = `${found.length} matches · ${nb} books`;
+    const label = {book:"book", person:"person", uni:"place", hub:"hub"};
+    list.innerHTML = thHits.map(th=>`<li data-theme="${esc(th.id)}"><span class="w">theme</span><span>${esc(th.t)}<span class="why">Connection theme of ${esc((hubById[th.of]||{}).t||"a joining node")}</span></span></li>`).join("") + found.slice(0,25).map(d=>`<li data-id="${esc(d.id)}"><span class="w">${label[d.type]}</span><span>${esc(short(d.t))}${d.type==="book"?`<span class="why">${esc(d.a)}</span>`:d.type==="person"&&d.labs.length?`<span class="why">${esc(d.labs[0])}</span>`:""}</span></li>`).join("")
+      + (found.length>25?`<li><span></span><span class="hint">${found.length-25} more highlighted in the network</span></li>`:"")
+      + (terms.length && !found.length ? '<li><span></span><span class="hint">No matches. People and universities are searched only while their layers are on.</span></li>' : "");
+    list.querySelectorAll("li[data-id]").forEach(li=>li.onclick=()=>select(li.dataset.id));
+    list.querySelectorAll("li[data-theme]").forEach(li=>li.onclick=()=>{ $q().value=""; setTheme(li.dataset.theme); });
+  }
+  return out;
+}
+function esc(s){ return String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c])); }
+const KIND_NAME = {hub:"hub",cohub:"co-hub",side:"side hub",member:"joining node"};
+function select(id){
+  selected = id; const d = D.nodes.find(n=>n.id===id); const box = document.getElementById("detail");
+  if(!d){ box.innerHTML='<p class="hint">Select a node.</p>'; highlight(); return; }
+  let head="", meta="", pills="";
+  if(d.type==="book"){
+    head="Book"+({sample:" · A&amp;M sample",mine:" · founding shelf",commons:" · added to the commons",parrots:" · The Parrots Project"}[d.set]||"");
+    meta=`<p class="meta">${esc(d.a)}${d.yr?" · "+esc(d.yr):""}${d.p?" · "+esc(d.p):""}</p>`;
+    pills = ({ok:'<span class="pill ok">verified</span>',likely:'<span class="pill likely">best match</span>',unv:'<span class="pill unv">unconfirmed</span>',user:'<span class="pill likely">contributed</span>'}[d.s]||"")
+      + (D.tamuSet.has(d.id)?'<span class="pill tamu">Texas A&amp;M tie</span>':"");
+  } else if(d.type==="person"){
+    head="Person"; meta=`<p class="meta">${[...d.insts].map(u=>esc(UNIS[u]||u)).join(" · ")}</p>`;
+    pills = d.tamu?'<span class="pill tamu">Texas A&amp;M</span>':"";
+  } else if(d.type==="uni"){ head=d.okind?"Organization":"Institution"; pills = (d.okind?`<span class="pill">${esc(d.okind)}</span>`:"")+(d.tamu?'<span class="pill tamu">Texas A&amp;M</span>':"")+(d.okind&&!d.onSite?'<span class="pill likely">suggested link</span>':""); }
+  else if(d.type==="lab"){ head="Lab / project"; pills = '<span class="pill">lab</span>'+(d.tamu?'<span class="pill tamu">Texas A&amp;M</span>':"")+(!d.onSite?'<span class="pill likely">suggested link</span>':""); }
+  else { head="Hub"; pills=`<span class="pill" style="color:${col(d.c)}">${KIND_NAME[d.kind]}</span>`+(d.forkOf?'<span class="pill likely">fork</span>':""); }
+  const body = d.type==="person" ? (d.labs.length? esc([...new Set(d.labs)].join(". ")) : "") : esc(d.note||"");
+  const nbs = neighbors(id);
+  box.innerHTML = `<p class="lbl">${head}</p><h2>${esc(d.t)}</h2>${meta}<p>${pills}</p>${body?`<p>${body}</p>`:""}
+    <p class="lbl">${nbs.length} links at ≥ ${thr.toFixed(2)}</p>
+    <ul class="links">${nbs.map(([n,l])=>`<li data-id="${esc(n.id)}"><span class="w">${l.w.toFixed(2)}</span><span>${esc(short(n.t))}<span class="why">${esc(l.why)}</span></span></li>`).join("") || '<li><span></span><span class="hint">Nothing visible this relevant. Lower the threshold or turn on more layers.</span></li>'}</ul>`;
+  box.querySelectorAll("li[data-id]").forEach(li=>li.onclick=()=>select(li.dataset.id));
+  detailActions(d);
+  highlight();
+}
+function clearSel(){ selected=null; document.getElementById("detail").innerHTML='<p class="hint">Select a node to see its links, who added it, and its discussions.</p>'; highlight(); if(!document.getElementById("panel-forum").hidden) renderThreads(); }
+svg.on("click",clearSel);
+
+// ---------- RANK BY A SHORT BRIEF ----------
+const HUB_WORDS = {
+  deep:"fossil fossils geology geologic time stratigraphy paleontology earth history extinction sediment rock strata ancient record dating",
+  eco:"ecology ecological ecosystem community communities environment nature philosophy ethics conservation land change soil",
+  teach:"teaching teach education learning students pedagogy research writing argument philosophy classroom curriculum",
+  evo:"evolution evolutionary darwin speciation adaptation selection development macroevolution species theory",
+  cx:"complexity complex chaos nonlinear dynamics pattern self organization systems emergence",
+  mind:"mind language meaning semiotics sign culture cognition consciousness phenomenology perception poetry",
+  paly:"spore spores pollen palynology coal swamp pennsylvanian carboniferous illinois basin correlation paleobotany",
+  place:"texas south dakota wisconsin southwest landscape region regional local place",
+  field:"field guide insects invertebrates plants animals identify observe natural history",
+  lab:"isotope isotopes geochemistry chemistry instrument analysis measurement cell microscopy laboratory method",
+  comp:"computer computing programming software algorithm algorithms artificial intelligence machine learning neural code data",
+  phys:"physics chemistry quantum statistics mathematics math equations inorganic regression",
+  soc:"society history politics government economics race inequality nation power social",
+  eng:"engineering energy oil petroleum gas reservoir fluid design building architecture",
+  ag:"agriculture farming food crops soil livestock animals plants hunger",
+  sea:"ocean oceans sea marine coast coastal gulf mexico shipwreck",
+  arch:"archaeology archaeological ancient prehistoric shipwreck sites first americans"
+};
+const STOP = new Set("a an and the of to in on for with from by as at or is are be how what that this those these into i want my me we our it its about through their them they would like do can".split(" "));
+const stem = w => w.replace(/(ies)$/,"y").replace(/(ing|ed|es|s)$/,"").slice(0,7);
+const toks = s => (s.toLowerCase().match(/[a-z]{3,}/g)||[]).filter(w=>!STOP.has(w)).map(stem);
+function rankBrief(){
+  const raw=(document.getElementById("brief").value.toLowerCase().match(/[a-z]{3,}/g)||[]).filter(w=>!STOP.has(w));
+  const orig={}; raw.forEach(w=>orig[stem(w)]??=w); const q=Object.keys(orig);
+  ranks = new Map(); const list = document.getElementById("ranked");
+  if(!q.length){ list.innerHTML=""; highlight(); return; }
+  const pool = D.books.filter(b=>shelf==="both"||b.set===shelf);
+  const scored = pool.map(b=>{
+    const title=new Set(toks(b.t)), note=new Set(toks(b.note+" "+b.a+" "+b.p+" "+(b.tt||""))); let s=0; const hits=new Set();
+    q.forEach(w=>{ if(title.has(w)){s+=3;hits.add(w);} if(note.has(w)){s+=2;hits.add(w);}
+      for(const h in b.hubs){ const hw=new Set(toks(hubById[h].t+" "+(HUB_WORDS[h]||hubById[h].note||""))); if(hw.has(w)){ s+=1.5*b.hubs[h]; hits.add(w);} } });
+    return {b,s,hits};
+  }).filter(x=>x.s>0).sort((a,b)=>b.s-a.s).slice(0,12);
+  const top = scored[0]?.s||1;
+  scored.forEach((x,i)=>ranks.set(x.b.id,i+1));
+  list.innerHTML = scored.map((x,i)=>`<li data-id="${esc(x.b.id)}"><span class="w">#${i+1} ${(x.s/top).toFixed(2)}</span><span>${esc(short(x.b.t))}<span class="why">matches ${esc([...x.hits].map(w=>orig[w]).slice(0,5).join(", "))}</span></span></li>`).join("") || '<li><span></span><span class="hint">No books match yet. Try naming a topic, place or method.</span></li>';
+  list.querySelectorAll("li[data-id]").forEach(li=>li.onclick=()=>select(li.dataset.id));
+  highlight();
+}
+
+// ---------- CONTROLS ----------
+const legend = document.getElementById("legend");
+function syncButtons(){
+  document.querySelectorAll("[data-layer]").forEach(b=>b.setAttribute("aria-pressed", L[b.dataset.layer]===b.dataset.mode));
+  document.querySelectorAll("[data-shelf]").forEach(b=>b.setAttribute("aria-pressed", shelf===b.dataset.shelf));
+  document.getElementById("spot").setAttribute("aria-pressed", spotlight);
+}
+function setLayer(layer,mode){ L[layer]=mode; syncButtons(); render(); if(selected) select(selected); }
+document.querySelectorAll("[data-layer]").forEach(b=>b.onclick=()=>setLayer(b.dataset.layer,b.dataset.mode));
+document.querySelectorAll("[data-shelf]").forEach(b=>b.onclick=()=>{ shelf=b.dataset.shelf; syncButtons(); render(); rankBrief(); });
+const PRESETS = {
+  hub:{hubs:"on",bb:"on",people:"off",unis:"off"},
+  lib:{hubs:"off",bb:"on",people:"off",unis:"off"},
+  people:{hubs:"dim",bb:"dim",people:"on",unis:"on"},
+  all:{hubs:"on",bb:"on",people:"on",unis:"on"}
+};
+document.querySelectorAll("[data-preset]").forEach(b=>b.onclick=()=>{ Object.assign(L,PRESETS[b.dataset.preset]); syncButtons(); render(); if(selected) select(selected); });
+document.getElementById("spot").onclick=()=>{
+  spotlight=!spotlight;
+  if(spotlight && L.people==="off"){ L.people="on"; L.unis="on"; }
+  selected=null; syncButtons(); render(); clearSel();
+};
+document.getElementById("thr").oninput=e=>{ thr=+e.target.value; render(); if(selected) select(selected); };
+document.getElementById("q").oninput=highlight;
+document.getElementById("labels").onclick=e=>{ allLabels=!allLabels; e.target.setAttribute("aria-pressed",allLabels); labelVis(); };
+function fit(){ const [w,h]=size(); svg.transition().duration(500).call(zoom.transform, d3.zoomIdentity.translate(w/2,h/2).scale(w<500?.7:1.05)); }
+document.getElementById("fit").onclick=()=>{ yaw=0; pitch=-.25; draw(); fit(); };
+document.getElementById("spin").onclick=()=>setSpin(!spinning);
+document.getElementById("copyJson").onclick=()=>{
+  const json = JSON.stringify({hubs:HUBS.map(({id,t,kind,c,note,forkOf})=>({id,t,kind,color:c,note,forkOf})), hubLinks:HUB_LINKS, institutions:UNIS,
+    books:BOOKS.map(b=>({id:b[0],title:b[1],author:b[2],year:b[3],publisher:b[4],status:b[5],note:b[6],hubs:b[7],shelf:b[8],people:AUTH[b[0]]||[]})), bookLinks:BOOK_LINKS},null,1);
+  const ta=document.getElementById("jsonFallback");
+  navigator.clipboard.writeText(json).then(()=>{ document.getElementById("copyJson").textContent="Copied"; setTimeout(()=>document.getElementById("copyJson").textContent="Copy network JSON",1600); })
+    .catch(()=>{ ta.hidden=false; ta.value=json; ta.select(); });
+};
+let rankedOnce=false;
+document.getElementById("runBrief").onclick=()=>{ rankedOnce=true; selected=null; spotlight=false; syncButtons(); rankBrief(); };
+document.getElementById("clearBrief").onclick=()=>{ document.getElementById("brief").value=""; rankBrief(); };
+matchMedia("(prefers-color-scheme: dark)").addEventListener?.("change",()=>render(false));
+new MutationObserver(()=>render(false)).observe(document.documentElement,{attributes:true,attributeFilter:["data-theme"]});
+syncButtons(); render(); fit();
+// ---------- COMMONS: shared data, contributions, forum ----------
+let dbx = null, userx = null, myId = null, canWrite = null, isAdmin = false, readOnly = false;
+const C = {hubs:new Map(), books:new Map(), orgs:new Map(), names:{}, threads:new Map(), loaded:{hubs:false,books:false}};
+const $ = id => document.getElementById(id);
+const PALETTE = [["Clay","#9a5b3f"],["Moss","#557a2f"],["Lake","#2f8a86"],["Dusk","#6d5a8f"],["Ochre","#a8741a"],["Slate","#5a6b80"],["Rose","#b0476a"],["Deep sea","#1f7896"],["Olive","#6b6b24"]];
+const STRENGTHS = [["1","Very relevant"],["0.7","Relevant"],["0.45","Somewhat"],["0.25","Peripheral"]];
+const safeUrl = u => { u=(u||"").trim(); try { const x=new URL(u); return /^https?:$/.test(x.protocol) ? x.href : ""; } catch(_) { return ""; } };
+const idFrom = (t) => (t.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"").slice(0,40) || "item") + "-" + Date.now().toString(36);
+const when = ms => { if(!ms) return ""; const d=(Date.now()-ms)/1000; if(d<60) return "just now"; if(d<3600) return Math.floor(d/60)+" min ago"; if(d<86400) return Math.floor(d/3600)+" h ago"; if(d<86400*30) return Math.floor(d/86400)+" d ago"; return new Date(ms).toLocaleDateString(); };
+
+function setStatus(kind, text){ const s=$("status"); s.dataset.kind=kind; s.querySelector("span").textContent=text; }
+function flash(text){ $("formMsg").textContent=text; }
+
+// names of contributors: store ids only, resolve every render
+async function names(ids){
+  ids = [...new Set(ids.filter(Boolean))];
+  if(!userx || !ids.length) return {};
+  try { return await userx.profiles(ids); } catch(_) { return {}; }
+}
+async function fillNames(root){
+  const els = [...root.querySelectorAll("[data-uid]")];
+  const ps = await names(els.map(e=>e.dataset.uid));
+  els.forEach(e=>{ const p=ps[e.dataset.uid]; e.textContent = (p && p.isMe) ? "you" : (p && p.name) || "a contributor"; });
+}
+
+// rebuild the network from the shared documents
+let applyTimer = null;
+function scheduleApply(){ clearTimeout(applyTimer); applyTimer = setTimeout(applyCommons, 120); }
+function applyCommons(){
+  const hubDocs=[...C.hubs.values()], bookDocs=[...C.books.values()];
+  const isTheme = h => h.role==="theme";
+  THEMES = {}; hubDocs.filter(isTheme).forEach(h=>{ THEMES[h.id]={id:h.id,t:h.t||"Untitled theme",note:h.note||"",of:h.of||"",targets:h.parents||{},by:h.createdBy||null,starter:!!h.starter}; });
+  HUBS = hubDocs.filter(h=>!isTheme(h)).sort((a,b)=>(a.createdAt||0)-(b.createdAt||0)).map(h=>({id:h.id,t:h.t||"Untitled hub",kind:["hub","cohub","side","member"].includes(h.kind)?h.kind:"side",c:h.color||"--c-lab",note:h.note||"",url:safeUrl(h.url),forkOf:h.forkOf||null,by:h.createdBy||null,at:h.createdAt||0,starter:!!h.starter}));
+  hubById = Object.fromEntries(HUBS.map(h=>[h.id,h]));
+  HUB_LINKS=[]; hubDocs.filter(h=>!isTheme(h)).forEach(h=>Object.entries(h.parents||{}).forEach(([p,w])=>{ if(hubById[p] && p!==h.id) HUB_LINKS.push([p,h.id,+w||.5]); }));
+  BOOKS = bookDocs.map(b=>{
+    const hubs={}, themes={}; Object.entries(b.hubs||{}).forEach(([h,w])=>{ if(hubById[h]) hubs[h]=+w||.5; else if(THEMES[h]) themes[h]=+w||.5; });
+    return [b.id,b.t||"Untitled",b.a||"",b.y||"",b.p||"",b.s||"user",b.note||"",hubs,b.shelf||"commons",{by:b.createdBy||null,at:b.createdAt||0,starter:!!b.starter,url:safeUrl(b.url),themes}];
+  });
+  BOOK_LINKS=[]; bookDocs.forEach(b=>(b.links||[]).forEach(l=>{ if(l && C.books.has(l.to) && l.to!==b.id) BOOK_LINKS.push([b.id,l.to,+l.w||.5,l.why||"Related"]); }));
+  AUTH={}; bookDocs.forEach(b=>{ if(Array.isArray(b.people)&&b.people.length) AUTH[b.id]=b.people.filter(p=>p&&p.name).map(p=>[String(p.name),String(p.inst||"").replace(/\|+/g,"|"),p.role||"author",p.lab||""]); });
+  UNIS = C.names||{};
+  ORGS = [...C.orgs.values()].map(o=>({...o, url:safeUrl(o.url), hubs:Object.fromEntries(Object.entries(o.hubs||{}).filter(([h])=>hubById[h])), themes:Object.fromEntries(Object.entries(o.hubs||{}).filter(([h])=>THEMES[h])), items:Array.isArray(o.items)?o.items:[], members:Array.isArray(o.members)?o.members:[], affil:Array.isArray(o.affil)?o.affil:[]}));
+  const prev = new Map(D.nodes.map(n=>[n.id,n]));
+  D = buildData();
+  D.nodes.forEach(n=>{ const p=prev.get(n.id); if(p && p.x!==undefined){ n.x=p.x; n.y=p.y; n.z=p.z; n.vx=p.vx; n.vy=p.vy; n.vz=p.vz; } });
+  refreshLegend(); refreshThemes(); refreshForms(); render(prev.size ? .25 : .8); refreshRecent(); renderThreads();
+  if(C.loaded.hubs && C.loaded.books) setStatus("live", `Live · ${HUBS.length} hubs · ${C.books.size} works · ${C.orgs.size} organizations · ${readOnly||canWrite===false?"read only":"you can contribute"}`);
+  if(selected){ if(D.nodes.some(n=>n.id===selected)) select(selected); else clearSel(); }
+  if(rankedOnce) rankBrief();
+  const empty = !HUBS.length && !BOOKS.length;
+  $("emptyState").hidden = !(empty && C.loaded.hubs && C.loaded.books);
+}
+
+const $q = () => document.getElementById("q");
+function setTheme(id){
+  themeFocus = (themeFocus===id) ? null : id; selected=null; spotlight=false; syncButtons();
+  if(themeFocus && L.hubs==="off") L.hubs="on";
+  document.querySelectorAll("#themeChips button").forEach(b=>b.setAttribute("aria-pressed", b.dataset.theme===themeFocus));
+  const th = THEMES[themeFocus];
+  $("themeNote").textContent = th ? th.note : "How a joining node connects to the rest of the commons. Pick a theme to light up the links it makes.";
+  showTab("explore"); render(false); clearSel();
+}
+function refreshThemes(){
+  const box=$("themeChips"); box.innerHTML="";
+  const by={}; Object.values(THEMES).forEach(th=>{ if(hubById[th.of]) (by[th.of]=by[th.of]||[]).push(th); });
+  $("themeSec").hidden = !Object.keys(by).length;
+  Object.entries(by).forEach(([of,list])=>{
+    const g=document.createElement("div"); const lab=document.createElement("p"); lab.className="grp"; lab.textContent=hubById[of].t; g.appendChild(lab);
+    const row=document.createElement("div"); row.className="chiprow";
+    list.forEach(th=>{ const b=document.createElement("button"); b.dataset.theme=th.id; b.textContent=th.t; b.setAttribute("aria-pressed", th.id===themeFocus); b.onclick=()=>setTheme(th.id); row.appendChild(b); });
+    g.appendChild(row); box.appendChild(g);
+  });
+  if(themeFocus && !THEMES[themeFocus]) themeFocus=null;
+}
+function refreshLegend(){
+  const legend=$("legend"); legend.innerHTML="";
+  HUBS.forEach(h=>{ const s=document.createElement("span"); const dot=document.createElement("i"); dot.className="dot"; dot.style.background=col(h.c); s.append(dot, document.createTextNode(short(h.t))); s.style.cursor="pointer"; s.onclick=()=>{ if(L.hubs==="off") setLayer("hubs","on"); select(h.id); }; legend.appendChild(s); });
+}
+function hubOptions(sel, withNone, withThemes){
+  const keep = sel.value; sel.innerHTML = withNone ? '<option value="">None</option>' : "";
+  HUBS.forEach(h=>sel.add(new Option(h.t,h.id)));
+  if(withThemes && Object.keys(THEMES).length){ const og=document.createElement("optgroup"); og.label="Connection themes"; Object.values(THEMES).forEach(th=>og.appendChild(new Option(th.t+" ("+((hubById[th.of]||{}).t||"")+")",th.id))); sel.appendChild(og); }
+  if([...sel.options].some(o=>o.value===keep)) sel.value=keep;
+}
+function strengthOptions(sel, def){ if(sel.options.length) return; STRENGTHS.forEach(([v,t])=>sel.add(new Option(t,v))); sel.value=def||"0.7"; }
+function refreshForms(){
+  document.querySelectorAll(".hubSel").forEach((s,i)=>hubOptions(s, i>0, true));
+  document.querySelectorAll(".wSel").forEach(s=>strengthOptions(s));
+  hubOptions($("hParent"), true); strengthOptions($("hW")); hubOptions($("fFrom")); hubOptions($("oHub"), false, true); strengthOptions($("oW"));
+  if(!$("hColor").options.length) PALETTE.forEach(([n,v])=>$("hColor").add(new Option(n,v)));
+  $("bookList").innerHTML = BOOKS.map(b=>`<option value="${esc(b[1])}"></option>`).join("");
+  const inst = new Set(Object.values(UNIS)); D.unis.forEach(u=>inst.add(u.t));
+  $("instList").innerHTML = [...inst].sort().map(n=>`<option value="${esc(n)}"></option>`).join("");
+}
+async function refreshRecent(){
+  const items = [...HUBS.filter(h=>!h.starter).map(h=>({id:h.id,t:h.t,kind:"hub",by:h.by,at:h.at})),
+    ...BOOKS.filter(b=>!b[9].starter).map(b=>({id:b[0],t:b[1],kind:"book",by:b[9].by,at:b[9].at}))].sort((a,b)=>b.at-a.at).slice(0,10);
+  const ul=$("recent");
+  ul.innerHTML = items.length ? items.map(x=>`<li data-id="${esc(x.id)}"><span class="w">${x.kind}</span><span>${esc(short(x.t))}<span class="why"><span data-uid="${esc(x.by||"")}">a contributor</span> · ${esc(when(x.at))}</span></span></li>`).join("")
+    : '<li><span></span><span class="hint">Nothing added yet beyond the founding set. Be the first.</span></li>';
+  ul.querySelectorAll("li[data-id]").forEach(li=>li.onclick=()=>{ showTab("explore"); select(li.dataset.id); });
+  fillNames(ul);
+}
+
+// ---- writing ----
+function canDelete(by, starter){ return isAdmin || (!starter && by && by===myId); }
+async function write(fn, okText){
+  if(!dbx){ flash("The commons isn't connected, so nothing was saved."); return false; }
+  try { await fn(); if(okText) flash(okText); return true; }
+  catch(e){
+    if(e && e.code==="invalid_argument" && !readOnly){ readOnly=true; applyRO(); flash("This account can't add to the commons. Ask the owner for Contributor access."); }
+    else if(e && e.code==="quota_exceeded") flash("The commons is full: "+(e.message||"storage limit reached")+". Remove something before adding more.");
+    else flash("Couldn't save that. Check your connection and try again.");
+    return false;
+  }
+}
+function applyRO(){
+  const ro = readOnly || canWrite===false || !dbx;
+  $("roNote").hidden = !ro;
+  document.querySelectorAll(".cform button[type=submit], #newThreadBtn").forEach(b=>b.disabled=ro);
+}
+function titleToId(t){ t=t.trim().toLowerCase(); const b=BOOKS.find(x=>x[1].toLowerCase()===t); return b?b[0]:null; }
+function instKey(name){ name=name.trim().replace(/\|/g," "); if(!name) return ""; const hit=Object.entries(UNIS).find(([k,v])=>v.toLowerCase()===name.toLowerCase()); return hit?hit[0]:name; }
+
+$("formBook").onsubmit = async e=>{
+  e.preventDefault(); const t=$("bTitle").value.trim(); if(!t) return;
+  const hubs={}; document.querySelectorAll(".hubrow").forEach(r=>{ const h=r.querySelector(".hubSel").value, w=+r.querySelector(".wSel").value; if(h) hubs[h]=Math.max(hubs[h]||0,w); });
+  const links=[]; const rel=$("bRel").value.trim(); if(rel){ const to=titleToId(rel); if(!to){ flash("Pick the related book from the suggestions, or leave it blank."); return; } links.push({to,w:.6,why:$("bWhy").value.trim()||"Related"}); }
+  const people=[]; const pn=$("bPerson").value.trim(); if(pn) people.push({name:pn,inst:instKey($("bInst").value),role:$("bRole").value,lab:$("bLab").value.trim()});
+  const id=idFrom(t);
+  const ok = await write(()=>dbx.collection("books").doc(id).set({t,a:$("bAuthor").value.trim(),y:$("bYear").value.trim(),p:$("bPub").value.trim(),s:"user",note:$("bNote").value.trim(),hubs,links,people,shelf:"commons",createdBy:myId,createdAt:Date.now()}), `Added “${t}”.`);
+  if(ok){ e.target.reset(); refreshForms(); goTo(id); }
+};
+$("formHub").onsubmit = async e=>{
+  e.preventDefault(); const t=$("hName").value.trim(); if(!t) return;
+  const parents={}; if($("hParent").value) parents[$("hParent").value]=+$("hW").value;
+  const id=idFrom(t);
+  if($("hKind").value==="theme"){
+    const of=$("hParent").value; if(!of || (hubById[of]||{}).kind!=="member"){ flash("A connection theme needs a joining node under “Connects to”."); return; }
+    const ok = await write(()=>dbx.collection("hubs").doc(id).set({t,role:"theme",of,note:$("hNote").value.trim(),parents:{},createdBy:myId,createdAt:Date.now()}), `Added the theme “${t}”. Attach works and organizations to it to make its links.`);
+    if(ok){ e.target.reset(); refreshThemes(); }
+    return;
+  }
+  const ok = await write(()=>dbx.collection("hubs").doc(id).set({t,kind:$("hKind").value,color:$("hColor").value,note:$("hNote").value.trim(),url:safeUrl($("hUrl").value),parents,createdBy:myId,createdAt:Date.now()}), `Added the hub “${t}”.`);
+  if(ok){ e.target.reset(); goTo(id); }
+};
+$("formOrg").onsubmit = async e=>{
+  e.preventDefault(); const t=$("oName").value.trim(); if(!t) return;
+  const items=[]; const it=$("oItem").value.trim(); if(it){ const to=titleToId(it); if(!to){ flash("Pick the related work from the suggestions, or leave it blank."); return; } items.push({to,w:.7,why:"Related"}); }
+  const members=[]; const mn=$("oMember").value.trim(); if(mn) members.push({name:mn,role:$("oRole").value.trim()});
+  const id=idFrom(t);
+  const ok = await write(()=>dbx.collection("orgs").doc(id).set({t,kind:$("oKind").value,url:safeUrl($("oUrl").value),note:$("oNote").value.trim(),hubs:{[$("oHub").value]:+$("oW").value},items,members,affil:[],onSite:true,createdBy:myId,createdAt:Date.now()}), `Added “${t}”.`);
+  if(ok){ e.target.reset(); goTo("o_"+id); }
+};
+$("formFork").onsubmit = async e=>{
+  e.preventDefault(); const from=hubById[$("fFrom").value], t=$("fName").value.trim(); if(!from||!t) return;
+  const id=idFrom(t);
+  const ok = await write(()=>dbx.collection("hubs").doc(id).set({t,kind:from.kind,color:from.c,note:$("fNote").value.trim()||("Fork of "+from.t),parents:{[from.id]:.9},forkOf:from.id,createdBy:myId,createdAt:Date.now()}), `Forked “${from.t}” as “${t}”.`);
+  if(!ok) return;
+  if($("fBooks").checked){
+    const members = BOOKS.filter(b=>b[7][from.id]);
+    let n=0; for(const b of members){ const done = await write(()=>dbx.collection("books").doc(b[0]).update({hubs:{[id]:b[7][from.id]}})); if(!done) break; n++; flash(`Forked “${from.t}”. Bringing books along: ${n} of ${members.length}`); }
+    flash(`Forked “${from.t}” as “${t}” with ${n} books.`);
+  }
+  e.target.reset(); goTo(id);
+};
+let pendingSelect = null;
+function goTo(id){ setTimeout(()=>{ if(D.nodes.some(n=>n.id===id)){ showTab("explore"); select(id); } else pendingSelect=id; }, 350); }
+document.querySelectorAll("[data-form]").forEach(b=>b.onclick=()=>{
+  document.querySelectorAll("[data-form]").forEach(x=>x.setAttribute("aria-pressed", x===b));
+  $("formBook").hidden = b.dataset.form!=="book"; $("formHub").hidden = b.dataset.form!=="hub"; $("formOrg").hidden = b.dataset.form!=="org"; $("formFork").hidden = b.dataset.form!=="fork"; flash("");
+});
+
+// actions in the detail panel
+async function attachToHub(bookId, hubId, w){ await write(()=>dbx.collection("books").doc(bookId).update({hubs:{[hubId]:w}}), "Attached."); }
+async function linkBooks(fromId, toTitle, why){
+  const to = titleToId(toTitle); if(!to){ flash("Pick a book from the suggestions."); return; }
+  const doc = C.books.get(fromId); const links = (doc.links||[]).filter(l=>l.to!==to).concat([{to,w:.6,why:why||"Related"}]);
+  await write(()=>dbx.collection("books").doc(fromId).update({links}), "Linked.");
+}
+async function removeItem(kind, id){
+  await write(()=>dbx.collection(kind==="hub"?"hubs":"books").doc(id).delete(), "Removed.");
+  clearSel();
+}
+function detailActions(d){
+  const box=$("detail"); const wrap=document.createElement("div"); wrap.className="actions";
+  const meta = d.type==="book" ? BOOKS.find(b=>b[0]===d.id)?.[9] : d.type==="hub" ? hubById[d.id] : null;
+  if(meta){
+    const p=document.createElement("p"); p.className="meta";
+    if(meta.starter) p.textContent = "Part of the founding set";
+    else { p.append("Added by "); const s=document.createElement("span"); s.dataset.uid=meta.by||""; s.textContent="a contributor"; p.append(s, " · "+when(meta.at)); }
+    if(d.type==="hub" && d.forkOf && hubById[d.forkOf]) p.append(" · fork of "+hubById[d.forkOf].t);
+    wrap.appendChild(p);
+    if(meta.url){ const a=document.createElement("a"); a.href=meta.url; a.target="_blank"; a.rel="noopener"; a.className="ext"; a.textContent="Visit "+new URL(meta.url).hostname.replace(/^www\./,"")+" ↗"; wrap.appendChild(a); }
+  }
+  if((d.type==="uni"||d.type==="lab") && d.url){ const a=document.createElement("a"); a.href=d.url; a.target="_blank"; a.rel="noopener"; a.className="ext"; a.textContent="Visit "+new URL(d.url).hostname.replace(/^www\./,"")+" ↗"; wrap.appendChild(a); }
+  const n = [...C.threads.values()].filter(t=>t.about===d.id).length;
+  const disc=document.createElement("button"); disc.className="act"; disc.textContent = n ? `Discussions (${n})` : "Start a discussion";
+  disc.onclick=()=>{ showTab("forum"); $("fFilter").value="sel"; if(!n) openThreadForm(); renderThreads(); };
+  const row=document.createElement("div"); row.className="row"; row.appendChild(disc);
+  const ro = readOnly || canWrite===false || !dbx;
+  if(d.type==="hub" && !ro){ const f=document.createElement("button"); f.className="act"; f.textContent="Fork this hub"; f.onclick=()=>{ showTab("contribute"); document.querySelector('[data-form="fork"]').click(); $("fFrom").value=d.id; $("fName").focus(); }; row.appendChild(f); }
+  wrap.appendChild(row);
+  if(d.type==="book" && !ro){
+    const a=document.createElement("form"); a.className="mini";
+    a.innerHTML='<p class="lbl">Attach to a hub</p><div class="row"><select class="hubSel2" aria-label="Hub"></select><select class="wSel2" aria-label="Relevance"></select></div><button class="act" type="submit">Attach</button>';
+    const hs=a.querySelector(".hubSel2"); hubOptions(hs, false, true); const ws=a.querySelector(".wSel2"); strengthOptions(ws);
+    a.onsubmit=ev=>{ ev.preventDefault(); attachToHub(d.id, hs.value, +ws.value); };
+    const l=document.createElement("form"); l.className="mini";
+    l.innerHTML='<p class="lbl">Link to another book</p><input type="text" list="bookList" placeholder="Title" aria-label="Book title"><input type="text" placeholder="Why they connect" aria-label="Reason"><button class="act" type="submit">Link</button>';
+    l.onsubmit=ev=>{ ev.preventDefault(); const [t,w]=l.querySelectorAll("input"); linkBooks(d.id,t.value,w.value.trim()); };
+    wrap.append(a,l);
+  }
+  if(meta && (d.type==="book"||d.type==="hub") && !ro && canDelete(meta.by, meta.starter)){
+    const del=document.createElement("button"); del.className="act danger"; del.textContent="Remove from the commons";
+    del.onclick=()=>{ if(del.dataset.armed){ removeItem(d.type, d.id); } else { del.dataset.armed="1"; del.textContent="Click again to remove"; setTimeout(()=>{ del.dataset.armed=""; del.textContent="Remove from the commons"; },4000); } };
+    wrap.appendChild(del);
+  }
+  box.insertBefore(wrap, box.querySelector(".lbl:last-of-type"));
+  fillNames(wrap);
+}
+
+// ---- forum ----
+let openThread = null, postsUnsub = null, postsCache = [];
+function openThreadForm(){
+  $("threadForm").hidden=false; $("newThreadBtn").hidden=true;
+  const d = selected && D.nodes.find(n=>n.id===selected);
+  $("tAboutWrap").hidden = !d; if(d) $("tAboutLabel").textContent = "About: "+short(d.t);
+  $("tTitle").focus();
+}
+$("newThreadBtn").onclick=openThreadForm;
+$("cancelThread").onclick=()=>{ $("threadForm").hidden=true; $("newThreadBtn").hidden=false; };
+$("fFilter").onchange=renderThreads;
+$("threadForm").onsubmit = async e=>{
+  e.preventDefault(); const title=$("tTitle").value.trim(), body=$("tBody").value.trim(); if(!title||!body) return;
+  const d = selected && $("tAbout").checked && !$("tAboutWrap").hidden ? D.nodes.find(n=>n.id===selected) : null;
+  const id = idFrom(title); const now=Date.now();
+  const ok = await write(()=>dbx.collection("threads").doc(id).set({title,body,about:d?d.id:null,aboutTitle:d?d.t:null,createdBy:myId,createdAt:now,lastAt:now,replyCount:0}));
+  if(ok){ e.target.reset(); $("threadForm").hidden=true; $("newThreadBtn").hidden=false; showThread(id); }
+};
+async function renderThreads(){
+  const f=$("fFilter").value;
+  let list=[...C.threads.values()].sort((a,b)=>(b.lastAt||0)-(a.lastAt||0));
+  if(f==="sel") list = selected ? list.filter(t=>t.about===selected) : [];
+  if(f==="general") list = list.filter(t=>!t.about);
+  $("forumCount").textContent = C.threads.size ? C.threads.size : "";
+  const ul=$("threads");
+  const emptyMsg = f==="sel" ? (selected ? "No threads about this item yet. Start one." : "Select something in the network first.") : "No threads yet. Start the first conversation.";
+  ul.innerHTML = list.length ? list.map(t=>`<li data-id="${esc(t.id)}"><b>${esc(t.title)}</b>${t.about?`<span class="chip">${esc(short(t.aboutTitle||"an item"))}</span>`:""}<span class="why"><span data-uid="${esc(t.createdBy||"")}">a contributor</span> · ${t.replyCount||0} ${t.replyCount===1?"reply":"replies"} · ${esc(when(t.lastAt))}</span></li>`).join("")
+    : `<li class="hint">${emptyMsg}</li>`;
+  ul.querySelectorAll("li[data-id]").forEach(li=>li.onclick=()=>showThread(li.dataset.id));
+  fillNames(ul);
+}
+function showThread(id){
+  const t=C.threads.get(id); if(!t && !dbx) return;
+  openThread=id; $("forumList").hidden=true; $("threadView").hidden=false;
+  if(postsUnsub){ postsUnsub(); postsUnsub=null; }
+  postsCache=[]; renderThread();
+  postsUnsub = dbx.collection("threads").doc(id).collection("posts").orderBy("createdAt").limit(500)
+    .onSnapshot(s=>{ postsCache=s.docs.map(d=>({id:d.id,...d.data()})); renderThread(); }, ()=>{});
+}
+async function renderThread(){
+  const t=C.threads.get(openThread); if(!t) return;
+  $("tvTitle").textContent=t.title;
+  const m=$("tvMeta"); m.innerHTML="";
+  if(t.about){ const a=document.createElement("button"); a.className="link"; a.textContent="About: "+short(t.aboutTitle||"an item"); a.onclick=()=>{ showTab("explore"); select(t.about); }; m.append(a," · "); }
+  m.append(`${postsCache.length+1} posts`);
+  const ol=$("posts"); ol.innerHTML="";
+  const all=[{id:"_root",body:t.body,createdBy:t.createdBy,createdAt:t.createdAt,root:true},...postsCache];
+  all.forEach(p=>{
+    const li=document.createElement("li");
+    const h=document.createElement("p"); h.className="ph"; const who=document.createElement("b"); who.dataset.uid=p.createdBy||""; who.textContent="a contributor"; h.append(who," · "+when(p.createdAt));
+    const body=document.createElement("div"); body.className="pb"; body.textContent=p.body||"";
+    li.append(h,body);
+    if(!(readOnly||canWrite===false) && (isAdmin || (p.createdBy && p.createdBy===myId))){
+      const del=document.createElement("button"); del.className="link danger"; del.textContent= p.root ? "Delete thread" : "Delete";
+      del.onclick=async()=>{
+        if(!del.dataset.armed){ del.dataset.armed="1"; del.textContent="Click again to delete"; return; }
+        if(p.root){ for(const q of postsCache) await write(()=>dbx.collection("threads").doc(openThread).collection("posts").doc(q.id).delete()); await write(()=>dbx.collection("threads").doc(openThread).delete()); backToList(); }
+        else { await write(()=>dbx.collection("threads").doc(openThread).collection("posts").doc(p.id).delete()); await write(()=>dbx.collection("threads").doc(openThread).update({replyCount:Math.max(0,postsCache.length-1)})); }
+      };
+      h.append(" ", del);
+    }
+    ol.appendChild(li);
+  });
+  fillNames(ol);
+}
+$("replyForm").onsubmit = async e=>{
+  e.preventDefault(); const body=$("rBody").value.trim(); if(!body||!openThread) return;
+  const now=Date.now(); const tid=openThread;
+  const ok = await write(()=>dbx.collection("threads").doc(tid).collection("posts").doc(idFrom("post")).set({body,createdBy:myId,createdAt:now}));
+  if(ok){ e.target.reset(); await write(()=>dbx.collection("threads").doc(tid).update({lastAt:now,replyCount:postsCache.length})); }
+};
+function backToList(){ if(postsUnsub){ postsUnsub(); postsUnsub=null; } openThread=null; $("threadView").hidden=true; $("forumList").hidden=false; renderThreads(); }
+$("backThreads").onclick=backToList;
+
+// ---- tabs ----
+function showTab(name){
+  document.querySelectorAll("[data-tab]").forEach(b=>b.setAttribute("aria-selected", b.dataset.tab===name));
+  ["explore","contribute","forum"].forEach(n=>$("panel-"+n).hidden = n!==name);
+  if(name==="forum") renderThreads();
+}
+document.querySelectorAll("[data-tab]").forEach(b=>b.onclick=()=>showTab(b.dataset.tab));
+
+// ---- load the published snapshot ----
+document.getElementById("copyJson2").onclick=()=>document.getElementById("copyJson").click();
+(async function load(){
+  readOnly = true; canWrite = false; applyRO();
+  try {
+    const r = await fetch("data/commons.json", {cache:"no-cache"});
+    if(!r.ok) throw new Error(r.status);
+    const j = await r.json();
+    (j.hubs||[]).forEach(h=>C.hubs.set(h.id,h)); (j.books||[]).forEach(b=>C.books.set(b.id,b)); (j.orgs||[]).forEach(o=>C.orgs.set(o.id,o));
+    C.names = j.institutions||{}; C.loaded.hubs = C.loaded.books = true;
+    applyCommons();
+    setStatus("live", `Snapshot of ${j.asOf||"the commons"} · ${HUBS.length} hubs · ${C.books.size} works · ${C.orgs.size} organizations`);
+    const want = decodeURIComponent(location.hash.slice(1));
+    if(want){ const id = [want, "o_"+want].find(x=>D.nodes.some(n=>n.id===x)); if(id) setTimeout(()=>select(id), 500); }
+  } catch(e) {
+    setStatus("warn","The network data didn't load. Reload the page to try again.");
+  }
+})();
+</script>
+</body>
+</html>

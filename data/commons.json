@@ -1,0 +1,6972 @@
+{
+ "asOf": "2026-11-16",
+ "source": "Hub Space Commons",
+ "license": "CC BY 4.0",
+ "nodes": [
+  {
+   "id": "parrots-project",
+   "name": "The Parrots' Project",
+   "url": "https://theparrotsproject.org/",
+   "network": "parrots-project",
+   "summary": "A living library that gathers what people have recorded about parrots, from scientific papers and veterinary case reports to avicultural journals and citizen-science observations, and connects it while keeping every record's source and context. Founded and directed by EV Voltura, PhD.",
+   "keywords": "parrots birds animals cockatoos macaws veterinary aviculture conservation names languages taxonomy diet feathers library archive knowledge graphs students texas a&m",
+   "fits": {
+    "s": "Began with one person's question, why macaws eat clay, carried from a childhood in Alaska to a PhD.",
+    "p": "Undergraduates do real research: 39 students built a 2,188-record dataset on what cockatoos eat.",
+    "u": "Gathers parrot names across languages and scripts, verified by native speakers and credited on their terms.",
+    "o": "Keeps a public reference library and public knowledge graphs, every record traced to its source.",
+    "h": "Joins science, veterinary care, aviculture, conservation and history in one connected library."
+   }
+  },
+  {
+   "id": "drifting",
+   "name": "Drifting Through Deep Time",
+   "url": "https://songbird-soundscape.github.io/drifting-through-deep-time/",
+   "network": "deep",
+   "summary": "Follows Earth's surface through time: where the continents sat, what grew on them, how the climate shifted, and who walked across them.",
+   "keywords": "deep time geology plate tectonics paleoclimate pollen vegetation human migration archaeology ancient dna linguistics myth oral history ecology conservation climate policy geoscience education philosophy of time",
+   "fits": {
+    "s": "Asks what it feels like to stand on rock 400 million years old.",
+    "p": "Students build and check the visualizations, and elders review the module.",
+    "u": "Joins geology, ecology, archaeology, linguistics, myth and oral history around one question: what did this place look like?",
+    "o": "Built on open plate-reconstruction and public climate datasets, and shared openly.",
+    "h": "The example hub of the Open Commons: core layers and bordering fields that other labs can join."
+   }
+  }
+ ],
+ "hubs": [
+  {
+   "color": "--c-ag",
+   "createdAt": 1794787200015,
+   "kind": "side",
+   "note": "Proposed side hub. Soils, crops, livestock and food systems.",
+   "parents": {},
+   "starter": true,
+   "t": "Agriculture, Food & Animals",
+   "id": "ag"
+  },
+  {
+   "color": "#8a6d2f",
+   "createdAt": 1794800463099,
+   "kind": "cohub",
+   "note": "Animals wild and in human care: how they live, perceive, are classified, and share places with people.",
+   "parents": {
+    "ag": 0.6,
+    "eco": 0.8,
+    "evo": 0.8,
+    "field": 0.8,
+    "learn": 0.7
+   },
+   "starter": true,
+   "t": "Animals & Wildlife",
+   "id": "animals"
+  },
+  {
+   "color": "--c-arch",
+   "createdAt": 1794787200017,
+   "kind": "side",
+   "note": "Proposed side hub. People in deep time, on land and under water.",
+   "parents": {
+    "dt-dna": 0.7,
+    "dt-mig": 0.8
+   },
+   "starter": true,
+   "t": "Archaeology & the Human Past",
+   "id": "arch"
+  },
+  {
+   "color": "#3f8a5a",
+   "createdAt": 1794800463100,
+   "kind": "side",
+   "note": "Birds, the living dinosaurs: their evolution, ecology, color, song and care.",
+   "parents": {
+    "animals": 1,
+    "deep": 0.6,
+    "evo": 0.6,
+    "field": 0.7
+   },
+   "starter": true,
+   "t": "Birds",
+   "id": "birds"
+  },
+  {
+   "color": "--c-comp",
+   "createdAt": 1794787200011,
+   "kind": "cohub",
+   "note": "Proposed co-hub. Programming, algorithms, machine learning and the ethics of AI.",
+   "parents": {
+    "eng": 0.4,
+    "learn": 0.8,
+    "mind": 0.6,
+    "teach": 0.85
+   },
+   "starter": true,
+   "t": "Computing & AI",
+   "id": "comp"
+  },
+  {
+   "color": "--c-cx",
+   "createdAt": 1794787200005,
+   "kind": "cohub",
+   "note": "Proposed co-hub. Nonlinear dynamics, self-organization and pattern formation.",
+   "parents": {
+    "eco": 0.65,
+    "evo": 0.5,
+    "phys": 0.6,
+    "teach": 0.45
+   },
+   "starter": true,
+   "t": "Complexity & Pattern",
+   "id": "cx"
+  },
+  {
+   "color": "--c-deep",
+   "createdAt": 1794787200001,
+   "kind": "hub",
+   "note": "Earth history, the fossil record, stratigraphy and how geologic time is measured.",
+   "parents": {
+    "arch": 0.55,
+    "learn": 1,
+    "sea": 0.6
+   },
+   "starter": true,
+   "t": "Drifting Through Deep Time",
+   "id": "deep"
+  },
+  {
+   "color": "#1f7896",
+   "createdAt": 1794801124996,
+   "example": "open-commons",
+   "kind": "cohub",
+   "note": "Ice cores, ocean sediments, and tree rings that record past temperature and rainfall. Who would contribute: Climate science groups; Public climate data archives. A student could start with: Has this place ever been as warm as it may become by 2100? From the Drifting Through Deep Time example network on The Open Commons of Learning.",
+   "parents": {
+    "deep": 1,
+    "dt-tect": 0.7,
+    "dt-veg": 0.7
+   },
+   "starter": true,
+   "t": "Paleoclimate",
+   "id": "dt-clim"
+  },
+  {
+   "color": "#5a6b80",
+   "createdAt": 1794801124998,
+   "example": "open-commons",
+   "kind": "side",
+   "note": "Genetic evidence of how populations split, mixed, and moved. Who would contribute: Genomics labs. A student could start with: What does ancient DNA agree with, or contradict, in the archaeological record? From the Drifting Through Deep Time example network on The Open Commons of Learning.",
+   "parents": {
+    "dt-mig": 0.8
+   },
+   "starter": true,
+   "t": "Ancient DNA",
+   "id": "dt-dna"
+  },
+  {
+   "color": "#3f7d3a",
+   "createdAt": 1794801125002,
+   "example": "open-commons",
+   "kind": "side",
+   "note": "How the deep past informs what we protect and restore today. Who would contribute: Conservation groups; Restoration ecologists. A student could start with: Which plants that grew here before could help restore it now? From the Drifting Through Deep Time example network on The Open Commons of Learning.",
+   "parents": {
+    "dt-clim": 0.8,
+    "dt-veg": 0.8,
+    "eco": 0.6
+   },
+   "starter": true,
+   "t": "Ecology & conservation",
+   "id": "dt-eco"
+  },
+  {
+   "color": "#2f5d9b",
+   "createdAt": 1794801125004,
+   "example": "open-commons",
+   "kind": "side",
+   "note": "Teachers, museums, and video creators who make deep time understandable. Who would contribute: Science communicators; Museum educators; Teachers. A student could start with: What's the clearest way to show 500 million years on one screen? From the Drifting Through Deep Time example network on The Open Commons of Learning.",
+   "parents": {
+    "dt-tect": 0.8,
+    "teach": 0.6
+   },
+   "starter": true,
+   "t": "Geoscience education",
+   "id": "dt-geoed"
+  },
+  {
+   "color": "#b0476a",
+   "createdAt": 1794801124999,
+   "example": "open-commons",
+   "kind": "side",
+   "note": "Language families as another trace of how people spread. Who would contribute: Linguistics departments. A student could start with: Do word families for plants and animals follow the migration routes? From the Drifting Through Deep Time example network on The Open Commons of Learning.",
+   "parents": {
+    "dt-mig": 0.8,
+    "mind": 0.5
+   },
+   "starter": true,
+   "t": "Historical linguistics",
+   "id": "dt-ling"
+  },
+  {
+   "color": "#9a5b3f",
+   "createdAt": 1794801124997,
+   "example": "open-commons",
+   "kind": "cohub",
+   "note": "How people moved across continents, and how land bridges, coastlines, and climate shaped their routes. Who would contribute: Anthropologists and archaeologists; Population geneticists; Community historians. A student could start with: Which routes could people have taken into this region, and when were they open? From the Drifting Through Deep Time example network on The Open Commons of Learning.",
+   "parents": {
+    "deep": 1
+   },
+   "starter": true,
+   "t": "Human migration",
+   "id": "dt-mig"
+  },
+  {
+   "color": "#6d5a8f",
+   "createdAt": 1794801125000,
+   "example": "open-commons",
+   "kind": "side",
+   "note": "Flood stories, origin myths, and dream imagery that may hold memories of changing landscapes. Who would contribute: Folklorists; Psychologists of dreams and memory. A student could start with: Could a flood myth preserve a real sea-level rise? From the Drifting Through Deep Time example network on The Open Commons of Learning.",
+   "parents": {
+    "dt-ling": 0.7,
+    "dt-mig": 0.8
+   },
+   "starter": true,
+   "t": "Myth, memory & dreams",
+   "id": "dt-myth"
+  },
+  {
+   "color": "#7a8a2a",
+   "createdAt": 1794801125001,
+   "example": "open-commons",
+   "kind": "side",
+   "note": "Knowledge held by communities and elders about land, plants, and change, shared on their terms. Who would contribute: Community knowledge keepers; Oral history projects. A student could start with: What do local elders remember about how the land has changed? From the Drifting Through Deep Time example network on The Open Commons of Learning.",
+   "parents": {
+    "arch": 0.7,
+    "dt-mig": 0.8,
+    "dt-veg": 0.8
+   },
+   "starter": true,
+   "t": "Oral history & traditional knowledge",
+   "id": "dt-oral"
+  },
+  {
+   "color": "#7a4f9a",
+   "createdAt": 1794801125005,
+   "example": "open-commons",
+   "kind": "side",
+   "note": "How people experience and imagine spans of time far beyond a human life. Who would contribute: Philosophy departments. A student could start with: What does it feel like to stand on rock 400 million years old? From the Drifting Through Deep Time example network on The Open Commons of Learning.",
+   "parents": {
+    "deep": 0.8,
+    "dt-myth": 0.7,
+    "mind": 0.6
+   },
+   "starter": true,
+   "t": "Philosophy of time",
+   "id": "dt-phen"
+  },
+  {
+   "color": "#4d5fa8",
+   "createdAt": 1794801125003,
+   "example": "open-commons",
+   "kind": "side",
+   "note": "What past climate shifts suggest about the decisions in front of us. Who would contribute: Policy researchers; Public agencies. A student could start with: What does the deep past say about how fast ecosystems can adapt? From the Drifting Through Deep Time example network on The Open Commons of Learning.",
+   "parents": {
+    "dt-clim": 0.8,
+    "soc": 0.4
+   },
+   "starter": true,
+   "t": "Climate policy",
+   "id": "dt-pol"
+  },
+  {
+   "color": "#8a5a2b",
+   "createdAt": 1794801124994,
+   "example": "open-commons",
+   "kind": "cohub",
+   "note": "Reconstructions of moving continents, opening oceans, and rising mountains. Who would contribute: Geophysics labs; Open plate-reconstruction datasets; Geology educators and YouTube science communicators. A student could start with: When did your region last share a coastline with another continent? From the Drifting Through Deep Time example network on The Open Commons of Learning.",
+   "parents": {
+    "deep": 1
+   },
+   "starter": true,
+   "t": "Plate tectonics",
+   "id": "dt-tect"
+  },
+  {
+   "color": "#6b6b24",
+   "createdAt": 1794801124995,
+   "example": "open-commons",
+   "kind": "cohub",
+   "note": "Fossil pollen and plant records that show which forests and grasslands grew where. Who would contribute: Palynology labs; Herbaria and museum collections; Volunteers sorting samples. A student could start with: How did the plants around here change at the end of the last ice age? From the Drifting Through Deep Time example network on The Open Commons of Learning.",
+   "parents": {
+    "deep": 1,
+    "paly": 0.7
+   },
+   "starter": true,
+   "t": "Ancient vegetation & pollen",
+   "id": "dt-veg"
+  },
+  {
+   "color": "--c-eco",
+   "createdAt": 1794787200002,
+   "kind": "hub",
+   "note": "How organisms, communities and people belong to places, and what that asks of us.",
+   "parents": {
+    "ag": 0.6,
+    "learn": 1,
+    "mind": 0.5
+   },
+   "starter": true,
+   "t": "Ecological Philosophy",
+   "id": "eco"
+  },
+  {
+   "color": "--c-eng",
+   "createdAt": 1794787200014,
+   "kind": "side",
+   "note": "Proposed side hub. Fluids, petroleum, design and the built world.",
+   "parents": {},
+   "starter": true,
+   "t": "Engineering & Energy",
+   "id": "eng"
+  },
+  {
+   "color": "--c-evo",
+   "createdAt": 1794787200004,
+   "kind": "cohub",
+   "note": "Proposed co-hub. History and theory of evolution, from Darwin to evo-devo and hierarchy.",
+   "parents": {
+    "deep": 0.8,
+    "eco": 0.6
+   },
+   "starter": true,
+   "t": "Evolutionary Thought",
+   "id": "evo"
+  },
+  {
+   "color": "--c-field",
+   "createdAt": 1794787200009,
+   "kind": "side",
+   "note": "Proposed side hub. Guides and ecology for looking at living things outdoors.",
+   "parents": {
+    "ag": 0.5,
+    "eco": 0.7
+   },
+   "starter": true,
+   "t": "Field Natural History",
+   "id": "field"
+  },
+  {
+   "color": "--c-lab",
+   "createdAt": 1794787200010,
+   "kind": "side",
+   "note": "Proposed side hub. Isotopes, instruments, cells and the measurements behind the stories.",
+   "parents": {
+    "deep": 0.6,
+    "phys": 0.7
+   },
+   "starter": true,
+   "t": "Earth Chemistry & Lab Method",
+   "id": "lab"
+  },
+  {
+   "color": "--hub",
+   "createdAt": 1794787200000,
+   "kind": "hub",
+   "note": "The root. Every hub hangs off this one.",
+   "parents": {},
+   "starter": true,
+   "t": "Learning Hub",
+   "id": "learn"
+  },
+  {
+   "color": "--c-mind",
+   "createdAt": 1794787200006,
+   "kind": "cohub",
+   "note": "Proposed co-hub. Phenomenology, semiotics, sound symbolism, social cognition.",
+   "parents": {
+    "teach": 0.8
+   },
+   "starter": true,
+   "t": "Mind, Language & Meaning",
+   "id": "mind"
+  },
+  {
+   "color": "--c-paly",
+   "createdAt": 1794787200007,
+   "kind": "side",
+   "note": "Proposed side hub of Deep Time. Palynology and Pennsylvanian coal paleobotany.",
+   "parents": {
+    "deep": 0.85
+   },
+   "starter": true,
+   "t": "Spores, Coal & the Illinois Basin",
+   "id": "paly"
+  },
+  {
+   "color": "#2f8a86",
+   "createdAt": 1794799507309,
+   "kind": "member",
+   "note": "A living library that gathers what people have recorded about parrots (scientific papers, veterinary case reports, avicultural journals, photographs, theses, citizen-science observations) and connects it while keeping every record's source and context. Founded and directed by EV Voltura, PhD (Texas A&M). Its work includes knowledge graphs, a history of parrot names since 1758, multilingual species names, a student-built cockatoo diet dataset, and a hyperspectral feather library. A participating node of The Open Commons of Learning.",
+   "parents": {
+    "birds": 0.5,
+    "parrots": 1
+   },
+   "starter": true,
+   "t": "The Parrots Project",
+   "url": "https://theparrotsproject.org/",
+   "id": "parrots-project"
+  },
+  {
+   "color": "#2f9a5f",
+   "createdAt": 1794800463101,
+   "kind": "side",
+   "note": "Parrots, cockatoos, lories and their relatives, in the wild and in human care.",
+   "parents": {
+    "ag": 0.5,
+    "animals": 0.6,
+    "birds": 1
+   },
+   "starter": true,
+   "t": "Parrots (Psittaciformes)",
+   "id": "parrots"
+  },
+  {
+   "color": "--c-phys",
+   "createdAt": 1794787200012,
+   "kind": "cohub",
+   "note": "Proposed co-hub. Physics, chemistry and statistics.",
+   "parents": {
+    "eng": 0.6,
+    "learn": 0.7
+   },
+   "starter": true,
+   "t": "Physical Sciences & Math",
+   "id": "phys"
+  },
+  {
+   "color": "--c-place",
+   "createdAt": 1794787200008,
+   "kind": "side",
+   "note": "Proposed side hub. Texas, South Dakota, Wisconsin and the Southwest read on the ground.",
+   "parents": {
+    "arch": 0.5,
+    "deep": 0.55,
+    "eco": 0.55,
+    "field": 0.5,
+    "sea": 0.5
+   },
+   "starter": true,
+   "t": "Landscapes & Place",
+   "id": "place"
+  },
+  {
+   "createdAt": 1794801125013,
+   "note": "Avicultural bulletins, old books and records digitized and cataloged, because what gets preserved shapes the history future generations can read.",
+   "of": "parrots-project",
+   "parents": {
+    "arch": 0.5,
+    "dt-oral": 0.5
+   },
+   "role": "theme",
+   "starter": true,
+   "t": "Preservation and the Archive",
+   "id": "pp-archive"
+  },
+  {
+   "createdAt": 1794801125009,
+   "note": "What parrots eat in the wild and in human care, recorded with the context needed to compare like with like.",
+   "of": "parrots-project",
+   "parents": {
+    "dt-eco": 0.8,
+    "dt-veg": 0.4
+   },
+   "role": "theme",
+   "starter": true,
+   "t": "Diet, Wild and Captive",
+   "id": "pp-diet"
+  },
+  {
+   "createdAt": 1794801125015,
+   "note": "Research that lets birds choose whether to take part, honesty about the costs of AI tools, and a future where humans and parrots coexist.",
+   "of": "parrots-project",
+   "parents": {
+    "animals": 0.6,
+    "dt-eco": 0.8,
+    "dt-pol": 0.4
+   },
+   "role": "theme",
+   "starter": true,
+   "t": "Ethics and Coexistence",
+   "id": "pp-ethics"
+  },
+  {
+   "createdAt": 1794801125012,
+   "note": "Hyperspectral imaging of feathers, including ultraviolet colors birds can see and people cannot.",
+   "of": "parrots-project",
+   "parents": {
+    "birds": 0.7
+   },
+   "role": "theme",
+   "starter": true,
+   "t": "Feathers and Light",
+   "id": "pp-feathers"
+  },
+  {
+   "createdAt": 1794801125011,
+   "note": "Graphs that show where research is thick and where it is thin: maps of what has been published, not summaries of what is true. AI may help find links, reviewed by people.",
+   "of": "parrots-project",
+   "parents": {
+    "dt-geoed": 0.5
+   },
+   "role": "theme",
+   "starter": true,
+   "t": "Knowledge Graphs as Maps of the Literature",
+   "id": "pp-graphs"
+  },
+  {
+   "createdAt": 1794801125010,
+   "note": "Veterinary and medical literature on parrots linked to diseases, drugs and diagnostics, with evidence grading in development.",
+   "of": "parrots-project",
+   "parents": {
+    "dt-eco": 0.5
+   },
+   "role": "theme",
+   "starter": true,
+   "t": "Parrot Health and One Health",
+   "id": "pp-health"
+  },
+  {
+   "createdAt": 1794801125008,
+   "note": "Parrot names across languages and scripts, verified by native speakers, with community attribution respected.",
+   "of": "parrots-project",
+   "parents": {
+    "dt-ling": 0.9,
+    "dt-oral": 0.6
+   },
+   "role": "theme",
+   "starter": true,
+   "t": "Many Names, Many Languages",
+   "id": "pp-multilingual"
+  },
+  {
+   "createdAt": 1794801125007,
+   "note": "Scientific names change; historical names are part of the record, not mistakes. A translation table between old literature and current checklists, keeping each authority's decision.",
+   "of": "parrots-project",
+   "parents": {
+    "dt-ling": 0.7
+   },
+   "role": "theme",
+   "starter": true,
+   "t": "Names Through Time",
+   "id": "pp-names"
+  },
+  {
+   "createdAt": 1794801125006,
+   "note": "Every record keeps its citation and context: wild or captive, where, when, and how it was reported. Conflicting reports stay visible, and evidence is weighed by how it was obtained.",
+   "of": "parrots-project",
+   "parents": {
+    "arch": 0.5,
+    "dt-geoed": 0.4,
+    "dt-oral": 0.6
+   },
+   "role": "theme",
+   "starter": true,
+   "t": "Records Keep Their Sources",
+   "id": "pp-provenance"
+  },
+  {
+   "createdAt": 1794801125014,
+   "note": "Researchers, veterinarians, aviculturists, caregivers, students and enthusiasts are all teachers here. Student research, volunteers, citizen science, and a norm of kindness.",
+   "of": "parrots-project",
+   "parents": {
+    "dt-geoed": 0.7,
+    "dt-oral": 0.4
+   },
+   "role": "theme",
+   "starter": true,
+   "t": "Everyone Teaches",
+   "id": "pp-teachers"
+  },
+  {
+   "color": "--c-sea",
+   "createdAt": 1794787200016,
+   "kind": "side",
+   "note": "Proposed side hub. Physical oceanography, the Gulf, shipwrecks.",
+   "parents": {},
+   "starter": true,
+   "t": "Oceans & Coasts",
+   "id": "sea"
+  },
+  {
+   "color": "--c-soc",
+   "createdAt": 1794787200013,
+   "kind": "cohub",
+   "note": "Proposed co-hub. How people organize, govern and remember.",
+   "parents": {
+    "arch": 0.5,
+    "learn": 0.7
+   },
+   "starter": true,
+   "t": "Society, History & Politics",
+   "id": "soc"
+  },
+  {
+   "color": "--c-teach",
+   "createdAt": 1794787200003,
+   "kind": "hub",
+   "note": "How minds are formed, how research is done, and what teaching is for now.",
+   "parents": {
+    "learn": 1,
+    "soc": 0.5
+   },
+   "starter": true,
+   "t": "Teaching Philosophy in the Age of AI",
+   "id": "teach"
+  }
+ ],
+ "books": [
+  {
+   "a": "O. E. Barndorff-Nielsen & B. B. Willetts (eds.)",
+   "createdAt": 1794787200152,
+   "hubs": {
+    "cx": 0.5,
+    "deep": 0.4,
+    "lab": 0.4
+   },
+   "links": [
+    {
+     "to": "cross",
+     "w": 0.45,
+     "why": "Ripple and dune pattern formation"
+    }
+   ],
+   "note": "Heard as \"Alien Grain Transport\". Physics of wind-blown sand.",
+   "p": "Springer (Acta Mechanica Supplementum 1)",
+   "people": [
+    {
+     "inst": "aarhus",
+     "lab": "",
+     "name": "O. E. Barndorff-Nielsen",
+     "role": "editor"
+    },
+    {
+     "inst": "aberdeen",
+     "lab": "",
+     "name": "B. B. Willetts",
+     "role": "editor"
+    }
+   ],
+   "s": "likely",
+   "shelf": "mine",
+   "starter": true,
+   "t": "Aeolian Grain Transport 1: Mechanics",
+   "y": "1991",
+   "id": "aeolian"
+  },
+  {
+   "a": "Claude J. Allègre",
+   "createdAt": 1794787200149,
+   "hubs": {
+    "deep": 0.6,
+    "lab": 1
+   },
+   "links": [
+    {
+     "to": "skoog",
+     "w": 0.7,
+     "why": "Mass spectrometry and analysis"
+    },
+    {
+     "to": "sulfur",
+     "w": 0.8,
+     "why": "Isotope tracers in biogeochemistry"
+    }
+   ],
+   "note": "Radiogenic and stable isotopes as clocks and tracers.",
+   "p": "Cambridge University Press",
+   "people": [
+    {
+     "inst": "ipgp",
+     "lab": "",
+     "name": "Claude J. Allègre",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "mine",
+   "starter": true,
+   "t": "Isotope Geochemistry",
+   "y": "2008",
+   "id": "allegre"
+  },
+  {
+   "a": "Robert L. Carroll",
+   "createdAt": 1794787200102,
+   "hubs": {
+    "animals": 0.6,
+    "deep": 0.9,
+    "evo": 0.7
+   },
+   "links": [
+    {
+     "to": "dino",
+     "w": 0.7,
+     "why": "Tetrapod evolution"
+    },
+    {
+     "to": "stanley",
+     "w": 0.6,
+     "why": "Vertebrate history in deep time"
+    }
+   ],
+   "note": "The fish-to-tetrapod transition and the deep history of amphibians.",
+   "p": "Johns Hopkins University Press",
+   "people": [
+    {
+     "inst": "mcgill",
+     "lab": "",
+     "name": "Robert L. Carroll",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "mine",
+   "starter": true,
+   "t": "The Rise of Amphibians: 365 Million Years of Evolution",
+   "y": "2009",
+   "id": "amph"
+  },
+  {
+   "a": "D. T. Anderson (ed.)",
+   "createdAt": 1794787200145,
+   "hubs": {
+    "animals": 0.8,
+    "evo": 0.5,
+    "field": 0.5
+   },
+   "links": [
+    {
+     "to": "mcgavin",
+     "w": 0.6,
+     "why": "Invertebrate diversity"
+    },
+    {
+     "to": "crawdads",
+     "w": 0.5,
+     "why": "Crustaceans"
+    }
+   ],
+   "note": "Best match for an Oxford title: phylum-by-phylum invertebrate text.",
+   "p": "Oxford University Press",
+   "people": [
+    {
+     "inst": "sydney",
+     "lab": "",
+     "name": "D. T. Anderson",
+     "role": "editor"
+    }
+   ],
+   "s": "likely",
+   "shelf": "mine",
+   "starter": true,
+   "t": "Invertebrate Zoology",
+   "y": "2001 (2nd ed.)",
+   "id": "anderson"
+  },
+  {
+   "a": "Julia Annas",
+   "createdAt": 1794787200138,
+   "hubs": {
+    "teach": 0.8
+   },
+   "links": [],
+   "note": "Close philosophical commentary on the Republic.",
+   "p": "Oxford University Press",
+   "people": [
+    {
+     "inst": "arizona|oxford",
+     "lab": "",
+     "name": "Julia Annas",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "mine",
+   "starter": true,
+   "t": "An Introduction to Plato's Republic",
+   "y": "1981",
+   "id": "annas"
+  },
+  {
+   "a": "Cristoforo Sergio Bertuglia & Franco Vaio",
+   "createdAt": 1794787200110,
+   "hubs": {
+    "cx": 1,
+    "teach": 0.3
+   },
+   "links": [
+    {
+     "to": "eldredge",
+     "w": 0.4,
+     "why": "Hierarchy and complexity"
+    }
+   ],
+   "note": "Introduction to dynamical systems with examples from nature and society.",
+   "p": "Oxford University Press",
+   "people": [
+    {
+     "inst": "polito",
+     "lab": "",
+     "name": "Cristoforo Sergio Bertuglia",
+     "role": "author"
+    },
+    {
+     "inst": "polito",
+     "lab": "",
+     "name": "Franco Vaio",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "mine",
+   "starter": true,
+   "t": "Nonlinearity, Chaos, and Complexity: The Dynamics of Natural and Social Systems",
+   "y": "2005",
+   "id": "bertuglia"
+  },
+  {
+   "a": "Fernand Méry",
+   "createdAt": 1794787200115,
+   "hubs": {
+    "ag": 0.4,
+    "animals": 0.7,
+    "evo": 0.25,
+    "field": 0.4,
+    "mind": 0.3,
+    "soc": 0.3
+   },
+   "links": [
+    {
+     "to": "dowdeswell",
+     "w": 0.25,
+     "why": "Animal natural history"
+    },
+    {
+     "to": "s_grandin",
+     "w": 0.4,
+     "why": "How domestic animals perceive and behave"
+    },
+    {
+     "to": "s_tao",
+     "w": 0.2,
+     "why": "Animals in myth and cosmology"
+    }
+   ],
+   "note": "A French veterinarian's natural and cultural history of the cat, from its evolution to its place in myth and art. Published as The Life, History and Magic of the Cat.",
+   "p": "Madison Square Press / Grosset & Dunlap",
+   "people": [
+    {
+     "inst": "",
+     "lab": "Veterinarian, Paris",
+     "name": "Fernand Méry",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "mine",
+   "starter": true,
+   "t": "The Cat: Its Life, History and Magic",
+   "y": "1968",
+   "id": "cat"
+  },
+  {
+   "a": "Marjorie A. Chan & Allen W. Archer (eds.)",
+   "createdAt": 1794787200134,
+   "hubs": {
+    "deep": 0.9,
+    "lab": 0.3
+   },
+   "links": [
+    {
+     "to": "patz",
+     "w": 0.6,
+     "why": "Sedimentary environments"
+    },
+    {
+     "to": "johnson",
+     "w": 0.6,
+     "why": "Carbonate and microbial deposition"
+    },
+    {
+     "to": "aeolian",
+     "w": 0.7,
+     "why": "Giant dune fields"
+    }
+   ],
+   "note": "Floods, giant ergs, impacts and other end-member sedimentary settings.",
+   "p": "Geological Society of America, Special Paper 370",
+   "people": [
+    {
+     "inst": "utah",
+     "lab": "",
+     "name": "Marjorie A. Chan",
+     "role": "editor"
+    },
+    {
+     "inst": "ksu",
+     "lab": "",
+     "name": "Allen W. Archer",
+     "role": "editor"
+    }
+   ],
+   "s": "ok",
+   "shelf": "mine",
+   "starter": true,
+   "t": "Extreme Depositional Environments: Mega End Members in Geologic Time",
+   "y": "2003",
+   "id": "chan"
+  },
+  {
+   "a": "Andrew C. Scott (ed.)",
+   "createdAt": 1794787200113,
+   "hubs": {
+    "deep": 0.7,
+    "paly": 0.9
+   },
+   "links": [],
+   "note": "Two books share this title. This is the 1987 Geological Society volume; the other is Murchison & Westoll (eds.), 1968.",
+   "p": "Geological Society Special Publication 32",
+   "people": [
+    {
+     "inst": "rhul",
+     "lab": "",
+     "name": "Andrew C. Scott",
+     "role": "editor"
+    }
+   ],
+   "s": "likely",
+   "shelf": "mine",
+   "starter": true,
+   "t": "Coal and Coal-bearing Strata: Recent Advances",
+   "y": "1987",
+   "id": "coal"
+  },
+  {
+   "a": "Arthur Cooper; Imre Galambos (ed.)",
+   "createdAt": 1794787200114,
+   "hubs": {
+    "mind": 0.9,
+    "teach": 0.3
+   },
+   "links": [
+    {
+     "to": "lotman",
+     "w": 0.5,
+     "why": "Semiotics of script"
+    }
+   ],
+   "note": "Cooper's long-unpublished study of Chinese characters, edited posthumously.",
+   "p": "Brill",
+   "people": [
+    {
+     "inst": "cam",
+     "lab": "",
+     "name": "Imre Galambos",
+     "role": "editor"
+    }
+   ],
+   "s": "ok",
+   "shelf": "mine",
+   "starter": true,
+   "t": "The Other Greek: An Introduction to Chinese and Japanese Characters, Their History and Influence",
+   "y": "2018",
+   "id": "cooper"
+  },
+  {
+   "a": "Wayne C. Booth, Gregory G. Colomb, Joseph M. Williams, Joseph Bizup & William T. FitzGerald",
+   "createdAt": 1794787200112,
+   "hubs": {
+    "learn": 0.8,
+    "teach": 1
+   },
+   "links": [
+    {
+     "to": "annas",
+     "w": 0.3,
+     "why": "Reading and arguing carefully"
+    }
+   ],
+   "note": "How to ask a research question, build an argument and write it up.",
+   "p": "University of Chicago Press",
+   "people": [
+    {
+     "inst": "uchi",
+     "lab": "",
+     "name": "Wayne C. Booth",
+     "role": "author"
+    },
+    {
+     "inst": "bu",
+     "lab": "",
+     "name": "Joseph Bizup",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "mine",
+   "starter": true,
+   "t": "The Craft of Research (4th ed.)",
+   "y": "2016",
+   "id": "craft"
+  },
+  {
+   "a": "Joseph M. Craine",
+   "createdAt": 1794787200107,
+   "hubs": {
+    "eco": 0.6,
+    "evo": 0.5,
+    "field": 0.3
+   },
+   "links": [],
+   "note": "How plants compete for and economize nitrogen, water and light.",
+   "p": "Princeton University Press",
+   "people": [
+    {
+     "inst": "ksu",
+     "lab": "",
+     "name": "Joseph M. Craine",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "mine",
+   "starter": true,
+   "t": "Resource Strategies of Wild Plants",
+   "y": "2009",
+   "id": "craine"
+  },
+  {
+   "a": "Sterling Johnson & Nathan Johnson",
+   "createdAt": 1794787200130,
+   "hubs": {
+    "field": 0.7,
+    "place": 0.7
+   },
+   "links": [],
+   "note": "Father-and-son guide to about 40 Texas crayfish species.",
+   "p": "Crawdad Club Designs",
+   "people": [],
+   "s": "likely",
+   "shelf": "mine",
+   "starter": true,
+   "t": "Texas Crawdads",
+   "y": "c. 2009",
+   "id": "crawdads"
+  },
+  {
+   "a": "Michael Cross & Henry Greenside",
+   "createdAt": 1794787200121,
+   "hubs": {
+    "cx": 1
+   },
+   "links": [
+    {
+     "to": "bertuglia",
+     "w": 0.9,
+     "why": "Nonlinear dynamics"
+    },
+    {
+     "to": "kirschner",
+     "w": 0.4,
+     "why": "Self-organization in development"
+    }
+   ],
+   "note": "Physics of spontaneous pattern: convection rolls, spirals, Turing patterns.",
+   "p": "Cambridge University Press",
+   "people": [
+    {
+     "inst": "caltech",
+     "lab": "",
+     "name": "Michael Cross",
+     "role": "author"
+    },
+    {
+     "inst": "duke",
+     "lab": "",
+     "name": "Henry Greenside",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "mine",
+   "starter": true,
+   "t": "Pattern Formation and Dynamics in Nonequilibrium Systems",
+   "y": "2009",
+   "id": "cross"
+  },
+  {
+   "a": "Stephen J. Culver & Peter F. Rawson (eds.)",
+   "createdAt": 1794787200104,
+   "hubs": {
+    "deep": 0.9,
+    "eco": 0.5
+   },
+   "links": [
+    {
+     "to": "patz",
+     "w": 0.6,
+     "why": "Biotic change read from strata"
+    },
+    {
+     "to": "gee",
+     "w": 0.6,
+     "why": "Communities through environmental change"
+    }
+   ],
+   "note": "How life responded to climate and sea-level change from the Cretaceous to now.",
+   "p": "Cambridge University Press",
+   "people": [
+    {
+     "inst": "ecu",
+     "lab": "",
+     "name": "Stephen J. Culver",
+     "role": "editor"
+    },
+    {
+     "inst": "ucl",
+     "lab": "",
+     "name": "Peter F. Rawson",
+     "role": "editor"
+    }
+   ],
+   "s": "ok",
+   "shelf": "mine",
+   "starter": true,
+   "t": "Biotic Response to Global Change: The Last 145 Million Years",
+   "y": "2000",
+   "id": "culver"
+  },
+  {
+   "a": "Charles Darwin",
+   "createdAt": 1794787200146,
+   "hubs": {
+    "animals": 0.5,
+    "deep": 0.4,
+    "eco": 0.7,
+    "evo": 0.6,
+    "field": 0.6
+   },
+   "links": [
+    {
+     "to": "mayr",
+     "w": 0.6,
+     "why": "Darwin's science"
+    },
+    {
+     "to": "schowalter",
+     "w": 0.4,
+     "why": "Small animals as ecosystem engineers"
+    }
+   ],
+   "note": "Darwin's last book: earthworms slowly remake soil and bury ruins.",
+   "p": "John Murray",
+   "people": [
+    {
+     "inst": "cam",
+     "lab": "",
+     "name": "Charles Darwin",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "mine",
+   "starter": true,
+   "t": "The Formation of Vegetable Mould through the Action of Worms",
+   "y": "1881",
+   "id": "darwin"
+  },
+  {
+   "a": "Richard A. Davis Jr.",
+   "createdAt": 1794787200120,
+   "hubs": {
+    "deep": 0.6,
+    "place": 0.5
+   },
+   "links": [],
+   "note": "Coastal processes and landforms over human and geologic time. Davis later joined A&M–Corpus Christi's Harte Research Institute.",
+   "p": "Scientific American Library",
+   "people": [
+    {
+     "inst": "usf|tamucc",
+     "lab": "Harte Research Institute for Gulf of Mexico Studies (2006–2023)",
+     "name": "Richard A. Davis Jr.",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "mine",
+   "starter": true,
+   "t": "The Evolving Coast",
+   "y": "1994",
+   "id": "davis"
+  },
+  {
+   "a": "M. K. Brett-Surman, Thomas R. Holtz Jr. & James O. Farlow (eds.)",
+   "createdAt": 1794787200109,
+   "hubs": {
+    "birds": 0.5,
+    "deep": 0.9,
+    "evo": 0.5
+   },
+   "links": [
+    {
+     "to": "stanley",
+     "w": 0.6,
+     "why": "Mesozoic life"
+    }
+   ],
+   "note": "Reference volume on dinosaur anatomy, biology, evolution and the history of their study.",
+   "p": "Indiana University Press",
+   "people": [
+    {
+     "inst": "smith",
+     "lab": "",
+     "name": "M. K. Brett-Surman",
+     "role": "editor"
+    },
+    {
+     "inst": "umd",
+     "lab": "",
+     "name": "Thomas R. Holtz Jr.",
+     "role": "editor"
+    },
+    {
+     "inst": "pfw",
+     "lab": "",
+     "name": "James O. Farlow",
+     "role": "editor"
+    }
+   ],
+   "s": "ok",
+   "shelf": "mine",
+   "starter": true,
+   "t": "The Complete Dinosaur (2nd ed.)",
+   "y": "2012",
+   "id": "dino"
+  },
+  {
+   "a": "W. H. Dowdeswell",
+   "createdAt": 1794787200147,
+   "hubs": {
+    "animals": 0.9,
+    "eco": 0.6,
+    "field": 0.5,
+    "teach": 0.3
+   },
+   "links": [],
+   "note": "Classic teaching text on animal populations and habitats.",
+   "p": "Methuen",
+   "people": [
+    {
+     "inst": "bath",
+     "lab": "",
+     "name": "W. H. Dowdeswell",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "mine",
+   "starter": true,
+   "t": "An Introduction to Animal Ecology",
+   "y": "1952",
+   "id": "dowdeswell"
+  },
+  {
+   "a": "Niles Eldredge, Telmo Pievani, Emanuele Serrelli & Ilya Tëmkin (eds.)",
+   "createdAt": 1794787200124,
+   "hubs": {
+    "cx": 0.6,
+    "deep": 0.6,
+    "evo": 1
+   },
+   "links": [
+    {
+     "to": "kirschner",
+     "w": 0.7,
+     "why": "Extended evolutionary theory"
+    },
+    {
+     "to": "mayr",
+     "w": 0.8,
+     "why": "Histories and frameworks of evolutionary theory"
+    }
+   ],
+   "note": "Evolution as processes nested across genes, organisms, species and ecosystems.",
+   "p": "University of Chicago Press",
+   "people": [
+    {
+     "inst": "amnh",
+     "lab": "",
+     "name": "Niles Eldredge",
+     "role": "editor"
+    },
+    {
+     "inst": "padova",
+     "lab": "",
+     "name": "Telmo Pievani",
+     "role": "editor"
+    }
+   ],
+   "s": "ok",
+   "shelf": "mine",
+   "starter": true,
+   "t": "Evolutionary Theory: A Hierarchical Perspective",
+   "y": "2016",
+   "id": "eldredge"
+  },
+  {
+   "a": "John A. Endler",
+   "createdAt": 1794787200108,
+   "hubs": {
+    "evo": 1,
+    "field": 0.3
+   },
+   "links": [
+    {
+     "to": "losos",
+     "w": 0.7,
+     "why": "Adaptation across populations"
+    }
+   ],
+   "note": "Gradients in traits across space and how they bear on speciation.",
+   "p": "Princeton (Monographs in Population Biology 10)",
+   "people": [
+    {
+     "inst": "ucsb|deakin",
+     "lab": "",
+     "name": "John A. Endler",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "mine",
+   "starter": true,
+   "t": "Geographic Variation, Speciation, and Clines",
+   "y": "1977",
+   "id": "endler"
+  },
+  {
+   "a": "Gunnar Erdtman",
+   "createdAt": 1794787200135,
+   "hubs": {
+    "lab": 0.5,
+    "paly": 0.9
+   },
+   "links": [
+    {
+     "to": "jansonius",
+     "w": 0.9,
+     "why": "Palynology reference works"
+    },
+    {
+     "to": "schopf",
+     "w": 0.6,
+     "why": "Spore morphology and classification"
+    }
+   ],
+   "note": "Morphology, taxonomy and ecology of pollen and spores.",
+   "p": "Munksgaard / Hafner",
+   "people": [
+    {
+     "inst": "stock",
+     "lab": "",
+     "name": "Gunnar Erdtman",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "mine",
+   "starter": true,
+   "t": "Handbook of Palynology",
+   "y": "1969",
+   "id": "erdtman"
+  },
+  {
+   "a": "Thomas E. Ewing",
+   "createdAt": 1794787200131,
+   "hubs": {
+    "deep": 0.8,
+    "place": 1
+   },
+   "links": [
+    {
+     "to": "spearing",
+     "w": 0.9,
+     "why": "Texas geology"
+    },
+    {
+     "to": "davis",
+     "w": 0.5,
+     "why": "Coastal geology"
+    }
+   ],
+   "note": "Geologic history of Texas from Precambrian rocks to modern coasts.",
+   "p": "Bureau of Economic Geology, UT Austin",
+   "people": [],
+   "s": "ok",
+   "shelf": "mine",
+   "starter": true,
+   "t": "Texas Through Time: Lone Star Geology, Landscapes, and Resources",
+   "y": "2016",
+   "id": "ewing"
+  },
+  {
+   "a": "Sarah Rossbach",
+   "createdAt": 1794787200133,
+   "hubs": {
+    "mind": 0.25,
+    "place": 0.2
+   },
+   "links": [
+    {
+     "to": "malville",
+     "w": 0.3,
+     "why": "Orienting human space to the cosmos"
+    }
+   ],
+   "note": "Chinese placement tradition applied to rooms and buildings.",
+   "p": "Dutton / Penguin",
+   "people": [],
+   "s": "ok",
+   "shelf": "mine",
+   "starter": true,
+   "t": "Interior Design with Feng Shui",
+   "y": "1987",
+   "id": "fengshui"
+  },
+  {
+   "a": "J. H. R. Gee & P. S. Giller (eds.)",
+   "createdAt": 1794787200103,
+   "hubs": {
+    "cx": 0.4,
+    "deep": 0.7,
+    "eco": 0.6
+   },
+   "links": [],
+   "note": "Ecologists and paleontologists compare how communities assemble across time scales.",
+   "p": "Blackwell (British Ecological Society Symposium 27)",
+   "people": [
+    {
+     "inst": "aber",
+     "lab": "",
+     "name": "J. H. R. Gee",
+     "role": "editor"
+    },
+    {
+     "inst": "ucc",
+     "lab": "",
+     "name": "P. S. Giller",
+     "role": "editor"
+    }
+   ],
+   "s": "ok",
+   "shelf": "mine",
+   "starter": true,
+   "t": "Organization of Communities: Past and Present",
+   "y": "1987",
+   "id": "gee"
+  },
+  {
+   "a": "F. M. Gradstein, J. G. Ogg, M. D. Schmitz & G. M. Ogg (eds.)",
+   "createdAt": 1794787200119,
+   "hubs": {
+    "deep": 1,
+    "lab": 0.5
+   },
+   "links": [],
+   "note": "The calibrated reference for geologic time.",
+   "p": "Elsevier",
+   "people": [
+    {
+     "inst": "oslo",
+     "lab": "",
+     "name": "Felix M. Gradstein",
+     "role": "editor"
+    },
+    {
+     "inst": "purdue",
+     "lab": "",
+     "name": "James G. Ogg",
+     "role": "editor"
+    },
+    {
+     "inst": "boise",
+     "lab": "",
+     "name": "Mark D. Schmitz",
+     "role": "editor"
+    },
+    {
+     "inst": "tamu",
+     "lab": "Geology & Geophysics; stable isotope geochemistry lab. Chapter: Oxygen Isotope Stratigraphy",
+     "name": "Ethan L. Grossman",
+     "role": "chapter"
+    }
+   ],
+   "s": "ok",
+   "shelf": "mine",
+   "starter": true,
+   "t": "The Geologic Time Scale 2012",
+   "y": "2012",
+   "id": "gts"
+  },
+  {
+   "a": "David Foster Wallace",
+   "createdAt": 1794787200140,
+   "hubs": {
+    "mind": 0.5,
+    "teach": 0.3
+   },
+   "links": [
+    {
+     "to": "kaufer",
+     "w": 0.3,
+     "why": "Attention and consciousness"
+    }
+   ],
+   "note": "Novel of addiction, entertainment, tennis academies and attention.",
+   "p": "Little, Brown",
+   "people": [
+    {
+     "inst": "pomona",
+     "lab": "",
+     "name": "David Foster Wallace",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "mine",
+   "starter": true,
+   "t": "Infinite Jest",
+   "y": "1996",
+   "id": "ij"
+  },
+  {
+   "a": "J. Jansonius & D. C. McGregor (eds.)",
+   "createdAt": 1794787200148,
+   "hubs": {
+    "lab": 0.5,
+    "paly": 1
+   },
+   "links": [
+    {
+     "to": "kosanke",
+     "w": 0.7,
+     "why": "Fossil spore methods"
+    }
+   ],
+   "note": "Three-volume reference on fossil and modern palynomorphs. Published from College Station; A&M palynologist Vaughn Bryant likely contributed the honey-pollen chapter.",
+   "p": "AASP Foundation (College Station, Texas)",
+   "people": [
+    {
+     "inst": "gsc",
+     "lab": "",
+     "name": "D. C. McGregor",
+     "role": "editor"
+    },
+    {
+     "inst": "tamu",
+     "lab": "Anthropology; Palynology Laboratory. Likely chapter on pollen in honey (not fully confirmed)",
+     "name": "Vaughn M. Bryant Jr.",
+     "role": "chapter"
+    }
+   ],
+   "s": "ok",
+   "shelf": "mine",
+   "starter": true,
+   "t": "Palynology: Principles and Applications",
+   "y": "1996",
+   "id": "jansonius"
+  },
+  {
+   "a": "J. Harlan Johnson",
+   "createdAt": 1794787200106,
+   "hubs": {
+    "deep": 0.7
+   },
+   "links": [
+    {
+     "to": "stanley",
+     "w": 0.4,
+     "why": "Reef builders through time"
+    }
+   ],
+   "note": "Calcareous algae as rock builders through geologic time.",
+   "p": "Colorado School of Mines",
+   "people": [
+    {
+     "inst": "mines",
+     "lab": "",
+     "name": "J. Harlan Johnson",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "mine",
+   "starter": true,
+   "t": "Limestone-Building Algae and Algal Limestones",
+   "y": "1961",
+   "id": "johnson"
+  },
+  {
+   "a": "Stephan Käufer & Anthony Chemero",
+   "createdAt": 1794787200125,
+   "hubs": {
+    "eco": 0.5,
+    "mind": 1,
+    "teach": 0.6
+   },
+   "links": [
+    {
+     "to": "zawidzki",
+     "w": 0.6,
+     "why": "Embodied social cognition"
+    },
+    {
+     "to": "rilke",
+     "w": 0.4,
+     "why": "Lived experience"
+    }
+   ],
+   "note": "From Husserl and Heidegger to embodied and ecological cognitive science.",
+   "p": "Polity",
+   "people": [
+    {
+     "inst": "fandm",
+     "lab": "",
+     "name": "Stephan Käufer",
+     "role": "author"
+    },
+    {
+     "inst": "cinc",
+     "lab": "",
+     "name": "Anthony Chemero",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "mine",
+   "starter": true,
+   "t": "Phenomenology: An Introduction (2nd ed.)",
+   "y": "2021",
+   "id": "kaufer"
+  },
+  {
+   "a": "Marc W. Kirschner & John C. Gerhart",
+   "createdAt": 1794787200123,
+   "hubs": {
+    "cx": 0.5,
+    "evo": 1
+   },
+   "links": [],
+   "note": "Facilitated variation: how developmental systems make evolutionary novelty likely.",
+   "p": "Yale University Press",
+   "people": [
+    {
+     "inst": "harvard",
+     "lab": "",
+     "name": "Marc W. Kirschner",
+     "role": "author"
+    },
+    {
+     "inst": "berk",
+     "lab": "",
+     "name": "John C. Gerhart",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "mine",
+   "starter": true,
+   "t": "The Plausibility of Life: Resolving Darwin's Dilemma",
+   "y": "2005",
+   "id": "kirschner"
+  },
+  {
+   "a": "Robert M. Kosanke",
+   "createdAt": 1794787200126,
+   "hubs": {
+    "deep": 0.6,
+    "paly": 1
+   },
+   "links": [
+    {
+     "to": "phillips",
+     "w": 0.9,
+     "why": "Pennsylvanian palynology of the Illinois Basin"
+    },
+    {
+     "to": "coal",
+     "w": 0.8,
+     "why": "Spores used to correlate coal seams"
+    }
+   ],
+   "note": "Using spore assemblages to correlate coal beds across the basin.",
+   "p": "Illinois State Geological Survey, Bulletin 74",
+   "people": [
+    {
+     "inst": "isgs",
+     "lab": "",
+     "name": "Robert M. Kosanke",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "mine",
+   "starter": true,
+   "t": "Pennsylvanian Spores of Illinois and Their Use in Correlation",
+   "y": "1950",
+   "id": "kosanke"
+  },
+  {
+   "a": "Jonathan B. Losos",
+   "createdAt": 1794787200127,
+   "hubs": {
+    "evo": 1,
+    "teach": 0.3
+   },
+   "links": [
+    {
+     "to": "kirschner",
+     "w": 0.6,
+     "why": "Constraint, chance and repeatability"
+    },
+    {
+     "to": "eldredge",
+     "w": 0.5,
+     "why": "Macroevolution and contingency"
+    }
+   ],
+   "note": "Convergence versus contingency: would evolution repeat itself?",
+   "p": "Riverhead Books",
+   "people": [
+    {
+     "inst": "wustl|harvard",
+     "lab": "",
+     "name": "Jonathan B. Losos",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "mine",
+   "starter": true,
+   "t": "Improbable Destinies: Fate, Chance, and the Future of Evolution",
+   "y": "2017",
+   "id": "losos"
+  },
+  {
+   "a": "Yuri M. Lotman",
+   "createdAt": 1794787200139,
+   "hubs": {
+    "cx": 0.4,
+    "mind": 1,
+    "teach": 0.5
+   },
+   "links": [
+    {
+     "to": "zawidzki",
+     "w": 0.5,
+     "why": "Culture shaping minds"
+    },
+    {
+     "to": "sound",
+     "w": 0.6,
+     "why": "Signs and meaning"
+    }
+   ],
+   "note": "The semiosphere: culture as a self-organizing space of texts and codes.",
+   "p": "I. B. Tauris / Indiana (trans. Ann Shukman)",
+   "people": [
+    {
+     "inst": "tartu",
+     "lab": "",
+     "name": "Yuri M. Lotman",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "mine",
+   "starter": true,
+   "t": "Universe of the Mind: A Semiotic Theory of Culture",
+   "y": "1990",
+   "id": "lotman"
+  },
+  {
+   "a": "J. McKim Malville & Claudia Putnam",
+   "createdAt": 1794787200154,
+   "hubs": {
+    "deep": 0.2,
+    "mind": 0.4,
+    "place": 0.5
+   },
+   "links": [
+    {
+     "to": "skyhigh",
+     "w": 0.2,
+     "why": "Great Plains and Southwest skies"
+    }
+   ],
+   "note": "Sky watching at Chaco, Hovenweep and other Ancestral Puebloan sites.",
+   "p": "Johnson Books",
+   "people": [
+    {
+     "inst": "colorado",
+     "lab": "",
+     "name": "J. McKim Malville",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "mine",
+   "starter": true,
+   "t": "Prehistoric Astronomy in the Southwest",
+   "y": "1989",
+   "id": "malville"
+  },
+  {
+   "a": "Ernst Mayr",
+   "createdAt": 1794787200155,
+   "hubs": {
+    "eco": 0.4,
+    "evo": 0.9,
+    "teach": 0.5
+   },
+   "links": [
+    {
+     "to": "endler",
+     "w": 0.6,
+     "why": "Speciation and geographic variation"
+    },
+    {
+     "to": "craft",
+     "w": 0.25,
+     "why": "How a science builds its arguments"
+    }
+   ],
+   "note": "History of the ideas behind systematics, evolution and genetics.",
+   "p": "Harvard University Press",
+   "people": [
+    {
+     "inst": "harvard",
+     "lab": "",
+     "name": "Ernst Mayr",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "mine",
+   "starter": true,
+   "t": "The Growth of Biological Thought: Diversity, Evolution, and Inheritance",
+   "y": "1982",
+   "id": "mayr"
+  },
+  {
+   "a": "George C. McGavin",
+   "createdAt": 1794787200144,
+   "hubs": {
+    "animals": 0.6,
+    "field": 0.8
+   },
+   "links": [
+    {
+     "to": "tracks",
+     "w": 0.7,
+     "why": "Identifying insects in the field"
+    }
+   ],
+   "note": "Compact guide to every insect order.",
+   "p": "Oxford University Press",
+   "people": [
+    {
+     "inst": "oxford",
+     "lab": "",
+     "name": "George C. McGavin",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "mine",
+   "starter": true,
+   "t": "Essential Entomology: An Order-by-Order Introduction",
+   "y": "2001",
+   "id": "mcgavin"
+  },
+  {
+   "a": "Mark E. Patzkowsky & Steven M. Holland",
+   "createdAt": 1794787200118,
+   "hubs": {
+    "deep": 1,
+    "lab": 0.4
+   },
+   "links": [
+    {
+     "to": "gts",
+     "w": 0.8,
+     "why": "Stratigraphic correlation and dating"
+    },
+    {
+     "to": "gee",
+     "w": 0.55,
+     "why": "Community paleoecology"
+    }
+   ],
+   "note": "How sequence stratigraphy controls where and when fossils appear.",
+   "p": "University of Chicago Press",
+   "people": [
+    {
+     "inst": "psu",
+     "lab": "",
+     "name": "Mark E. Patzkowsky",
+     "role": "author"
+    },
+    {
+     "inst": "uga",
+     "lab": "",
+     "name": "Steven M. Holland",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "mine",
+   "starter": true,
+   "t": "Stratigraphic Paleobiology: Understanding the Distribution of Fossil Taxa in Time and Space",
+   "y": "2012",
+   "id": "patz"
+  },
+  {
+   "a": "Tom L. Phillips, Hermann W. Pfefferkorn & Russel A. Peppers",
+   "createdAt": 1794787200156,
+   "hubs": {
+    "deep": 0.6,
+    "paly": 1
+   },
+   "links": [
+    {
+     "to": "coal",
+     "w": 0.8,
+     "why": "Coal-forming Pennsylvanian plants"
+    }
+   ],
+   "note": "Survey of coal-ball and spore research in the basin.",
+   "p": "Illinois State Geological Survey, Circular 480",
+   "people": [
+    {
+     "inst": "uiuc",
+     "lab": "",
+     "name": "Tom L. Phillips",
+     "role": "author"
+    },
+    {
+     "inst": "uiuc|penn",
+     "lab": "",
+     "name": "Hermann W. Pfefferkorn",
+     "role": "author"
+    },
+    {
+     "inst": "isgs",
+     "lab": "",
+     "name": "Russel A. Peppers",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "mine",
+   "starter": true,
+   "t": "Development of Paleobotany in the Illinois Basin",
+   "y": "1973",
+   "id": "phillips"
+  },
+  {
+   "a": "Eric R. Pianka",
+   "createdAt": 1794787200117,
+   "hubs": {
+    "animals": 0.5,
+    "eco": 0.6,
+    "evo": 0.8
+   },
+   "links": [
+    {
+     "to": "endler",
+     "w": 0.7,
+     "why": "Evolutionary ecology of populations"
+    },
+    {
+     "to": "craine",
+     "w": 0.6,
+     "why": "Resource competition"
+    },
+    {
+     "to": "dowdeswell",
+     "w": 0.6,
+     "why": "Animal ecology texts"
+    }
+   ],
+   "note": "Standard text joining evolution to population and community ecology.",
+   "p": "Benjamin Cummings",
+   "people": [
+    {
+     "inst": "utexas",
+     "lab": "",
+     "name": "Eric R. Pianka",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "mine",
+   "starter": true,
+   "t": "Evolutionary Ecology",
+   "y": "2000 (6th ed.)",
+   "id": "pianka"
+  },
+  {
+   "a": "Plato",
+   "createdAt": 1794787200137,
+   "hubs": {
+    "mind": 0.5,
+    "teach": 0.9
+   },
+   "links": [
+    {
+     "to": "annas",
+     "w": 1,
+     "why": "Text and commentary"
+    },
+    {
+     "to": "tillich",
+     "w": 0.4,
+     "why": "Political philosophy"
+    }
+   ],
+   "note": "Justice, the soul, and the education of the guardians, with the allegory of the cave.",
+   "p": "",
+   "people": [
+    {
+     "inst": "academy",
+     "lab": "",
+     "name": "Plato",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "mine",
+   "starter": true,
+   "t": "The Republic",
+   "y": "c. 375 BCE",
+   "id": "plato"
+  },
+  {
+   "a": "Avicultural Society of America",
+   "createdAt": 1794800463121,
+   "hubs": {
+    "ag": 0.5,
+    "parrots": 0.7,
+    "pp-archive": 0.9
+   },
+   "links": [
+    {
+     "to": "pp_zotero",
+     "w": 0.4,
+     "why": "Part of the project library"
+    }
+   ],
+   "note": "The society's bulletin of observations, research and artwork from generations of bird keepers.",
+   "p": "Avicultural Society of America",
+   "people": [],
+   "s": "ok",
+   "shelf": "parrots",
+   "starter": true,
+   "t": "Avicultural Bulletin",
+   "url": "",
+   "y": "1931–",
+   "id": "pp_asa"
+  },
+  {
+   "a": "Ella Rydell, mentored by EV Voltura",
+   "createdAt": 1794800463120,
+   "hubs": {
+    "parrots": 0.6,
+    "pp-archive": 1,
+    "pp-teachers": 0.6
+   },
+   "links": [
+    {
+     "to": "pp_asa",
+     "w": 1,
+     "why": "Catalog of the bulletin"
+    }
+   ],
+   "note": "Cataloged 480 issues of the Avicultural Bulletin across 48 years, back to 1931; covers show at least 80 parrot species.",
+   "p": "The Parrots' Project",
+   "people": [
+    {
+     "inst": "tamu",
+     "lab": "Undergraduate researcher",
+     "name": "Ella Rydell",
+     "role": "author"
+    },
+    {
+     "inst": "tamu",
+     "lab": "Founder and Director, The Parrots' Project; Schubot Center for Avian Health, Veterinary Pathobiology",
+     "name": "EV Voltura",
+     "role": "mentor"
+    }
+   ],
+   "s": "ok",
+   "shelf": "parrots",
+   "starter": true,
+   "t": "Sustaining Psittacine Research in Aviculture through Digital Preservation of Physical Media",
+   "url": "",
+   "y": "2026",
+   "id": "pp_bulletin"
+  },
+  {
+   "a": "The Parrots' Project",
+   "createdAt": 1794800463112,
+   "hubs": {
+    "parrots": 0.9,
+    "pp-graphs": 1
+   },
+   "links": [
+    {
+     "to": "pp_pyrrhura_kg",
+     "w": 0.8,
+     "why": "Sister graphs built the same way"
+    },
+    {
+     "to": "pp_health_kg",
+     "w": 0.7,
+     "why": "Linked knowledge graphs"
+    }
+   ],
+   "note": "355 sources linked to 22 cockatoo taxa, 795 authors and 169 venues, 1910s–2020s. Shows where the literature is thick and where it is thin.",
+   "p": "The Parrots' Project",
+   "people": [],
+   "s": "ok",
+   "shelf": "parrots",
+   "starter": true,
+   "t": "Cockatoo Knowledge Graph (Version 2)",
+   "url": "https://theparrotsproject.org/graphs/cockatoo/",
+   "y": "2026",
+   "id": "pp_cockatoo_kg"
+  },
+  {
+   "a": "EV Voltura",
+   "createdAt": 1794800463123,
+   "hubs": {
+    "birds": 0.6,
+    "pp-feathers": 1
+   },
+   "links": [
+    {
+     "to": "pp_hogan",
+     "w": 0.9,
+     "why": "Methodological reference"
+    },
+    {
+     "to": "s_gibson",
+     "w": 0.4,
+     "why": "Perception beyond human vision"
+    }
+   ],
+   "note": "Hyperspectral imaging of Monk Parakeet feathers and the challenge of a calibrated spectral feather library.",
+   "p": "The Parrots' Project",
+   "people": [
+    {
+     "inst": "tamu",
+     "lab": "Founder and Director, The Parrots' Project; Schubot Center for Avian Health, Veterinary Pathobiology",
+     "name": "EV Voltura",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "parrots",
+   "starter": true,
+   "t": "The Hidden Colors of Feathers: Building a Hyperspectral Library",
+   "url": "https://theparrotsproject.org/blog/hidden-colors-of-feathers/",
+   "y": "2026",
+   "id": "pp_feathers"
+  },
+  {
+   "a": "The Parrots' Project",
+   "createdAt": 1794800463114,
+   "hubs": {
+    "parrots": 0.7,
+    "pp-graphs": 0.9,
+    "pp-health": 1
+   },
+   "links": [
+    {
+     "to": "psychphys",
+     "w": 0.3,
+     "why": "Measuring health through the body"
+    }
+   ],
+   "note": "771 veterinary and medical sources linked to 108 concepts across 70 parrot taxa. Connects references to concepts; not clinical guidance.",
+   "p": "The Parrots' Project",
+   "people": [],
+   "s": "ok",
+   "shelf": "parrots",
+   "starter": true,
+   "t": "Parrot Health Knowledge Graph (Version 2)",
+   "url": "https://theparrotsproject.org/graphs/health/",
+   "y": "2026",
+   "id": "pp_health_kg"
+  },
+  {
+   "a": "Benedict G. Hogan & Mary Caswell Stoddard",
+   "createdAt": 1794800463124,
+   "hubs": {
+    "animals": 0.5,
+    "lab": 0.7,
+    "pp-feathers": 0.9
+   },
+   "links": [
+    {
+     "to": "skoog",
+     "w": 0.4,
+     "why": "Spectral instrumentation"
+    }
+   ],
+   "note": "An open-access pipeline for hyperspectral image generation, analysis and 3D modeling of animal color.",
+   "p": "PLOS Biology 22(12): e3002867",
+   "people": [
+    {
+     "inst": "princeton",
+     "lab": "",
+     "name": "Benedict G. Hogan",
+     "role": "author"
+    },
+    {
+     "inst": "princeton",
+     "lab": "Ecology & Evolutionary Biology",
+     "name": "Mary Caswell Stoddard",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "parrots",
+   "starter": true,
+   "t": "Hyperspectral imaging in animal coloration research",
+   "url": "https://doi.org/10.1371/journal.pbio.3002867",
+   "y": "2024",
+   "id": "pp_hogan"
+  },
+  {
+   "a": "The Parrots' Project",
+   "createdAt": 1794800463127,
+   "hubs": {
+    "parrots": 0.7,
+    "pp-teachers": 0.7
+   },
+   "links": [
+    {
+     "to": "tracks",
+     "w": 0.4,
+     "why": "Reading animals from field observation"
+    }
+   ],
+   "note": "Photographs and notes of parrots feeding, shared as citizen-science observations.",
+   "p": "iNaturalist",
+   "people": [],
+   "s": "ok",
+   "shelf": "parrots",
+   "starter": true,
+   "t": "The Parrots' Project on iNaturalist",
+   "url": "https://www.inaturalist.org/projects/the-parrots-project",
+   "y": "2026",
+   "id": "pp_inat"
+  },
+  {
+   "a": "Carl Linnaeus",
+   "createdAt": 1794800463117,
+   "hubs": {
+    "animals": 0.6,
+    "birds": 0.5,
+    "evo": 0.7,
+    "pp-names": 0.9
+   },
+   "links": [
+    {
+     "to": "pp_names_tl",
+     "w": 0.9,
+     "why": "Starting point of the name timeline"
+    },
+    {
+     "to": "mayr",
+     "w": 0.6,
+     "why": "History of classification"
+    }
+   ],
+   "note": "The starting point of zoological nomenclature, where every parrot Linnaeus knew was placed in the single genus Psittacus.",
+   "p": "Laurentius Salvius",
+   "people": [
+    {
+     "inst": "uppsala",
+     "lab": "",
+     "name": "Carl Linnaeus",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "parrots",
+   "starter": true,
+   "t": "Systema Naturae (10th edition)",
+   "url": "",
+   "y": "1758",
+   "id": "pp_linnaeus"
+  },
+  {
+   "a": "James Guo, EV Voltura and undergraduate researchers",
+   "createdAt": 1794800463118,
+   "hubs": {
+    "parrots": 0.6,
+    "pp-multilingual": 1,
+    "pp-names": 0.7
+   },
+   "links": [
+    {
+     "to": "cooper",
+     "w": 0.6,
+     "why": "Chinese names and characters"
+    },
+    {
+     "to": "sound",
+     "w": 0.5,
+     "why": "How names carry meaning"
+    },
+    {
+     "to": "pp_names_tl",
+     "w": 0.6,
+     "why": "Names across time and across languages"
+    }
+   ],
+   "note": "Multilingual parrot names, starting with Simplified and Traditional Chinese and extended to Hindi and Korean, in original scripts.",
+   "p": "The Parrots' Project",
+   "people": [
+    {
+     "inst": "",
+     "lab": "Leads the multilingual parrot names research",
+     "name": "James Guo",
+     "role": "author"
+    },
+    {
+     "inst": "tamu",
+     "lab": "Founder and Director, The Parrots' Project; Schubot Center for Avian Health, Veterinary Pathobiology",
+     "name": "EV Voltura",
+     "role": "mentor"
+    }
+   ],
+   "s": "ok",
+   "shelf": "parrots",
+   "starter": true,
+   "t": "Parrots by Many Names: Connecting Languages, Cultures, and Scientific Taxonomy",
+   "url": "https://theparrotsproject.org/taxonomy.html",
+   "y": "2026",
+   "id": "pp_manynames"
+  },
+  {
+   "a": "The Parrots' Project",
+   "createdAt": 1794800463115,
+   "hubs": {
+    "parrots": 0.7,
+    "pp-graphs": 0.7,
+    "pp-names": 1
+   },
+   "links": [
+    {
+     "to": "mayr",
+     "w": 0.6,
+     "why": "History of classification"
+    },
+    {
+     "to": "schopf",
+     "w": 0.4,
+     "why": "Old genus names in older literature"
+    }
+   ],
+   "note": "Follows 22 cockatoo taxa through 17 genera from Linnaeus to today, with each authority's decision and verification notes.",
+   "p": "The Parrots' Project",
+   "people": [],
+   "s": "ok",
+   "shelf": "parrots",
+   "starter": true,
+   "t": "Parrot Names Through Time: 1758–2026 (Version 0.1)",
+   "url": "https://theparrotsproject.org/graphs/parrot-name-history/",
+   "y": "2026",
+   "id": "pp_names_tl"
+  },
+  {
+   "a": "National Geographic",
+   "createdAt": 1794800463126,
+   "hubs": {
+    "parrots": 0.8,
+    "pp-archive": 0.4,
+    "pp-diet": 0.6
+   },
+   "links": [
+    {
+     "to": "pp_poster",
+     "w": 0.4,
+     "why": "Parrot diets in the wild"
+    }
+   ],
+   "note": "The issue with photographs of macaws at Tambopata clay licks that started the project. Author not confirmed here.",
+   "p": "National Geographic",
+   "people": [],
+   "s": "likely",
+   "shelf": "parrots",
+   "starter": true,
+   "t": "Macaws: Winged Rainbows",
+   "url": "",
+   "y": "January 1994",
+   "id": "pp_natgeo"
+  },
+  {
+   "a": "Jenna Henry, Ella Rydell, Jason Crean, Tatiana Tatum & EV Voltura",
+   "createdAt": 1794800463119,
+   "hubs": {
+    "parrots": 0.8,
+    "pp-diet": 1,
+    "pp-provenance": 0.6,
+    "pp-teachers": 0.7
+   },
+   "links": [
+    {
+     "to": "pp_cockatoo_kg",
+     "w": 0.8,
+     "why": "The same cockatoos and library"
+    },
+    {
+     "to": "craine",
+     "w": 0.5,
+     "why": "Plant food resources"
+    },
+    {
+     "to": "craft",
+     "w": 0.4,
+     "why": "Students doing research"
+    }
+   ],
+   "note": "39 students reviewed 156 sources and recorded 2,188 diet records for all 21 cockatoo species. Wild birds ate plants from 64 families, captive birds from 50.",
+   "p": "Research poster",
+   "people": [
+    {
+     "inst": "tamu",
+     "lab": "Undergraduate researcher, Aggie Research Program; lead author",
+     "name": "Jenna Henry",
+     "role": "author"
+    },
+    {
+     "inst": "tamu",
+     "lab": "Undergraduate researcher",
+     "name": "Ella Rydell",
+     "role": "author"
+    },
+    {
+     "inst": "saintxavier",
+     "lab": "Biologist and educator; Biological Sciences",
+     "name": "Jason Crean",
+     "role": "author"
+    },
+    {
+     "inst": "saintxavier",
+     "lab": "Professor and Chair, Biological Sciences",
+     "name": "Tatiana Tatum",
+     "role": "author"
+    },
+    {
+     "inst": "tamu",
+     "lab": "Founder and Director, The Parrots' Project; Schubot Center for Avian Health, Veterinary Pathobiology",
+     "name": "EV Voltura",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "parrots",
+   "starter": true,
+   "t": "A Synthesis of Wild and Captive Cockatoo Diets: Integrating Historical and Contemporary Data Sources",
+   "url": "https://theparrotsproject.org/assets/research/cockatoo-diet-poster.pdf",
+   "y": "2025",
+   "id": "pp_poster"
+  },
+  {
+   "a": "EV Voltura",
+   "createdAt": 1794800463116,
+   "hubs": {
+    "parrots": 0.6,
+    "pp-names": 1
+   },
+   "links": [
+    {
+     "to": "pp_names_tl",
+     "w": 1,
+     "why": "Introduces the timeline"
+    }
+   ],
+   "note": "Why scientific names change and why historical names matter for finding older research.",
+   "p": "The Parrots' Project",
+   "people": [
+    {
+     "inst": "tamu",
+     "lab": "Founder and Director, The Parrots' Project; Schubot Center for Avian Health, Veterinary Pathobiology",
+     "name": "EV Voltura",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "parrots",
+   "starter": true,
+   "t": "When All Parrots Were Psittacus: How Scientific Names Change",
+   "url": "https://theparrotsproject.org/blog/when-all-parrots-were-psittacus/",
+   "y": "2026",
+   "id": "pp_psittacus"
+  },
+  {
+   "a": "The Parrots' Project",
+   "createdAt": 1794800463113,
+   "hubs": {
+    "parrots": 0.9,
+    "pp-graphs": 1
+   },
+   "links": [],
+   "note": "163 sources linked to 32 Pyrrhura conure taxa, with Clements and IUCN Red List status.",
+   "p": "The Parrots' Project",
+   "people": [],
+   "s": "ok",
+   "shelf": "parrots",
+   "starter": true,
+   "t": "Pyrrhura Knowledge Graph (Version 2)",
+   "url": "https://theparrotsproject.org/graphs/pyrrhura/",
+   "y": "2026",
+   "id": "pp_pyrrhura_kg"
+  },
+  {
+   "a": "EV Voltura",
+   "createdAt": 1794800463125,
+   "hubs": {
+    "parrots": 0.6,
+    "pp-diet": 0.5,
+    "pp-teachers": 0.6
+   },
+   "links": [
+    {
+     "to": "pp_natgeo",
+     "w": 1,
+     "why": "The magazine that started it"
+    }
+   ],
+   "note": "A discarded library magazine, macaws eating clay along Peru's Tambopata River, and a question that became a PhD.",
+   "p": "The Parrots' Project",
+   "people": [
+    {
+     "inst": "tamu",
+     "lab": "Founder and Director, The Parrots' Project; Schubot Center for Avian Health, Veterinary Pathobiology",
+     "name": "EV Voltura",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "parrots",
+   "starter": true,
+   "t": "How The Parrots' Project Began",
+   "url": "https://theparrotsproject.org/blog.html?post=how-the-parrots-project-began",
+   "y": "2026",
+   "id": "pp_story"
+  },
+  {
+   "a": "The Parrots' Project",
+   "createdAt": 1794800463122,
+   "hubs": {
+    "pp-archive": 0.7,
+    "pp-graphs": 0.5,
+    "pp-provenance": 0.8
+   },
+   "links": [],
+   "note": "A public reference library of about 4,500 records, reviewed by hand, each linked to its original source.",
+   "p": "The Parrots' Project",
+   "people": [],
+   "s": "ok",
+   "shelf": "parrots",
+   "starter": true,
+   "t": "The Parrots' Project Zotero Library",
+   "url": "https://www.zotero.org/groups/5755966/the_parrots_project/library",
+   "y": "2026",
+   "id": "pp_zotero"
+  },
+  {
+   "a": "John T. Cacioppo, Louis G. Tassinary & Gary G. Berntson (eds.)",
+   "createdAt": 1794787200157,
+   "hubs": {
+    "lab": 0.6,
+    "mind": 0.8,
+    "teach": 0.4
+   },
+   "links": [
+    {
+     "to": "kaufer",
+     "w": 0.4,
+     "why": "Embodied mind, measured and described"
+    },
+    {
+     "to": "skoog",
+     "w": 0.3,
+     "why": "Instrumentation for measurement"
+    },
+    {
+     "to": "zawidzki",
+     "w": 0.3,
+     "why": "Social cognition"
+    }
+   ],
+   "note": "Measuring mind through the body: heart, skin, muscle, brain and hormones.",
+   "p": "Cambridge University Press",
+   "people": [
+    {
+     "inst": "uchi",
+     "lab": "",
+     "name": "John T. Cacioppo",
+     "role": "editor"
+    },
+    {
+     "inst": "tamu",
+     "lab": "School of Performance, Visualization & Fine Arts; environmental psychophysiology",
+     "name": "Louis G. Tassinary",
+     "role": "editor"
+    },
+    {
+     "inst": "ohio",
+     "lab": "",
+     "name": "Gary G. Berntson",
+     "role": "editor"
+    }
+   ],
+   "s": "ok",
+   "shelf": "mine",
+   "starter": true,
+   "t": "Handbook of Psychophysiology (4th ed.)",
+   "y": "2017",
+   "id": "psychphys"
+  },
+  {
+   "a": "Rainer Maria Rilke; trans. Anita Barrows & Joanna Macy",
+   "createdAt": 1794787200142,
+   "hubs": {
+    "eco": 0.6,
+    "mind": 0.5
+   },
+   "links": [],
+   "note": "Translated by the deep-ecology thinker Joanna Macy.",
+   "p": "Riverhead Books",
+   "people": [],
+   "s": "ok",
+   "shelf": "mine",
+   "starter": true,
+   "t": "Rilke's Book of Hours: Love Poems to God",
+   "y": "1996",
+   "id": "rilke"
+  },
+  {
+   "a": "Charles C. Mann",
+   "createdAt": 1794787200235,
+   "hubs": {
+    "arch": 0.8,
+    "place": 0.5,
+    "soc": 0.6
+   },
+   "links": [],
+   "note": "The Americas before European contact.",
+   "p": "Knopf",
+   "people": [],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "1491: New Revelations of the Americas Before Columbus",
+   "y": "2005",
+   "id": "s_1491"
+  },
+  {
+   "a": "F. Albert Cotton, Geoffrey Wilkinson, Carlos A. Murillo & Manfred Bochmann",
+   "createdAt": 1794787200161,
+   "hubs": {
+    "lab": 0.6,
+    "phys": 0.9
+   },
+   "links": [],
+   "note": "The standard graduate inorganic chemistry reference.",
+   "p": "Wiley",
+   "people": [
+    {
+     "inst": "tamu",
+     "lab": "",
+     "name": "F. Albert Cotton",
+     "role": "author"
+    },
+    {
+     "inst": "tamu",
+     "lab": "Chemistry",
+     "name": "Carlos A. Murillo",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "Advanced Inorganic Chemistry (6th ed.)",
+   "y": "1999",
+   "id": "s_aic"
+  },
+  {
+   "a": "Stuart Russell & Peter Norvig",
+   "createdAt": 1794787200217,
+   "hubs": {
+    "comp": 1,
+    "teach": 0.5
+   },
+   "links": [
+    {
+     "to": "s_dl",
+     "w": 0.8,
+     "why": "AI textbooks"
+    }
+   ],
+   "note": "The standard AI textbook.",
+   "p": "Pearson",
+   "people": [
+    {
+     "inst": "berk",
+     "lab": "",
+     "name": "Stuart Russell",
+     "role": "author"
+    },
+    {
+     "inst": "stanford",
+     "lab": "",
+     "name": "Peter Norvig",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "Artificial Intelligence: A Modern Approach (4th ed.)",
+   "y": "2020",
+   "id": "s_aima"
+  },
+  {
+   "a": "Brian Christian",
+   "createdAt": 1794787200219,
+   "hubs": {
+    "comp": 0.9,
+    "soc": 0.4,
+    "teach": 0.6
+   },
+   "links": [
+    {
+     "to": "s_moral",
+     "w": 0.8,
+     "why": "AI ethics"
+    }
+   ],
+   "note": "Machine learning and human values.",
+   "p": "W. W. Norton",
+   "people": [],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "The Alignment Problem",
+   "y": "2020",
+   "id": "s_align"
+  },
+  {
+   "a": "Hannah Arendt",
+   "createdAt": 1794787200241,
+   "hubs": {
+    "mind": 0.3,
+    "soc": 0.8
+   },
+   "links": [
+    {
+     "to": "tillich",
+     "w": 0.5,
+     "why": "Politics in the 1930s"
+    }
+   ],
+   "note": "Antisemitism, imperialism and totalitarian rule.",
+   "p": "Schocken",
+   "people": [
+    {
+     "inst": "newschool|uchi",
+     "lab": "",
+     "name": "Hannah Arendt",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "The Origins of Totalitarianism",
+   "y": "1951",
+   "id": "s_arendt"
+  },
+  {
+   "a": "Gregory Bateson",
+   "createdAt": 1794787200204,
+   "hubs": {
+    "cx": 0.6,
+    "eco": 0.8,
+    "mind": 0.9
+   },
+   "links": [
+    {
+     "to": "s_spell",
+     "w": 0.5,
+     "why": "Ecology of mind"
+    }
+   ],
+   "note": "Mind as a pattern in living systems.",
+   "p": "Chandler",
+   "people": [],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "Steps to an Ecology of Mind",
+   "y": "1972",
+   "id": "s_bateson"
+  },
+  {
+   "a": "Richard A. Davis Jr. & Duncan M. FitzGerald",
+   "createdAt": 1794787200192,
+   "hubs": {
+    "deep": 0.4,
+    "place": 0.4,
+    "sea": 0.8
+   },
+   "links": [
+    {
+     "to": "davis",
+     "w": 0.8,
+     "why": "Richard A. Davis Jr. wrote both"
+    }
+   ],
+   "note": "Coastal processes and landforms.",
+   "p": "Blackwell",
+   "people": [
+    {
+     "inst": "usf|tamucc",
+     "lab": "",
+     "name": "Richard A. Davis Jr.",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "Beaches and Coasts",
+   "y": "2004",
+   "id": "s_beaches"
+  },
+  {
+   "a": "Leon Hesser",
+   "createdAt": 1794787200177,
+   "hubs": {
+    "ag": 1,
+    "soc": 0.4
+   },
+   "links": [],
+   "note": "Biography of Norman Borlaug, A&M distinguished professor 1984–2009.",
+   "p": "Durban House",
+   "people": [
+    {
+     "inst": "tamu",
+     "lab": "Soil & Crop Sciences, distinguished professor 1984–2009",
+     "name": "Norman E. Borlaug",
+     "role": "subject"
+    }
+   ],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "The Man Who Fed the World",
+   "y": "2006",
+   "id": "s_borlaug"
+  },
+  {
+   "a": "Robin Wall Kimmerer",
+   "createdAt": 1794787200202,
+   "hubs": {
+    "eco": 1,
+    "place": 0.5,
+    "teach": 0.4
+   },
+   "links": [
+    {
+     "to": "rilke",
+     "w": 0.4,
+     "why": "Reverence for the living world"
+    }
+   ],
+   "note": "Indigenous knowledge and plant science together.",
+   "p": "Milkweed Editions",
+   "people": [
+    {
+     "inst": "sunyesf",
+     "lab": "",
+     "name": "Robin Wall Kimmerer",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "Braiding Sweetgrass",
+   "y": "2013",
+   "id": "s_braiding"
+  },
+  {
+   "a": "George Casella & Roger L. Berger",
+   "createdAt": 1794787200256,
+   "hubs": {
+    "lab": 0.5,
+    "phys": 0.7
+   },
+   "links": [],
+   "note": "Graduate statistics text.",
+   "p": "Duxbury",
+   "people": [
+    {
+     "inst": "cornell|ufl",
+     "lab": "",
+     "name": "George Casella",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "Statistical Inference (2nd ed.)",
+   "y": "2002",
+   "id": "s_casella"
+  },
+  {
+   "a": "Peter Singer",
+   "createdAt": 1794787200258,
+   "hubs": {
+    "ag": 0.5,
+    "animals": 0.8,
+    "eco": 0.5,
+    "mind": 0.4
+   },
+   "links": [],
+   "note": "Ethics of how humans treat animals.",
+   "p": "HarperCollins",
+   "people": [
+    {
+     "inst": "princeton",
+     "lab": "",
+     "name": "Peter Singer",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "Animal Liberation",
+   "y": "1975",
+   "id": "s_cbook"
+  },
+  {
+   "a": "James Gleick",
+   "createdAt": 1794787200183,
+   "hubs": {
+    "cx": 0.9
+   },
+   "links": [
+    {
+     "to": "s_strogatz",
+     "w": 0.5,
+     "why": "Chaos"
+    }
+   ],
+   "note": "Popular history of chaos theory.",
+   "p": "Viking",
+   "people": [],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "Chaos: Making a New Science",
+   "y": "1987",
+   "id": "s_chaos"
+  },
+  {
+   "a": "Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest & Clifford Stein",
+   "createdAt": 1794787200222,
+   "hubs": {
+    "comp": 1,
+    "phys": 0.3
+   },
+   "links": [
+    {
+     "to": "s_sicp",
+     "w": 0.5,
+     "why": "Computer science foundations"
+    }
+   ],
+   "note": "The standard algorithms reference.",
+   "p": "MIT Press",
+   "people": [
+    {
+     "inst": "dartmouth",
+     "lab": "",
+     "name": "Thomas H. Cormen",
+     "role": "author"
+    },
+    {
+     "inst": "mit",
+     "lab": "",
+     "name": "Ronald L. Rivest",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "Introduction to Algorithms (3rd ed.)",
+   "y": "2009",
+   "id": "s_clrs"
+  },
+  {
+   "a": "Bjarne Stroustrup",
+   "createdAt": 1794787200158,
+   "hubs": {
+    "comp": 1
+   },
+   "links": [
+    {
+     "to": "s_ppp",
+     "w": 0.9,
+     "why": "Same author"
+    }
+   ],
+   "note": "Written by C++'s creator, who taught at Texas A&M 2002–2014.",
+   "p": "Addison-Wesley",
+   "people": [
+    {
+     "inst": "tamu|columbia",
+     "lab": "Computer Science & Engineering (2002–2014)",
+     "name": "Bjarne Stroustrup",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "The C++ Programming Language (4th ed.)",
+   "y": "2013",
+   "id": "s_cpp"
+  },
+  {
+   "a": "John Dewey",
+   "createdAt": 1794787200212,
+   "hubs": {
+    "soc": 0.5,
+    "teach": 1
+   },
+   "links": [
+    {
+     "to": "s_freire",
+     "w": 0.6,
+     "why": "Philosophy of education"
+    }
+   ],
+   "note": "Learning by experience in a democratic society.",
+   "p": "Macmillan",
+   "people": [
+    {
+     "inst": "uchi|columbia",
+     "lab": "",
+     "name": "John Dewey",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "Democracy and Education",
+   "y": "1916",
+   "id": "s_dewey"
+  },
+  {
+   "a": "Edward O. Wilson",
+   "createdAt": 1794787200198,
+   "hubs": {
+    "eco": 0.9,
+    "evo": 0.7
+   },
+   "links": [],
+   "note": "Biodiversity, its origins and its loss.",
+   "p": "Harvard University Press",
+   "people": [
+    {
+     "inst": "harvard",
+     "lab": "",
+     "name": "Edward O. Wilson",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "The Diversity of Life",
+   "y": "1992",
+   "id": "s_diversity"
+  },
+  {
+   "a": "Ian Goodfellow, Yoshua Bengio & Aaron Courville",
+   "createdAt": 1794787200218,
+   "hubs": {
+    "comp": 1
+   },
+   "links": [],
+   "note": "Neural networks from foundations to practice.",
+   "p": "MIT Press",
+   "people": [
+    {
+     "inst": "montreal",
+     "lab": "",
+     "name": "Yoshua Bengio",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "Deep Learning",
+   "y": "2016",
+   "id": "s_dl"
+  },
+  {
+   "a": "David Quammen",
+   "createdAt": 1794787200248,
+   "hubs": {
+    "animals": 0.6,
+    "birds": 0.6,
+    "eco": 0.8,
+    "evo": 0.8
+   },
+   "links": [],
+   "note": "Island biogeography and extinction.",
+   "p": "Scribner",
+   "people": [],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "The Song of the Dodo",
+   "y": "1996",
+   "id": "s_dodo"
+  },
+  {
+   "a": "Larry McMurtry",
+   "createdAt": 1794787200236,
+   "hubs": {
+    "place": 0.7,
+    "soc": 0.3
+   },
+   "links": [
+    {
+     "to": "s_lonestar",
+     "w": 0.5,
+     "why": "Texas history and story"
+    }
+   ],
+   "note": "Novel of a cattle drive from Texas to Montana.",
+   "p": "Simon & Schuster",
+   "people": [],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "Lonesome Dove",
+   "y": "1985",
+   "id": "s_dove"
+  },
+  {
+   "a": "Francisco J. Varela, Evan Thompson & Eleanor Rosch",
+   "createdAt": 1794787200206,
+   "hubs": {
+    "eco": 0.4,
+    "mind": 1,
+    "teach": 0.3
+   },
+   "links": [
+    {
+     "to": "kaufer",
+     "w": 0.8,
+     "why": "Embodied cognition and phenomenology"
+    }
+   ],
+   "note": "Cognitive science meets phenomenology and Buddhism.",
+   "p": "MIT Press",
+   "people": [
+    {
+     "inst": "uchile",
+     "lab": "",
+     "name": "Francisco J. Varela",
+     "role": "author"
+    },
+    {
+     "inst": "ubc",
+     "lab": "",
+     "name": "Evan Thompson",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "The Embodied Mind",
+   "y": "1991",
+   "id": "s_embodied"
+  },
+  {
+   "a": "Richard P. Feynman, Robert B. Leighton & Matthew Sands",
+   "createdAt": 1794787200180,
+   "hubs": {
+    "phys": 1,
+    "teach": 0.5
+   },
+   "links": [
+    {
+     "to": "s_qo",
+     "w": 0.5,
+     "why": "Physics"
+    }
+   ],
+   "note": "Caltech introductory physics, famous for its teaching.",
+   "p": "Addison-Wesley",
+   "people": [
+    {
+     "inst": "caltech",
+     "lab": "",
+     "name": "Richard P. Feynman",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "The Feynman Lectures on Physics",
+   "y": "1963",
+   "id": "s_feynman"
+  },
+  {
+   "a": "Neil Shubin",
+   "createdAt": 1794787200247,
+   "hubs": {
+    "animals": 0.5,
+    "deep": 0.8,
+    "evo": 0.9
+   },
+   "links": [
+    {
+     "to": "amph",
+     "w": 0.85,
+     "why": "The fish-to-tetrapod transition"
+    }
+   ],
+   "note": "Tiktaalik and the fish in the human body.",
+   "p": "Pantheon",
+   "people": [
+    {
+     "inst": "uchi",
+     "lab": "",
+     "name": "Neil Shubin",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "Your Inner Fish",
+   "y": "2008",
+   "id": "s_fish"
+  },
+  {
+   "a": "Frank M. White",
+   "createdAt": 1794787200224,
+   "hubs": {
+    "eng": 0.9,
+    "phys": 0.6
+   },
+   "links": [
+    {
+     "to": "s_transport",
+     "w": 0.8,
+     "why": "Transport and fluids"
+    }
+   ],
+   "note": "Standard engineering fluids text.",
+   "p": "McGraw-Hill",
+   "people": [
+    {
+     "inst": "uri",
+     "lab": "",
+     "name": "Frank M. White",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "Fluid Mechanics",
+   "y": "1979",
+   "id": "s_fluid"
+  },
+  {
+   "a": "Michel Foucault",
+   "createdAt": 1794787200242,
+   "hubs": {
+    "soc": 0.8,
+    "teach": 0.5
+   },
+   "links": [
+    {
+     "to": "plato",
+     "w": 0.3,
+     "why": "Institutions that form people"
+    }
+   ],
+   "note": "Power, surveillance and institutions, schools included.",
+   "p": "Gallimard",
+   "people": [
+    {
+     "inst": "cdf",
+     "lab": "",
+     "name": "Michel Foucault",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "Discipline and Punish",
+   "y": "1975",
+   "id": "s_foucault"
+  },
+  {
+   "a": "H. W. Brands",
+   "createdAt": 1794787200170,
+   "hubs": {
+    "soc": 0.8
+   },
+   "links": [],
+   "note": "Biography written while Brands taught at A&M.",
+   "p": "Doubleday",
+   "people": [
+    {
+     "inst": "tamu|utexas",
+     "lab": "History (A&M 1987–2005)",
+     "name": "H. W. Brands",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "The First American: The Life and Times of Benjamin Franklin",
+   "y": "2000",
+   "id": "s_franklin"
+  },
+  {
+   "a": "Paulo Freire",
+   "createdAt": 1794787200213,
+   "hubs": {
+    "soc": 0.7,
+    "teach": 1
+   },
+   "links": [],
+   "note": "Education as dialogue and liberation.",
+   "p": "Herder & Herder",
+   "people": [],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "Pedagogy of the Oppressed",
+   "y": "1968",
+   "id": "s_freire"
+  },
+  {
+   "a": "Douglas R. Hofstadter",
+   "createdAt": 1794787200181,
+   "hubs": {
+    "comp": 0.7,
+    "cx": 0.6,
+    "mind": 0.8
+   },
+   "links": [
+    {
+     "to": "s_treeknow",
+     "w": 0.4,
+     "why": "Self-reference and cognition"
+    }
+   ],
+   "note": "Self-reference, minds and machines.",
+   "p": "Basic Books",
+   "people": [
+    {
+     "inst": "indiana",
+     "lab": "",
+     "name": "Douglas R. Hofstadter",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "Gödel, Escher, Bach: An Eternal Golden Braid",
+   "y": "1979",
+   "id": "s_geb"
+  },
+  {
+   "a": "Michael R. Waters",
+   "createdAt": 1794787200168,
+   "hubs": {
+    "arch": 1,
+    "deep": 0.6,
+    "place": 0.4
+   },
+   "links": [
+    {
+     "to": "s_1491",
+     "w": 0.5,
+     "why": "The early Americas"
+    },
+    {
+     "to": "malville",
+     "w": 0.4,
+     "why": "Archaeology of the Americas"
+    }
+   ],
+   "note": "Reading sediments to find and date archaeological sites.",
+   "p": "University of Arizona Press",
+   "people": [
+    {
+     "inst": "tamu",
+     "lab": "Anthropology; Center for the Study of the First Americans",
+     "name": "Michael R. Waters",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "Principles of Geoarchaeology: A North American Perspective",
+   "y": "1992",
+   "id": "s_geoarch"
+  },
+  {
+   "a": "Jared Diamond",
+   "createdAt": 1794787200234,
+   "hubs": {
+    "ag": 0.6,
+    "arch": 0.6,
+    "deep": 0.3,
+    "soc": 0.8
+   },
+   "links": [
+    {
+     "to": "s_1491",
+     "w": 0.6,
+     "why": "Deep human history"
+    }
+   ],
+   "note": "Why societies developed unequally.",
+   "p": "W. W. Norton",
+   "people": [
+    {
+     "inst": "ucla",
+     "lab": "",
+     "name": "Jared Diamond",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "Guns, Germs, and Steel",
+   "y": "1997",
+   "id": "s_ggs"
+  },
+  {
+   "a": "George C. Edwards III, Martin P. Wattenberg & Robert L. Lineberry",
+   "createdAt": 1794787200166,
+   "hubs": {
+    "soc": 1,
+    "teach": 0.3
+   },
+   "links": [],
+   "note": "Widely used introductory American government text.",
+   "p": "Pearson Longman",
+   "people": [
+    {
+     "inst": "tamu",
+     "lab": "Political Science",
+     "name": "George C. Edwards III",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "Government in America",
+   "y": "2009",
+   "id": "s_gia"
+  },
+  {
+   "a": "James J. Gibson",
+   "createdAt": 1794787200209,
+   "hubs": {
+    "eco": 0.6,
+    "mind": 0.9
+   },
+   "links": [
+    {
+     "to": "kaufer",
+     "w": 0.6,
+     "why": "Ecological psychology"
+    }
+   ],
+   "note": "Affordances and direct perception.",
+   "p": "Houghton Mifflin",
+   "people": [
+    {
+     "inst": "cornell",
+     "lab": "",
+     "name": "James J. Gibson",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "The Ecological Approach to Visual Perception",
+   "y": "1979",
+   "id": "s_gibson"
+  },
+  {
+   "a": "Temple Grandin & Catherine Johnson",
+   "createdAt": 1794787200250,
+   "hubs": {
+    "ag": 0.8,
+    "animals": 0.9,
+    "mind": 0.6
+   },
+   "links": [
+    {
+     "to": "psychphys",
+     "w": 0.3,
+     "why": "Animal perception and stress"
+    }
+   ],
+   "note": "How animals perceive, from a livestock-handling designer.",
+   "p": "Scribner",
+   "people": [
+    {
+     "inst": "csu",
+     "lab": "",
+     "name": "Temple Grandin",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "Animals in Translation",
+   "y": "2005",
+   "id": "s_grandin"
+  },
+  {
+   "a": "F. Albert Cotton",
+   "createdAt": 1794787200160,
+   "hubs": {
+    "lab": 0.5,
+    "phys": 0.9
+   },
+   "links": [
+    {
+     "to": "s_aic",
+     "w": 0.8,
+     "why": "Same author"
+    }
+   ],
+   "note": "Symmetry and group theory for chemists.",
+   "p": "Wiley",
+   "people": [
+    {
+     "inst": "tamu",
+     "lab": "Chemistry; Laboratory for Molecular Structure and Bonding",
+     "name": "F. Albert Cotton",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "Chemical Applications of Group Theory (3rd ed.)",
+   "y": "1990",
+   "id": "s_grp"
+  },
+  {
+   "a": "Darryl L. Felder & David K. Camp (eds.)",
+   "createdAt": 1794787200174,
+   "hubs": {
+    "field": 0.5,
+    "place": 0.7,
+    "sea": 1
+   },
+   "links": [
+    {
+     "to": "davis",
+     "w": 0.5,
+     "why": "The Gulf Coast"
+    },
+    {
+     "to": "s_ocean",
+     "w": 0.5,
+     "why": "Gulf and ocean science"
+    }
+   ],
+   "note": "Catalog of Gulf life from the Harte Research Institute series.",
+   "p": "Texas A&M University Press",
+   "people": [
+    {
+     "inst": "unl",
+     "lab": "",
+     "name": "Darryl L. Felder",
+     "role": "editor"
+    },
+    {
+     "inst": "tamucc",
+     "lab": "",
+     "name": "Harte Research Institute",
+     "role": "subject"
+    }
+   ],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "Gulf of Mexico Origin, Waters, and Biota, Vol. 1: Biodiversity",
+   "y": "2009",
+   "id": "s_gulf"
+  },
+  {
+   "a": "Martin Heidegger",
+   "createdAt": 1794787200207,
+   "hubs": {
+    "mind": 0.9
+   },
+   "links": [
+    {
+     "to": "kaufer",
+     "w": 0.7,
+     "why": "Phenomenology"
+    }
+   ],
+   "note": "Phenomenology of human existence.",
+   "p": "Niemeyer",
+   "people": [
+    {
+     "inst": "freiburg",
+     "lab": "",
+     "name": "Martin Heidegger",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "Being and Time",
+   "y": "1927",
+   "id": "s_heidegger"
+  },
+  {
+   "a": "Arthur Holmes",
+   "createdAt": 1794787200186,
+   "hubs": {
+    "deep": 0.9
+   },
+   "links": [],
+   "note": "Classic geology text that argued early for continental drift.",
+   "p": "Thomas Nelson",
+   "people": [
+    {
+     "inst": "edinburgh",
+     "lab": "",
+     "name": "Arthur Holmes",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "Principles of Physical Geology",
+   "y": "1944",
+   "id": "s_holmes"
+  },
+  {
+   "a": "National Research Council",
+   "createdAt": 1794787200215,
+   "hubs": {
+    "mind": 0.5,
+    "teach": 1
+   },
+   "links": [
+    {
+     "to": "craft",
+     "w": 0.4,
+     "why": "Learning and research skills"
+    }
+   ],
+   "note": "Research on learning, applied to teaching.",
+   "p": "National Academies Press",
+   "people": [
+    {
+     "inst": "nas",
+     "lab": "",
+     "name": "National Research Council",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "How People Learn: Brain, Mind, Experience, and School",
+   "y": "2000",
+   "id": "s_hpl"
+  },
+  {
+   "a": "G. Evelyn Hutchinson",
+   "createdAt": 1794787200203,
+   "hubs": {
+    "eco": 0.8,
+    "evo": 0.8
+   },
+   "links": [],
+   "note": "Essays joining ecology and evolution.",
+   "p": "Yale University Press",
+   "people": [
+    {
+     "inst": "yale",
+     "lab": "",
+     "name": "G. Evelyn Hutchinson",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "The Ecological Theater and the Evolutionary Play",
+   "y": "1965",
+   "id": "s_hutch"
+  },
+  {
+   "a": "Benedict Anderson",
+   "createdAt": 1794787200244,
+   "hubs": {
+    "mind": 0.4,
+    "soc": 0.9
+   },
+   "links": [],
+   "note": "How nations come to be imagined.",
+   "p": "Verso",
+   "people": [
+    {
+     "inst": "cornell",
+     "lab": "",
+     "name": "Benedict Anderson",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "Imagined Communities",
+   "y": "1983",
+   "id": "s_imagined"
+  },
+  {
+   "a": "David Grimaldi & Michael S. Engel",
+   "createdAt": 1794787200190,
+   "hubs": {
+    "animals": 0.6,
+    "deep": 0.7,
+    "evo": 0.8,
+    "field": 0.5
+   },
+   "links": [
+    {
+     "to": "mcgavin",
+     "w": 0.6,
+     "why": "Insects"
+    }
+   ],
+   "note": "400 million years of insect history.",
+   "p": "Cambridge University Press",
+   "people": [
+    {
+     "inst": "amnh",
+     "lab": "",
+     "name": "David Grimaldi",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "Evolution of the Insects",
+   "y": "2005",
+   "id": "s_insects"
+  },
+  {
+   "a": "Robert H. MacArthur & Edward O. Wilson",
+   "createdAt": 1794787200249,
+   "hubs": {
+    "birds": 0.4,
+    "cx": 0.4,
+    "eco": 0.9,
+    "evo": 0.7
+   },
+   "links": [
+    {
+     "to": "s_diversity",
+     "w": 0.7,
+     "why": "E. O. Wilson"
+    },
+    {
+     "to": "s_dodo",
+     "w": 0.8,
+     "why": "Island biogeography"
+    }
+   ],
+   "note": "Species number as a balance of immigration and extinction.",
+   "p": "Princeton University Press",
+   "people": [
+    {
+     "inst": "princeton",
+     "lab": "",
+     "name": "Robert H. MacArthur",
+     "role": "author"
+    },
+    {
+     "inst": "harvard",
+     "lab": "",
+     "name": "Edward O. Wilson",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "The Theory of Island Biogeography",
+   "y": "1967",
+   "id": "s_island"
+  },
+  {
+   "a": "Jane Jacobs",
+   "createdAt": 1794787200231,
+   "hubs": {
+    "cx": 0.6,
+    "place": 0.6,
+    "soc": 0.8
+   },
+   "links": [
+    {
+     "to": "s_pattern",
+     "w": 0.6,
+     "why": "Cities and complexity"
+    }
+   ],
+   "note": "Cities as organized complexity.",
+   "p": "Random House",
+   "people": [],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "The Death and Life of Great American Cities",
+   "y": "1961",
+   "id": "s_jacobs"
+  },
+  {
+   "a": "John R. Jensen",
+   "createdAt": 1794787200255,
+   "hubs": {
+    "eng": 0.5,
+    "lab": 0.5,
+    "place": 0.6
+   },
+   "links": [
+    {
+     "to": "skyhigh",
+     "w": 0.5,
+     "why": "Seeing land from above"
+    }
+   ],
+   "note": "Reading the land from aircraft and satellites.",
+   "p": "Prentice Hall",
+   "people": [
+    {
+     "inst": "southcarolina",
+     "lab": "",
+     "name": "John R. Jensen",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "Remote Sensing of the Environment",
+   "y": "2006",
+   "id": "s_jensen"
+  },
+  {
+   "a": "Thomas S. Kuhn",
+   "createdAt": 1794787200185,
+   "hubs": {
+    "evo": 0.3,
+    "soc": 0.5,
+    "teach": 0.7
+   },
+   "links": [
+    {
+     "to": "mayr",
+     "w": 0.5,
+     "why": "History of science"
+    }
+   ],
+   "note": "Paradigms and how science changes.",
+   "p": "University of Chicago Press",
+   "people": [
+    {
+     "inst": "mit|berk",
+     "lab": "",
+     "name": "Thomas S. Kuhn",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "The Structure of Scientific Revolutions",
+   "y": "1962",
+   "id": "s_kuhn"
+  },
+  {
+   "a": "George Lakoff & Mark Johnson",
+   "createdAt": 1794787200211,
+   "hubs": {
+    "mind": 0.9,
+    "teach": 0.3
+   },
+   "links": [
+    {
+     "to": "zawidzki",
+     "w": 0.4,
+     "why": "Cognition and culture"
+    }
+   ],
+   "note": "How metaphor structures thought.",
+   "p": "University of Chicago Press",
+   "people": [
+    {
+     "inst": "berk",
+     "lab": "",
+     "name": "George Lakoff",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "Metaphors We Live By",
+   "y": "1980",
+   "id": "s_lakoff"
+  },
+  {
+   "a": "T. R. Fehrenbach",
+   "createdAt": 1794787200238,
+   "hubs": {
+    "place": 0.9,
+    "soc": 0.8
+   },
+   "links": [
+    {
+     "to": "ewing",
+     "w": 0.4,
+     "why": "Texas"
+    }
+   ],
+   "note": "Narrative history of Texas.",
+   "p": "Macmillan",
+   "people": [],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "Lone Star: A History of Texas and the Texans",
+   "y": "1968",
+   "id": "s_lonestar"
+  },
+  {
+   "a": "David J. Schmidly & Robert D. Bradley",
+   "createdAt": 1794787200178,
+   "hubs": {
+    "animals": 0.8,
+    "field": 0.9,
+    "place": 0.8
+   },
+   "links": [
+    {
+     "to": "s_txnat",
+     "w": 0.8,
+     "why": "Same author"
+    }
+   ],
+   "note": "Species accounts for every Texas mammal.",
+   "p": "University of Texas Press",
+   "people": [
+    {
+     "inst": "tamu|ttu",
+     "lab": "Wildlife & Fisheries Sciences (former)",
+     "name": "David J. Schmidly",
+     "role": "author"
+    },
+    {
+     "inst": "ttu",
+     "lab": "",
+     "name": "Robert D. Bradley",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "The Mammals of Texas (7th ed.)",
+   "y": "2016",
+   "id": "s_mammals"
+  },
+  {
+   "a": "Bruce Alberts et al.",
+   "createdAt": 1794787200196,
+   "hubs": {
+    "evo": 0.5,
+    "lab": 0.7
+   },
+   "links": [],
+   "note": "Reference text on the living cell.",
+   "p": "Garland Science",
+   "people": [
+    {
+     "inst": "ucsf",
+     "lab": "",
+     "name": "Bruce Alberts",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "Molecular Biology of the Cell",
+   "y": "2014",
+   "id": "s_mbc"
+  },
+  {
+   "a": "Ian L. McHarg",
+   "createdAt": 1794787200229,
+   "hubs": {
+    "eco": 0.8,
+    "eng": 0.4,
+    "place": 0.6
+   },
+   "links": [
+    {
+     "to": "s_pattern",
+     "w": 0.6,
+     "why": "Design and landscape"
+    }
+   ],
+   "note": "Ecological planning and landscape architecture.",
+   "p": "Natural History Press",
+   "people": [
+    {
+     "inst": "penn",
+     "lab": "",
+     "name": "Ian L. McHarg",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "Design with Nature",
+   "y": "1969",
+   "id": "s_mcharg"
+  },
+  {
+   "a": "Raymond J. Carroll, David Ruppert, Leonard A. Stefanski & Ciprian M. Crainiceanu",
+   "createdAt": 1794787200163,
+   "hubs": {
+    "comp": 0.3,
+    "lab": 0.5,
+    "phys": 0.6
+   },
+   "links": [
+    {
+     "to": "s_semi",
+     "w": 0.8,
+     "why": "Shared authors"
+    },
+    {
+     "to": "s_casella",
+     "w": 0.6,
+     "why": "Statistical inference"
+    }
+   ],
+   "note": "Statistics when the measurements themselves are noisy.",
+   "p": "Chapman & Hall/CRC",
+   "people": [
+    {
+     "inst": "tamu",
+     "lab": "Statistics",
+     "name": "Raymond J. Carroll",
+     "role": "author"
+    },
+    {
+     "inst": "cornell",
+     "lab": "",
+     "name": "David Ruppert",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "Measurement Error in Nonlinear Models (2nd ed.)",
+   "y": "2006",
+   "id": "s_meas"
+  },
+  {
+   "a": "Frederick P. Brooks Jr.",
+   "createdAt": 1794787200221,
+   "hubs": {
+    "comp": 0.8,
+    "eng": 0.5
+   },
+   "links": [],
+   "note": "Why adding people to a late software project makes it later.",
+   "p": "Addison-Wesley",
+   "people": [
+    {
+     "inst": "unc",
+     "lab": "",
+     "name": "Frederick P. Brooks Jr.",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "The Mythical Man-Month",
+   "y": "1975",
+   "id": "s_mmm"
+  },
+  {
+   "a": "Wendell Wallach & Colin Allen",
+   "createdAt": 1794787200172,
+   "hubs": {
+    "comp": 0.9,
+    "mind": 0.5,
+    "teach": 0.7
+   },
+   "links": [],
+   "note": "Building ethical judgment into AI systems.",
+   "p": "Oxford University Press",
+   "people": [
+    {
+     "inst": "tamu|indiana|pitt",
+     "lab": "",
+     "name": "Colin Allen",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "Moral Machines: Teaching Robots Right from Wrong",
+   "y": "2009",
+   "id": "s_moral"
+  },
+  {
+   "a": "Maurice Merleau-Ponty",
+   "createdAt": 1794787200208,
+   "hubs": {
+    "mind": 1
+   },
+   "links": [
+    {
+     "to": "kaufer",
+     "w": 0.7,
+     "why": "Phenomenology"
+    }
+   ],
+   "note": "The body as the ground of perception.",
+   "p": "Gallimard",
+   "people": [
+    {
+     "inst": "cdf",
+     "lab": "",
+     "name": "Maurice Merleau-Ponty",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "Phenomenology of Perception",
+   "y": "1945",
+   "id": "s_mp"
+  },
+  {
+   "a": "Robert H. Stewart",
+   "createdAt": 1794787200173,
+   "hubs": {
+    "phys": 0.5,
+    "sea": 1
+   },
+   "links": [],
+   "note": "Free oceanography text from A&M's oceanography department.",
+   "p": "Texas A&M University (open textbook)",
+   "people": [
+    {
+     "inst": "tamu",
+     "lab": "Oceanography",
+     "name": "Robert H. Stewart",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "Introduction to Physical Oceanography",
+   "y": "2008",
+   "id": "s_ocean"
+  },
+  {
+   "a": "Michael Pollan",
+   "createdAt": 1794787200232,
+   "hubs": {
+    "ag": 0.9,
+    "eco": 0.6
+   },
+   "links": [
+    {
+     "to": "s_straw",
+     "w": 0.6,
+     "why": "Food systems"
+    }
+   ],
+   "note": "Following four meals back to their sources.",
+   "p": "Penguin Press",
+   "people": [
+    {
+     "inst": "berk",
+     "lab": "",
+     "name": "Michael Pollan",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "The Omnivore's Dilemma",
+   "y": "2006",
+   "id": "s_omni"
+  },
+  {
+   "a": "Ilya Prigogine & Isabelle Stengers",
+   "createdAt": 1794787200182,
+   "hubs": {
+    "cx": 1,
+    "eco": 0.3,
+    "phys": 0.6
+   },
+   "links": [
+    {
+     "to": "cross",
+     "w": 0.7,
+     "why": "Far-from-equilibrium pattern"
+    },
+    {
+     "to": "bertuglia",
+     "w": 0.6,
+     "why": "Complexity"
+    }
+   ],
+   "note": "Self-organization far from equilibrium.",
+   "p": "Bantam",
+   "people": [
+    {
+     "inst": "ulb|utexas",
+     "lab": "",
+     "name": "Ilya Prigogine",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "Order Out of Chaos",
+   "y": "1984",
+   "id": "s_order"
+  },
+  {
+   "a": "Charles Darwin",
+   "createdAt": 1794787200197,
+   "hubs": {
+    "animals": 0.5,
+    "birds": 0.4,
+    "deep": 0.4,
+    "eco": 0.5,
+    "evo": 1
+   },
+   "links": [
+    {
+     "to": "darwin",
+     "w": 0.7,
+     "why": "Darwin"
+    },
+    {
+     "to": "mayr",
+     "w": 0.6,
+     "why": "History of evolutionary thought"
+    }
+   ],
+   "note": "Natural selection and descent with modification.",
+   "p": "John Murray",
+   "people": [
+    {
+     "inst": "cam",
+     "lab": "",
+     "name": "Charles Darwin",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "On the Origin of Species",
+   "y": "1859",
+   "id": "s_origin"
+  },
+  {
+   "a": "Christopher Alexander, Sara Ishikawa & Murray Silverstein",
+   "createdAt": 1794787200230,
+   "hubs": {
+    "cx": 0.6,
+    "eng": 0.4,
+    "mind": 0.3,
+    "place": 0.6
+   },
+   "links": [
+    {
+     "to": "fengshui",
+     "w": 0.5,
+     "why": "Arranging space for living"
+    }
+   ],
+   "note": "253 patterns for towns, buildings and rooms.",
+   "p": "Oxford University Press",
+   "people": [
+    {
+     "inst": "berk",
+     "lab": "",
+     "name": "Christopher Alexander",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "A Pattern Language",
+   "y": "1977",
+   "id": "s_pattern"
+  },
+  {
+   "a": "Richard C. Selley",
+   "createdAt": 1794787200227,
+   "hubs": {
+    "deep": 0.8,
+    "eng": 0.7
+   },
+   "links": [
+    {
+     "to": "s_reservoir",
+     "w": 0.7,
+     "why": "Petroleum"
+    },
+    {
+     "to": "coal",
+     "w": 0.4,
+     "why": "Fossil fuels in strata"
+    }
+   ],
+   "note": "How oil and gas form, migrate and are trapped.",
+   "p": "W. H. Freeman",
+   "people": [
+    {
+     "inst": "imperial",
+     "lab": "",
+     "name": "Richard C. Selley",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "Elements of Petroleum Geology",
+   "y": "1985",
+   "id": "s_petgeo"
+  },
+  {
+   "a": "Thomas Piketty",
+   "createdAt": 1794787200240,
+   "hubs": {
+    "soc": 0.9
+   },
+   "links": [],
+   "note": "Wealth and inequality over three centuries.",
+   "p": "Harvard University Press",
+   "people": [
+    {
+     "inst": "pse",
+     "lab": "",
+     "name": "Thomas Piketty",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "Capital in the Twenty-First Century",
+   "y": "2014",
+   "id": "s_piketty"
+  },
+  {
+   "a": "Lincoln Taiz & Eduardo Zeiger",
+   "createdAt": 1794787200195,
+   "hubs": {
+    "ag": 0.7,
+    "evo": 0.3,
+    "lab": 0.4
+   },
+   "links": [],
+   "note": "How plants work, from cells to whole plants.",
+   "p": "Sinauer",
+   "people": [
+    {
+     "inst": "ucsc",
+     "lab": "",
+     "name": "Lincoln Taiz",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "Plant Physiology",
+   "y": "2010",
+   "id": "s_plantphys"
+  },
+  {
+   "a": "Bjarne Stroustrup",
+   "createdAt": 1794787200159,
+   "hubs": {
+    "comp": 1,
+    "teach": 0.5
+   },
+   "links": [],
+   "note": "Grew out of the first-year programming course Stroustrup taught at A&M.",
+   "p": "Addison-Wesley",
+   "people": [
+    {
+     "inst": "tamu|columbia",
+     "lab": "",
+     "name": "Bjarne Stroustrup",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "Programming: Principles and Practice Using C++",
+   "y": "2008",
+   "id": "s_ppp"
+  },
+  {
+   "a": "Michael J. Economides, A. Daniel Hill & Christine Ehlig-Economides",
+   "createdAt": 1794787200165,
+   "hubs": {
+    "deep": 0.3,
+    "eng": 1
+   },
+   "links": [
+    {
+     "to": "s_reservoir",
+     "w": 0.9,
+     "why": "Petroleum engineering"
+    }
+   ],
+   "note": "Wells, reservoirs and production engineering.",
+   "p": "Prentice Hall",
+   "people": [
+    {
+     "inst": "uh",
+     "lab": "",
+     "name": "Michael J. Economides",
+     "role": "author"
+    },
+    {
+     "inst": "tamu",
+     "lab": "Petroleum Engineering",
+     "name": "A. Daniel Hill",
+     "role": "author"
+    },
+    {
+     "inst": "tamu|uh",
+     "lab": "Petroleum Engineering",
+     "name": "Christine Ehlig-Economides",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "Petroleum Production Systems",
+   "y": "1994",
+   "id": "s_pps"
+  },
+  {
+   "a": "Daniel Yergin",
+   "createdAt": 1794787200228,
+   "hubs": {
+    "eng": 0.6,
+    "place": 0.3,
+    "soc": 0.8
+   },
+   "links": [
+    {
+     "to": "s_pps",
+     "w": 0.4,
+     "why": "The oil industry"
+    }
+   ],
+   "note": "History of the oil industry.",
+   "p": "Simon & Schuster",
+   "people": [],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "The Prize: The Epic Quest for Oil, Money, and Power",
+   "y": "1991",
+   "id": "s_prize"
+  },
+  {
+   "a": "Marlan O. Scully & M. Suhail Zubairy",
+   "createdAt": 1794787200162,
+   "hubs": {
+    "phys": 1
+   },
+   "links": [],
+   "note": "Light–matter interaction, lasers and coherence.",
+   "p": "Cambridge University Press",
+   "people": [
+    {
+     "inst": "tamu",
+     "lab": "Physics & Astronomy; Institute for Quantum Science and Engineering",
+     "name": "Marlan O. Scully",
+     "role": "author"
+    },
+    {
+     "inst": "tamu",
+     "lab": "Physics & Astronomy",
+     "name": "M. Suhail Zubairy",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "Quantum Optics",
+   "y": "1997",
+   "id": "s_qo"
+  },
+  {
+   "a": "Joe R. Feagin",
+   "createdAt": 1794787200167,
+   "hubs": {
+    "soc": 1
+   },
+   "links": [],
+   "note": "Systemic racism in U.S. history and institutions.",
+   "p": "Routledge",
+   "people": [
+    {
+     "inst": "tamu",
+     "lab": "Sociology",
+     "name": "Joe R. Feagin",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "Racist America: Roots, Current Realities, and Future Reparations",
+   "y": "2000",
+   "id": "s_racist"
+  },
+  {
+   "a": "David M. Raup & Steven M. Stanley",
+   "createdAt": 1794787200188,
+   "hubs": {
+    "deep": 1,
+    "evo": 0.6
+   },
+   "links": [
+    {
+     "to": "stanley",
+     "w": 0.8,
+     "why": "Steven M. Stanley wrote both"
+    },
+    {
+     "to": "patz",
+     "w": 0.6,
+     "why": "Quantitative paleontology"
+    }
+   ],
+   "note": "Quantitative approach to the fossil record.",
+   "p": "W. H. Freeman",
+   "people": [
+    {
+     "inst": "uchi",
+     "lab": "",
+     "name": "David M. Raup",
+     "role": "author"
+    },
+    {
+     "inst": "jhu",
+     "lab": "",
+     "name": "Steven M. Stanley",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "Principles of Paleontology",
+   "y": "1971",
+   "id": "s_raup"
+  },
+  {
+   "a": "Tarek Ahmed",
+   "createdAt": 1794787200226,
+   "hubs": {
+    "deep": 0.4,
+    "eng": 1
+   },
+   "links": [],
+   "note": "Petroleum reservoir engineering reference.",
+   "p": "Gulf Publishing",
+   "people": [],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "Reservoir Engineering Handbook",
+   "y": "2000",
+   "id": "s_reservoir"
+  },
+  {
+   "a": "John Graves",
+   "createdAt": 1794787200237,
+   "hubs": {
+    "eco": 0.7,
+    "place": 1
+   },
+   "links": [
+    {
+     "to": "spearing",
+     "w": 0.4,
+     "why": "Texas landscapes"
+    }
+   ],
+   "note": "Canoe trip down the Brazos before it was dammed.",
+   "p": "Knopf",
+   "people": [],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "Goodbye to a River",
+   "y": "1960",
+   "id": "s_river"
+  },
+  {
+   "a": "Aldo Leopold",
+   "createdAt": 1794787200199,
+   "hubs": {
+    "eco": 1,
+    "place": 0.5
+   },
+   "links": [
+    {
+     "to": "waller",
+     "w": 0.7,
+     "why": "Wisconsin land ethic"
+    },
+    {
+     "to": "s_walden",
+     "w": 0.6,
+     "why": "Nature writing"
+    }
+   ],
+   "note": "Essays that set out the land ethic.",
+   "p": "Oxford University Press",
+   "people": [
+    {
+     "inst": "uwm",
+     "lab": "",
+     "name": "Aldo Leopold",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "A Sand County Almanac",
+   "y": "1949",
+   "id": "s_sand"
+  },
+  {
+   "a": "Ferdinand de Saussure",
+   "createdAt": 1794787200210,
+   "hubs": {
+    "mind": 0.9
+   },
+   "links": [
+    {
+     "to": "lotman",
+     "w": 0.7,
+     "why": "Semiotics"
+    },
+    {
+     "to": "sound",
+     "w": 0.6,
+     "why": "Arbitrariness of the sign"
+    }
+   ],
+   "note": "Founding text of structural linguistics.",
+   "p": "Payot",
+   "people": [
+    {
+     "inst": "geneva",
+     "lab": "",
+     "name": "Ferdinand de Saussure",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "Course in General Linguistics",
+   "y": "1916",
+   "id": "s_saussure"
+  },
+  {
+   "a": "Eugen Seibold & Wolfgang H. Berger",
+   "createdAt": 1794787200191,
+   "hubs": {
+    "deep": 0.6,
+    "sea": 0.8
+   },
+   "links": [
+    {
+     "to": "s_ocean",
+     "w": 0.6,
+     "why": "Marine geology and oceanography"
+    }
+   ],
+   "note": "Marine geology and ocean sediments.",
+   "p": "Springer",
+   "people": [
+    {
+     "inst": "kiel",
+     "lab": "",
+     "name": "Eugen Seibold",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "The Sea Floor: An Introduction to Marine Geology",
+   "y": "1982",
+   "id": "s_seafloor"
+  },
+  {
+   "a": "Donald R. Prothero & Fred Schwab",
+   "createdAt": 1794787200187,
+   "hubs": {
+    "deep": 0.9
+   },
+   "links": [],
+   "note": "Sedimentary rocks, environments and stratigraphy.",
+   "p": "W. H. Freeman",
+   "people": [
+    {
+     "inst": "occidental",
+     "lab": "",
+     "name": "Donald R. Prothero",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "Sedimentary Geology",
+   "y": "1996",
+   "id": "s_sedgeo"
+  },
+  {
+   "a": "David Ruppert, M. P. Wand & Raymond J. Carroll",
+   "createdAt": 1794787200164,
+   "hubs": {
+    "comp": 0.4,
+    "phys": 0.6
+   },
+   "links": [],
+   "note": "Flexible regression with splines and mixed models.",
+   "p": "Cambridge University Press",
+   "people": [
+    {
+     "inst": "cornell",
+     "lab": "",
+     "name": "David Ruppert",
+     "role": "author"
+    },
+    {
+     "inst": "tamu",
+     "lab": "",
+     "name": "Raymond J. Carroll",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "Semiparametric Regression",
+   "y": "2003",
+   "id": "s_semi"
+  },
+  {
+   "a": "George F. Bass (ed.)",
+   "createdAt": 1794787200176,
+   "hubs": {
+    "arch": 0.9,
+    "place": 0.3,
+    "sea": 0.7
+   },
+   "links": [],
+   "note": "Nautical archaeology of the New World.",
+   "p": "Thames & Hudson",
+   "people": [
+    {
+     "inst": "penn|tamu",
+     "lab": "",
+     "name": "George F. Bass",
+     "role": "editor"
+    }
+   ],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "Ships and Shipwrecks of the Americas",
+   "y": "1988",
+   "id": "s_ships"
+  },
+  {
+   "a": "Harold Abelson & Gerald Jay Sussman",
+   "createdAt": 1794787200223,
+   "hubs": {
+    "comp": 1,
+    "teach": 0.5
+   },
+   "links": [
+    {
+     "to": "s_ppp",
+     "w": 0.6,
+     "why": "Teaching programming"
+    }
+   ],
+   "note": "MIT's classic introduction to programming.",
+   "p": "MIT Press",
+   "people": [
+    {
+     "inst": "mit",
+     "lab": "",
+     "name": "Harold Abelson",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "Structure and Interpretation of Computer Programs",
+   "y": "1985",
+   "id": "s_sicp"
+  },
+  {
+   "a": "Rachel Carson",
+   "createdAt": 1794787200200,
+   "hubs": {
+    "ag": 0.5,
+    "animals": 0.5,
+    "birds": 0.7,
+    "eco": 0.9,
+    "soc": 0.4
+   },
+   "links": [],
+   "note": "Pesticides and the birth of modern environmentalism.",
+   "p": "Houghton Mifflin",
+   "people": [],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "Silent Spring",
+   "y": "1962",
+   "id": "s_silent"
+  },
+  {
+   "a": "Elizabeth Kolbert",
+   "createdAt": 1794787200245,
+   "hubs": {
+    "deep": 0.8,
+    "eco": 0.8,
+    "evo": 0.5
+   },
+   "links": [
+    {
+     "to": "culver",
+     "w": 0.6,
+     "why": "Biotic response to global change"
+    }
+   ],
+   "note": "Today's extinction crisis against the fossil record.",
+   "p": "Henry Holt",
+   "people": [],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "The Sixth Extinction",
+   "y": "2014",
+   "id": "s_sixth"
+  },
+  {
+   "a": "Terry H. Anderson",
+   "createdAt": 1794787200169,
+   "hubs": {
+    "soc": 0.9
+   },
+   "links": [],
+   "note": "Protest and social change in 1960s America.",
+   "p": "Oxford University Press",
+   "people": [
+    {
+     "inst": "tamu",
+     "lab": "History",
+     "name": "Terry H. Anderson",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "The Movement and the Sixties",
+   "y": "1995",
+   "id": "s_sixties"
+  },
+  {
+   "a": "Nyle C. Brady & Ray R. Weil",
+   "createdAt": 1794787200194,
+   "hubs": {
+    "ag": 0.9,
+    "eco": 0.6,
+    "lab": 0.3
+   },
+   "links": [
+    {
+     "to": "darwin",
+     "w": 0.5,
+     "why": "Soil formation"
+    }
+   ],
+   "note": "The standard soil science text.",
+   "p": "Prentice Hall",
+   "people": [
+    {
+     "inst": "cornell",
+     "lab": "",
+     "name": "Nyle C. Brady",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "The Nature and Properties of Soils",
+   "y": "2008",
+   "id": "s_soils"
+  },
+  {
+   "a": "Colin Allen & Marc Bekoff",
+   "createdAt": 1794787200171,
+   "hubs": {
+    "animals": 0.8,
+    "birds": 0.4,
+    "eco": 0.4,
+    "evo": 0.5,
+    "mind": 0.9
+   },
+   "links": [
+    {
+     "to": "s_moral",
+     "w": 0.6,
+     "why": "Same author"
+    }
+   ],
+   "note": "Do animals think? Philosophy meets field biology.",
+   "p": "MIT Press",
+   "people": [
+    {
+     "inst": "tamu|indiana|pitt",
+     "lab": "Philosophy (A&M in the 1990s)",
+     "name": "Colin Allen",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "Species of Mind: The Philosophy and Biology of Cognitive Ethology",
+   "y": "1997",
+   "id": "s_speciesmind"
+  },
+  {
+   "a": "David Abram",
+   "createdAt": 1794787200201,
+   "hubs": {
+    "eco": 0.9,
+    "mind": 0.8
+   },
+   "links": [],
+   "note": "Perception and language in a more-than-human world.",
+   "p": "Pantheon",
+   "people": [],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "The Spell of the Sensuous",
+   "y": "1996",
+   "id": "s_spell"
+  },
+  {
+   "a": "Masanobu Fukuoka",
+   "createdAt": 1794787200233,
+   "hubs": {
+    "ag": 0.9,
+    "eco": 0.8
+   },
+   "links": [],
+   "note": "Natural farming with minimal intervention.",
+   "p": "Rodale",
+   "people": [],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "The One-Straw Revolution",
+   "y": "1978",
+   "id": "s_straw"
+  },
+  {
+   "a": "Steven H. Strogatz",
+   "createdAt": 1794787200184,
+   "hubs": {
+    "cx": 1,
+    "phys": 0.6
+   },
+   "links": [
+    {
+     "to": "cross",
+     "w": 0.7,
+     "why": "Nonlinear dynamics"
+    }
+   ],
+   "note": "Standard course text on dynamical systems.",
+   "p": "Addison-Wesley",
+   "people": [
+    {
+     "inst": "cornell",
+     "lab": "",
+     "name": "Steven H. Strogatz",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "Nonlinear Dynamics and Chaos",
+   "y": "1994",
+   "id": "s_strogatz"
+  },
+  {
+   "a": "Nick Bostrom",
+   "createdAt": 1794787200216,
+   "hubs": {
+    "comp": 0.9,
+    "soc": 0.4,
+    "teach": 0.5
+   },
+   "links": [
+    {
+     "to": "s_align",
+     "w": 0.7,
+     "why": "AI risk"
+    }
+   ],
+   "note": "Risks from AI that surpasses human ability.",
+   "p": "Oxford University Press",
+   "people": [
+    {
+     "inst": "oxford",
+     "lab": "",
+     "name": "Nick Bostrom",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "Superintelligence: Paths, Dangers, Strategies",
+   "y": "2014",
+   "id": "s_superint"
+  },
+  {
+   "a": "Laozi",
+   "createdAt": 1794787200253,
+   "hubs": {
+    "eco": 0.5,
+    "mind": 0.7
+   },
+   "links": [
+    {
+     "to": "cooper",
+     "w": 0.4,
+     "why": "Classical Chinese"
+    },
+    {
+     "to": "fengshui",
+     "w": 0.5,
+     "why": "Chinese cosmology"
+    }
+   ],
+   "note": "Short classic of Daoist thought.",
+   "p": "",
+   "people": [],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "Tao Te Ching",
+   "y": "c. 400 BCE",
+   "id": "s_tao"
+  },
+  {
+   "a": "R. Byron Bird, Warren E. Stewart & Edwin N. Lightfoot",
+   "createdAt": 1794787200225,
+   "hubs": {
+    "eng": 0.9,
+    "phys": 0.6
+   },
+   "links": [],
+   "note": "Momentum, heat and mass transfer.",
+   "p": "Wiley",
+   "people": [
+    {
+     "inst": "uwm",
+     "lab": "",
+     "name": "R. Byron Bird",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "Transport Phenomena",
+   "y": "1960",
+   "id": "s_transport"
+  },
+  {
+   "a": "Humberto R. Maturana & Francisco J. Varela",
+   "createdAt": 1794787200205,
+   "hubs": {
+    "cx": 0.6,
+    "evo": 0.5,
+    "mind": 0.9
+   },
+   "links": [
+    {
+     "to": "s_embodied",
+     "w": 0.8,
+     "why": "Varela"
+    }
+   ],
+   "note": "Autopoiesis and the biology of knowing.",
+   "p": "Shambhala",
+   "people": [
+    {
+     "inst": "uchile",
+     "lab": "",
+     "name": "Humberto R. Maturana",
+     "role": "author"
+    },
+    {
+     "inst": "uchile",
+     "lab": "",
+     "name": "Francisco J. Varela",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "The Tree of Knowledge",
+   "y": "1987",
+   "id": "s_treeknow"
+  },
+  {
+   "a": "Edward R. Tufte",
+   "createdAt": 1794787200257,
+   "hubs": {
+    "comp": 0.5,
+    "mind": 0.4,
+    "teach": 0.6
+   },
+   "links": [
+    {
+     "to": "craft",
+     "w": 0.5,
+     "why": "Presenting evidence"
+    }
+   ],
+   "note": "How to show data clearly.",
+   "p": "Graphics Press",
+   "people": [
+    {
+     "inst": "yale",
+     "lab": "",
+     "name": "Edward R. Tufte",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "The Visual Display of Quantitative Information",
+   "y": "1983",
+   "id": "s_tufte"
+  },
+  {
+   "a": "David J. Schmidly",
+   "createdAt": 1794787200179,
+   "hubs": {
+    "animals": 0.6,
+    "eco": 0.7,
+    "field": 0.6,
+    "place": 0.9
+   },
+   "links": [
+    {
+     "to": "crawdads",
+     "w": 0.4,
+     "why": "Texas fauna"
+    }
+   ],
+   "note": "How Texas wildlife and habitats changed since 1900.",
+   "p": "Texas Tech University Press",
+   "people": [
+    {
+     "inst": "tamu|ttu",
+     "lab": "",
+     "name": "David J. Schmidly",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "Texas Natural History: A Century of Change",
+   "y": "2002",
+   "id": "s_txnat"
+  },
+  {
+   "a": "George F. Bass",
+   "createdAt": 1794787200175,
+   "hubs": {
+    "arch": 0.9,
+    "sea": 0.6
+   },
+   "links": [
+    {
+     "to": "s_ships",
+     "w": 0.9,
+     "why": "Bass and nautical archaeology"
+    }
+   ],
+   "note": "The founding book of scientific underwater archaeology.",
+   "p": "Thames & Hudson",
+   "people": [
+    {
+     "inst": "penn|tamu",
+     "lab": "Nautical Archaeology Program; Institute of Nautical Archaeology",
+     "name": "George F. Bass",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "Archaeology Under Water",
+   "y": "1966",
+   "id": "s_underwater"
+  },
+  {
+   "a": "Lev S. Vygotsky",
+   "createdAt": 1794787200214,
+   "hubs": {
+    "mind": 0.8,
+    "teach": 0.9
+   },
+   "links": [
+    {
+     "to": "zawidzki",
+     "w": 0.7,
+     "why": "Social shaping of minds"
+    }
+   ],
+   "note": "Learning as a social process; the zone of proximal development.",
+   "p": "Harvard University Press",
+   "people": [
+    {
+     "inst": "moscow",
+     "lab": "",
+     "name": "Lev S. Vygotsky",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "Mind in Society",
+   "y": "1978",
+   "id": "s_vygotsky"
+  },
+  {
+   "a": "Henry David Thoreau",
+   "createdAt": 1794787200254,
+   "hubs": {
+    "eco": 0.9,
+    "mind": 0.4,
+    "place": 0.4
+   },
+   "links": [],
+   "note": "Two years living simply by a pond.",
+   "p": "Ticknor & Fields",
+   "people": [],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "Walden",
+   "y": "1854",
+   "id": "s_walden"
+  },
+  {
+   "a": "David Archer",
+   "createdAt": 1794787200193,
+   "hubs": {
+    "deep": 0.4,
+    "eco": 0.6,
+    "phys": 0.5
+   },
+   "links": [
+    {
+     "to": "s_sixth",
+     "w": 0.5,
+     "why": "Climate and extinction"
+    }
+   ],
+   "note": "The physics of climate change for non-specialists.",
+   "p": "Blackwell",
+   "people": [
+    {
+     "inst": "uchi",
+     "lab": "",
+     "name": "David Archer",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "Global Warming: Understanding the Forecast",
+   "y": "2007",
+   "id": "s_warming"
+  },
+  {
+   "a": "Adam Smith",
+   "createdAt": 1794787200239,
+   "hubs": {
+    "soc": 0.9
+   },
+   "links": [],
+   "note": "Founding work of economics.",
+   "p": "Strahan & Cadell",
+   "people": [
+    {
+     "inst": "glasgow",
+     "lab": "",
+     "name": "Adam Smith",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "The Wealth of Nations",
+   "y": "1776",
+   "id": "s_wealth"
+  },
+  {
+   "a": "Max Weber",
+   "createdAt": 1794787200243,
+   "hubs": {
+    "soc": 0.9
+   },
+   "links": [
+    {
+     "to": "tillich",
+     "w": 0.6,
+     "why": "Religion and society"
+    }
+   ],
+   "note": "Religion and the rise of capitalism.",
+   "p": "Mohr",
+   "people": [
+    {
+     "inst": "heidelberg",
+     "lab": "",
+     "name": "Max Weber",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "The Protestant Ethic and the Spirit of Capitalism",
+   "y": "1905",
+   "id": "s_weber"
+  },
+  {
+   "a": "Erwin Schrödinger",
+   "createdAt": 1794787200252,
+   "hubs": {
+    "cx": 0.5,
+    "evo": 0.6,
+    "phys": 0.7
+   },
+   "links": [
+    {
+     "to": "kirschner",
+     "w": 0.4,
+     "why": "What makes life possible"
+    }
+   ],
+   "note": "A physicist on order, heredity and life.",
+   "p": "Cambridge University Press",
+   "people": [
+    {
+     "inst": "dias",
+     "lab": "",
+     "name": "Erwin Schrödinger",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "What Is Life?",
+   "y": "1944",
+   "id": "s_whatlife"
+  },
+  {
+   "a": "Campbell & Lynn Loughmiller",
+   "createdAt": 1794787200251,
+   "hubs": {
+    "field": 0.9,
+    "place": 0.8
+   },
+   "links": [
+    {
+     "to": "watson",
+     "w": 0.6,
+     "why": "Texas plants"
+    }
+   ],
+   "note": "Field guide to Texas wildflowers.",
+   "p": "University of Texas Press",
+   "people": [],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "Texas Wildflowers: A Field Guide",
+   "y": "1984",
+   "id": "s_wildflowers"
+  },
+  {
+   "a": "Cathy O'Neil",
+   "createdAt": 1794787200220,
+   "hubs": {
+    "comp": 0.7,
+    "soc": 0.8,
+    "teach": 0.4
+   },
+   "links": [
+    {
+     "to": "s_align",
+     "w": 0.6,
+     "why": "Algorithmic harm"
+    }
+   ],
+   "note": "How algorithms can deepen inequality.",
+   "p": "Crown",
+   "people": [],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "Weapons of Math Destruction",
+   "y": "2016",
+   "id": "s_wmd"
+  },
+  {
+   "a": "Stephen Jay Gould",
+   "createdAt": 1794787200189,
+   "hubs": {
+    "deep": 0.9,
+    "evo": 0.9,
+    "teach": 0.3
+   },
+   "links": [
+    {
+     "to": "eldredge",
+     "w": 0.6,
+     "why": "Gould and Eldredge, punctuated equilibria"
+    },
+    {
+     "to": "losos",
+     "w": 0.7,
+     "why": "Contingency and repeatability"
+    }
+   ],
+   "note": "Contingency in evolution, told through Cambrian fossils.",
+   "p": "W. W. Norton",
+   "people": [
+    {
+     "inst": "harvard",
+     "lab": "",
+     "name": "Stephen Jay Gould",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "Wonderful Life: The Burgess Shale and the Nature of History",
+   "y": "1989",
+   "id": "s_wonder"
+  },
+  {
+   "a": "Andrew H. Knoll",
+   "createdAt": 1794787200246,
+   "hubs": {
+    "deep": 1,
+    "evo": 0.7,
+    "lab": 0.4
+   },
+   "links": [
+    {
+     "to": "sulfur",
+     "w": 0.6,
+     "why": "Early Earth biogeochemistry"
+    }
+   ],
+   "note": "The first three billion years of life.",
+   "p": "Princeton University Press",
+   "people": [
+    {
+     "inst": "harvard",
+     "lab": "",
+     "name": "Andrew H. Knoll",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "sample",
+   "starter": true,
+   "t": "Life on a Young Planet",
+   "y": "2003",
+   "id": "s_young"
+  },
+  {
+   "a": "James M. Schopf, L. R. Wilson & Ray Bentall",
+   "createdAt": 1794787200105,
+   "hubs": {
+    "deep": 0.6,
+    "paly": 1
+   },
+   "links": [
+    {
+     "to": "kosanke",
+     "w": 0.95,
+     "why": "Illinois Survey spore taxonomy; Kosanke builds on the 1944 synopsis"
+    },
+    {
+     "to": "phillips",
+     "w": 0.8,
+     "why": "Illinois Basin paleobotany lineage"
+    }
+   ],
+   "note": "Foundational taxonomy of Paleozoic spore genera.",
+   "p": "Illinois State Geological Survey, Report of Investigations 91",
+   "people": [
+    {
+     "inst": "isgs",
+     "lab": "",
+     "name": "James M. Schopf",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "mine",
+   "starter": true,
+   "t": "An Annotated Synopsis of Paleozoic Fossil Spores and the Definition of Generic Groups",
+   "y": "1944",
+   "id": "schopf"
+  },
+  {
+   "a": "Timothy D. Schowalter",
+   "createdAt": 1794787200143,
+   "hubs": {
+    "animals": 0.5,
+    "eco": 0.6,
+    "field": 0.6
+   },
+   "links": [
+    {
+     "to": "mcgavin",
+     "w": 0.8,
+     "why": "Insects"
+    },
+    {
+     "to": "tracks",
+     "w": 0.6,
+     "why": "What insects do in ecosystems"
+    }
+   ],
+   "note": "Insects as regulators of ecosystem processes.",
+   "p": "Academic Press",
+   "people": [
+    {
+     "inst": "lsu",
+     "lab": "",
+     "name": "Timothy D. Schowalter",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "mine",
+   "starter": true,
+   "t": "Insect Ecology: An Ecosystem Approach",
+   "y": "2016 (4th ed.)",
+   "id": "schowalter"
+  },
+  {
+   "a": "O. W. Van Auken",
+   "createdAt": 1794787200129,
+   "hubs": {
+    "field": 0.4,
+    "place": 0.8
+   },
+   "links": [
+    {
+     "to": "craine",
+     "w": 0.5,
+     "why": "Plant resource strategies"
+    }
+   ],
+   "note": "Plant communities of the Edwards Plateau and south-central Texas, by a UTSA biologist.",
+   "p": "Scientific Research Publishing",
+   "people": [
+    {
+     "inst": "utsa",
+     "lab": "",
+     "name": "O. W. Van Auken",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "mine",
+   "starter": true,
+   "t": "Ecology of Plant Communities of South-Central Texas",
+   "y": "2018",
+   "id": "sctx"
+  },
+  {
+   "a": "Douglas A. Skoog, F. James Holler & Stanley R. Crouch",
+   "createdAt": 1794787200150,
+   "hubs": {
+    "lab": 1
+   },
+   "links": [
+    {
+     "to": "threadgold",
+     "w": 0.3,
+     "why": "Instrumentation and microscopy"
+    }
+   ],
+   "note": "Spectroscopy, chromatography, mass spectrometry and electroanalysis.",
+   "p": "Cengage",
+   "people": [
+    {
+     "inst": "stanford",
+     "lab": "",
+     "name": "Douglas A. Skoog",
+     "role": "author"
+    },
+    {
+     "inst": "kentucky",
+     "lab": "",
+     "name": "F. James Holler",
+     "role": "author"
+    },
+    {
+     "inst": "msu",
+     "lab": "",
+     "name": "Stanley R. Crouch",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "mine",
+   "starter": true,
+   "t": "Principles of Instrumental Analysis",
+   "y": "2017 (7th ed.)",
+   "id": "skoog"
+  },
+  {
+   "a": "Dave Tunge (photographs)",
+   "createdAt": 1794787200116,
+   "hubs": {
+    "place": 0.8
+   },
+   "links": [
+    {
+     "to": "spearing",
+     "w": 0.4,
+     "why": "Reading landscapes from road and air"
+    }
+   ],
+   "note": "Aerial photographs of South Dakota taken from a Super Cub.",
+   "p": "South Dakota Magazine",
+   "people": [],
+   "s": "ok",
+   "shelf": "mine",
+   "starter": true,
+   "t": "Sky High South Dakota",
+   "y": "c. 2018",
+   "id": "skyhigh"
+  },
+  {
+   "a": "Leanne Hinton, Johanna Nichols & John J. Ohala (eds.)",
+   "createdAt": 1794787200111,
+   "hubs": {
+    "mind": 1
+   },
+   "links": [
+    {
+     "to": "cooper",
+     "w": 0.6,
+     "why": "How writing and sound carry meaning"
+    }
+   ],
+   "note": "When the sound of a word carries its meaning, across many languages.",
+   "p": "Cambridge University Press",
+   "people": [
+    {
+     "inst": "berk",
+     "lab": "",
+     "name": "Leanne Hinton",
+     "role": "editor"
+    },
+    {
+     "inst": "berk",
+     "lab": "",
+     "name": "Johanna Nichols",
+     "role": "editor"
+    },
+    {
+     "inst": "berk",
+     "lab": "",
+     "name": "John J. Ohala",
+     "role": "editor"
+    }
+   ],
+   "s": "ok",
+   "shelf": "mine",
+   "starter": true,
+   "t": "Sound Symbolism",
+   "y": "1994",
+   "id": "sound"
+  },
+  {
+   "a": "Darwin Spearing",
+   "createdAt": 1794787200132,
+   "hubs": {
+    "deep": 0.7,
+    "field": 0.4,
+    "place": 0.9
+   },
+   "links": [
+    {
+     "to": "davis",
+     "w": 0.5,
+     "why": "Gulf Coast landforms"
+    }
+   ],
+   "note": "Highway-by-highway guide to the rocks of Texas.",
+   "p": "Mountain Press",
+   "people": [],
+   "s": "ok",
+   "shelf": "mine",
+   "starter": true,
+   "t": "Roadside Geology of Texas",
+   "y": "1991",
+   "id": "spearing"
+  },
+  {
+   "a": "Steven M. Stanley",
+   "createdAt": 1794787200100,
+   "hubs": {
+    "deep": 1,
+    "evo": 0.6
+   },
+   "links": [
+    {
+     "to": "gts",
+     "w": 0.7,
+     "why": "Earth history on a time scale"
+    },
+    {
+     "to": "patz",
+     "w": 0.6,
+     "why": "Reading the fossil record"
+    }
+   ],
+   "note": "Textbook survey of Earth history and the evolution of life.",
+   "p": "W. H. Freeman",
+   "people": [
+    {
+     "inst": "jhu",
+     "lab": "",
+     "name": "Steven M. Stanley",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "mine",
+   "starter": true,
+   "t": "Exploring Earth and Life Through Time",
+   "y": "1993",
+   "id": "stanley"
+  },
+  {
+   "a": "Jan P. Amend, Katrina J. Edwards & Timothy W. Lyons (eds.)",
+   "createdAt": 1794787200151,
+   "hubs": {
+    "deep": 0.7,
+    "lab": 0.8
+   },
+   "links": [
+    {
+     "to": "gts",
+     "w": 0.4,
+     "why": "Calibrating Earth history"
+    }
+   ],
+   "note": "Microbes and the sulfur cycle through Earth history.",
+   "p": "Geological Society of America, Special Paper 379",
+   "people": [
+    {
+     "inst": "wustl|usc",
+     "lab": "",
+     "name": "Jan P. Amend",
+     "role": "editor"
+    },
+    {
+     "inst": "whoi|usc",
+     "lab": "",
+     "name": "Katrina J. Edwards",
+     "role": "editor"
+    },
+    {
+     "inst": "ucr",
+     "lab": "",
+     "name": "Timothy W. Lyons",
+     "role": "editor"
+    }
+   ],
+   "s": "ok",
+   "shelf": "mine",
+   "starter": true,
+   "t": "Sulfur Biogeochemistry: Past and Present",
+   "y": "2004",
+   "id": "sulfur"
+  },
+  {
+   "a": "L. T. Threadgold",
+   "createdAt": 1794787200136,
+   "hubs": {
+    "evo": 0.3,
+    "lab": 0.5
+   },
+   "links": [],
+   "note": "Best match for the title: an electron-microscope atlas of cell organelles.",
+   "p": "Pergamon",
+   "people": [
+    {
+     "inst": "qub",
+     "lab": "",
+     "name": "L. T. Threadgold",
+     "role": "author"
+    }
+   ],
+   "s": "likely",
+   "shelf": "mine",
+   "starter": true,
+   "t": "The Ultrastructure of the Animal Cell",
+   "y": "1967",
+   "id": "threadgold"
+  },
+  {
+   "a": "Paul Tillich",
+   "createdAt": 1794787200122,
+   "hubs": {
+    "eco": 0.3,
+    "mind": 0.3,
+    "teach": 0.4
+   },
+   "links": [
+    {
+     "to": "rilke",
+     "w": 0.4,
+     "why": "Theology and the sacred"
+    }
+   ],
+   "note": "Theological critique of political romanticism written on the eve of Nazi rule.",
+   "p": "Harper & Row (trans. Franklin Sherman)",
+   "people": [
+    {
+     "inst": "harvard|uchi",
+     "lab": "",
+     "name": "Paul Tillich",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "mine",
+   "starter": true,
+   "t": "The Socialist Decision",
+   "y": "1933 (Eng. 1977)",
+   "id": "tillich"
+  },
+  {
+   "a": "Charley Eiseman & Noah Charney",
+   "createdAt": 1794787200101,
+   "hubs": {
+    "animals": 0.7,
+    "eco": 0.4,
+    "field": 1
+   },
+   "links": [],
+   "note": "Field guide to the traces invertebrates leave on leaves, wood, soil and water across North America.",
+   "p": "Stackpole Books",
+   "people": [
+    {
+     "inst": "umass",
+     "lab": "",
+     "name": "Noah Charney",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "mine",
+   "starter": true,
+   "t": "Tracks & Sign of Insects and Other Invertebrates",
+   "y": "2010",
+   "id": "tracks"
+  },
+  {
+   "a": "Donald M. Waller & Thomas P. Rooney (eds.)",
+   "createdAt": 1794787200153,
+   "hubs": {
+    "eco": 0.8,
+    "place": 0.9
+   },
+   "links": [
+    {
+     "to": "darwin",
+     "w": 0.3,
+     "why": "Slow change in landscapes"
+    },
+    {
+     "to": "watson",
+     "w": 0.5,
+     "why": "Regional plant ecology and change"
+    }
+   ],
+   "note": "Long-term ecological change across one state.",
+   "p": "University of Chicago Press",
+   "people": [
+    {
+     "inst": "uwm",
+     "lab": "",
+     "name": "Donald M. Waller",
+     "role": "editor"
+    },
+    {
+     "inst": "wright",
+     "lab": "",
+     "name": "Thomas P. Rooney",
+     "role": "editor"
+    }
+   ],
+   "s": "ok",
+   "shelf": "mine",
+   "starter": true,
+   "t": "The Vanishing Present: Wisconsin's Changing Lands, Waters, and Wildlife",
+   "y": "2008",
+   "id": "waller"
+  },
+  {
+   "a": "Geraldine Ellis Watson",
+   "createdAt": 1794787200128,
+   "hubs": {
+    "eco": 0.5,
+    "field": 0.5,
+    "place": 0.9
+   },
+   "links": [
+    {
+     "to": "sctx",
+     "w": 0.8,
+     "why": "Texas plant communities"
+    }
+   ],
+   "note": "Plant communities of the Big Thicket of East Texas.",
+   "p": "University of North Texas Press",
+   "people": [],
+   "s": "ok",
+   "shelf": "mine",
+   "starter": true,
+   "t": "Big Thicket Plant Ecology: An Introduction",
+   "y": "2006 (3rd ed.)",
+   "id": "watson"
+  },
+  {
+   "a": "Tadeusz Wiesław Zawidzki",
+   "createdAt": 1794787200141,
+   "hubs": {
+    "mind": 1,
+    "teach": 0.7
+   },
+   "links": [
+    {
+     "to": "plato",
+     "w": 0.3,
+     "why": "Education as shaping the soul"
+    }
+   ],
+   "note": "Humans shape each other's minds through imitation, pedagogy and norms more than they read them.",
+   "p": "MIT Press",
+   "people": [
+    {
+     "inst": "gwu",
+     "lab": "",
+     "name": "Tadeusz W. Zawidzki",
+     "role": "author"
+    }
+   ],
+   "s": "ok",
+   "shelf": "mine",
+   "starter": true,
+   "t": "Mindshaping: A New Framework for Understanding Human Social Cognition",
+   "y": "2013",
+   "id": "zawidzki"
+  }
+ ],
+ "orgs": [
+  {
+   "affil": [],
+   "createdAt": 1794800668673,
+   "hubs": {
+    "birds": 0.6,
+    "pp-health": 0.9
+   },
+   "items": [
+    {
+     "to": "pp_health_kg",
+     "w": 0.5,
+     "why": "Avian medicine literature"
+    }
+   ],
+   "kind": "veterinary",
+   "members": [],
+   "note": "Avian medicine and research; runs community blogs featured by the project.",
+   "onSite": true,
+   "starter": true,
+   "t": "Association of Avian Veterinarians",
+   "url": "",
+   "id": "aav"
+  },
+  {
+   "affil": [],
+   "createdAt": 1794800668675,
+   "hubs": {
+    "ag": 0.6,
+    "parrots": 0.7,
+    "pp-teachers": 0.4
+   },
+   "items": [],
+   "kind": "aviculture",
+   "members": [],
+   "note": "Aviculture federation whose 2026 conference talks are featured on the site.",
+   "onSite": true,
+   "starter": true,
+   "t": "American Federation of Aviculture",
+   "url": "",
+   "id": "afa"
+  },
+  {
+   "affil": [],
+   "createdAt": 1794800668674,
+   "hubs": {
+    "ag": 0.6,
+    "parrots": 0.8,
+    "pp-archive": 0.9
+   },
+   "items": [
+    {
+     "to": "pp_asa",
+     "w": 1,
+     "why": "Publisher"
+    },
+    {
+     "to": "pp_bulletin",
+     "w": 0.8,
+     "why": "Donated the issues"
+    }
+   ],
+   "kind": "aviculture",
+   "members": [],
+   "note": "Publishes the Avicultural Bulletin; donated physical issues to the project in 2025 and 2026.",
+   "onSite": true,
+   "starter": true,
+   "t": "Avicultural Society of America",
+   "url": "",
+   "id": "asa"
+  },
+  {
+   "affil": [],
+   "createdAt": 1794800668679,
+   "hubs": {
+    "birds": 0.7,
+    "pp-multilingual": 0.8,
+    "pp-names": 0.9
+   },
+   "items": [
+    {
+     "to": "pp_manynames",
+     "w": 0.7,
+     "why": "Names in many languages"
+    },
+    {
+     "to": "pp_names_tl",
+     "w": 0.6,
+     "why": "Historical names and synonyms"
+    }
+   ],
+   "kind": "database",
+   "members": [],
+   "note": "Bird names, synonyms, names in many languages and checklist comparisons.",
+   "onSite": true,
+   "starter": true,
+   "t": "Avibase (Birds Canada)",
+   "url": "https://avibase.bsc-eoc.org/",
+   "id": "avibase"
+  },
+  {
+   "affil": [],
+   "createdAt": 1794800668681,
+   "hubs": {
+    "learn": 0.6,
+    "pp-archive": 0.9,
+    "pp-names": 0.7
+   },
+   "items": [
+    {
+     "to": "pp_linnaeus",
+     "w": 0.8,
+     "why": "Holds historical works like Systema Naturae"
+    }
+   ],
+   "kind": "library or archive",
+   "members": [],
+   "note": "Open digital library of historical natural-history literature.",
+   "onSite": true,
+   "starter": true,
+   "t": "Biodiversity Heritage Library",
+   "url": "https://www.biodiversitylibrary.org/",
+   "id": "bhl"
+  },
+  {
+   "affil": [],
+   "createdAt": 1794800668663,
+   "hubs": {
+    "birds": 0.9,
+    "eco": 0.6,
+    "parrots": 0.6
+   },
+   "items": [
+    {
+     "to": "pp_cockatoo_kg",
+     "w": 0.5,
+     "why": "Conservation status"
+    },
+    {
+     "to": "pp_pyrrhura_kg",
+     "w": 0.5,
+     "why": "Conservation status"
+    }
+   ],
+   "kind": "conservation",
+   "members": [],
+   "note": "Global bird conservation partnership; its Data Zone supplies the Red List categories the project uses.",
+   "onSite": true,
+   "starter": true,
+   "t": "BirdLife International",
+   "url": "https://www.birdlife.org/",
+   "id": "birdlife"
+  },
+  {
+   "affil": [],
+   "createdAt": 1794800668672,
+   "hubs": {
+    "birds": 0.7
+   },
+   "items": [],
+   "kind": "research",
+   "members": [],
+   "note": "Ornithology research society.",
+   "onSite": true,
+   "starter": true,
+   "t": "British Ornithologists' Union",
+   "url": "",
+   "id": "bou"
+  },
+  {
+   "affil": [],
+   "createdAt": 1794800668668,
+   "hubs": {
+    "birds": 1,
+    "field": 0.6,
+    "pp-names": 0.7
+   },
+   "items": [
+    {
+     "to": "pp_names_tl",
+     "w": 0.7,
+     "why": "Checklist the timeline follows"
+    },
+    {
+     "to": "pp_cockatoo_kg",
+     "w": 0.5,
+     "why": "Taxonomy follows Clements"
+    }
+   ],
+   "kind": "research",
+   "members": [],
+   "note": "Home of Birds of the World, eBird and the eBird/Clements checklist that the project follows for names.",
+   "onSite": true,
+   "starter": true,
+   "t": "Cornell Lab of Ornithology",
+   "url": "https://www.birds.cornell.edu/",
+   "id": "cornell"
+  },
+  {
+   "affil": [],
+   "createdAt": 1794800668671,
+   "hubs": {
+    "birds": 0.7,
+    "eco": 0.6,
+    "parrots": 0.6
+   },
+   "items": [],
+   "kind": "research",
+   "members": [],
+   "note": "Research on threatened Australian birds, including several parrots and cockatoos.",
+   "onSite": true,
+   "starter": true,
+   "t": "Difficult Bird Research Group",
+   "url": "",
+   "id": "difficultbird"
+  },
+  {
+   "affil": [],
+   "createdAt": 1794800668676,
+   "hubs": {
+    "ag": 0.6,
+    "parrots": 0.7,
+    "pp-diet": 0.7
+   },
+   "items": [],
+   "kind": "aviculture",
+   "members": [],
+   "note": "Avicultural research institute listed in the project's resources.",
+   "onSite": true,
+   "starter": true,
+   "t": "Hagen Avicultural Research Institute",
+   "url": "",
+   "id": "hari"
+  },
+  {
+   "affil": [],
+   "createdAt": 1794800668682,
+   "hubs": {
+    "field": 0.9,
+    "pp-teachers": 0.6
+   },
+   "items": [
+    {
+     "to": "pp_inat",
+     "w": 1,
+     "why": "Hosts the project"
+    },
+    {
+     "to": "tracks",
+     "w": 0.3,
+     "why": "Field observation"
+    }
+   ],
+   "kind": "citizen science",
+   "members": [],
+   "note": "Platform for sharing and identifying observations of living things.",
+   "onSite": true,
+   "starter": true,
+   "t": "iNaturalist",
+   "url": "https://www.inaturalist.org/",
+   "id": "inat"
+  },
+  {
+   "affil": [],
+   "createdAt": 1794800668680,
+   "hubs": {
+    "animals": 0.5,
+    "pp-names": 0.7
+   },
+   "items": [],
+   "kind": "database",
+   "members": [],
+   "note": "Taxonomic records with stable serial numbers.",
+   "onSite": true,
+   "starter": true,
+   "t": "ITIS (Integrated Taxonomic Information System)",
+   "url": "",
+   "id": "itis"
+  },
+  {
+   "affil": [],
+   "createdAt": 1794800668664,
+   "hubs": {
+    "animals": 0.8,
+    "eco": 0.6,
+    "parrots": 0.5
+   },
+   "items": [
+    {
+     "to": "pp_cockatoo_kg",
+     "w": 0.6,
+     "why": "Red List status"
+    },
+    {
+     "to": "pp_pyrrhura_kg",
+     "w": 0.6,
+     "why": "Red List status"
+    }
+   ],
+   "kind": "conservation",
+   "members": [],
+   "note": "Global assessments of extinction risk, used for each species' conservation category.",
+   "onSite": true,
+   "starter": true,
+   "t": "IUCN Red List of Threatened Species",
+   "url": "https://www.iucnredlist.org/",
+   "id": "iucn"
+  },
+  {
+   "affil": [],
+   "createdAt": 1794800668665,
+   "hubs": {
+    "birds": 0.5,
+    "eco": 0.7,
+    "parrots": 0.9
+   },
+   "items": [],
+   "kind": "conservation",
+   "members": [],
+   "note": "New Zealand's recovery program for the kākāpō, a flightless parrot. Featured in the project's Blogs & Voices.",
+   "onSite": true,
+   "starter": true,
+   "t": "Kākāpō Recovery",
+   "url": "",
+   "id": "kakapo"
+  },
+  {
+   "affil": [],
+   "createdAt": 1794800668678,
+   "hubs": {
+    "ag": 0.5,
+    "eco": 0.4,
+    "parrots": 0.6
+   },
+   "items": [],
+   "kind": "aviculture",
+   "members": [],
+   "note": "Bird care company; its Global Parrot Conservation Spotlight is featured in Blogs & Voices.",
+   "onSite": true,
+   "starter": true,
+   "t": "Lafeber Company",
+   "url": "",
+   "id": "lafeber"
+  },
+  {
+   "affil": [],
+   "createdAt": 1794800668667,
+   "hubs": {
+    "eco": 0.6,
+    "parrots": 0.8
+   },
+   "items": [],
+   "kind": "conservation",
+   "members": [],
+   "note": "Foundation that funds parrot conservation projects worldwide. Suggested link: not listed on the Parrots site.",
+   "onSite": false,
+   "starter": true,
+   "t": "Loro Parque Fundación",
+   "url": "",
+   "id": "lpf"
+  },
+  {
+   "affil": [],
+   "createdAt": 1794800668670,
+   "hubs": {
+    "mind": 0.5,
+    "parrots": 0.8,
+    "pp-teachers": 0.6
+   },
+   "items": [],
+   "kind": "citizen science",
+   "members": [],
+   "note": "Citizen science on parrot vocal learning.",
+   "onSite": true,
+   "starter": true,
+   "t": "Many Parrots Project",
+   "url": "",
+   "id": "manyparrots"
+  },
+  {
+   "affil": [],
+   "createdAt": 1794800668684,
+   "hubs": {
+    "animals": 0.4,
+    "pp-archive": 0.4
+   },
+   "items": [
+    {
+     "to": "pp_natgeo",
+     "w": 1,
+     "why": "Publisher"
+    }
+   ],
+   "kind": "education",
+   "members": [],
+   "note": "Publisher of the January 1994 issue on macaws that started the project.",
+   "onSite": true,
+   "starter": true,
+   "t": "National Geographic Society",
+   "url": "https://archive.nationalgeographic.com/",
+   "id": "natgeo"
+  },
+  {
+   "affil": [],
+   "createdAt": 1794800668666,
+   "hubs": {
+    "eco": 0.7,
+    "parrots": 0.7,
+    "pp-ethics": 0.8
+   },
+   "items": [],
+   "kind": "conservation",
+   "members": [],
+   "note": "Conservation organization featured in the project's Blogs & Voices.",
+   "onSite": true,
+   "starter": true,
+   "t": "One Earth Conservation",
+   "url": "",
+   "id": "oneearth"
+  },
+  {
+   "affil": [
+    "tamu",
+    "saintxavier"
+   ],
+   "affilWhy": "Collaborators based at",
+   "createdAt": 1794800668659,
+   "hubs": {
+    "parrots": 0.9,
+    "parrots-project": 1
+   },
+   "items": [
+    {
+     "to": "pp_cockatoo_kg",
+     "w": 1,
+     "why": "Built it"
+    },
+    {
+     "to": "pp_pyrrhura_kg",
+     "w": 1,
+     "why": "Built it"
+    },
+    {
+     "to": "pp_health_kg",
+     "w": 1,
+     "why": "Built it"
+    },
+    {
+     "to": "pp_names_tl",
+     "w": 1,
+     "why": "Built it"
+    },
+    {
+     "to": "pp_psittacus",
+     "w": 0.9,
+     "why": "Published it"
+    },
+    {
+     "to": "pp_manynames",
+     "w": 1,
+     "why": "Student research project"
+    },
+    {
+     "to": "pp_poster",
+     "w": 1,
+     "why": "Student research project"
+    },
+    {
+     "to": "pp_bulletin",
+     "w": 1,
+     "why": "Student research project"
+    },
+    {
+     "to": "pp_zotero",
+     "w": 1,
+     "why": "Keeps the library"
+    },
+    {
+     "to": "pp_feathers",
+     "w": 0.9,
+     "why": "Published it"
+    },
+    {
+     "to": "pp_story",
+     "w": 0.9,
+     "why": "Founding story"
+    },
+    {
+     "to": "pp_inat",
+     "w": 0.9,
+     "why": "Runs the project"
+    }
+   ],
+   "kind": "lab",
+   "members": [
+    {
+     "name": "EV Voltura",
+     "role": "Founder and Director"
+    },
+    {
+     "name": "Jason Crean",
+     "role": "Collaborator"
+    },
+    {
+     "name": "Tatiana Tatum",
+     "role": "Collaborator"
+    },
+    {
+     "name": "Jenna Henry",
+     "role": "Student researcher"
+    },
+    {
+     "name": "Ella Rydell",
+     "role": "Student researcher"
+    },
+    {
+     "name": "James Guo",
+     "role": "Multilingual names research lead"
+    },
+    {
+     "name": "Rachel Rider",
+     "role": "Welcoming Committee"
+    },
+    {
+     "name": "Davi Butturi-Gomes",
+     "role": "Scientific and Data Collaborator"
+    },
+    {
+     "name": "Icarus Nellessen",
+     "role": "Featured artist"
+    }
+   ],
+   "note": "An independent research project and living library on parrots, founded and directed by EV Voltura, PhD. Students from Texas A&M and Saint Xavier University take part in its research.",
+   "onSite": true,
+   "starter": true,
+   "t": "The Parrots' Project",
+   "url": "https://theparrotsproject.org/",
+   "id": "parrots-project-lab"
+  },
+  {
+   "affil": [],
+   "createdAt": 1794800668677,
+   "hubs": {
+    "ag": 0.4,
+    "parrots": 0.7,
+    "pp-ethics": 0.6
+   },
+   "items": [],
+   "kind": "welfare and rescue",
+   "members": [],
+   "note": "Parrot welfare organization; its Helping Parrots blog shares caregiving stories.",
+   "onSite": true,
+   "starter": true,
+   "t": "Phoenix Landing",
+   "url": "",
+   "id": "phoenix"
+  },
+  {
+   "affil": [],
+   "createdAt": 1794800668669,
+   "hubs": {
+    "parrots": 0.9,
+    "pp-teachers": 0.5
+   },
+   "items": [],
+   "kind": "research",
+   "members": [],
+   "note": "Communication network for wild parrot researchers, formerly the IOU Working Group on Psittaciformes. Acknowledged by the project for sharing parrot knowledge.",
+   "onSite": true,
+   "starter": true,
+   "t": "Parrot Researchers Group",
+   "url": "",
+   "id": "prg"
+  },
+  {
+   "affil": [],
+   "createdAt": 1794800668683,
+   "hubs": {
+    "birds": 0.7,
+    "place": 0.6,
+    "pp-teachers": 0.4
+   },
+   "items": [
+    {
+     "to": "pp_poster",
+     "w": 0.5,
+     "why": "Poster presented at its event"
+    }
+   ],
+   "kind": "community",
+   "members": [],
+   "note": "Local Audubon chapter in the Brazos Valley, Texas, where the cockatoo diet poster was presented.",
+   "onSite": true,
+   "starter": true,
+   "t": "Rio Brazos Audubon Society",
+   "url": "",
+   "id": "riobrazos"
+  },
+  {
+   "affil": [
+    "tamu"
+   ],
+   "affilWhy": "Part of",
+   "createdAt": 1794800668660,
+   "hubs": {
+    "birds": 0.6,
+    "parrots": 0.8,
+    "pp-health": 1
+   },
+   "items": [
+    {
+     "to": "pp_poster",
+     "w": 0.6,
+     "why": "Affiliation on the poster"
+    },
+    {
+     "to": "pp_health_kg",
+     "w": 0.5,
+     "why": "Avian health research"
+    }
+   ],
+   "kind": "lab",
+   "members": [
+    {
+     "name": "EV Voltura",
+     "role": "Postdoctoral researcher"
+    }
+   ],
+   "note": "Texas A&M's center for avian health research in the Department of Veterinary Pathobiology. EV Voltura's affiliation on the cockatoo diet poster.",
+   "onSite": true,
+   "starter": true,
+   "t": "Schubot Center for Avian Health",
+   "tamu": true,
+   "url": "",
+   "id": "schubot"
+  },
+  {
+   "affil": [
+    "saintxavier"
+   ],
+   "affilWhy": "Part of",
+   "createdAt": 1794800668685,
+   "hubs": {
+    "pp-teachers": 0.7
+   },
+   "items": [
+    {
+     "to": "pp_poster",
+     "w": 0.6,
+     "why": "Student researchers"
+    }
+   ],
+   "kind": "education",
+   "members": [],
+   "note": "Department of Tatiana Tatum and Jason Crean, whose undergraduates worked on the cockatoo diet project.",
+   "onSite": true,
+   "starter": true,
+   "t": "Saint Xavier University, Biological Sciences",
+   "url": "",
+   "id": "sxu"
+  },
+  {
+   "affil": [
+    "tamu"
+   ],
+   "affilWhy": "Directed from",
+   "createdAt": 1794800668661,
+   "hubs": {
+    "eco": 0.6,
+    "parrots": 0.9,
+    "pp-diet": 0.8
+   },
+   "items": [
+    {
+     "to": "pp_natgeo",
+     "w": 0.8,
+     "why": "The clay licks in the photographs"
+    },
+    {
+     "to": "pp_story",
+     "w": 0.7,
+     "why": "Where the founding question came from"
+    }
+   ],
+   "kind": "lab",
+   "members": [],
+   "note": "Long-running research on wild macaws and the clay licks of Peru's Tambopata River, the scene in the magazine that started The Parrots' Project. Suggested link: as far as I know it is directed from Texas A&M's Schubot Center; not listed on the Parrots site.",
+   "onSite": false,
+   "starter": true,
+   "t": "Tambopata Macaw Project",
+   "tamu": true,
+   "url": "",
+   "id": "tambopata"
+  },
+  {
+   "affil": [],
+   "createdAt": 1794800668662,
+   "hubs": {
+    "eco": 0.5,
+    "parrots": 1,
+    "pp-ethics": 0.7
+   },
+   "items": [
+    {
+     "to": "pp_manynames",
+     "w": 0.4,
+     "why": "Independent reference for names"
+    }
+   ],
+   "kind": "conservation",
+   "members": [],
+   "note": "Parrot conservation charity; founded World Parrot Day and publishes PsittaScene and the Parrot Encyclopedia.",
+   "onSite": true,
+   "starter": true,
+   "t": "World Parrot Trust",
+   "url": "https://www.parrots.org/",
+   "id": "wpt"
+  }
+ ],
+ "institutions": {
+  "aarhus": "Aarhus University",
+  "aber": "Aberystwyth University",
+  "aberdeen": "University of Aberdeen",
+  "academy": "Plato's Academy, Athens",
+  "amnh": "American Museum of Natural History",
+  "arizona": "University of Arizona",
+  "bath": "University of Bath",
+  "berk": "UC Berkeley",
+  "boise": "Boise State University",
+  "bu": "Boston University",
+  "caltech": "Caltech",
+  "cam": "University of Cambridge",
+  "cdf": "Collège de France",
+  "chicago_field": "Field Museum",
+  "cinc": "University of Cincinnati",
+  "colorado": "University of Colorado Boulder",
+  "columbia": "Columbia University",
+  "cornell": "Cornell University",
+  "csu": "Colorado State University",
+  "dartmouth": "Dartmouth College",
+  "deakin": "Deakin University",
+  "dias": "Dublin Institute for Advanced Studies",
+  "duke": "Duke University",
+  "ecu": "East Carolina University",
+  "edinburgh": "University of Edinburgh",
+  "fandm": "Franklin & Marshall College",
+  "freiburg": "University of Freiburg",
+  "geneva": "University of Geneva",
+  "glasgow": "University of Glasgow",
+  "gsc": "Geological Survey of Canada",
+  "gwu": "George Washington University",
+  "harvard": "Harvard University",
+  "heidelberg": "Heidelberg University",
+  "imperial": "Imperial College London",
+  "indiana": "Indiana University",
+  "ipgp": "Institut de physique du globe de Paris",
+  "isgs": "Illinois State Geological Survey",
+  "jhu": "Johns Hopkins University",
+  "kentucky": "University of Kentucky",
+  "kiel": "University of Kiel",
+  "ksu": "Kansas State University",
+  "lsu": "Louisiana State University",
+  "mcgill": "McGill University",
+  "mines": "Colorado School of Mines",
+  "mit": "MIT",
+  "montreal": "Université de Montréal",
+  "moscow": "Moscow State University",
+  "msu": "Michigan State University",
+  "nas": "National Academies",
+  "newschool": "The New School",
+  "occidental": "Occidental College",
+  "ohio": "Ohio State University",
+  "oslo": "University of Oslo",
+  "oxford": "University of Oxford",
+  "padova": "University of Padua",
+  "penn": "University of Pennsylvania",
+  "pfw": "Purdue University Fort Wayne",
+  "pitt": "University of Pittsburgh",
+  "polito": "Politecnico di Torino",
+  "pomona": "Pomona College",
+  "princeton": "Princeton University",
+  "pse": "Paris School of Economics",
+  "psu": "Penn State University",
+  "purdue": "Purdue University",
+  "qub": "Queen's University Belfast",
+  "rhul": "Royal Holloway, University of London",
+  "saintxavier": "Saint Xavier University",
+  "smith": "Smithsonian Institution",
+  "southcarolina": "University of South Carolina",
+  "stanford": "Stanford University",
+  "stock": "Stockholm University",
+  "sunyesf": "SUNY College of Environmental Science and Forestry",
+  "sydney": "University of Sydney",
+  "tamu": "Texas A&M University",
+  "tamucc": "Texas A&M University–Corpus Christi",
+  "tartu": "University of Tartu",
+  "ttu": "Texas Tech University",
+  "ubc": "University of British Columbia",
+  "ucc": "University College Cork",
+  "uchi": "University of Chicago",
+  "uchile": "University of Chile",
+  "ucl": "University College London",
+  "ucla": "UCLA",
+  "ucr": "UC Riverside",
+  "ucsb": "UC Santa Barbara",
+  "ucsc": "UC Santa Cruz",
+  "ucsf": "UC San Francisco",
+  "ufl": "University of Florida",
+  "uga": "University of Georgia",
+  "uh": "University of Houston",
+  "uiuc": "University of Illinois Urbana-Champaign",
+  "ulb": "Université libre de Bruxelles",
+  "umass": "UMass Amherst",
+  "umd": "University of Maryland",
+  "unc": "University of North Carolina",
+  "unl": "University of Louisiana at Lafayette",
+  "uppsala": "Uppsala University",
+  "uri": "University of Rhode Island",
+  "usc": "University of Southern California",
+  "usf": "University of South Florida",
+  "utah": "University of Utah",
+  "utexas": "University of Texas at Austin",
+  "utsa": "UT San Antonio",
+  "uwm": "University of Wisconsin–Madison",
+  "whoi": "Woods Hole Oceanographic Institution",
+  "wright": "Wright State University",
+  "wustl": "Washington University in St. Louis",
+  "yale": "Yale University"
+ }
+}
