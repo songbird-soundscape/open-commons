@@ -107,10 +107,7 @@
    "color": "#8a5a2b",
    "note": "Continents, vegetation, climate, and human migration layered across 540 million years. The first hub in this network.",
    "url": "https://songbird-soundscape.github.io/drifting-through-deep-time/#tutorial",
-   "parents": {
-    "phil-hubs": 0.9,
-    "phil-univ": 0.7
-   },
+   "parents": {},
    "starter": true,
    "createdAt": 6,
    "subjects": [
@@ -126,13 +123,7 @@
    "createdAt": 1794799507309,
    "kind": "member",
    "note": "A living library that gathers what people have recorded about parrots (scientific papers, veterinary case reports, avicultural journals, photographs, theses, citizen-science observations) and connects it while keeping every record's source and context. Founded and directed by EV Voltura, PhD (Texas A&M). Its work includes knowledge graphs, a history of parrot names since 1758, multilingual species names, a student-built cockatoo diet dataset, and a hyperspectral feather library. A participating node of The Open Commons of Learning.",
-   "parents": {
-    "phil-self": 0.5,
-    "phil-praxis": 0.8,
-    "phil-univ": 0.8,
-    "phil-open": 0.8,
-    "phil-hubs": 0.8
-   },
+   "parents": {},
    "starter": true,
    "t": "The Parrots Project",
    "url": "https://theparrotsproject.org/",
@@ -429,10 +420,28 @@
    "t": "Shared ground: names across languages and historical linguistics, oral history and traditional knowledge, ecology and conservation, and geoscience education"
   },
   {
-   "source": "parrots-project",
-   "target": "bhl",
+   "source": "bhl",
+   "target": "parrots-project",
    "w": 0.6,
-   "t": "Draws on historical natural-history works, such as Systema Naturae, held by the Biodiversity Heritage Library"
+   "t": "Holds historical natural-history works, such as Systema Naturae, that the project's names research draws on"
+  },
+  {
+   "source": "aristotle",
+   "target": "parrots-project",
+   "w": 0.5,
+   "t": "His History of Animals gives one of the earliest written descriptions of a parrot, the talking “psittace” of India"
+  },
+  {
+   "source": "ahumboldt",
+   "target": "parrots-project",
+   "w": 0.5,
+   "t": "Recorded a parrot said to speak words of the vanished Atures people, an early meeting of parrots and language"
+  },
+  {
+   "source": "cc",
+   "target": "parrots-project",
+   "w": 0.4,
+   "t": "The project shares and credits photographs under Creative Commons licenses"
   }
  ],
  "siteElements": {
