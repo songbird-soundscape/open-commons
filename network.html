@@ -661,6 +661,10 @@ footer{padding-block:40px 0;border-top:1px solid var(--rule);color:var(--ink-sof
 .hsc-list b{font-family:var(--display);font-weight:600;font-size:.95rem}
 .hsc-list span{font-size:.8rem;color:var(--ink-soft)}
 .hsc-list i{font-style:normal;font-family:var(--mono);font-size:.7rem;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.06em}
+.hsc-side input[type=range]{padding:0;border:0;background:none;accent-color:var(--teal)}
+.hsc-scale{display:flex;justify-content:space-between;font-family:var(--mono);font-size:.7rem;color:var(--ink-soft)}
+.pnsvg .lk.thr-hide{display:none!important}
+.pnsvg .pn.thr-iso{opacity:.22}
 .hsc-side .foot{font-family:var(--mono);font-size:.76rem;color:var(--ink-soft);display:grid;gap:4px}
 .hsc-side .foot a{color:var(--moss)}
 .hsc-main #project-network > .intro{display:none}
@@ -678,6 +682,12 @@ footer{padding-block:40px 0;border-top:1px solid var(--rule);color:var(--ink-sof
   <section>
     <span class="label">Participating nodes</span>
     <ul class="hsc-list" id="hscNodes"></ul>
+  </section>
+  <section>
+    <label class="label" for="hscThr">Relevance threshold</label>
+    <input type="range" id="hscThr" min="0" max="1" step="0.05" value="0">
+    <div class="hsc-scale"><span>Show peripheral</span><span>Only very relevant</span></div>
+    <p class="hint" id="hscThrOut">Showing every link.</p>
   </section>
   <section>
     <label class="label" for="hscFind">Find</label>
@@ -1042,11 +1052,24 @@ Promise.all([fetch("data/site-network.json",{cache:"no-cache"}).then(r=>{if(!r.o
   const parts=(com.nodes||[]).map(p=>{ const id=p.network||p.id; const hub=(com.hubs||[]).find(h=>h.id===id)||{};
     if(!have.has(id)){ nodes.push({id,name:p.name,native:p.name,kind:"h",el:"h",meta:"Participating node",desc:p.summary||hub.note||"",url:p.url||hub.url||"",subjects:hub.subjects||[]}); have.add(id); }
     return {...p,mapId:id}; });
-  (com.nodeLinks||[]).forEach(l=>{ if(have.has(l.source)&&have.has(l.target)) links.push({source:l.source,target:l.target,w:0,t:l.t||"Draws on"}); });
+  (com.nodeLinks||[]).forEach(l=>{ if(have.has(l.source)&&have.has(l.target)) links.push({source:l.source,target:l.target,w:0,s:+l.w||.5,t:l.t||"Draws on"}); });
   PN={nodes,links}; HSC={nodes,subjects:Object.fromEntries((com.subjects||[]).map(t=>[t.id,t.t])),parts};
-  drawPN(); hscInit();
+  drawPN(); hscInit(); hscThreshold();
 })
 .catch(()=>{ $("#hscStatus").textContent="The network didn't load. Reload the page to try again."; });
+
+/* ---------- relevance threshold: hide weaker links, fade what is left unconnected ---------- */
+const STRENGTH = l => l.w===3 ? 1 : l.w===2 ? .66 : l.w===1 ? .33 : (l.s!=null ? l.s : .5);
+function hscThreshold(){
+  const thr=+$("#hscThr").value, keep=new Set(), had=new Set(); let shown=0;
+  document.querySelectorAll("#pnet .lk").forEach(p=>{ const l=PN.links[+p.dataset.i]; const ok=!l || STRENGTH(l)>=thr-1e-9;
+    had.add(p.dataset.a); had.add(p.dataset.b);
+    p.classList.toggle("thr-hide",!ok); if(ok){ shown++; keep.add(p.dataset.a); keep.add(p.dataset.b); } });
+  document.querySelectorAll("#pnet .pn").forEach(g=>g.classList.toggle("thr-iso", thr>0 && had.has(g.dataset.id) && !keep.has(g.dataset.id)));
+  const total=PN.links.length;
+  $("#hscThrOut").textContent = thr>0 ? `≥ ${thr.toFixed(2)} · ${shown} of ${total} links shown` : `Showing every link (${total}).`;
+}
+document.getElementById("hscThr").addEventListener("input",hscThreshold);
 
 /* ---------- search panel: lists that select on the map ---------- */
 const ELN={s:"Self-knowledge",p:"Praxis",u:"Universality",o:"Open access",h:"Knowledge hubs"};
