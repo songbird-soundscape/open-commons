@@ -36,11 +36,52 @@
  ],
  "hubs": [
   {
+   "id": "phil-self",
+   "t": "Self-knowledge",
+   "kind": "hub",
+   "role": "disposition",
+   "color": "#0072B2",
+   "note": "Know how you learn, what you believe, and where your gaps are. “Know thyself” was carved at the temple of Apollo at Delphi, and Socrates made it the starting point of philosophy.",
+   "parents": {},
+   "starter": true,
+   "createdAt": 1
+  },
+  {
+   "id": "phil-praxis",
+   "t": "Praxis",
+   "kind": "hub",
+   "role": "disposition",
+   "color": "#009E73",
+   "note": "Theory and action together: learn by doing real work, then reflect on it. Aristotle set praxis, thoughtful action, beside theory. Paulo Freire defined it as reflection and action upon the world in order to transform it.",
+   "parents": {
+    "phil-self": 0.8
+   },
+   "starter": true,
+   "createdAt": 2
+  },
+  {
+   "id": "phil-univ",
+   "t": "Universality",
+   "kind": "hub",
+   "role": "disposition",
+   "color": "#E69F00",
+   "note": "Knowledge open to everyone, and fields connected into a whole. The word university comes from the Latin universitas: the whole community of teachers and scholars.",
+   "parents": {
+    "phil-self": 0.8,
+    "phil-praxis": 0.8
+   },
+   "starter": true,
+   "createdAt": 3
+  },
+  {
    "color": "--c-ag",
    "createdAt": 1794787200015,
    "kind": "side",
    "note": "Proposed side hub. Soils, crops, livestock and food systems.",
-   "parents": {},
+   "parents": {
+    "phil-praxis": 0.8,
+    "phil-univ": 0.4
+   },
    "starter": true,
    "t": "Agriculture, Food & Animals",
    "id": "ag"
@@ -55,7 +96,8 @@
     "eco": 0.8,
     "evo": 0.8,
     "field": 0.8,
-    "learn": 0.7
+    "phil-praxis": 0.4,
+    "phil-univ": 0.5
    },
    "starter": true,
    "t": "Animals & Wildlife",
@@ -69,7 +111,10 @@
    "note": "Proposed side hub. People in deep time, on land and under water.",
    "parents": {
     "dt-dna": 0.7,
-    "dt-mig": 0.8
+    "dt-mig": 0.8,
+    "phil-self": 0.3,
+    "phil-praxis": 0.5,
+    "phil-univ": 0.7
    },
    "starter": true,
    "t": "Archaeology & the Human Past",
@@ -84,7 +129,9 @@
     "animals": 1,
     "deep": 0.6,
     "evo": 0.6,
-    "field": 0.7
+    "field": 0.7,
+    "phil-praxis": 0.4,
+    "phil-univ": 0.3
    },
    "starter": true,
    "t": "Birds",
@@ -98,9 +145,11 @@
    "note": "Proposed co-hub. Programming, algorithms, machine learning and the ethics of AI.",
    "parents": {
     "eng": 0.4,
-    "learn": 0.8,
     "mind": 0.6,
-    "teach": 0.85
+    "teach": 0.85,
+    "phil-self": 0.3,
+    "phil-praxis": 0.6,
+    "phil-univ": 0.6
    },
    "starter": true,
    "t": "Computing & AI",
@@ -115,7 +164,10 @@
     "eco": 0.65,
     "evo": 0.5,
     "phys": 0.6,
-    "teach": 0.45
+    "teach": 0.45,
+    "phil-self": 0.3,
+    "phil-praxis": 0.4,
+    "phil-univ": 0.8
    },
    "starter": true,
    "t": "Complexity & Pattern",
@@ -124,12 +176,14 @@
   {
    "color": "--c-deep",
    "createdAt": 1794787200001,
-   "kind": "hub",
+   "kind": "cohub",
    "note": "Earth history, the fossil record, stratigraphy and how geologic time is measured.",
    "parents": {
     "arch": 0.55,
-    "learn": 1,
-    "sea": 0.6
+    "sea": 0.6,
+    "phil-self": 0.4,
+    "phil-praxis": 0.6,
+    "phil-univ": 0.9
    },
    "starter": true,
    "t": "Drifting Through Deep Time",
@@ -144,7 +198,9 @@
    "parents": {
     "deep": 1,
     "dt-tect": 0.7,
-    "dt-veg": 0.7
+    "dt-veg": 0.7,
+    "phil-praxis": 0.4,
+    "phil-univ": 0.6
    },
    "starter": true,
    "t": "Paleoclimate",
@@ -158,7 +214,9 @@
    "kind": "side",
    "note": "Genetic evidence of how populations split, mixed, and moved. Who would contribute: Genomics labs. A student could start with: What does ancient DNA agree with, or contradict, in the archaeological record? From the Drifting Through Deep Time example network on The Open Commons of Learning.",
    "parents": {
-    "dt-mig": 0.8
+    "dt-mig": 0.8,
+    "phil-praxis": 0.4,
+    "phil-univ": 0.4
    },
    "starter": true,
    "t": "Ancient DNA",
@@ -174,7 +232,9 @@
    "parents": {
     "dt-clim": 0.8,
     "dt-veg": 0.8,
-    "eco": 0.6
+    "eco": 0.6,
+    "phil-praxis": 0.6,
+    "phil-univ": 0.5
    },
    "starter": true,
    "t": "Ecology & conservation",
@@ -189,7 +249,10 @@
    "note": "Teachers, museums, and video creators who make deep time understandable. Who would contribute: Science communicators; Museum educators; Teachers. A student could start with: What's the clearest way to show 500 million years on one screen? From the Drifting Through Deep Time example network on The Open Commons of Learning.",
    "parents": {
     "dt-tect": 0.8,
-    "teach": 0.6
+    "teach": 0.6,
+    "phil-self": 0.3,
+    "phil-praxis": 0.8,
+    "phil-univ": 0.5
    },
    "starter": true,
    "t": "Geoscience education",
@@ -204,7 +267,9 @@
    "note": "Language families as another trace of how people spread. Who would contribute: Linguistics departments. A student could start with: Do word families for plants and animals follow the migration routes? From the Drifting Through Deep Time example network on The Open Commons of Learning.",
    "parents": {
     "dt-mig": 0.8,
-    "mind": 0.5
+    "mind": 0.5,
+    "phil-self": 0.3,
+    "phil-univ": 0.7
    },
    "starter": true,
    "t": "Historical linguistics",
@@ -218,7 +283,10 @@
    "kind": "cohub",
    "note": "How people moved across continents, and how land bridges, coastlines, and climate shaped their routes. Who would contribute: Anthropologists and archaeologists; Population geneticists; Community historians. A student could start with: Which routes could people have taken into this region, and when were they open? From the Drifting Through Deep Time example network on The Open Commons of Learning.",
    "parents": {
-    "deep": 1
+    "deep": 1,
+    "phil-self": 0.3,
+    "phil-praxis": 0.3,
+    "phil-univ": 0.7
    },
    "starter": true,
    "t": "Human migration",
@@ -233,7 +301,9 @@
    "note": "Flood stories, origin myths, and dream imagery that may hold memories of changing landscapes. Who would contribute: Folklorists; Psychologists of dreams and memory. A student could start with: Could a flood myth preserve a real sea-level rise? From the Drifting Through Deep Time example network on The Open Commons of Learning.",
    "parents": {
     "dt-ling": 0.7,
-    "dt-mig": 0.8
+    "dt-mig": 0.8,
+    "phil-self": 0.6,
+    "phil-univ": 0.5
    },
    "starter": true,
    "t": "Myth, memory & dreams",
@@ -249,7 +319,10 @@
    "parents": {
     "arch": 0.7,
     "dt-mig": 0.8,
-    "dt-veg": 0.8
+    "dt-veg": 0.8,
+    "phil-self": 0.5,
+    "phil-praxis": 0.4,
+    "phil-univ": 0.6
    },
    "starter": true,
    "t": "Oral history & traditional knowledge",
@@ -265,7 +338,9 @@
    "parents": {
     "deep": 0.8,
     "dt-myth": 0.7,
-    "mind": 0.6
+    "mind": 0.6,
+    "phil-self": 0.9,
+    "phil-univ": 0.4
    },
    "starter": true,
    "t": "Philosophy of time",
@@ -280,7 +355,9 @@
    "note": "What past climate shifts suggest about the decisions in front of us. Who would contribute: Policy researchers; Public agencies. A student could start with: What does the deep past say about how fast ecosystems can adapt? From the Drifting Through Deep Time example network on The Open Commons of Learning.",
    "parents": {
     "dt-clim": 0.8,
-    "soc": 0.4
+    "soc": 0.4,
+    "phil-praxis": 0.6,
+    "phil-univ": 0.4
    },
    "starter": true,
    "t": "Climate policy",
@@ -294,7 +371,9 @@
    "kind": "cohub",
    "note": "Reconstructions of moving continents, opening oceans, and rising mountains. Who would contribute: Geophysics labs; Open plate-reconstruction datasets; Geology educators and YouTube science communicators. A student could start with: When did your region last share a coastline with another continent? From the Drifting Through Deep Time example network on The Open Commons of Learning.",
    "parents": {
-    "deep": 1
+    "deep": 1,
+    "phil-praxis": 0.4,
+    "phil-univ": 0.5
    },
    "starter": true,
    "t": "Plate tectonics",
@@ -309,7 +388,9 @@
    "note": "Fossil pollen and plant records that show which forests and grasslands grew where. Who would contribute: Palynology labs; Herbaria and museum collections; Volunteers sorting samples. A student could start with: How did the plants around here change at the end of the last ice age? From the Drifting Through Deep Time example network on The Open Commons of Learning.",
    "parents": {
     "deep": 1,
-    "paly": 0.7
+    "paly": 0.7,
+    "phil-praxis": 0.5,
+    "phil-univ": 0.5
    },
    "starter": true,
    "t": "Ancient vegetation & pollen",
@@ -319,12 +400,14 @@
   {
    "color": "--c-eco",
    "createdAt": 1794787200002,
-   "kind": "hub",
+   "kind": "cohub",
    "note": "How organisms, communities and people belong to places, and what that asks of us.",
    "parents": {
     "ag": 0.6,
-    "learn": 1,
-    "mind": 0.5
+    "mind": 0.5,
+    "phil-self": 0.7,
+    "phil-praxis": 0.6,
+    "phil-univ": 0.8
    },
    "starter": true,
    "t": "Ecological Philosophy",
@@ -335,7 +418,10 @@
    "createdAt": 1794787200014,
    "kind": "side",
    "note": "Proposed side hub. Fluids, petroleum, design and the built world.",
-   "parents": {},
+   "parents": {
+    "phil-praxis": 0.9,
+    "phil-univ": 0.3
+   },
    "starter": true,
    "t": "Engineering & Energy",
    "id": "eng"
@@ -347,7 +433,10 @@
    "note": "Proposed co-hub. History and theory of evolution, from Darwin to evo-devo and hierarchy.",
    "parents": {
     "deep": 0.8,
-    "eco": 0.6
+    "eco": 0.6,
+    "phil-self": 0.3,
+    "phil-praxis": 0.4,
+    "phil-univ": 0.7
    },
    "starter": true,
    "t": "Evolutionary Thought",
@@ -360,7 +449,9 @@
    "note": "Proposed side hub. Guides and ecology for looking at living things outdoors.",
    "parents": {
     "ag": 0.5,
-    "eco": 0.7
+    "eco": 0.7,
+    "phil-self": 0.4,
+    "phil-praxis": 0.9
    },
    "starter": true,
    "t": "Field Natural History",
@@ -373,21 +464,13 @@
    "note": "Proposed side hub. Isotopes, instruments, cells and the measurements behind the stories.",
    "parents": {
     "deep": 0.6,
-    "phys": 0.7
+    "phys": 0.7,
+    "phil-praxis": 0.8,
+    "phil-univ": 0.3
    },
    "starter": true,
    "t": "Earth Chemistry & Lab Method",
    "id": "lab"
-  },
-  {
-   "color": "--hub",
-   "createdAt": 1794787200000,
-   "kind": "hub",
-   "note": "The root. Every hub hangs off this one.",
-   "parents": {},
-   "starter": true,
-   "t": "Learning Hub",
-   "id": "learn"
   },
   {
    "color": "--c-mind",
@@ -395,7 +478,10 @@
    "kind": "cohub",
    "note": "Proposed co-hub. Phenomenology, semiotics, sound symbolism, social cognition.",
    "parents": {
-    "teach": 0.8
+    "teach": 0.8,
+    "phil-self": 1,
+    "phil-praxis": 0.3,
+    "phil-univ": 0.5
    },
    "starter": true,
    "t": "Mind, Language & Meaning",
@@ -407,7 +493,9 @@
    "kind": "side",
    "note": "Proposed side hub of Deep Time. Palynology and Pennsylvanian coal paleobotany.",
    "parents": {
-    "deep": 0.85
+    "deep": 0.85,
+    "phil-praxis": 0.6,
+    "phil-univ": 0.4
    },
    "starter": true,
    "t": "Spores, Coal & the Illinois Basin",
@@ -420,7 +508,10 @@
    "note": "A living library that gathers what people have recorded about parrots (scientific papers, veterinary case reports, avicultural journals, photographs, theses, citizen-science observations) and connects it while keeping every record's source and context. Founded and directed by EV Voltura, PhD (Texas A&M). Its work includes knowledge graphs, a history of parrot names since 1758, multilingual species names, a student-built cockatoo diet dataset, and a hyperspectral feather library. A participating node of The Open Commons of Learning.",
    "parents": {
     "birds": 0.5,
-    "parrots": 1
+    "parrots": 1,
+    "phil-self": 0.5,
+    "phil-praxis": 0.8,
+    "phil-univ": 0.8
    },
    "starter": true,
    "t": "The Parrots Project",
@@ -436,7 +527,9 @@
    "parents": {
     "ag": 0.5,
     "animals": 0.6,
-    "birds": 1
+    "birds": 1,
+    "phil-praxis": 0.5,
+    "phil-univ": 0.3
    },
    "starter": true,
    "t": "Parrots (Psittaciformes)",
@@ -450,7 +543,8 @@
    "note": "Proposed co-hub. Physics, chemistry and statistics.",
    "parents": {
     "eng": 0.6,
-    "learn": 0.7
+    "phil-praxis": 0.5,
+    "phil-univ": 0.6
    },
    "starter": true,
    "t": "Physical Sciences & Math",
@@ -466,7 +560,10 @@
     "deep": 0.55,
     "eco": 0.55,
     "field": 0.5,
-    "sea": 0.5
+    "sea": 0.5,
+    "phil-self": 0.5,
+    "phil-praxis": 0.7,
+    "phil-univ": 0.3
    },
    "starter": true,
    "t": "Landscapes & Place",
@@ -615,7 +712,10 @@
    "createdAt": 1794787200016,
    "kind": "side",
    "note": "Proposed side hub. Physical oceanography, the Gulf, shipwrecks.",
-   "parents": {},
+   "parents": {
+    "phil-praxis": 0.5,
+    "phil-univ": 0.5
+   },
    "starter": true,
    "t": "Oceans & Coasts",
    "id": "sea"
@@ -627,7 +727,9 @@
    "note": "Proposed co-hub. How people organize, govern and remember.",
    "parents": {
     "arch": 0.5,
-    "learn": 0.7
+    "phil-self": 0.3,
+    "phil-praxis": 0.5,
+    "phil-univ": 0.8
    },
    "starter": true,
    "t": "Society, History & Politics",
@@ -636,11 +738,13 @@
   {
    "color": "--c-teach",
    "createdAt": 1794787200003,
-   "kind": "hub",
+   "kind": "cohub",
    "note": "How minds are formed, how research is done, and what teaching is for now.",
    "parents": {
-    "learn": 1,
-    "soc": 0.5
+    "soc": 0.5,
+    "phil-self": 0.8,
+    "phil-praxis": 0.9,
+    "phil-univ": 0.6
    },
    "starter": true,
    "t": "Teaching Philosophy in the Age of AI",
@@ -1009,7 +1113,6 @@
    "a": "Wayne C. Booth, Gregory G. Colomb, Joseph M. Williams, Joseph Bizup & William T. FitzGerald",
    "createdAt": 1794787200112,
    "hubs": {
-    "learn": 0.8,
     "teach": 1
    },
    "links": [
@@ -6290,7 +6393,6 @@
    "affil": [],
    "createdAt": 1794800668681,
    "hubs": {
-    "learn": 0.6,
     "pp-archive": 0.9,
     "pp-names": 0.7
    },
