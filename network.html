@@ -438,7 +438,7 @@ const col = c => (c||"").startsWith("--") ? css(c) : (c||css("--book"));
 let ranks = new Map();
 let thr = .35, allLabels = false, selected = null, spotlight = false, shelf = "both";
 // layer modes: on | dim | off
-const L = {hubs:"on", bb:"on", people:"off", unis:"on"};
+const L = {hubs:"on", bb:"on", people:"on", unis:"on"};
 const slug = s => "p_"+s.toLowerCase().normalize("NFD").replace(/[^a-z0-9]+/g,"_");
 
 function buildData(){
@@ -1211,7 +1211,7 @@ $("subjPick").onchange = e => setSubj(e.target.value);
     $("nodeSec").hidden = !NODES.length;
     const want = decodeURIComponent(location.hash.slice(1));
     const fromHash = NODES.find(n=>n.id===want || n.network===want);
-    loadNode(null, fromHash || null);
+    loadNode(null, null);
   } catch(e) {
     setStatus("warn","The network data didn't load. Reload the page to try again.");
   }
