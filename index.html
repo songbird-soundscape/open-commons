@@ -2338,6 +2338,7 @@ drawMap(); drawNet(); drawPath(); drawDay(); drawInt(); drawCoop(); setCoop(); i
   function show(n){ shown=n; feat.replaceChildren(card(n)); full.href="network.html#"+encodeURIComponent(n.id); }
   const rand = k => { try { const a=new Uint32Array(1); crypto.getRandomValues(a); return a[0] % k; } catch(_) { return Math.floor(Math.random()*k); } };
   function pick(){ const base=pool.length?pool:NODES; const from = shown && base.length>1 ? base.filter(n=>n!==shown) : base; if(from.length) show(from[rand(from.length)]); }
+  function pickFresh(){ if(NODES.length) show(NODES[rand(NODES.length)]); }
   function renderList(items){
     list.replaceChildren(...items.map(n=>{ const b=el("button",{type:"button"},el("b",{textContent:n.name}),el("span",{textContent:n.summary})); b.onclick=()=>{ show(n); feat.scrollIntoView({behavior:"smooth",block:"nearest"}); }; return el("li",{},b); }));
   }
@@ -2350,9 +2351,11 @@ drawMap(); drawNet(); drawPath(); drawDay(); drawInt(); drawCoop(); setCoop(); i
     if(pool.length && !pool.includes(shown)) show(pool[0]);
   }
   document.getElementById("nodeShuffle").onclick=pick;
+  // the site switches views without reloading, so pick again each time the network page opens
+  window.addEventListener("hashchange",()=>{ if(NODES.length && location.hash.replace("#","").split(/[?&]/)[0]==="network"){ q.value=""; pool=[]; renderList(NODES); hint.textContent=""; pickFresh(); } });
   q.addEventListener("input",search);
   fetch("data/commons.json",{cache:"no-cache"}).then(r=>r.json()).then(j=>{
-    NODES=j.nodes||[]; document.getElementById("nodeCount").textContent=NODES.length; renderList(NODES); pick();
+    NODES=j.nodes||[]; document.getElementById("nodeCount").textContent=NODES.length; renderList(NODES); pickFresh();
   }).catch(()=>{ feat.replaceChildren(el("p",{className:"hint",textContent:"The list of nodes didn't load. Reload the page, or open the full network."})); });
 })();
 </script>
