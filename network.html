@@ -158,6 +158,10 @@ ol.posts li:first-child{border-left-color:var(--hub)}
 .empty{position:absolute;inset:0;display:grid;place-items:center;padding:24px;text-align:center;color:var(--muted);pointer-events:none}
 .empty p{max-width:32ch;font-size:15px}
 #recent li{cursor:pointer}
+#subjPick{width:100%;padding:7px 9px;border:1px solid var(--rule);border-radius:6px;background:var(--field);color:var(--ink);font:13px var(--sans)}
+.subjrow{display:flex;flex-wrap:wrap;gap:5px}
+.subjchip{font:500 11.5px var(--sans);padding:2px 9px;border-radius:999px;border:1px solid var(--rule);background:transparent;color:var(--ink);cursor:pointer}
+.subjchip:hover{border-color:var(--hub)}
 .moreopts{border-top:1px solid var(--rule);padding-top:12px}
 .moreopts summary{cursor:pointer;font-weight:600;font-size:13px;color:var(--muted)}
 .moreopts[open] summary{margin-bottom:12px}
@@ -204,6 +208,12 @@ a.ext{color:var(--hub);font-weight:500;text-decoration:none;align-self:flex-star
       <button data-preset="hub">Hub space</button><button data-preset="lib">Library only</button>
       <button data-preset="people">People &amp; institutions</button><button data-preset="all">Everything</button>
     </div>
+  </section>
+
+  <section>
+    <p class="lbl"><label for="subjPick">Theme</label></p>
+    <select id="subjPick"><option value="">All themes</option></select>
+    <p class="hint" id="subjHint">Pick a theme to light up every hub, work and organization in it.</p>
   </section>
 
   <section>
@@ -416,6 +426,7 @@ a.ext{color:var(--hub);font-weight:500;text-decoration:none;align-self:flex-star
 // ---------- DATA lives in the shared commons (see COMMONS below) ----------
 let HUBS = [], HUB_LINKS = [], BOOKS = [], BOOK_LINKS = [], AUTH = {}, UNIS = {}, ORGS = [], THEMES = {};
 let themeFocus = null, themeSet = new Set();
+let SUBJ = {}, subjFocus = null, subjSet = new Set();
 const ROLE_W = {author:1, editor:.85, mentor:.7, chapter:.6, translator:.6, subject:.5};
 const TAMU_IDS = new Set(["tamu","tamucc"]);
 
@@ -434,7 +445,7 @@ function buildData(){
   const isDisp = id => (hubById[id]||{}).role==="disposition";
   const links = HUB_LINKS.map(([s,t,w])=>({source:s,target:t,w,kind:"hh",
     why: isDisp(s)&&isDisp(t) ? "Philosophical dispositions" : isDisp(s) ? "Disposition: "+hubById[s].t : isDisp(t) ? "Disposition: "+hubById[t].t : "Shared subject"}));
-  const books = BOOKS.map(b=>{ const meta=b[9]||{}, themes=meta.themes||{}; return {id:b[0],t:b[1],a:b[2],yr:b[3],p:b[4],s:b[5],note:b[6],hubs:b[7],set:b[8]||"commons",meta,themes,tt:Object.keys(themes).map(k=>THEMES[k]?THEMES[k].t+" "+THEMES[k].note:"").join(" ")}; });
+  const books = BOOKS.map(b=>{ const meta=b[9]||{}, themes=meta.themes||{}; return {id:b[0],t:b[1],a:b[2],yr:b[3],p:b[4],s:b[5],note:b[6],hubs:b[7],set:b[8]||"commons",meta,themes,subj:meta.subj||[],tt:Object.keys(themes).map(k=>THEMES[k]?THEMES[k].t+" "+THEMES[k].note:"").join(" ")}; });
   const TL = new Map();
   const addTL = (src,dst,w,th)=>{ if(!th||!hubById[th.of]||src===dst) return; const key=[src,dst].sort().join("|"); const x=TL.get(key);
     if(x){ x.w=Math.max(x.w,w); if(!x.themeIds.includes(th.id)){ x.themeIds.push(th.id); x.why+=" · "+th.t; } }
@@ -474,7 +485,7 @@ function buildData(){
   ORGS.forEach(o=>{
     const isLab = o.kind==="lab", id = "o_"+o.id, pre = isLab?"l":"o";
     const tam = !!o.tamu;
-    nodes.push({id, t:o.t||"Untitled", type:isLab?"lab":"uni", kind:isLab?"lab":"uni", okind:o.kind||"organization", note:o.note||"", url:o.url||"", onSite:o.onSite!==false, tamu:tam, c:tam?"--tamu":(isLab?"--person":"--uni")});
+    nodes.push({id, subj:Array.isArray(o.subjects)?o.subjects:[], t:o.t||"Untitled", type:isLab?"lab":"uni", kind:isLab?"lab":"uni", okind:o.kind||"organization", note:o.note||"", url:o.url||"", onSite:o.onSite!==false, tamu:tam, c:tam?"--tamu":(isLab?"--person":"--uni")});
     Object.entries(o.hubs||{}).forEach(([h,w])=>{ if(hubById[h]) links.push({source:id,target:h,w:+w||.5,kind:pre+"h",why:(isLab?"Works on ":"Active in ")+hubById[h].t}); });
     (o.items||[]).forEach(it=>{ if(it && books.some(b=>b.id===it.to)) links.push({source:id,target:it.to,w:+it.w||.6,kind:pre+"b",why:it.why||"Related"}); });
     (o.affil||[]).forEach(u=>{ if(!u) return; const uid="u_"+u; if(!unis[u]){ unis[u]={id:uid,key:u,t:UNIS[u]||u,type:"uni",kind:"uni",tamu:isTamu(u),c:isTamu(u)?"--tamu":"--uni"}; nodes.push(unis[u]); } links.push({source:id,target:uid,w:1,kind:"ou",why:o.affilWhy||"Based at"}); });
@@ -482,6 +493,15 @@ function buildData(){
     (o.members||[]).forEach(m=>{ if(!m||!m.name) return; const pid=slug(m.name); if(!people[pid]){ people[pid]={id:pid,t:m.name,type:"person",kind:"person",insts:new Set(),labs:[],tamu:false,c:"--person"}; nodes.push(people[pid]); } people[pid].labs.push((m.role?m.role+", ":"")+o.t); links.push({source:pid,target:id,w:1,kind:"pl",why:m.role||"Member"}); });
   });
   TL.forEach(l=>links.push(l));
+  // hubs that share subject themes are linked by subject
+  const realHubs = HUBS.filter(h=>h.role!=="disposition" && h.subj.length);
+  const hh = new Map(); links.forEach(l=>{ if(l.kind==="hh") hh.set([l.source,l.target].sort().join("|"), l); });
+  for(let i=0;i<realHubs.length;i++) for(let j=i+1;j<realHubs.length;j++){
+    const A=realHubs[i], B=realHubs[j], shared=A.subj.filter(x=>B.subj.includes(x)); if(!shared.length) continue;
+    const names=shared.map(x=>SUBJ[x]||x).join(", "), key=[A.id,B.id].sort().join("|"), ex=hh.get(key);
+    if(ex){ if(ex.why==="Shared subject") ex.why="Shared theme: "+names; else ex.why+=" · shared theme: "+names; ex.subj=shared; }
+    else links.push({source:A.id,target:B.id,w:Math.min(.85,.25+.2*shared.length),kind:"hh",why:"Shared theme: "+names,subj:shared});
+  }
   // implied book-book links through shared hubs (shown when hubs are off)
   const implied=[]; const have=new Set(BOOK_LINKS.map(l=>[l[0],l[1]].sort().join("|")));
   for(let i=0;i<books.length;i++)for(let j=i+1;j<books.length;j++){
@@ -632,7 +652,7 @@ function labelVis(){
   nodeSel.select("text").text(labelText).attr("display", d=> (
     (d.type==="hub" && L.hubs==="on") || (d.type==="uni" && (L.unis==="on" && (d.tamu || d.okind || k>.9))) || (d.type==="lab" && L.people==="on") ||
     allLabels || k>1.7 || d.id===selected || (ranks.size&&!selected&&ranks.has(d.id)) ||
-    (spotlight && !selected && D.tamuSet.has(d.id) && d.type!=="book" ) || (themeFocus && !selected && themeSet.has(d.id)) ) ? null : "none");
+    (spotlight && !selected && D.tamuSet.has(d.id) && d.type!=="book" ) || (themeFocus && !selected && themeSet.has(d.id)) || (subjFocus && !selected && subjSet.has(d.id) && subjSet.size<45) ) ? null : "none");
 }
 function neighbors(id){
   const out=[]; edgeSel.each(l=>{ if(l.source.id===id) out.push([l.target,l]); else if(l.target.id===id) out.push([l.source,l]); });
@@ -651,6 +671,9 @@ function highlight(){
   if(selected && nodeSel.data().some(d=>d.id===selected)){
     const nb = new Set(neighbors(selected).map(x=>x[0].id)); nb.add(selected);
     focusOn(nb, l=> l.source.id===selected || l.target.id===selected);
+  } else if(subjFocus){
+    subjSet = new Set(D.nodes.filter(n=>(n.subj||[]).includes(subjFocus)).map(n=>n.id));
+    focusOn(subjSet, l=> subjSet.has(l.source.id) && subjSet.has(l.target.id));
   } else if(themeFocus){
     themeSet = new Set(); edgeSel.each(l=>{ if(l.themeIds && l.themeIds.includes(themeFocus)){ themeSet.add(l.source.id); themeSet.add(l.target.id); } });
     focusOn(themeSet, l=> !!(l.themeIds && l.themeIds.includes(themeFocus)));
@@ -668,7 +691,7 @@ function highlight(){
 // Find: title, author, topic (note, publisher, hub themes) and lab/department/institution, all words must match
 function searchText(d){
   if(d._st) return d._st;
-  let s = d.t+" "+(d.note||"")+" "+(d.okind||"")+" "+(d.tt||"");
+  let s = d.t+" "+(d.note||"")+" "+(d.okind||"")+" "+(d.tt||"")+" "+(d.subj||[]).map(x=>SUBJ[x]||"").join(" ");
   if(d.type==="book"){
     s += " "+d.a+" "+d.p+" "+Object.keys(d.hubs).map(h=>hubById[h].t+(d.hubs[h]>=.6?" "+(HUB_WORDS[h]||hubById[h].note||""):"")).join(" ")+" "+(d.set==="sample"?"a&m sample":"");
     (AUTH[d.id]||[]).forEach(([n,inst,role,lab])=>{ s += " "+n+" "+(lab||"")+" "+(inst||"").split("|").map(u=>UNIS[u]||"").join(" "); });
@@ -720,10 +743,12 @@ function select(id){
   else { head="Hub"; pills=`<span class="pill" style="color:${col(d.c)}">${d.role==="disposition"?"philosophical disposition":KIND_NAME[d.kind]}</span>`+(d.forkOf?'<span class="pill likely">fork</span>':""); }
   const body = d.type==="person" ? (d.labs.length? esc([...new Set(d.labs)].join(". ")) : "") : esc(d.note||"");
   const nbs = neighbors(id);
-  box.innerHTML = `<p class="lbl">${head}</p><h2>${esc(d.t)}</h2>${meta}<p>${pills}</p>${body?`<p>${body}</p>`:""}
+  const subjChips = (d.subj||[]).length ? `<p class="subjrow">${d.subj.map(x=>`<button type="button" class="subjchip" data-subj="${esc(x)}">${esc(SUBJ[x]||x)}</button>`).join("")}</p>` : "";
+  box.innerHTML = `<p class="lbl">${head}</p><h2>${esc(d.t)}</h2>${meta}<p>${pills}</p>${body?`<p>${body}</p>`:""}${subjChips}
     <p class="lbl">${nbs.length} links at ≥ ${thr.toFixed(2)}</p>
     <ul class="links">${nbs.map(([n,l])=>`<li data-id="${esc(n.id)}"><span class="w">${l.w.toFixed(2)}</span><span>${esc(short(n.t))}<span class="why">${esc(l.why)}</span></span></li>`).join("") || '<li><span></span><span class="hint">Nothing visible this relevant. Lower the threshold or turn on more layers.</span></li>'}</ul>`;
   box.querySelectorAll("li[data-id]").forEach(li=>li.onclick=()=>select(li.dataset.id));
+  box.querySelectorAll("[data-subj]").forEach(b=>b.onclick=()=>setSubj(b.dataset.subj));
   detailActions(d);
   highlight();
 }
@@ -760,7 +785,7 @@ function rankBrief(){
   if(!q.length){ list.innerHTML=""; highlight(); return; }
   const pool = D.books.filter(b=>shelf==="both"||b.set===shelf);
   const scored = pool.map(b=>{
-    const title=new Set(toks(b.t)), note=new Set(toks(b.note+" "+b.a+" "+b.p+" "+(b.tt||""))); let s=0; const hits=new Set();
+    const title=new Set(toks(b.t)), note=new Set(toks(b.note+" "+b.a+" "+b.p+" "+(b.tt||"")+" "+(b.subj||[]).map(x=>SUBJ[x]||"").join(" "))); let s=0; const hits=new Set();
     q.forEach(w=>{ if(title.has(w)){s+=3;hits.add(w);} if(note.has(w)){s+=2;hits.add(w);}
       for(const h in b.hubs){ const hw=new Set(toks(hubById[h].t+" "+(HUB_WORDS[h]||hubById[h].note||""))); if(hw.has(w)){ s+=1.5*b.hubs[h]; hits.add(w);} } });
     return {b,s,hits};
@@ -845,12 +870,12 @@ function applyCommons(){
   const hubDocs=[...C.hubs.values()], bookDocs=[...C.books.values()];
   const isTheme = h => h.role==="theme";
   THEMES = {}; hubDocs.filter(isTheme).forEach(h=>{ THEMES[h.id]={id:h.id,t:h.t||"Untitled theme",note:h.note||"",of:h.of||"",targets:h.parents||{},by:h.createdBy||null,starter:!!h.starter}; });
-  HUBS = hubDocs.filter(h=>!isTheme(h)).sort((a,b)=>(a.createdAt||0)-(b.createdAt||0)).map(h=>({id:h.id,t:h.t||"Untitled hub",kind:["hub","cohub","side","member"].includes(h.kind)?h.kind:"side",c:h.color||"--c-lab",note:h.note||"",url:safeUrl(h.url),role:h.role||"",forkOf:h.forkOf||null,by:h.createdBy||null,at:h.createdAt||0,starter:!!h.starter}));
+  HUBS = hubDocs.filter(h=>!isTheme(h)).sort((a,b)=>(a.createdAt||0)-(b.createdAt||0)).map(h=>({id:h.id,t:h.t||"Untitled hub",kind:["hub","cohub","side","member"].includes(h.kind)?h.kind:"side",c:h.color||"--c-lab",note:h.note||"",url:safeUrl(h.url),role:h.role||"",subj:Array.isArray(h.subjects)?h.subjects:[],forkOf:h.forkOf||null,by:h.createdBy||null,at:h.createdAt||0,starter:!!h.starter}));
   hubById = Object.fromEntries(HUBS.map(h=>[h.id,h]));
   HUB_LINKS=[]; hubDocs.filter(h=>!isTheme(h)).forEach(h=>Object.entries(h.parents||{}).forEach(([p,w])=>{ if(hubById[p] && p!==h.id) HUB_LINKS.push([p,h.id,+w||.5]); }));
   BOOKS = bookDocs.map(b=>{
     const hubs={}, themes={}; Object.entries(b.hubs||{}).forEach(([h,w])=>{ if(hubById[h]) hubs[h]=+w||.5; else if(THEMES[h]) themes[h]=+w||.5; });
-    return [b.id,b.t||"Untitled",b.a||"",b.y||"",b.p||"",b.s||"user",b.note||"",hubs,b.shelf||"commons",{by:b.createdBy||null,at:b.createdAt||0,starter:!!b.starter,url:safeUrl(b.url),themes}];
+    return [b.id,b.t||"Untitled",b.a||"",b.y||"",b.p||"",b.s||"user",b.note||"",hubs,b.shelf||"commons",{by:b.createdBy||null,at:b.createdAt||0,starter:!!b.starter,url:safeUrl(b.url),themes,subj:Array.isArray(b.subjects)?b.subjects:[]}];
   });
   BOOK_LINKS=[]; bookDocs.forEach(b=>(b.links||[]).forEach(l=>{ if(l && C.books.has(l.to) && l.to!==b.id) BOOK_LINKS.push([b.id,l.to,+l.w||.5,l.why||"Related"]); }));
   AUTH={}; bookDocs.forEach(b=>{ if(Array.isArray(b.people)&&b.people.length) AUTH[b.id]=b.people.filter(p=>p&&p.name).map(p=>[String(p.name),String(p.inst||"").replace(/\|+/g,"|"),p.role||"author",p.lab||""]); });
@@ -1129,6 +1154,7 @@ function loadNode(nodeId, focus){
   C.orgs = new Map(ALL.orgs.filter(keep).map(o=>[o.id,o]));
   themeFocus = null; selected = null;
   applyCommons();
+  if(subjFocus) setSubj(subjFocus);
   setStatus("live", `Snapshot of ${ALL.asOf||"the commons"} · ${HUBS.length} hubs · ${C.books.size} works · ${C.orgs.size} organizations`);
   $("nodePick").value = activeNode || "";
   $("nodeSummary").textContent = n ? n.summary : "";
@@ -1137,13 +1163,23 @@ function loadNode(nodeId, focus){
   try{ history.replaceState(null,"","#"+encodeURIComponent(activeNode)); }catch(_){}
 }
 $("nodePick").onchange = e => loadNode(e.target.value);
+function setSubj(id){
+  subjFocus = id || null; selected = null; themeFocus = null; spotlight = false; syncButtons();
+  $("subjPick").value = subjFocus || "";
+  const n = subjFocus ? D.nodes.filter(x=>(x.subj||[]).includes(subjFocus)) : [];
+  $("subjHint").textContent = subjFocus ? `${n.filter(x=>x.type==="book").length} works, ${n.filter(x=>x.type==="hub").length} hubs and ${n.filter(x=>x.type!=="book"&&x.type!=="hub").length} others in ${SUBJ[subjFocus]}.` : "Pick a theme to light up every hub, work and organization in it.";
+  showTab("explore"); clearSel(); render(false);
+}
+$("subjPick").onchange = e => setSubj(e.target.value);
 $("nodeAnother").onclick = () => { const others=NODES.filter(n=>n.id!==activeNode); if(others.length) loadNode(others[Math.floor(Math.random()*others.length)].id); };
 (async function load(){
   readOnly = true; canWrite = false; applyRO();
   try {
     const r = await fetch("data/commons.json", {cache:"no-cache"});
     if(!r.ok) throw new Error(r.status);
-    ALL = await r.json(); NODES = ALL.nodes||[]; C.names = ALL.institutions||{}; C.loaded.hubs = C.loaded.books = true;
+    ALL = await r.json(); NODES = ALL.nodes||[];
+    (ALL.subjects||[]).forEach(t=>SUBJ[t.id]=t.t);
+    (ALL.subjects||[]).slice().sort((a,b)=>a.t.localeCompare(b.t)).forEach(t=>$("subjPick").add(new Option(t.t,t.id))); C.names = ALL.institutions||{}; C.loaded.hubs = C.loaded.books = true;
     const pick=$("nodePick"); NODES.forEach(n=>pick.add(new Option(n.name,n.id)));
     $("nodeSec").hidden = !NODES.length;
     const want = decodeURIComponent(location.hash.slice(1));

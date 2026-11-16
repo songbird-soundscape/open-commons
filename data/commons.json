@@ -84,7 +84,12 @@
    },
    "starter": true,
    "t": "Agriculture, Food & Animals",
-   "id": "ag"
+   "id": "ag",
+   "subjects": [
+    "animals",
+    "agriculture",
+    "complexity"
+   ]
   },
   {
    "color": "#8a6d2f",
@@ -102,7 +107,11 @@
    "starter": true,
    "t": "Animals & Wildlife",
    "id": "animals",
-   "node": "parrots-project"
+   "node": "parrots-project",
+   "subjects": [
+    "animals",
+    "aviculture"
+   ]
   },
   {
    "color": "--c-arch",
@@ -118,7 +127,12 @@
    },
    "starter": true,
    "t": "Archaeology & the Human Past",
-   "id": "arch"
+   "id": "arch",
+   "subjects": [
+    "deep-time",
+    "oceans",
+    "archaeology"
+   ]
   },
   {
    "color": "#3f8a5a",
@@ -136,7 +150,13 @@
    "starter": true,
    "t": "Birds",
    "id": "birds",
-   "node": "parrots-project"
+   "node": "parrots-project",
+   "subjects": [
+    "ecology",
+    "evolution",
+    "paleontology",
+    "birds"
+   ]
   },
   {
    "color": "--c-comp",
@@ -153,7 +173,11 @@
    },
    "starter": true,
    "t": "Computing & AI",
-   "id": "comp"
+   "id": "comp",
+   "subjects": [
+    "ethics",
+    "ai"
+   ]
   },
   {
    "color": "--c-cx",
@@ -171,7 +195,11 @@
    },
    "starter": true,
    "t": "Complexity & Pattern",
-   "id": "cx"
+   "id": "cx",
+   "subjects": [
+    "physics",
+    "complexity"
+   ]
   },
   {
    "color": "--c-deep",
@@ -187,7 +215,12 @@
    },
    "starter": true,
    "t": "Drifting Through Deep Time",
-   "id": "deep"
+   "id": "deep",
+   "subjects": [
+    "deep-time",
+    "geology",
+    "paleontology"
+   ]
   },
   {
    "color": "#1f7896",
@@ -205,7 +238,12 @@
    "starter": true,
    "t": "Paleoclimate",
    "id": "dt-clim",
-   "node": "drifting"
+   "node": "drifting",
+   "subjects": [
+    "geology",
+    "climate",
+    "oceans"
+   ]
   },
   {
    "color": "#5a6b80",
@@ -221,7 +259,10 @@
    "starter": true,
    "t": "Ancient DNA",
    "id": "dt-dna",
-   "node": "drifting"
+   "node": "drifting",
+   "subjects": [
+    "migration"
+   ]
   },
   {
    "color": "#3f7d3a",
@@ -239,7 +280,11 @@
    "starter": true,
    "t": "Ecology & conservation",
    "id": "dt-eco",
-   "node": "drifting"
+   "node": "drifting",
+   "subjects": [
+    "ecology",
+    "conservation"
+   ]
   },
   {
    "color": "#2f5d9b",
@@ -257,7 +302,11 @@
    "starter": true,
    "t": "Geoscience education",
    "id": "dt-geoed",
-   "node": "drifting"
+   "node": "drifting",
+   "subjects": [
+    "deep-time",
+    "education"
+   ]
   },
   {
    "color": "#b0476a",
@@ -274,7 +323,11 @@
    "starter": true,
    "t": "Historical linguistics",
    "id": "dt-ling",
-   "node": "drifting"
+   "node": "drifting",
+   "subjects": [
+    "language",
+    "history"
+   ]
   },
   {
    "color": "#9a5b3f",
@@ -291,7 +344,12 @@
    "starter": true,
    "t": "Human migration",
    "id": "dt-mig",
-   "node": "drifting"
+   "node": "drifting",
+   "subjects": [
+    "geology",
+    "climate",
+    "migration"
+   ]
   },
   {
    "color": "#6d5a8f",
@@ -308,7 +366,10 @@
    "starter": true,
    "t": "Myth, memory & dreams",
    "id": "dt-myth",
-   "node": "drifting"
+   "node": "drifting",
+   "subjects": [
+    "place"
+   ]
   },
   {
    "color": "#7a8a2a",
@@ -327,7 +388,10 @@
    "starter": true,
    "t": "Oral history & traditional knowledge",
    "id": "dt-oral",
-   "node": "drifting"
+   "node": "drifting",
+   "subjects": [
+    "plants"
+   ]
   },
   {
    "color": "#7a4f9a",
@@ -345,7 +409,10 @@
    "starter": true,
    "t": "Philosophy of time",
    "id": "dt-phen",
-   "node": "drifting"
+   "node": "drifting",
+   "subjects": [
+    "philosophy"
+   ]
   },
   {
    "color": "#4d5fa8",
@@ -362,7 +429,10 @@
    "starter": true,
    "t": "Climate policy",
    "id": "dt-pol",
-   "node": "drifting"
+   "node": "drifting",
+   "subjects": [
+    "climate"
+   ]
   },
   {
    "color": "#8a5a2b",
@@ -378,7 +448,11 @@
    "starter": true,
    "t": "Plate tectonics",
    "id": "dt-tect",
-   "node": "drifting"
+   "node": "drifting",
+   "subjects": [
+    "geology",
+    "oceans"
+   ]
   },
   {
    "color": "#6b6b24",
@@ -395,7 +469,12 @@
    "starter": true,
    "t": "Ancient vegetation & pollen",
    "id": "dt-veg",
-   "node": "drifting"
+   "node": "drifting",
+   "subjects": [
+    "paleontology",
+    "plants",
+    "palynology"
+   ]
   },
   {
    "color": "--c-eco",
@@ -411,7 +490,11 @@
    },
    "starter": true,
    "t": "Ecological Philosophy",
-   "id": "eco"
+   "id": "eco",
+   "subjects": [
+    "ecology",
+    "philosophy"
+   ]
   },
   {
    "color": "--c-eng",
@@ -424,7 +507,11 @@
    },
    "starter": true,
    "t": "Engineering & Energy",
-   "id": "eng"
+   "id": "eng",
+   "subjects": [
+    "geology",
+    "engineering"
+   ]
   },
   {
    "color": "--c-evo",
@@ -440,7 +527,11 @@
    },
    "starter": true,
    "t": "Evolutionary Thought",
-   "id": "evo"
+   "id": "evo",
+   "subjects": [
+    "evolution",
+    "complexity"
+   ]
   },
   {
    "color": "--c-field",
@@ -455,7 +546,10 @@
    },
    "starter": true,
    "t": "Field Natural History",
-   "id": "field"
+   "id": "field",
+   "subjects": [
+    "ecology"
+   ]
   },
   {
    "color": "--c-lab",
@@ -470,7 +564,11 @@
    },
    "starter": true,
    "t": "Earth Chemistry & Lab Method",
-   "id": "lab"
+   "id": "lab",
+   "subjects": [
+    "research",
+    "chemistry"
+   ]
   },
   {
    "color": "--c-mind",
@@ -485,7 +583,12 @@
    },
    "starter": true,
    "t": "Mind, Language & Meaning",
-   "id": "mind"
+   "id": "mind",
+   "subjects": [
+    "language",
+    "mind",
+    "philosophy"
+   ]
   },
   {
    "color": "--c-paly",
@@ -499,7 +602,14 @@
    },
    "starter": true,
    "t": "Spores, Coal & the Illinois Basin",
-   "id": "paly"
+   "id": "paly",
+   "subjects": [
+    "deep-time",
+    "geology",
+    "paleontology",
+    "plants",
+    "palynology"
+   ]
   },
   {
    "color": "#2f8a86",
@@ -517,7 +627,15 @@
    "t": "The Parrots Project",
    "url": "https://theparrotsproject.org/",
    "id": "parrots-project",
-   "node": "parrots-project"
+   "node": "parrots-project",
+   "subjects": [
+    "birds",
+    "parrots",
+    "aviculture",
+    "health",
+    "agriculture",
+    "names"
+   ]
   },
   {
    "color": "#2f9a5f",
@@ -534,7 +652,12 @@
    "starter": true,
    "t": "Parrots (Psittaciformes)",
    "id": "parrots",
-   "node": "parrots-project"
+   "node": "parrots-project",
+   "subjects": [
+    "birds",
+    "parrots",
+    "aviculture"
+   ]
   },
   {
    "color": "--c-phys",
@@ -548,7 +671,12 @@
    },
    "starter": true,
    "t": "Physical Sciences & Math",
-   "id": "phys"
+   "id": "phys",
+   "subjects": [
+    "research",
+    "physics",
+    "chemistry"
+   ]
   },
   {
    "color": "--c-place",
@@ -567,7 +695,11 @@
    },
    "starter": true,
    "t": "Landscapes & Place",
-   "id": "place"
+   "id": "place",
+   "subjects": [
+    "texas",
+    "place"
+   ]
   },
   {
    "createdAt": 1794801125013,
@@ -581,7 +713,11 @@
    "starter": true,
    "t": "Preservation and the Archive",
    "id": "pp-archive",
-   "node": "parrots-project"
+   "node": "parrots-project",
+   "subjects": [
+    "aviculture",
+    "archives"
+   ]
   },
   {
    "createdAt": 1794801125009,
@@ -595,7 +731,13 @@
    "starter": true,
    "t": "Diet, Wild and Captive",
    "id": "pp-diet",
-   "node": "parrots-project"
+   "node": "parrots-project",
+   "subjects": [
+    "birds",
+    "parrots",
+    "aviculture",
+    "agriculture"
+   ]
   },
   {
    "createdAt": 1794801125015,
@@ -610,7 +752,13 @@
    "starter": true,
    "t": "Ethics and Coexistence",
    "id": "pp-ethics",
-   "node": "parrots-project"
+   "node": "parrots-project",
+   "subjects": [
+    "birds",
+    "parrots",
+    "ethics",
+    "ai"
+   ]
   },
   {
    "createdAt": 1794801125012,
@@ -623,7 +771,12 @@
    "starter": true,
    "t": "Feathers and Light",
    "id": "pp-feathers",
-   "node": "parrots-project"
+   "node": "parrots-project",
+   "subjects": [
+    "birds",
+    "behavior",
+    "chemistry"
+   ]
   },
   {
    "createdAt": 1794801125011,
@@ -636,7 +789,11 @@
    "starter": true,
    "t": "Knowledge Graphs as Maps of the Literature",
    "id": "pp-graphs",
-   "node": "parrots-project"
+   "node": "parrots-project",
+   "subjects": [
+    "research",
+    "ai"
+   ]
   },
   {
    "createdAt": 1794801125010,
@@ -649,7 +806,12 @@
    "starter": true,
    "t": "Parrot Health and One Health",
    "id": "pp-health",
-   "node": "parrots-project"
+   "node": "parrots-project",
+   "subjects": [
+    "birds",
+    "parrots",
+    "health"
+   ]
   },
   {
    "createdAt": 1794801125008,
@@ -663,7 +825,13 @@
    "starter": true,
    "t": "Many Names, Many Languages",
    "id": "pp-multilingual",
-   "node": "parrots-project"
+   "node": "parrots-project",
+   "subjects": [
+    "birds",
+    "parrots",
+    "names",
+    "language"
+   ]
   },
   {
    "createdAt": 1794801125007,
@@ -676,7 +844,12 @@
    "starter": true,
    "t": "Names Through Time",
    "id": "pp-names",
-   "node": "parrots-project"
+   "node": "parrots-project",
+   "subjects": [
+    "deep-time",
+    "names",
+    "history"
+   ]
   },
   {
    "createdAt": 1794801125006,
@@ -691,7 +864,10 @@
    "starter": true,
    "t": "Records Keep Their Sources",
    "id": "pp-provenance",
-   "node": "parrots-project"
+   "node": "parrots-project",
+   "subjects": [
+    "aviculture"
+   ]
   },
   {
    "createdAt": 1794801125014,
@@ -705,7 +881,13 @@
    "starter": true,
    "t": "Everyone Teaches",
    "id": "pp-teachers",
-   "node": "parrots-project"
+   "node": "parrots-project",
+   "subjects": [
+    "aviculture",
+    "health",
+    "education",
+    "citizen"
+   ]
   },
   {
    "color": "--c-sea",
@@ -718,7 +900,12 @@
    },
    "starter": true,
    "t": "Oceans & Coasts",
-   "id": "sea"
+   "id": "sea",
+   "subjects": [
+    "oceans",
+    "physics",
+    "archaeology"
+   ]
   },
   {
    "color": "--c-soc",
@@ -733,7 +920,10 @@
    },
    "starter": true,
    "t": "Society, History & Politics",
-   "id": "soc"
+   "id": "soc",
+   "subjects": [
+    "society"
+   ]
   },
   {
    "color": "--c-teach",
@@ -748,7 +938,13 @@
    },
    "starter": true,
    "t": "Teaching Philosophy in the Age of AI",
-   "id": "teach"
+   "id": "teach",
+   "subjects": [
+    "mind",
+    "philosophy",
+    "education",
+    "ai"
+   ]
   }
  ],
  "books": [
@@ -788,7 +984,10 @@
    "starter": true,
    "t": "Aeolian Grain Transport 1: Mechanics",
    "y": "1991",
-   "id": "aeolian"
+   "id": "aeolian",
+   "subjects": [
+    "physics"
+   ]
   },
   {
    "a": "Claude J. Allègre",
@@ -824,7 +1023,10 @@
    "starter": true,
    "t": "Isotope Geochemistry",
    "y": "2008",
-   "id": "allegre"
+   "id": "allegre",
+   "subjects": [
+    "chemistry"
+   ]
   },
   {
    "a": "Robert L. Carroll",
@@ -861,7 +1063,13 @@
    "starter": true,
    "t": "The Rise of Amphibians: 365 Million Years of Evolution",
    "y": "2009",
-   "id": "amph"
+   "id": "amph",
+   "subjects": [
+    "evolution",
+    "deep-time",
+    "paleontology",
+    "history"
+   ]
   },
   {
    "a": "D. T. Anderson (ed.)",
@@ -898,7 +1106,11 @@
    "starter": true,
    "t": "Invertebrate Zoology",
    "y": "2001 (2nd ed.)",
-   "id": "anderson"
+   "id": "anderson",
+   "subjects": [
+    "insects",
+    "animals"
+   ]
   },
   {
    "a": "Julia Annas",
@@ -922,7 +1134,10 @@
    "starter": true,
    "t": "An Introduction to Plato's Republic",
    "y": "1981",
-   "id": "annas"
+   "id": "annas",
+   "subjects": [
+    "philosophy"
+   ]
   },
   {
    "a": "Cristoforo Sergio Bertuglia & Franco Vaio",
@@ -959,7 +1174,12 @@
    "starter": true,
    "t": "Nonlinearity, Chaos, and Complexity: The Dynamics of Natural and Social Systems",
    "y": "2005",
-   "id": "bertuglia"
+   "id": "bertuglia",
+   "subjects": [
+    "society",
+    "physics",
+    "complexity"
+   ]
   },
   {
    "a": "Fernand Méry",
@@ -1004,7 +1224,13 @@
    "starter": true,
    "t": "The Cat: Its Life, History and Magic",
    "y": "1968",
-   "id": "cat"
+   "id": "cat",
+   "subjects": [
+    "evolution",
+    "animals",
+    "health",
+    "history"
+   ]
   },
   {
    "a": "Marjorie A. Chan & Allen W. Archer (eds.)",
@@ -1051,7 +1277,11 @@
    "starter": true,
    "t": "Extreme Depositional Environments: Mega End Members in Geologic Time",
    "y": "2003",
-   "id": "chan"
+   "id": "chan",
+   "subjects": [
+    "deep-time",
+    "geology"
+   ]
   },
   {
    "a": "Andrew C. Scott (ed.)",
@@ -1076,7 +1306,11 @@
    "starter": true,
    "t": "Coal and Coal-bearing Strata: Recent Advances",
    "y": "1987",
-   "id": "coal"
+   "id": "coal",
+   "subjects": [
+    "geology",
+    "society"
+   ]
   },
   {
    "a": "Arthur Cooper; Imre Galambos (ed.)",
@@ -1107,7 +1341,10 @@
    "starter": true,
    "t": "The Other Greek: An Introduction to Chinese and Japanese Characters, Their History and Influence",
    "y": "2018",
-   "id": "cooper"
+   "id": "cooper",
+   "subjects": [
+    "language"
+   ]
   },
   {
    "a": "Wayne C. Booth, Gregory G. Colomb, Joseph M. Williams, Joseph Bizup & William T. FitzGerald",
@@ -1143,7 +1380,11 @@
    "starter": true,
    "t": "The Craft of Research (4th ed.)",
    "y": "2016",
-   "id": "craft"
+   "id": "craft",
+   "subjects": [
+    "education",
+    "research"
+   ]
   },
   {
    "a": "Joseph M. Craine",
@@ -1169,7 +1410,11 @@
    "starter": true,
    "t": "Resource Strategies of Wild Plants",
    "y": "2009",
-   "id": "craine"
+   "id": "craine",
+   "subjects": [
+    "plants",
+    "society"
+   ]
   },
   {
    "a": "Sterling Johnson & Nathan Johnson",
@@ -1187,7 +1432,11 @@
    "starter": true,
    "t": "Texas Crawdads",
    "y": "c. 2009",
-   "id": "crawdads"
+   "id": "crawdads",
+   "subjects": [
+    "insects",
+    "texas"
+   ]
   },
   {
    "a": "Michael Cross & Henry Greenside",
@@ -1228,7 +1477,11 @@
    "starter": true,
    "t": "Pattern Formation and Dynamics in Nonequilibrium Systems",
    "y": "2009",
-   "id": "cross"
+   "id": "cross",
+   "subjects": [
+    "physics",
+    "complexity"
+   ]
   },
   {
    "a": "Stephen J. Culver & Peter F. Rawson (eds.)",
@@ -1270,7 +1523,11 @@
    "starter": true,
    "t": "Biotic Response to Global Change: The Last 145 Million Years",
    "y": "2000",
-   "id": "culver"
+   "id": "culver",
+   "subjects": [
+    "deep-time",
+    "climate"
+   ]
   },
   {
    "a": "Charles Darwin",
@@ -1309,7 +1566,13 @@
    "starter": true,
    "t": "The Formation of Vegetable Mould through the Action of Worms",
    "y": "1881",
-   "id": "darwin"
+   "id": "darwin",
+   "subjects": [
+    "evolution",
+    "insects",
+    "agriculture",
+    "archaeology"
+   ]
   },
   {
    "a": "Richard A. Davis Jr.",
@@ -1334,7 +1597,12 @@
    "starter": true,
    "t": "The Evolving Coast",
    "y": "1994",
-   "id": "davis"
+   "id": "davis",
+   "subjects": [
+    "deep-time",
+    "geology",
+    "oceans"
+   ]
   },
   {
    "a": "M. K. Brett-Surman, Thomas R. Holtz Jr. & James O. Farlow (eds.)",
@@ -1378,7 +1646,12 @@
    "starter": true,
    "t": "The Complete Dinosaur (2nd ed.)",
    "y": "2012",
-   "id": "dino"
+   "id": "dino",
+   "subjects": [
+    "evolution",
+    "paleontology",
+    "history"
+   ]
   },
   {
    "a": "W. H. Dowdeswell",
@@ -1405,7 +1678,12 @@
    "starter": true,
    "t": "An Introduction to Animal Ecology",
    "y": "1952",
-   "id": "dowdeswell"
+   "id": "dowdeswell",
+   "subjects": [
+    "ecology",
+    "animals",
+    "education"
+   ]
   },
   {
    "a": "Niles Eldredge, Telmo Pievani, Emanuele Serrelli & Ilya Tëmkin (eds.)",
@@ -1448,7 +1726,12 @@
    "starter": true,
    "t": "Evolutionary Theory: A Hierarchical Perspective",
    "y": "2016",
-   "id": "eldredge"
+   "id": "eldredge",
+   "subjects": [
+    "ecology",
+    "evolution",
+    "complexity"
+   ]
   },
   {
    "a": "John A. Endler",
@@ -1479,7 +1762,10 @@
    "starter": true,
    "t": "Geographic Variation, Speciation, and Clines",
    "y": "1977",
-   "id": "endler"
+   "id": "endler",
+   "subjects": [
+    "evolution"
+   ]
   },
   {
    "a": "Gunnar Erdtman",
@@ -1515,7 +1801,13 @@
    "starter": true,
    "t": "Handbook of Palynology",
    "y": "1969",
-   "id": "erdtman"
+   "id": "erdtman",
+   "subjects": [
+    "ecology",
+    "plants",
+    "palynology",
+    "names"
+   ]
   },
   {
    "a": "Thomas E. Ewing",
@@ -1544,7 +1836,15 @@
    "starter": true,
    "t": "Texas Through Time: Lone Star Geology, Landscapes, and Resources",
    "y": "2016",
-   "id": "ewing"
+   "id": "ewing",
+   "subjects": [
+    "deep-time",
+    "geology",
+    "oceans",
+    "history",
+    "texas",
+    "place"
+   ]
   },
   {
    "a": "Sarah Rossbach",
@@ -1568,7 +1868,10 @@
    "starter": true,
    "t": "Interior Design with Feng Shui",
    "y": "1987",
-   "id": "fengshui"
+   "id": "fengshui",
+   "subjects": [
+    "engineering"
+   ]
   },
   {
    "a": "J. H. R. Gee & P. S. Giller (eds.)",
@@ -1600,7 +1903,12 @@
    "starter": true,
    "t": "Organization of Communities: Past and Present",
    "y": "1987",
-   "id": "gee"
+   "id": "gee",
+   "subjects": [
+    "ecology",
+    "deep-time",
+    "paleontology"
+   ]
   },
   {
    "a": "F. M. Gradstein, J. G. Ogg, M. D. Schmitz & G. M. Ogg (eds.)",
@@ -1643,7 +1951,11 @@
    "starter": true,
    "t": "The Geologic Time Scale 2012",
    "y": "2012",
-   "id": "gts"
+   "id": "gts",
+   "subjects": [
+    "deep-time",
+    "geology"
+   ]
   },
   {
    "a": "David Foster Wallace",
@@ -1674,7 +1986,11 @@
    "starter": true,
    "t": "Infinite Jest",
    "y": "1996",
-   "id": "ij"
+   "id": "ij",
+   "subjects": [
+    "mind",
+    "literature"
+   ]
   },
   {
    "a": "J. Jansonius & D. C. McGregor (eds.)",
@@ -1711,7 +2027,12 @@
    "starter": true,
    "t": "Palynology: Principles and Applications",
    "y": "1996",
-   "id": "jansonius"
+   "id": "jansonius",
+   "subjects": [
+    "paleontology",
+    "plants",
+    "palynology"
+   ]
   },
   {
    "a": "J. Harlan Johnson",
@@ -1741,7 +2062,12 @@
    "starter": true,
    "t": "Limestone-Building Algae and Algal Limestones",
    "y": "1961",
-   "id": "johnson"
+   "id": "johnson",
+   "subjects": [
+    "deep-time",
+    "geology",
+    "plants"
+   ]
   },
   {
    "a": "Stephan Käufer & Anthony Chemero",
@@ -1784,7 +2110,12 @@
    "starter": true,
    "t": "Phenomenology: An Introduction (2nd ed.)",
    "y": "2021",
-   "id": "kaufer"
+   "id": "kaufer",
+   "subjects": [
+    "ecology",
+    "mind",
+    "philosophy"
+   ]
   },
   {
    "a": "Marc W. Kirschner & John C. Gerhart",
@@ -1815,7 +2146,12 @@
    "starter": true,
    "t": "The Plausibility of Life: Resolving Darwin's Dilemma",
    "y": "2005",
-   "id": "kirschner"
+   "id": "kirschner",
+   "subjects": [
+    "evolution",
+    "complexity",
+    "literature"
+   ]
   },
   {
    "a": "Robert M. Kosanke",
@@ -1851,7 +2187,13 @@
    "starter": true,
    "t": "Pennsylvanian Spores of Illinois and Their Use in Correlation",
    "y": "1950",
-   "id": "kosanke"
+   "id": "kosanke",
+   "subjects": [
+    "deep-time",
+    "geology",
+    "plants",
+    "palynology"
+   ]
   },
   {
    "a": "Jonathan B. Losos",
@@ -1887,7 +2229,10 @@
    "starter": true,
    "t": "Improbable Destinies: Fate, Chance, and the Future of Evolution",
    "y": "2017",
-   "id": "losos"
+   "id": "losos",
+   "subjects": [
+    "evolution"
+   ]
   },
   {
    "a": "Yuri M. Lotman",
@@ -1924,7 +2269,13 @@
    "starter": true,
    "t": "Universe of the Mind: A Semiotic Theory of Culture",
    "y": "1990",
-   "id": "lotman"
+   "id": "lotman",
+   "subjects": [
+    "language",
+    "mind",
+    "philosophy",
+    "complexity"
+   ]
   },
   {
    "a": "J. McKim Malville & Claudia Putnam",
@@ -1956,7 +2307,11 @@
    "starter": true,
    "t": "Prehistoric Astronomy in the Southwest",
    "y": "1989",
-   "id": "malville"
+   "id": "malville",
+   "subjects": [
+    "archaeology",
+    "place"
+   ]
   },
   {
    "a": "Ernst Mayr",
@@ -1993,7 +2348,11 @@
    "starter": true,
    "t": "The Growth of Biological Thought: Diversity, Evolution, and Inheritance",
    "y": "1982",
-   "id": "mayr"
+   "id": "mayr",
+   "subjects": [
+    "evolution",
+    "history"
+   ]
   },
   {
    "a": "George C. McGavin",
@@ -2024,7 +2383,10 @@
    "starter": true,
    "t": "Essential Entomology: An Order-by-Order Introduction",
    "y": "2001",
-   "id": "mcgavin"
+   "id": "mcgavin",
+   "subjects": [
+    "insects"
+   ]
   },
   {
    "a": "Mark E. Patzkowsky & Steven M. Holland",
@@ -2066,7 +2428,11 @@
    "starter": true,
    "t": "Stratigraphic Paleobiology: Understanding the Distribution of Fossil Taxa in Time and Space",
    "y": "2012",
-   "id": "patz"
+   "id": "patz",
+   "subjects": [
+    "geology",
+    "paleontology"
+   ]
   },
   {
    "a": "Tom L. Phillips, Hermann W. Pfefferkorn & Russel A. Peppers",
@@ -2109,7 +2475,13 @@
    "starter": true,
    "t": "Development of Paleobotany in the Illinois Basin",
    "y": "1973",
-   "id": "phillips"
+   "id": "phillips",
+   "subjects": [
+    "geology",
+    "paleontology",
+    "plants",
+    "palynology"
+   ]
   },
   {
    "a": "Eric R. Pianka",
@@ -2151,7 +2523,11 @@
    "starter": true,
    "t": "Evolutionary Ecology",
    "y": "2000 (6th ed.)",
-   "id": "pianka"
+   "id": "pianka",
+   "subjects": [
+    "ecology",
+    "evolution"
+   ]
   },
   {
    "a": "Plato",
@@ -2187,7 +2563,12 @@
    "starter": true,
    "t": "The Republic",
    "y": "c. 375 BCE",
-   "id": "plato"
+   "id": "plato",
+   "subjects": [
+    "philosophy",
+    "ethics",
+    "education"
+   ]
   },
   {
    "a": "Avicultural Society of America",
@@ -2214,7 +2595,13 @@
    "url": "",
    "y": "1931–",
    "id": "pp_asa",
-   "node": "parrots-project"
+   "node": "parrots-project",
+   "subjects": [
+    "birds",
+    "aviculture",
+    "society",
+    "archives"
+   ]
   },
   {
    "a": "Ella Rydell, mentored by EV Voltura",
@@ -2254,7 +2641,14 @@
    "url": "",
    "y": "2026",
    "id": "pp_bulletin",
-   "node": "parrots-project"
+   "node": "parrots-project",
+   "subjects": [
+    "birds",
+    "parrots",
+    "aviculture",
+    "physics",
+    "archives"
+   ]
   },
   {
    "a": "The Parrots' Project",
@@ -2285,7 +2679,12 @@
    "url": "https://theparrotsproject.org/graphs/cockatoo/",
    "y": "2026",
    "id": "pp_cockatoo_kg",
-   "node": "parrots-project"
+   "node": "parrots-project",
+   "subjects": [
+    "birds",
+    "parrots",
+    "research"
+   ]
   },
   {
    "a": "EV Voltura",
@@ -2323,7 +2722,12 @@
    "url": "https://theparrotsproject.org/blog/hidden-colors-of-feathers/",
    "y": "2026",
    "id": "pp_feathers",
-   "node": "parrots-project"
+   "node": "parrots-project",
+   "subjects": [
+    "birds",
+    "chemistry",
+    "archives"
+   ]
   },
   {
    "a": "The Parrots' Project",
@@ -2350,7 +2754,13 @@
    "url": "https://theparrotsproject.org/graphs/health/",
    "y": "2026",
    "id": "pp_health_kg",
-   "node": "parrots-project"
+   "node": "parrots-project",
+   "subjects": [
+    "birds",
+    "parrots",
+    "health",
+    "research"
+   ]
   },
   {
    "a": "Benedict G. Hogan & Mary Caswell Stoddard",
@@ -2390,7 +2800,11 @@
    "url": "https://doi.org/10.1371/journal.pbio.3002867",
    "y": "2024",
    "id": "pp_hogan",
-   "node": "parrots-project"
+   "node": "parrots-project",
+   "subjects": [
+    "animals",
+    "chemistry"
+   ]
   },
   {
    "a": "The Parrots' Project",
@@ -2416,7 +2830,12 @@
    "url": "https://www.inaturalist.org/projects/the-parrots-project",
    "y": "2026",
    "id": "pp_inat",
-   "node": "parrots-project"
+   "node": "parrots-project",
+   "subjects": [
+    "birds",
+    "parrots",
+    "citizen"
+   ]
   },
   {
    "a": "Carl Linnaeus",
@@ -2456,7 +2875,13 @@
    "url": "",
    "y": "1758",
    "id": "pp_linnaeus",
-   "node": "parrots-project"
+   "node": "parrots-project",
+   "subjects": [
+    "animals",
+    "birds",
+    "parrots",
+    "names"
+   ]
   },
   {
    "a": "James Guo, EV Voltura and undergraduate researchers",
@@ -2506,7 +2931,13 @@
    "url": "https://theparrotsproject.org/taxonomy.html",
    "y": "2026",
    "id": "pp_manynames",
-   "node": "parrots-project"
+   "node": "parrots-project",
+   "subjects": [
+    "birds",
+    "parrots",
+    "names",
+    "language"
+   ]
   },
   {
    "a": "The Parrots' Project",
@@ -2538,7 +2969,14 @@
    "url": "https://theparrotsproject.org/graphs/parrot-name-history/",
    "y": "2026",
    "id": "pp_names_tl",
-   "node": "parrots-project"
+   "node": "parrots-project",
+   "subjects": [
+    "deep-time",
+    "birds",
+    "parrots",
+    "names",
+    "history"
+   ]
   },
   {
    "a": "National Geographic",
@@ -2565,7 +3003,13 @@
    "url": "",
    "y": "January 1994",
    "id": "pp_natgeo",
-   "node": "parrots-project"
+   "node": "parrots-project",
+   "subjects": [
+    "birds",
+    "parrots",
+    "archaeology",
+    "place"
+   ]
   },
   {
    "a": "Jenna Henry, Ella Rydell, Jason Crean, Tatiana Tatum & EV Voltura",
@@ -2634,7 +3078,15 @@
    "url": "https://theparrotsproject.org/assets/research/cockatoo-diet-poster.pdf",
    "y": "2025",
    "id": "pp_poster",
-   "node": "parrots-project"
+   "node": "parrots-project",
+   "subjects": [
+    "plants",
+    "birds",
+    "parrots",
+    "aviculture",
+    "agriculture",
+    "history"
+   ]
   },
   {
    "a": "EV Voltura",
@@ -2667,7 +3119,13 @@
    "url": "https://theparrotsproject.org/blog/when-all-parrots-were-psittacus/",
    "y": "2026",
    "id": "pp_psittacus",
-   "node": "parrots-project"
+   "node": "parrots-project",
+   "subjects": [
+    "birds",
+    "parrots",
+    "names",
+    "history"
+   ]
   },
   {
    "a": "The Parrots' Project",
@@ -2687,7 +3145,12 @@
    "url": "https://theparrotsproject.org/graphs/pyrrhura/",
    "y": "2026",
    "id": "pp_pyrrhura_kg",
-   "node": "parrots-project"
+   "node": "parrots-project",
+   "subjects": [
+    "conservation",
+    "parrots",
+    "research"
+   ]
   },
   {
    "a": "EV Voltura",
@@ -2721,7 +3184,13 @@
    "url": "https://theparrotsproject.org/blog.html?post=how-the-parrots-project-began",
    "y": "2026",
    "id": "pp_story",
-   "node": "parrots-project"
+   "node": "parrots-project",
+   "subjects": [
+    "birds",
+    "parrots",
+    "place",
+    "archives"
+   ]
   },
   {
    "a": "The Parrots' Project",
@@ -2742,7 +3211,13 @@
    "url": "https://www.zotero.org/groups/5755966/the_parrots_project/library",
    "y": "2026",
    "id": "pp_zotero",
-   "node": "parrots-project"
+   "node": "parrots-project",
+   "subjects": [
+    "birds",
+    "parrots",
+    "research",
+    "archives"
+   ]
   },
   {
    "a": "John T. Cacioppo, Louis G. Tassinary & Gary G. Berntson (eds.)",
@@ -2796,7 +3271,11 @@
    "starter": true,
    "t": "Handbook of Psychophysiology (4th ed.)",
    "y": "2017",
-   "id": "psychphys"
+   "id": "psychphys",
+   "subjects": [
+    "health",
+    "mind"
+   ]
   },
   {
    "a": "Rainer Maria Rilke; trans. Anita Barrows & Joanna Macy",
@@ -2814,7 +3293,12 @@
    "starter": true,
    "t": "Rilke's Book of Hours: Love Poems to God",
    "y": "1996",
-   "id": "rilke"
+   "id": "rilke",
+   "subjects": [
+    "ecology",
+    "literature",
+    "religion"
+   ]
   },
   {
    "a": "Charles C. Mann",
@@ -2833,7 +3317,11 @@
    "starter": true,
    "t": "1491: New Revelations of the Americas Before Columbus",
    "y": "2005",
-   "id": "s_1491"
+   "id": "s_1491",
+   "subjects": [
+    "history",
+    "migration"
+   ]
   },
   {
    "a": "F. Albert Cotton, Geoffrey Wilkinson, Carlos A. Murillo & Manfred Bochmann",
@@ -2864,7 +3352,10 @@
    "starter": true,
    "t": "Advanced Inorganic Chemistry (6th ed.)",
    "y": "1999",
-   "id": "s_aic"
+   "id": "s_aic",
+   "subjects": [
+    "chemistry"
+   ]
   },
   {
    "a": "Stuart Russell & Peter Norvig",
@@ -2901,7 +3392,10 @@
    "starter": true,
    "t": "Artificial Intelligence: A Modern Approach (4th ed.)",
    "y": "2020",
-   "id": "s_aima"
+   "id": "s_aima",
+   "subjects": [
+    "ai"
+   ]
   },
   {
    "a": "Brian Christian",
@@ -2926,7 +3420,10 @@
    "starter": true,
    "t": "The Alignment Problem",
    "y": "2020",
-   "id": "s_align"
+   "id": "s_align",
+   "subjects": [
+    "ai"
+   ]
   },
   {
    "a": "Hannah Arendt",
@@ -2957,7 +3454,10 @@
    "starter": true,
    "t": "The Origins of Totalitarianism",
    "y": "1951",
-   "id": "s_arendt"
+   "id": "s_arendt",
+   "subjects": [
+    "society"
+   ]
   },
   {
    "a": "Gregory Bateson",
@@ -2982,7 +3482,12 @@
    "starter": true,
    "t": "Steps to an Ecology of Mind",
    "y": "1972",
-   "id": "s_bateson"
+   "id": "s_bateson",
+   "subjects": [
+    "ecology",
+    "mind",
+    "complexity"
+   ]
   },
   {
    "a": "Richard A. Davis Jr. & Duncan M. FitzGerald",
@@ -3014,7 +3519,10 @@
    "starter": true,
    "t": "Beaches and Coasts",
    "y": "2004",
-   "id": "s_beaches"
+   "id": "s_beaches",
+   "subjects": [
+    "oceans"
+   ]
   },
   {
    "a": "Leon Hesser",
@@ -3039,7 +3547,11 @@
    "starter": true,
    "t": "The Man Who Fed the World",
    "y": "2006",
-   "id": "s_borlaug"
+   "id": "s_borlaug",
+   "subjects": [
+    "agriculture",
+    "history"
+   ]
   },
   {
    "a": "Robin Wall Kimmerer",
@@ -3071,7 +3583,13 @@
    "starter": true,
    "t": "Braiding Sweetgrass",
    "y": "2013",
-   "id": "s_braiding"
+   "id": "s_braiding",
+   "subjects": [
+    "ecology",
+    "plants",
+    "philosophy",
+    "place"
+   ]
   },
   {
    "a": "George Casella & Roger L. Berger",
@@ -3096,7 +3614,10 @@
    "starter": true,
    "t": "Statistical Inference (2nd ed.)",
    "y": "2002",
-   "id": "s_casella"
+   "id": "s_casella",
+   "subjects": [
+    "research"
+   ]
   },
   {
    "a": "Peter Singer",
@@ -3123,7 +3644,11 @@
    "starter": true,
    "t": "Animal Liberation",
    "y": "1975",
-   "id": "s_cbook"
+   "id": "s_cbook",
+   "subjects": [
+    "animals",
+    "ethics"
+   ]
   },
   {
    "a": "James Gleick",
@@ -3146,7 +3671,12 @@
    "starter": true,
    "t": "Chaos: Making a New Science",
    "y": "1987",
-   "id": "s_chaos"
+   "id": "s_chaos",
+   "subjects": [
+    "history",
+    "physics",
+    "complexity"
+   ]
   },
   {
    "a": "Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest & Clifford Stein",
@@ -3183,7 +3713,10 @@
    "starter": true,
    "t": "Introduction to Algorithms (3rd ed.)",
    "y": "2009",
-   "id": "s_clrs"
+   "id": "s_clrs",
+   "subjects": [
+    "ai"
+   ]
   },
   {
    "a": "Bjarne Stroustrup",
@@ -3213,7 +3746,11 @@
    "starter": true,
    "t": "The C++ Programming Language (4th ed.)",
    "y": "2013",
-   "id": "s_cpp"
+   "id": "s_cpp",
+   "subjects": [
+    "ai",
+    "education"
+   ]
   },
   {
    "a": "John Dewey",
@@ -3244,7 +3781,11 @@
    "starter": true,
    "t": "Democracy and Education",
    "y": "1916",
-   "id": "s_dewey"
+   "id": "s_dewey",
+   "subjects": [
+    "society",
+    "education"
+   ]
   },
   {
    "a": "Edward O. Wilson",
@@ -3269,7 +3810,12 @@
    "starter": true,
    "t": "The Diversity of Life",
    "y": "1992",
-   "id": "s_diversity"
+   "id": "s_diversity",
+   "subjects": [
+    "ecology",
+    "evolution",
+    "conservation"
+   ]
   },
   {
    "a": "Ian Goodfellow, Yoshua Bengio & Aaron Courville",
@@ -3293,7 +3839,10 @@
    "starter": true,
    "t": "Deep Learning",
    "y": "2016",
-   "id": "s_dl"
+   "id": "s_dl",
+   "subjects": [
+    "ai"
+   ]
   },
   {
    "a": "David Quammen",
@@ -3313,7 +3862,12 @@
    "starter": true,
    "t": "The Song of the Dodo",
    "y": "1996",
-   "id": "s_dodo"
+   "id": "s_dodo",
+   "subjects": [
+    "ecology",
+    "conservation",
+    "birds"
+   ]
   },
   {
    "a": "Larry McMurtry",
@@ -3337,7 +3891,11 @@
    "starter": true,
    "t": "Lonesome Dove",
    "y": "1985",
-   "id": "s_dove"
+   "id": "s_dove",
+   "subjects": [
+    "texas",
+    "literature"
+   ]
   },
   {
    "a": "Francisco J. Varela, Evan Thompson & Eleanor Rosch",
@@ -3375,7 +3933,11 @@
    "starter": true,
    "t": "The Embodied Mind",
    "y": "1991",
-   "id": "s_embodied"
+   "id": "s_embodied",
+   "subjects": [
+    "mind",
+    "philosophy"
+   ]
   },
   {
    "a": "Richard P. Feynman, Robert B. Leighton & Matthew Sands",
@@ -3406,7 +3968,11 @@
    "starter": true,
    "t": "The Feynman Lectures on Physics",
    "y": "1963",
-   "id": "s_feynman"
+   "id": "s_feynman",
+   "subjects": [
+    "education",
+    "physics"
+   ]
   },
   {
    "a": "Neil Shubin",
@@ -3438,7 +4004,10 @@
    "starter": true,
    "t": "Your Inner Fish",
    "y": "2008",
-   "id": "s_fish"
+   "id": "s_fish",
+   "subjects": [
+    "paleontology"
+   ]
   },
   {
    "a": "Frank M. White",
@@ -3469,7 +4038,10 @@
    "starter": true,
    "t": "Fluid Mechanics",
    "y": "1979",
-   "id": "s_fluid"
+   "id": "s_fluid",
+   "subjects": [
+    "engineering"
+   ]
   },
   {
    "a": "Michel Foucault",
@@ -3500,7 +4072,11 @@
    "starter": true,
    "t": "Discipline and Punish",
    "y": "1975",
-   "id": "s_foucault"
+   "id": "s_foucault",
+   "subjects": [
+    "society",
+    "education"
+   ]
   },
   {
    "a": "H. W. Brands",
@@ -3524,7 +4100,10 @@
    "starter": true,
    "t": "The First American: The Life and Times of Benjamin Franklin",
    "y": "2000",
-   "id": "s_franklin"
+   "id": "s_franklin",
+   "subjects": [
+    "history"
+   ]
   },
   {
    "a": "Paulo Freire",
@@ -3542,7 +4121,11 @@
    "starter": true,
    "t": "Pedagogy of the Oppressed",
    "y": "1968",
-   "id": "s_freire"
+   "id": "s_freire",
+   "subjects": [
+    "ethics",
+    "education"
+   ]
   },
   {
    "a": "Douglas R. Hofstadter",
@@ -3574,7 +4157,10 @@
    "starter": true,
    "t": "Gödel, Escher, Bach: An Eternal Golden Braid",
    "y": "1979",
-   "id": "s_geb"
+   "id": "s_geb",
+   "subjects": [
+    "mind"
+   ]
   },
   {
    "a": "Michael R. Waters",
@@ -3611,7 +4197,11 @@
    "starter": true,
    "t": "Principles of Geoarchaeology: A North American Perspective",
    "y": "1992",
-   "id": "s_geoarch"
+   "id": "s_geoarch",
+   "subjects": [
+    "geology",
+    "archaeology"
+   ]
   },
   {
    "a": "Jared Diamond",
@@ -3644,7 +4234,11 @@
    "starter": true,
    "t": "Guns, Germs, and Steel",
    "y": "1997",
-   "id": "s_ggs"
+   "id": "s_ggs",
+   "subjects": [
+    "society",
+    "migration"
+   ]
   },
   {
    "a": "George C. Edwards III, Martin P. Wattenberg & Robert L. Lineberry",
@@ -3669,7 +4263,10 @@
    "starter": true,
    "t": "Government in America",
    "y": "2009",
-   "id": "s_gia"
+   "id": "s_gia",
+   "subjects": [
+    "society"
+   ]
   },
   {
    "a": "James J. Gibson",
@@ -3700,7 +4297,11 @@
    "starter": true,
    "t": "The Ecological Approach to Visual Perception",
    "y": "1979",
-   "id": "s_gibson"
+   "id": "s_gibson",
+   "subjects": [
+    "ecology",
+    "mind"
+   ]
   },
   {
    "a": "Temple Grandin & Catherine Johnson",
@@ -3732,7 +4333,12 @@
    "starter": true,
    "t": "Animals in Translation",
    "y": "2005",
-   "id": "s_grandin"
+   "id": "s_grandin",
+   "subjects": [
+    "animals",
+    "aviculture",
+    "behavior"
+   ]
   },
   {
    "a": "F. Albert Cotton",
@@ -3763,7 +4369,10 @@
    "starter": true,
    "t": "Chemical Applications of Group Theory (3rd ed.)",
    "y": "1990",
-   "id": "s_grp"
+   "id": "s_grp",
+   "subjects": [
+    "chemistry"
+   ]
   },
   {
    "a": "Darryl L. Felder & David K. Camp (eds.)",
@@ -3806,7 +4415,12 @@
    "starter": true,
    "t": "Gulf of Mexico Origin, Waters, and Biota, Vol. 1: Biodiversity",
    "y": "2009",
-   "id": "s_gulf"
+   "id": "s_gulf",
+   "subjects": [
+    "oceans",
+    "texas",
+    "archives"
+   ]
   },
   {
    "a": "Martin Heidegger",
@@ -3836,7 +4450,11 @@
    "starter": true,
    "t": "Being and Time",
    "y": "1927",
-   "id": "s_heidegger"
+   "id": "s_heidegger",
+   "subjects": [
+    "mind",
+    "philosophy"
+   ]
   },
   {
    "a": "Arthur Holmes",
@@ -3860,7 +4478,11 @@
    "starter": true,
    "t": "Principles of Physical Geology",
    "y": "1944",
-   "id": "s_holmes"
+   "id": "s_holmes",
+   "subjects": [
+    "geology",
+    "physics"
+   ]
   },
   {
    "a": "National Research Council",
@@ -3891,7 +4513,11 @@
    "starter": true,
    "t": "How People Learn: Brain, Mind, Experience, and School",
    "y": "2000",
-   "id": "s_hpl"
+   "id": "s_hpl",
+   "subjects": [
+    "mind",
+    "education"
+   ]
   },
   {
    "a": "G. Evelyn Hutchinson",
@@ -3916,7 +4542,12 @@
    "starter": true,
    "t": "The Ecological Theater and the Evolutionary Play",
    "y": "1965",
-   "id": "s_hutch"
+   "id": "s_hutch",
+   "subjects": [
+    "ecology",
+    "evolution",
+    "literature"
+   ]
   },
   {
    "a": "Benedict Anderson",
@@ -3941,7 +4572,10 @@
    "starter": true,
    "t": "Imagined Communities",
    "y": "1983",
-   "id": "s_imagined"
+   "id": "s_imagined",
+   "subjects": [
+    "society"
+   ]
   },
   {
    "a": "David Grimaldi & Michael S. Engel",
@@ -3974,7 +4608,12 @@
    "starter": true,
    "t": "Evolution of the Insects",
    "y": "2005",
-   "id": "s_insects"
+   "id": "s_insects",
+   "subjects": [
+    "evolution",
+    "deep-time",
+    "insects"
+   ]
   },
   {
    "a": "Robert H. MacArthur & Edward O. Wilson",
@@ -4018,7 +4657,12 @@
    "starter": true,
    "t": "The Theory of Island Biogeography",
    "y": "1967",
-   "id": "s_island"
+   "id": "s_island",
+   "subjects": [
+    "ecology",
+    "conservation",
+    "migration"
+   ]
   },
   {
    "a": "Jane Jacobs",
@@ -4043,7 +4687,11 @@
    "starter": true,
    "t": "The Death and Life of Great American Cities",
    "y": "1961",
-   "id": "s_jacobs"
+   "id": "s_jacobs",
+   "subjects": [
+    "society",
+    "complexity"
+   ]
   },
   {
    "a": "John R. Jensen",
@@ -4075,7 +4723,11 @@
    "starter": true,
    "t": "Remote Sensing of the Environment",
    "y": "2006",
-   "id": "s_jensen"
+   "id": "s_jensen",
+   "subjects": [
+    "place",
+    "research"
+   ]
   },
   {
    "a": "Thomas S. Kuhn",
@@ -4107,7 +4759,10 @@
    "starter": true,
    "t": "The Structure of Scientific Revolutions",
    "y": "1962",
-   "id": "s_kuhn"
+   "id": "s_kuhn",
+   "subjects": [
+    "evolution"
+   ]
   },
   {
    "a": "George Lakoff & Mark Johnson",
@@ -4138,7 +4793,10 @@
    "starter": true,
    "t": "Metaphors We Live By",
    "y": "1980",
-   "id": "s_lakoff"
+   "id": "s_lakoff",
+   "subjects": [
+    "language"
+   ]
   },
   {
    "a": "T. R. Fehrenbach",
@@ -4162,7 +4820,11 @@
    "starter": true,
    "t": "Lone Star: A History of Texas and the Texans",
    "y": "1968",
-   "id": "s_lonestar"
+   "id": "s_lonestar",
+   "subjects": [
+    "history",
+    "texas"
+   ]
   },
   {
    "a": "David J. Schmidly & Robert D. Bradley",
@@ -4200,7 +4862,11 @@
    "starter": true,
    "t": "The Mammals of Texas (7th ed.)",
    "y": "2016",
-   "id": "s_mammals"
+   "id": "s_mammals",
+   "subjects": [
+    "animals",
+    "texas"
+   ]
   },
   {
    "a": "Bruce Alberts et al.",
@@ -4225,7 +4891,10 @@
    "starter": true,
    "t": "Molecular Biology of the Cell",
    "y": "2014",
-   "id": "s_mbc"
+   "id": "s_mbc",
+   "subjects": [
+    "chemistry"
+   ]
   },
   {
    "a": "Ian L. McHarg",
@@ -4257,7 +4926,12 @@
    "starter": true,
    "t": "Design with Nature",
    "y": "1969",
-   "id": "s_mcharg"
+   "id": "s_mcharg",
+   "subjects": [
+    "ecology",
+    "engineering",
+    "place"
+   ]
   },
   {
    "a": "Raymond J. Carroll, David Ruppert, Leonard A. Stefanski & Ciprian M. Crainiceanu",
@@ -4300,7 +4974,12 @@
    "starter": true,
    "t": "Measurement Error in Nonlinear Models (2nd ed.)",
    "y": "2006",
-   "id": "s_meas"
+   "id": "s_meas",
+   "subjects": [
+    "research",
+    "physics",
+    "complexity"
+   ]
   },
   {
    "a": "Frederick P. Brooks Jr.",
@@ -4325,7 +5004,10 @@
    "starter": true,
    "t": "The Mythical Man-Month",
    "y": "1975",
-   "id": "s_mmm"
+   "id": "s_mmm",
+   "subjects": [
+    "ai"
+   ]
   },
   {
    "a": "Wendell Wallach & Colin Allen",
@@ -4351,7 +5033,13 @@
    "starter": true,
    "t": "Moral Machines: Teaching Robots Right from Wrong",
    "y": "2009",
-   "id": "s_moral"
+   "id": "s_moral",
+   "subjects": [
+    "ethics",
+    "education",
+    "ai",
+    "complexity"
+   ]
   },
   {
    "a": "Maurice Merleau-Ponty",
@@ -4381,7 +5069,11 @@
    "starter": true,
    "t": "Phenomenology of Perception",
    "y": "1945",
-   "id": "s_mp"
+   "id": "s_mp",
+   "subjects": [
+    "mind",
+    "philosophy"
+   ]
   },
   {
    "a": "Robert H. Stewart",
@@ -4406,7 +5098,11 @@
    "starter": true,
    "t": "Introduction to Physical Oceanography",
    "y": "2008",
-   "id": "s_ocean"
+   "id": "s_ocean",
+   "subjects": [
+    "oceans",
+    "physics"
+   ]
   },
   {
    "a": "Michael Pollan",
@@ -4437,7 +5133,10 @@
    "starter": true,
    "t": "The Omnivore's Dilemma",
    "y": "2006",
-   "id": "s_omni"
+   "id": "s_omni",
+   "subjects": [
+    "agriculture"
+   ]
   },
   {
    "a": "Ilya Prigogine & Isabelle Stengers",
@@ -4474,7 +5173,11 @@
    "starter": true,
    "t": "Order Out of Chaos",
    "y": "1984",
-   "id": "s_order"
+   "id": "s_order",
+   "subjects": [
+    "physics",
+    "complexity"
+   ]
   },
   {
    "a": "Charles Darwin",
@@ -4513,7 +5216,10 @@
    "starter": true,
    "t": "On the Origin of Species",
    "y": "1859",
-   "id": "s_origin"
+   "id": "s_origin",
+   "subjects": [
+    "evolution"
+   ]
   },
   {
    "a": "Christopher Alexander, Sara Ishikawa & Murray Silverstein",
@@ -4546,7 +5252,11 @@
    "starter": true,
    "t": "A Pattern Language",
    "y": "1977",
-   "id": "s_pattern"
+   "id": "s_pattern",
+   "subjects": [
+    "language",
+    "complexity"
+   ]
   },
   {
    "a": "Richard C. Selley",
@@ -4582,7 +5292,11 @@
    "starter": true,
    "t": "Elements of Petroleum Geology",
    "y": "1985",
-   "id": "s_petgeo"
+   "id": "s_petgeo",
+   "subjects": [
+    "geology",
+    "engineering"
+   ]
   },
   {
    "a": "Thomas Piketty",
@@ -4606,7 +5320,11 @@
    "starter": true,
    "t": "Capital in the Twenty-First Century",
    "y": "2014",
-   "id": "s_piketty"
+   "id": "s_piketty",
+   "subjects": [
+    "ethics",
+    "society"
+   ]
   },
   {
    "a": "Lincoln Taiz & Eduardo Zeiger",
@@ -4632,7 +5350,10 @@
    "starter": true,
    "t": "Plant Physiology",
    "y": "2010",
-   "id": "s_plantphys"
+   "id": "s_plantphys",
+   "subjects": [
+    "plants"
+   ]
   },
   {
    "a": "Bjarne Stroustrup",
@@ -4657,7 +5378,11 @@
    "starter": true,
    "t": "Programming: Principles and Practice Using C++",
    "y": "2008",
-   "id": "s_ppp"
+   "id": "s_ppp",
+   "subjects": [
+    "ai",
+    "education"
+   ]
   },
   {
    "a": "Michael J. Economides, A. Daniel Hill & Christine Ehlig-Economides",
@@ -4700,7 +5425,12 @@
    "starter": true,
    "t": "Petroleum Production Systems",
    "y": "1994",
-   "id": "s_pps"
+   "id": "s_pps",
+   "subjects": [
+    "geology",
+    "complexity",
+    "engineering"
+   ]
   },
   {
    "a": "Daniel Yergin",
@@ -4725,7 +5455,12 @@
    "starter": true,
    "t": "The Prize: The Epic Quest for Oil, Money, and Power",
    "y": "1991",
-   "id": "s_prize"
+   "id": "s_prize",
+   "subjects": [
+    "society",
+    "history",
+    "engineering"
+   ]
   },
   {
    "a": "Marlan O. Scully & M. Suhail Zubairy",
@@ -4755,7 +5490,10 @@
    "starter": true,
    "t": "Quantum Optics",
    "y": "1997",
-   "id": "s_qo"
+   "id": "s_qo",
+   "subjects": [
+    "physics"
+   ]
   },
   {
    "a": "Joe R. Feagin",
@@ -4779,7 +5517,10 @@
    "starter": true,
    "t": "Racist America: Roots, Current Realities, and Future Reparations",
    "y": "2000",
-   "id": "s_racist"
+   "id": "s_racist",
+   "subjects": [
+    "ethics"
+   ]
   },
   {
    "a": "David M. Raup & Steven M. Stanley",
@@ -4821,7 +5562,11 @@
    "starter": true,
    "t": "Principles of Paleontology",
    "y": "1971",
-   "id": "s_raup"
+   "id": "s_raup",
+   "subjects": [
+    "deep-time",
+    "paleontology"
+   ]
   },
   {
    "a": "Tarek Ahmed",
@@ -4839,7 +5584,11 @@
    "starter": true,
    "t": "Reservoir Engineering Handbook",
    "y": "2000",
-   "id": "s_reservoir"
+   "id": "s_reservoir",
+   "subjects": [
+    "geology",
+    "engineering"
+   ]
   },
   {
    "a": "John Graves",
@@ -4863,7 +5612,11 @@
    "starter": true,
    "t": "Goodbye to a River",
    "y": "1960",
-   "id": "s_river"
+   "id": "s_river",
+   "subjects": [
+    "texas",
+    "place"
+   ]
   },
   {
    "a": "Aldo Leopold",
@@ -4899,7 +5652,12 @@
    "starter": true,
    "t": "A Sand County Almanac",
    "y": "1949",
-   "id": "s_sand"
+   "id": "s_sand",
+   "subjects": [
+    "ethics",
+    "place",
+    "literature"
+   ]
   },
   {
    "a": "Ferdinand de Saussure",
@@ -4934,7 +5692,10 @@
    "starter": true,
    "t": "Course in General Linguistics",
    "y": "1916",
-   "id": "s_saussure"
+   "id": "s_saussure",
+   "subjects": [
+    "language"
+   ]
   },
   {
    "a": "Eugen Seibold & Wolfgang H. Berger",
@@ -4965,7 +5726,11 @@
    "starter": true,
    "t": "The Sea Floor: An Introduction to Marine Geology",
    "y": "1982",
-   "id": "s_seafloor"
+   "id": "s_seafloor",
+   "subjects": [
+    "geology",
+    "oceans"
+   ]
   },
   {
    "a": "Donald R. Prothero & Fred Schwab",
@@ -4989,7 +5754,10 @@
    "starter": true,
    "t": "Sedimentary Geology",
    "y": "1996",
-   "id": "s_sedgeo"
+   "id": "s_sedgeo",
+   "subjects": [
+    "geology"
+   ]
   },
   {
    "a": "David Ruppert, M. P. Wand & Raymond J. Carroll",
@@ -5020,7 +5788,10 @@
    "starter": true,
    "t": "Semiparametric Regression",
    "y": "2003",
-   "id": "s_semi"
+   "id": "s_semi",
+   "subjects": [
+    "research"
+   ]
   },
   {
    "a": "George F. Bass (ed.)",
@@ -5046,7 +5817,11 @@
    "starter": true,
    "t": "Ships and Shipwrecks of the Americas",
    "y": "1988",
-   "id": "s_ships"
+   "id": "s_ships",
+   "subjects": [
+    "oceans",
+    "archaeology"
+   ]
   },
   {
    "a": "Harold Abelson & Gerald Jay Sussman",
@@ -5077,7 +5852,10 @@
    "starter": true,
    "t": "Structure and Interpretation of Computer Programs",
    "y": "1985",
-   "id": "s_sicp"
+   "id": "s_sicp",
+   "subjects": [
+    "ai"
+   ]
   },
   {
    "a": "Rachel Carson",
@@ -5098,7 +5876,13 @@
    "starter": true,
    "t": "Silent Spring",
    "y": "1962",
-   "id": "s_silent"
+   "id": "s_silent",
+   "subjects": [
+    "ecology",
+    "conservation",
+    "agriculture",
+    "history"
+   ]
   },
   {
    "a": "Elizabeth Kolbert",
@@ -5123,7 +5907,12 @@
    "starter": true,
    "t": "The Sixth Extinction",
    "y": "2014",
-   "id": "s_sixth"
+   "id": "s_sixth",
+   "subjects": [
+    "conservation",
+    "deep-time",
+    "paleontology"
+   ]
   },
   {
    "a": "Terry H. Anderson",
@@ -5147,7 +5936,10 @@
    "starter": true,
    "t": "The Movement and the Sixties",
    "y": "1995",
-   "id": "s_sixties"
+   "id": "s_sixties",
+   "subjects": [
+    "history"
+   ]
   },
   {
    "a": "Nyle C. Brady & Ray R. Weil",
@@ -5179,7 +5971,10 @@
    "starter": true,
    "t": "The Nature and Properties of Soils",
    "y": "2008",
-   "id": "s_soils"
+   "id": "s_soils",
+   "subjects": [
+    "agriculture"
+   ]
   },
   {
    "a": "Colin Allen & Marc Bekoff",
@@ -5213,7 +6008,13 @@
    "starter": true,
    "t": "Species of Mind: The Philosophy and Biology of Cognitive Ethology",
    "y": "1997",
-   "id": "s_speciesmind"
+   "id": "s_speciesmind",
+   "subjects": [
+    "animals",
+    "behavior",
+    "mind",
+    "philosophy"
+   ]
   },
   {
    "a": "David Abram",
@@ -5231,7 +6032,11 @@
    "starter": true,
    "t": "The Spell of the Sensuous",
    "y": "1996",
-   "id": "s_spell"
+   "id": "s_spell",
+   "subjects": [
+    "language",
+    "mind"
+   ]
   },
   {
    "a": "Masanobu Fukuoka",
@@ -5249,7 +6054,11 @@
    "starter": true,
    "t": "The One-Straw Revolution",
    "y": "1978",
-   "id": "s_straw"
+   "id": "s_straw",
+   "subjects": [
+    "evolution",
+    "agriculture"
+   ]
   },
   {
    "a": "Steven H. Strogatz",
@@ -5280,7 +6089,11 @@
    "starter": true,
    "t": "Nonlinear Dynamics and Chaos",
    "y": "1994",
-   "id": "s_strogatz"
+   "id": "s_strogatz",
+   "subjects": [
+    "physics",
+    "complexity"
+   ]
   },
   {
    "a": "Nick Bostrom",
@@ -5312,7 +6125,10 @@
    "starter": true,
    "t": "Superintelligence: Paths, Dangers, Strategies",
    "y": "2014",
-   "id": "s_superint"
+   "id": "s_superint",
+   "subjects": [
+    "ai"
+   ]
   },
   {
    "a": "Laozi",
@@ -5341,7 +6157,11 @@
    "starter": true,
    "t": "Tao Te Ching",
    "y": "c. 400 BCE",
-   "id": "s_tao"
+   "id": "s_tao",
+   "subjects": [
+    "philosophy",
+    "religion"
+   ]
   },
   {
    "a": "R. Byron Bird, Warren E. Stewart & Edwin N. Lightfoot",
@@ -5366,7 +6186,10 @@
    "starter": true,
    "t": "Transport Phenomena",
    "y": "1960",
-   "id": "s_transport"
+   "id": "s_transport",
+   "subjects": [
+    "engineering"
+   ]
   },
   {
    "a": "Humberto R. Maturana & Francisco J. Varela",
@@ -5404,7 +6227,10 @@
    "starter": true,
    "t": "The Tree of Knowledge",
    "y": "1987",
-   "id": "s_treeknow"
+   "id": "s_treeknow",
+   "subjects": [
+    "complexity"
+   ]
   },
   {
    "a": "Edward R. Tufte",
@@ -5436,7 +6262,10 @@
    "starter": true,
    "t": "The Visual Display of Quantitative Information",
    "y": "1983",
-   "id": "s_tufte"
+   "id": "s_tufte",
+   "subjects": [
+    "research"
+   ]
   },
   {
    "a": "David J. Schmidly",
@@ -5469,7 +6298,13 @@
    "starter": true,
    "t": "Texas Natural History: A Century of Change",
    "y": "2002",
-   "id": "s_txnat"
+   "id": "s_txnat",
+   "subjects": [
+    "ecology",
+    "animals",
+    "history",
+    "texas"
+   ]
   },
   {
    "a": "George F. Bass",
@@ -5500,7 +6335,11 @@
    "starter": true,
    "t": "Archaeology Under Water",
    "y": "1966",
-   "id": "s_underwater"
+   "id": "s_underwater",
+   "subjects": [
+    "oceans",
+    "archaeology"
+   ]
   },
   {
    "a": "Lev S. Vygotsky",
@@ -5531,7 +6370,11 @@
    "starter": true,
    "t": "Mind in Society",
    "y": "1978",
-   "id": "s_vygotsky"
+   "id": "s_vygotsky",
+   "subjects": [
+    "mind",
+    "society"
+   ]
   },
   {
    "a": "Henry David Thoreau",
@@ -5550,7 +6393,10 @@
    "starter": true,
    "t": "Walden",
    "y": "1854",
-   "id": "s_walden"
+   "id": "s_walden",
+   "subjects": [
+    "literature"
+   ]
   },
   {
    "a": "David Archer",
@@ -5582,7 +6428,11 @@
    "starter": true,
    "t": "Global Warming: Understanding the Forecast",
    "y": "2007",
-   "id": "s_warming"
+   "id": "s_warming",
+   "subjects": [
+    "climate",
+    "physics"
+   ]
   },
   {
    "a": "Adam Smith",
@@ -5606,7 +6456,10 @@
    "starter": true,
    "t": "The Wealth of Nations",
    "y": "1776",
-   "id": "s_wealth"
+   "id": "s_wealth",
+   "subjects": [
+    "society"
+   ]
   },
   {
    "a": "Max Weber",
@@ -5636,7 +6489,12 @@
    "starter": true,
    "t": "The Protestant Ethic and the Spirit of Capitalism",
    "y": "1905",
-   "id": "s_weber"
+   "id": "s_weber",
+   "subjects": [
+    "ethics",
+    "society",
+    "religion"
+   ]
   },
   {
    "a": "Erwin Schrödinger",
@@ -5668,7 +6526,10 @@
    "starter": true,
    "t": "What Is Life?",
    "y": "1944",
-   "id": "s_whatlife"
+   "id": "s_whatlife",
+   "subjects": [
+    "physics"
+   ]
   },
   {
    "a": "Campbell & Lynn Loughmiller",
@@ -5692,7 +6553,11 @@
    "starter": true,
    "t": "Texas Wildflowers: A Field Guide",
    "y": "1984",
-   "id": "s_wildflowers"
+   "id": "s_wildflowers",
+   "subjects": [
+    "plants",
+    "texas"
+   ]
   },
   {
    "a": "Cathy O'Neil",
@@ -5717,7 +6582,11 @@
    "starter": true,
    "t": "Weapons of Math Destruction",
    "y": "2016",
-   "id": "s_wmd"
+   "id": "s_wmd",
+   "subjects": [
+    "ethics",
+    "ai"
+   ]
   },
   {
    "a": "Stephen Jay Gould",
@@ -5754,7 +6623,12 @@
    "starter": true,
    "t": "Wonderful Life: The Burgess Shale and the Nature of History",
    "y": "1989",
-   "id": "s_wonder"
+   "id": "s_wonder",
+   "subjects": [
+    "evolution",
+    "deep-time",
+    "paleontology"
+   ]
   },
   {
    "a": "Andrew H. Knoll",
@@ -5786,7 +6660,10 @@
    "starter": true,
    "t": "Life on a Young Planet",
    "y": "2003",
-   "id": "s_young"
+   "id": "s_young",
+   "subjects": [
+    "deep-time"
+   ]
   },
   {
    "a": "James M. Schopf, L. R. Wilson & Ray Bentall",
@@ -5822,7 +6699,14 @@
    "starter": true,
    "t": "An Annotated Synopsis of Paleozoic Fossil Spores and the Definition of Generic Groups",
    "y": "1944",
-   "id": "schopf"
+   "id": "schopf",
+   "subjects": [
+    "deep-time",
+    "paleontology",
+    "plants",
+    "palynology",
+    "names"
+   ]
   },
   {
    "a": "Timothy D. Schowalter",
@@ -5859,7 +6743,11 @@
    "starter": true,
    "t": "Insect Ecology: An Ecosystem Approach",
    "y": "2016 (4th ed.)",
-   "id": "schowalter"
+   "id": "schowalter",
+   "subjects": [
+    "ecology",
+    "insects"
+   ]
   },
   {
    "a": "O. W. Van Auken",
@@ -5890,7 +6778,12 @@
    "starter": true,
    "t": "Ecology of Plant Communities of South-Central Texas",
    "y": "2018",
-   "id": "sctx"
+   "id": "sctx",
+   "subjects": [
+    "ecology",
+    "plants",
+    "texas"
+   ]
   },
   {
    "a": "Douglas A. Skoog, F. James Holler & Stanley R. Crouch",
@@ -5932,7 +6825,10 @@
    "starter": true,
    "t": "Principles of Instrumental Analysis",
    "y": "2017 (7th ed.)",
-   "id": "skoog"
+   "id": "skoog",
+   "subjects": [
+    "research"
+   ]
   },
   {
    "a": "Dave Tunge (photographs)",
@@ -5955,7 +6851,10 @@
    "starter": true,
    "t": "Sky High South Dakota",
    "y": "c. 2018",
-   "id": "skyhigh"
+   "id": "skyhigh",
+   "subjects": [
+    "place"
+   ]
   },
   {
    "a": "Leanne Hinton, Johanna Nichols & John J. Ohala (eds.)",
@@ -5997,7 +6896,10 @@
    "starter": true,
    "t": "Sound Symbolism",
    "y": "1994",
-   "id": "sound"
+   "id": "sound",
+   "subjects": [
+    "language"
+   ]
   },
   {
    "a": "Darwin Spearing",
@@ -6022,7 +6924,12 @@
    "starter": true,
    "t": "Roadside Geology of Texas",
    "y": "1991",
-   "id": "spearing"
+   "id": "spearing",
+   "subjects": [
+    "geology",
+    "texas",
+    "place"
+   ]
   },
   {
    "a": "Steven M. Stanley",
@@ -6058,7 +6965,11 @@
    "starter": true,
    "t": "Exploring Earth and Life Through Time",
    "y": "1993",
-   "id": "stanley"
+   "id": "stanley",
+   "subjects": [
+    "evolution",
+    "deep-time"
+   ]
   },
   {
    "a": "Jan P. Amend, Katrina J. Edwards & Timothy W. Lyons (eds.)",
@@ -6101,7 +7012,11 @@
    "starter": true,
    "t": "Sulfur Biogeochemistry: Past and Present",
    "y": "2004",
-   "id": "sulfur"
+   "id": "sulfur",
+   "subjects": [
+    "deep-time",
+    "chemistry"
+   ]
   },
   {
    "a": "L. T. Threadgold",
@@ -6126,7 +7041,11 @@
    "starter": true,
    "t": "The Ultrastructure of the Animal Cell",
    "y": "1967",
-   "id": "threadgold"
+   "id": "threadgold",
+   "subjects": [
+    "animals",
+    "chemistry"
+   ]
   },
   {
    "a": "Paul Tillich",
@@ -6158,7 +7077,11 @@
    "starter": true,
    "t": "The Socialist Decision",
    "y": "1933 (Eng. 1977)",
-   "id": "tillich"
+   "id": "tillich",
+   "subjects": [
+    "society",
+    "religion"
+   ]
   },
   {
    "a": "Charley Eiseman & Noah Charney",
@@ -6184,7 +7107,11 @@
    "starter": true,
    "t": "Tracks & Sign of Insects and Other Invertebrates",
    "y": "2010",
-   "id": "tracks"
+   "id": "tracks",
+   "subjects": [
+    "insects",
+    "agriculture"
+   ]
   },
   {
    "a": "Donald M. Waller & Thomas P. Rooney (eds.)",
@@ -6226,7 +7153,12 @@
    "starter": true,
    "t": "The Vanishing Present: Wisconsin's Changing Lands, Waters, and Wildlife",
    "y": "2008",
-   "id": "waller"
+   "id": "waller",
+   "subjects": [
+    "ecology",
+    "animals",
+    "place"
+   ]
   },
   {
    "a": "Geraldine Ellis Watson",
@@ -6251,7 +7183,13 @@
    "starter": true,
    "t": "Big Thicket Plant Ecology: An Introduction",
    "y": "2006 (3rd ed.)",
-   "id": "watson"
+   "id": "watson",
+   "subjects": [
+    "ecology",
+    "plants",
+    "texas",
+    "place"
+   ]
   },
   {
    "a": "Tadeusz Wiesław Zawidzki",
@@ -6282,7 +7220,11 @@
    "starter": true,
    "t": "Mindshaping: A New Framework for Understanding Human Social Cognition",
    "y": "2013",
-   "id": "zawidzki"
+   "id": "zawidzki",
+   "subjects": [
+    "mind",
+    "education"
+   ]
   }
  ],
  "orgs": [
@@ -6308,7 +7250,11 @@
    "t": "Association of Avian Veterinarians",
    "url": "",
    "id": "aav",
-   "node": "parrots-project"
+   "node": "parrots-project",
+   "subjects": [
+    "birds",
+    "health"
+   ]
   },
   {
    "affil": [],
@@ -6327,7 +7273,10 @@
    "t": "American Federation of Aviculture",
    "url": "",
    "id": "afa",
-   "node": "parrots-project"
+   "node": "parrots-project",
+   "subjects": [
+    "aviculture"
+   ]
   },
   {
    "affil": [],
@@ -6357,7 +7306,13 @@
    "t": "Avicultural Society of America",
    "url": "",
    "id": "asa",
-   "node": "parrots-project"
+   "node": "parrots-project",
+   "subjects": [
+    "aviculture",
+    "society",
+    "physics",
+    "archives"
+   ]
   },
   {
    "affil": [],
@@ -6387,7 +7342,12 @@
    "t": "Avibase (Birds Canada)",
    "url": "https://avibase.bsc-eoc.org/",
    "id": "avibase",
-   "node": "parrots-project"
+   "node": "parrots-project",
+   "subjects": [
+    "birds",
+    "names",
+    "language"
+   ]
   },
   {
    "affil": [],
@@ -6411,7 +7371,11 @@
    "t": "Biodiversity Heritage Library",
    "url": "https://www.biodiversitylibrary.org/",
    "id": "bhl",
-   "node": "parrots-project"
+   "node": "parrots-project",
+   "subjects": [
+    "history",
+    "archives"
+   ]
   },
   {
    "affil": [],
@@ -6441,7 +7405,12 @@
    "t": "BirdLife International",
    "url": "https://www.birdlife.org/",
    "id": "birdlife",
-   "node": "parrots-project"
+   "node": "parrots-project",
+   "subjects": [
+    "conservation",
+    "birds",
+    "society"
+   ]
   },
   {
    "affil": [],
@@ -6458,7 +7427,11 @@
    "t": "British Ornithologists' Union",
    "url": "",
    "id": "bou",
-   "node": "parrots-project"
+   "node": "parrots-project",
+   "subjects": [
+    "birds",
+    "society"
+   ]
   },
   {
    "affil": [],
@@ -6488,7 +7461,12 @@
    "t": "Cornell Lab of Ornithology",
    "url": "https://www.birds.cornell.edu/",
    "id": "cornell",
-   "node": "parrots-project"
+   "node": "parrots-project",
+   "subjects": [
+    "birds",
+    "names",
+    "citizen"
+   ]
   },
   {
    "affil": [],
@@ -6507,7 +7485,12 @@
    "t": "Difficult Bird Research Group",
    "url": "",
    "id": "difficultbird",
-   "node": "parrots-project"
+   "node": "parrots-project",
+   "subjects": [
+    "conservation",
+    "birds",
+    "parrots"
+   ]
   },
   {
    "affil": [],
@@ -6526,7 +7509,10 @@
    "t": "Hagen Avicultural Research Institute",
    "url": "",
    "id": "hari",
-   "node": "parrots-project"
+   "node": "parrots-project",
+   "subjects": [
+    "aviculture"
+   ]
   },
   {
    "affil": [],
@@ -6555,7 +7541,10 @@
    "t": "iNaturalist",
    "url": "https://www.inaturalist.org/",
    "id": "inat",
-   "node": "parrots-project"
+   "node": "parrots-project",
+   "subjects": [
+    "citizen"
+   ]
   },
   {
    "affil": [],
@@ -6573,7 +7562,10 @@
    "t": "ITIS (Integrated Taxonomic Information System)",
    "url": "",
    "id": "itis",
-   "node": "parrots-project"
+   "node": "parrots-project",
+   "subjects": [
+    "names"
+   ]
   },
   {
    "affil": [],
@@ -6603,7 +7595,10 @@
    "t": "IUCN Red List of Threatened Species",
    "url": "https://www.iucnredlist.org/",
    "id": "iucn",
-   "node": "parrots-project"
+   "node": "parrots-project",
+   "subjects": [
+    "conservation"
+   ]
   },
   {
    "affil": [],
@@ -6622,7 +7617,12 @@
    "t": "Kākāpō Recovery",
    "url": "",
    "id": "kakapo",
-   "node": "parrots-project"
+   "node": "parrots-project",
+   "subjects": [
+    "conservation",
+    "birds",
+    "parrots"
+   ]
   },
   {
    "affil": [],
@@ -6641,7 +7641,13 @@
    "t": "Lafeber Company",
    "url": "",
    "id": "lafeber",
-   "node": "parrots-project"
+   "node": "parrots-project",
+   "subjects": [
+    "conservation",
+    "birds",
+    "parrots",
+    "aviculture"
+   ]
   },
   {
    "affil": [],
@@ -6659,7 +7665,12 @@
    "t": "Loro Parque Fundación",
    "url": "",
    "id": "lpf",
-   "node": "parrots-project"
+   "node": "parrots-project",
+   "subjects": [
+    "conservation",
+    "birds",
+    "parrots"
+   ]
   },
   {
    "affil": [],
@@ -6678,7 +7689,13 @@
    "t": "Many Parrots Project",
    "url": "",
    "id": "manyparrots",
-   "node": "parrots-project"
+   "node": "parrots-project",
+   "subjects": [
+    "birds",
+    "parrots",
+    "behavior",
+    "citizen"
+   ]
   },
   {
    "affil": [],
@@ -6702,7 +7719,12 @@
    "t": "National Geographic Society",
    "url": "https://archive.nationalgeographic.com/",
    "id": "natgeo",
-   "node": "parrots-project"
+   "node": "parrots-project",
+   "subjects": [
+    "birds",
+    "parrots",
+    "society"
+   ]
   },
   {
    "affil": [],
@@ -6721,7 +7743,10 @@
    "t": "One Earth Conservation",
    "url": "",
    "id": "oneearth",
-   "node": "parrots-project"
+   "node": "parrots-project",
+   "subjects": [
+    "conservation"
+   ]
   },
   {
    "affil": [
@@ -6841,7 +7866,13 @@
    "t": "The Parrots' Project",
    "url": "https://theparrotsproject.org/",
    "id": "parrots-project-lab",
-   "node": "parrots-project"
+   "node": "parrots-project",
+   "subjects": [
+    "birds",
+    "parrots",
+    "education",
+    "archives"
+   ]
   },
   {
    "affil": [],
@@ -6860,7 +7891,12 @@
    "t": "Phoenix Landing",
    "url": "",
    "id": "phoenix",
-   "node": "parrots-project"
+   "node": "parrots-project",
+   "subjects": [
+    "birds",
+    "parrots",
+    "aviculture"
+   ]
   },
   {
    "affil": [],
@@ -6878,7 +7914,11 @@
    "t": "Parrot Researchers Group",
    "url": "",
    "id": "prg",
-   "node": "parrots-project"
+   "node": "parrots-project",
+   "subjects": [
+    "birds",
+    "parrots"
+   ]
   },
   {
    "affil": [],
@@ -6903,7 +7943,15 @@
    "t": "Rio Brazos Audubon Society",
    "url": "",
    "id": "riobrazos",
-   "node": "parrots-project"
+   "node": "parrots-project",
+   "subjects": [
+    "birds",
+    "parrots",
+    "agriculture",
+    "society",
+    "texas",
+    "place"
+   ]
   },
   {
    "affil": [
@@ -6942,7 +7990,13 @@
    "tamu": true,
    "url": "",
    "id": "schubot",
-   "node": "parrots-project"
+   "node": "parrots-project",
+   "subjects": [
+    "birds",
+    "parrots",
+    "health",
+    "agriculture"
+   ]
   },
   {
    "affil": [
@@ -6968,7 +8022,12 @@
    "t": "Saint Xavier University, Biological Sciences",
    "url": "",
    "id": "sxu",
-   "node": "parrots-project"
+   "node": "parrots-project",
+   "subjects": [
+    "birds",
+    "parrots",
+    "agriculture"
+   ]
   },
   {
    "affil": [
@@ -7002,7 +8061,13 @@
    "tamu": true,
    "url": "",
    "id": "tambopata",
-   "node": "parrots-project"
+   "node": "parrots-project",
+   "subjects": [
+    "birds",
+    "parrots",
+    "archaeology",
+    "place"
+   ]
   },
   {
    "affil": [],
@@ -7027,7 +8092,12 @@
    "t": "World Parrot Trust",
    "url": "https://www.parrots.org/",
    "id": "wpt",
-   "node": "parrots-project"
+   "node": "parrots-project",
+   "subjects": [
+    "conservation",
+    "birds",
+    "parrots"
+   ]
   }
  ],
  "institutions": {
@@ -7139,5 +8209,167 @@
   "wright": "Wright State University",
   "wustl": "Washington University in St. Louis",
   "yale": "Yale University"
- }
+ },
+ "subjects": [
+  {
+   "id": "ecology",
+   "t": "Ecology"
+  },
+  {
+   "id": "conservation",
+   "t": "Conservation"
+  },
+  {
+   "id": "evolution",
+   "t": "Evolution"
+  },
+  {
+   "id": "deep-time",
+   "t": "Deep time & Earth history"
+  },
+  {
+   "id": "geology",
+   "t": "Geology & sediments"
+  },
+  {
+   "id": "paleontology",
+   "t": "Paleontology & fossils"
+  },
+  {
+   "id": "climate",
+   "t": "Climate"
+  },
+  {
+   "id": "oceans",
+   "t": "Oceans & coasts"
+  },
+  {
+   "id": "plants",
+   "t": "Plants & botany"
+  },
+  {
+   "id": "palynology",
+   "t": "Spores & pollen"
+  },
+  {
+   "id": "insects",
+   "t": "Insects & invertebrates"
+  },
+  {
+   "id": "animals",
+   "t": "Animals & wildlife"
+  },
+  {
+   "id": "birds",
+   "t": "Birds"
+  },
+  {
+   "id": "parrots",
+   "t": "Parrots"
+  },
+  {
+   "id": "aviculture",
+   "t": "Aviculture & animal care"
+  },
+  {
+   "id": "behavior",
+   "t": "Animal behavior & cognition"
+  },
+  {
+   "id": "health",
+   "t": "Health & veterinary medicine"
+  },
+  {
+   "id": "agriculture",
+   "t": "Agriculture & food"
+  },
+  {
+   "id": "names",
+   "t": "Names & taxonomy"
+  },
+  {
+   "id": "language",
+   "t": "Language & linguistics"
+  },
+  {
+   "id": "mind",
+   "t": "Mind & consciousness"
+  },
+  {
+   "id": "philosophy",
+   "t": "Philosophy"
+  },
+  {
+   "id": "ethics",
+   "t": "Ethics & justice"
+  },
+  {
+   "id": "society",
+   "t": "Society & politics"
+  },
+  {
+   "id": "history",
+   "t": "History"
+  },
+  {
+   "id": "education",
+   "t": "Education & teaching"
+  },
+  {
+   "id": "research",
+   "t": "Research methods & data"
+  },
+  {
+   "id": "ai",
+   "t": "AI & computing"
+  },
+  {
+   "id": "physics",
+   "t": "Physics & mathematics"
+  },
+  {
+   "id": "chemistry",
+   "t": "Chemistry & isotopes"
+  },
+  {
+   "id": "complexity",
+   "t": "Complexity & systems"
+  },
+  {
+   "id": "engineering",
+   "t": "Engineering & energy"
+  },
+  {
+   "id": "archaeology",
+   "t": "Archaeology"
+  },
+  {
+   "id": "migration",
+   "t": "Human migration & deep history"
+  },
+  {
+   "id": "texas",
+   "t": "Texas"
+  },
+  {
+   "id": "place",
+   "t": "Place & landscape"
+  },
+  {
+   "id": "archives",
+   "t": "Libraries & archives"
+  },
+  {
+   "id": "literature",
+   "t": "Literature & poetry"
+  },
+  {
+   "id": "religion",
+   "t": "Religion & spirituality"
+  },
+  {
+   "id": "citizen",
+   "t": "Citizen science"
+  }
+ ]
 }
