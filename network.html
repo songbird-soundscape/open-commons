@@ -198,7 +198,7 @@ a.ext{color:var(--hub);font-weight:500;text-decoration:none;align-self:flex-star
   <section id="nodeSec">
     <p class="lbl"><label for="nodePick">Participating nodes</label></p>
     <select id="nodePick"><option value="">All participating nodes</option></select>
-    <p class="hint" id="nodeSummary">Every participating node is shown. Pick one to see only that node beside the Open Commons network.</p>
+    <p class="hint" id="nodeSummary">Every participating node is shown. Pick one to see how it connects.</p>
     <p class="hint"><a id="nodeSite" href="#" target="_blank" rel="noopener"></a></p>
   </section>
 
@@ -514,7 +514,7 @@ function buildData(){
       const lay = (tt==="person"||ut==="person") ? "people" : (tt==="uni"||ut==="uni") ? "unis" : "bb";
       links.push({source:l.source, target:l.target, w:Math.min(1,(+l.w||1)/3+.25), kind:"sl", layer:lay, why:l.t||"Related"}); } });
   }
-  NODE_LINKS.forEach(l=>{ if(nodes.some(n=>n.id===l.source)&&nodes.some(n=>n.id===l.target)) links.push({source:l.source,target:l.target,w:+l.w||.6,kind:"sl",layer:"unis",why:l.t||"Related"}); });
+  NODE_LINKS.forEach(l=>{ const A=nodes.find(n=>n.id===l.source), B=nodes.find(n=>n.id===l.target); if(A&&B) links.push({source:l.source,target:l.target,w:+l.w||.6,kind:"sl",layer:(A.type==="hub"&&B.type==="hub")?"hubs":"unis",why:l.t||"Related"}); });
   TL.forEach(l=>links.push(l));
   // hubs that share subject themes are linked by subject
   const realHubs = HUBS.filter(h=>h.role!=="disposition" && h.subj.length);
@@ -1171,7 +1171,7 @@ document.querySelectorAll("[data-tab]").forEach(b=>b.onclick=()=>showTab(b.datas
 document.getElementById("copyJson2").onclick=()=>document.getElementById("copyJson").click();
 function loadNode(nodeId, focus){
   const n = NODES.find(x=>x.id===nodeId) || null; activeNode = n ? n.id : null;
-  const keep = x => !x.node || !activeNode || x.node===activeNode;
+  const keep = x => true;
   C.hubs = new Map(ALL.hubs.filter(keep).map(h=>[h.id,h]));
   C.books = new Map(ALL.books.filter(keep).map(b=>[b.id,b]));
   C.orgs = new Map(ALL.orgs.filter(keep).map(o=>[o.id,o]));
@@ -1179,9 +1179,9 @@ function loadNode(nodeId, focus){
   themeFocus = null; selected = null;
   applyCommons();
   if(subjFocus) setSubj(subjFocus);
-  setStatus("live", `Snapshot of ${ALL.asOf||"the commons"} · ${activeNode ? "1 of "+NODES.length : NODES.length} participating nodes · ${D.nodes.length} entries`);
+  setStatus("live", `Snapshot of ${ALL.asOf||"the commons"} · ${NODES.length} participating nodes · ${D.nodes.length} entries`);
   $("nodePick").value = activeNode || "";
-  $("nodeSummary").textContent = n ? n.summary : "Every participating node is shown. Pick one to see only that node beside the Open Commons network.";
+  $("nodeSummary").textContent = n ? n.summary : "Every participating node is shown. Pick one to see how it connects.";
   const a=$("nodeSite"); if(n && n.url){ a.href=n.url; a.textContent="Visit "+new URL(n.url).hostname.replace(/^www\./,"")+" ↗"; a.hidden=false; } else a.hidden=true;
   const target = focus || n;
   if(target){ const id=[target.network, target.id, "o_"+target.id].find(x=>D.nodes.some(d=>d.id===x)); if(id) setTimeout(()=>select(id), 500); }
