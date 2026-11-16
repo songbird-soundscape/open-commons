@@ -158,6 +158,10 @@ ol.posts li:first-child{border-left-color:var(--hub)}
 .empty{position:absolute;inset:0;display:grid;place-items:center;padding:24px;text-align:center;color:var(--muted);pointer-events:none}
 .empty p{max-width:32ch;font-size:15px}
 #recent li{cursor:pointer}
+.moreopts{border-top:1px solid var(--rule);padding-top:12px}
+.moreopts summary{cursor:pointer;font-weight:600;font-size:13px;color:var(--muted)}
+.moreopts[open] summary{margin-bottom:12px}
+.moreopts-body{display:flex;flex-direction:column;gap:18px}
 ul.plain{margin:0;padding-left:1.2em;display:grid;gap:6px}
 a.linkbtn{display:inline-block;text-decoration:none}
 .themes{display:flex;flex-direction:column;gap:8px}
@@ -195,32 +199,11 @@ a.ext{color:var(--hub);font-weight:500;text-decoration:none;align-self:flex-star
   </section>
 
   <section>
-    <p class="lbl">Shelf</p>
-    <div class="seg shelfseg" role="group" aria-label="Shelf">
-      <button data-shelf="mine">Founding</button><button data-shelf="sample">A&amp;M sample</button><button data-shelf="node">Node's works</button><button data-shelf="commons">Added</button><button data-shelf="both">All</button>
-    </div>
-    <p class="readout" id="counts"></p>
-  </section>
-
-  <section>
     <p class="lbl">Views</p>
     <div class="presets">
       <button data-preset="hub">Hub space</button><button data-preset="lib">Library only</button>
       <button data-preset="people">People &amp; institutions</button><button data-preset="all">Everything</button>
     </div>
-    <button class="spot" id="spot" aria-pressed="false">Spotlight Texas A&amp;M</button>
-    <div class="layers">
-      <span>Hubs &amp; hub links</span><div class="seg sm" role="group" aria-label="Hubs layer"><button data-layer="hubs" data-mode="on">On</button><button data-layer="hubs" data-mode="dim">Dim</button><button data-layer="hubs" data-mode="off">Off</button></div>
-      <span>Book ↔ book links</span><div class="seg sm" role="group" aria-label="Book links layer"><button data-layer="bb" data-mode="on">On</button><button data-layer="bb" data-mode="dim">Dim</button><button data-layer="bb" data-mode="off">Off</button></div>
-      <span>People &amp; labs</span><div class="seg sm" role="group" aria-label="People layer"><button data-layer="people" data-mode="on">On</button><button data-layer="people" data-mode="dim">Dim</button><button data-layer="people" data-mode="off">Off</button></div>
-      <span>Universities</span><div class="seg sm" role="group" aria-label="Institutions layer"><button data-layer="unis" data-mode="on">On</button><button data-layer="unis" data-mode="dim">Dim</button><button data-layer="unis" data-mode="off">Off</button></div>
-    </div>
-  </section>
-
-  <section id="themeSec" hidden>
-    <p class="lbl">Connection themes</p>
-    <div id="themeChips" class="themes"></div>
-    <p class="hint" id="themeNote">How a joining node connects to the rest of the commons. Pick a theme to light up the links it makes.</p>
   </section>
 
   <section>
@@ -244,6 +227,35 @@ a.ext{color:var(--hub);font-weight:500;text-decoration:none;align-self:flex-star
     <ol id="ranked" class="links"></ol>
   </section>
 
+  <section id="detail"><p class="hint">Select a node to see its links, who added it, and its discussions.</p></section>
+
+  <details class="moreopts" id="moreOpts"><summary>More options</summary>
+  <div class="moreopts-body">
+  <section>
+    <p class="lbl">Shelf</p>
+    <div class="seg shelfseg" role="group" aria-label="Shelf">
+      <button data-shelf="mine">Founding</button><button data-shelf="sample">A&amp;M sample</button><button data-shelf="node">Node's works</button><button data-shelf="commons">Added</button><button data-shelf="both">All</button>
+    </div>
+    <p class="readout" id="counts"></p>
+  </section>
+
+  <section>
+    <p class="lbl">Layers</p>
+    <button class="spot" id="spot" aria-pressed="false">Spotlight Texas A&amp;M</button>
+    <div class="layers">
+      <span>Hubs &amp; hub links</span><div class="seg sm" role="group" aria-label="Hubs layer"><button data-layer="hubs" data-mode="on">On</button><button data-layer="hubs" data-mode="dim">Dim</button><button data-layer="hubs" data-mode="off">Off</button></div>
+      <span>Book ↔ book links</span><div class="seg sm" role="group" aria-label="Book links layer"><button data-layer="bb" data-mode="on">On</button><button data-layer="bb" data-mode="dim">Dim</button><button data-layer="bb" data-mode="off">Off</button></div>
+      <span>People &amp; labs</span><div class="seg sm" role="group" aria-label="People layer"><button data-layer="people" data-mode="on">On</button><button data-layer="people" data-mode="dim">Dim</button><button data-layer="people" data-mode="off">Off</button></div>
+      <span>Universities</span><div class="seg sm" role="group" aria-label="Institutions layer"><button data-layer="unis" data-mode="on">On</button><button data-layer="unis" data-mode="dim">Dim</button><button data-layer="unis" data-mode="off">Off</button></div>
+    </div>
+  </section>
+
+  <section id="themeSec" hidden>
+    <p class="lbl">Connection themes</p>
+    <div id="themeChips" class="themes"></div>
+    <p class="hint" id="themeNote">How a joining node connects to the rest of the commons. Pick a theme to light up the links it makes.</p>
+  </section>
+
   <section>
     <p class="lbl">Hubs</p>
     <div class="kinds">
@@ -257,7 +269,8 @@ a.ext{color:var(--hub);font-weight:500;text-decoration:none;align-self:flex-star
     </div>
     <div class="legend" id="legend"></div>
   </section>
-  <section id="detail"><p class="hint">Select a node to see its links, who added it, and its discussions.</p></section>
+  </div>
+  </details>
   </div>
 
   <!-- CONTRIBUTE -->
