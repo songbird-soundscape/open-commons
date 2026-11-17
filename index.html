@@ -1055,7 +1055,8 @@ footer{padding-block:40px 0;border-top:1px solid var(--rule);color:var(--ink-sof
     </div>
   </section>
 
-  <section id="discipline" aria-labelledby="disc-h">
+  <!-- Hidden for now (being reworked): remove the "hidden" attribute to show this section again -->
+  <section id="discipline" aria-labelledby="disc-h" hidden>
     <div class="intro col">
       <span class="label">A philosophy for living and learning</span>
       <h2 id="disc-h">Freedom takes discipline</h2>
@@ -1065,8 +1066,8 @@ footer{padding-block:40px 0;border-top:1px solid var(--rule);color:var(--ink-sof
       <div class="habits">
       <fieldset class="hgroup"><legend class="label">Daily habits</legend>
         <div class="habit"><label for="habit0"><input type="checkbox" id="habit0" data-i="0"><span><strong>Do real work with real consequences</strong><span>Take on work where others depend on you: the garden, the kitchen, the herd.</span></span></label><details class="why"><summary>Why it helps</summary><p>Consequences you can see teach follow-through better than any rule. Seedlings that wilt when you skip a day make the link between effort and outcome concrete, and that habit carries over into study and research.</p></details></div>
-        <div class="habit"><label for="habit1"><input type="checkbox" id="habit1" data-i="1"><span><strong>End each day with a short review</strong><span>Before sleep, ask: what did I learn, what did I avoid, and what will I do tomorrow? The Stoic philosopher Seneca described reviewing each day this way.</span></span></label><details class="why"><summary>Why it helps</summary><p>Reflection turns experience into learning. Naming what you avoided makes procrastination visible before it hardens into a pattern, and deciding tomorrow's first step makes it easier to start.</p></details></div>
               <div class="habit"><label for="habit11"><input type="checkbox" id="habit11" data-i="11"><span><strong>Play one gamesworth of reasoning a day</strong><span>Give a real problem the focus you'd give a chess game or a hard crossword, about half an hour to an hour. John R. Platt called this unit of effort a <em>gamesworth</em> in <cite>The Excitement of Science</cite> (1962).</span></span></label><details class="why"><summary>Why it helps</summary><p>Reasoning is a skill, and like a game it rewards regular play. Platt suggested that one or two gamesworths a day is about as much concentrated thinking as most people can sustain. Many people already give that much effort to puzzles; spent on a question from your hub, the same effort becomes research.</p></details></div>
+        <div class="habit"><label for="habit1"><input type="checkbox" id="habit1" data-i="1"><span><strong>Journal daily</strong><span>Take a few minutes each day to write down what you learned, what you avoided, and what you will do tomorrow.</span></span></label><details class="why"><summary>Why it helps</summary><p>Reflection turns experience into learning. Naming what you avoided makes procrastination visible before it hardens into a pattern, and deciding tomorrow's first step makes it easier to start.</p></details></div>
       </fieldset>
       <fieldset class="hgroup"><legend class="label">Conscious learning</legend>
         <div class="habit"><label for="habit2"><input type="checkbox" id="habit2" data-i="2"><span><strong>Try it with tools down before asking for help</strong><span>Attempt the problem before opening AI or notes, then write down what the help showed you.</span></span></label><details class="why"><summary>Why it helps</summary><p>The effort of recalling and reasoning is what builds memory and understanding. Help that arrives too early hands you the answer and takes away the learning. Comparing your attempt with the help shows exactly where your gaps are.</p></details></div>
@@ -1831,7 +1832,7 @@ function initCoopFx(){
 }
 
 /* ---------- discipline self-check ---------- */
-const HABITS=["Do real work with real consequences", "End each day with a short review", "Try it with tools down before asking for help", "Close the book and explain it", "Predict your grade before you get it back", "Teach someone newer than you", "Join a study group", "Put your name on public work", "Be honest about how you worked", "Take a checkpoint when you choose", "Defend your work in person", "Play one gamesworth of reasoning a day"];
+const HABITS=["Do real work with real consequences", "Journal daily", "Try it with tools down before asking for help", "Close the book and explain it", "Predict your grade before you get it back", "Teach someone newer than you", "Join a study group", "Put your name on public work", "Be honest about how you worked", "Take a checkpoint when you choose", "Defend your work in person", "Play one gamesworth of reasoning a day"];
 function drawHabits(){
   const boxes=[...document.querySelectorAll(".habit input")]; const n=boxes.filter(b=>b.checked).length;
   const next=boxes.find(b=>!b.checked);
