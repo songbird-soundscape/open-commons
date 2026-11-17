@@ -857,18 +857,18 @@ footer{padding-block:40px 0;border-top:1px solid var(--rule);color:var(--ink-sof
     <header class="pagehead"><a class="backol" href="#outline">↑ Back to the outline</a><span class="label">Part 2 of 5</span><h1>Learning and research</h1><p>Learning that rewards and challenges, students improving AI-drafted knowledge, figures before chapters, the lab as a mentoring network, and elders on the record.</p></header>
   <section id="flow" aria-labelledby="flow-h">
     <div class="intro col">
-      <span class="label">Flow</span>
+      <span class="label">Zone of proximal development</span>
       <h2 id="flow-h">Rewarding, challenging, and worth doing</h2>
-      <p>Students should get right into doing what rewards them and also challenges them. Learning should feel worth doing, not wear students down. Psychologist Mihaly Csikszentmihalyi called the state where challenge meets skill <em>flow</em>: too easy and we get bored, too hard and we get anxious, but matched well, the work absorbs us.</p>
-      <p>Mentors keep the match right, raising the challenge as skill grows. That is Vygotsky's zone of proximal development in practice. Try it below.</p>
+      <p>Students should get right into doing what rewards them and also challenges them. Learning should feel worth doing, not wear students down. Psychologist Lev Vygotsky called the space between what a learner can do alone and what they can do with help the <em>zone of proximal development</em>. Work there stretches students without losing them.</p>
+      <p>Mentors keep the match right, raising the challenge as skill grows. The chart below is similar to psychologist Mihaly Csikszentmihalyi's model of challenge and skill: too easy and we get bored, too hard and we get anxious. Try it below.</p>
     </div>
     <div class="panel flowpanel">
-      <svg class="flowsvg" viewBox="0 0 320 300" role="img" aria-label="Chart of challenge against skill, showing anxiety, flow, and boredom zones">
+      <svg class="flowsvg" viewBox="0 0 320 300" role="img" aria-label="Chart of challenge against skill, showing anxiety, the zone of proximal development, and boredom">
         <rect x="40" y="10" width="270" height="250" fill="var(--ground)" stroke="var(--rule)"/>
         <polygon points="40,260 40,206 256,10 310,10 310,64 94,260" fill="var(--s1)"/>
         <text x="95" y="60" fill="var(--ink-soft)" style="font-family:var(--mono);font-size:12px">Anxiety</text>
         <text x="200" y="215" fill="var(--ink-soft)" style="font-family:var(--mono);font-size:12px">Boredom</text>
-        <text x="170" y="128" fill="var(--moss)" transform="rotate(-42 170 128)" style="font-family:var(--mono);font-size:13px;font-weight:500">Flow</text>
+        <text x="175" y="131" text-anchor="middle" fill="var(--moss)" transform="rotate(-42 175 131)" style="font-family:var(--mono);font-size:10.5px;font-weight:500">Zone of proximal development</text>
         <text x="175" y="285" text-anchor="middle" fill="var(--ink-soft)" style="font-family:var(--mono);font-size:11px">Skill →</text>
         <text x="16" y="135" text-anchor="middle" fill="var(--ink-soft)" transform="rotate(-90 16 135)" style="font-family:var(--mono);font-size:11px">Challenge →</text>
         <circle id="flowDot" cx="175" cy="135" r="9" fill="var(--moss)" stroke="var(--slab)" stroke-width="3"/>
@@ -2147,7 +2147,7 @@ function drawFlow(){
   const o=$("#flowOut");
   if(d>20){o.className="flowout warn";o.innerHTML="<strong>Anxiety: too hard for now</strong><span>Break the task into steps, or work alongside a mentor until your skill catches up.</span>";dot.setAttribute("fill","var(--ochre)")}
   else if(d<-20){o.className="flowout warn";o.innerHTML="<strong>Boredom: too easy</strong><span>Raise the challenge. Take on a harder question, or teach the material to someone newer.</span>";dot.setAttribute("fill","var(--ochre)")}
-  else{o.className="flowout";o.innerHTML="<strong>Flow: rewarding and challenging</strong><span>This is the sweet spot. Keep raising the challenge as your skill grows.</span>";dot.setAttribute("fill","var(--moss)")}
+  else{o.className="flowout";o.innerHTML="<strong>Just right: challenging, and within reach</strong><span>This is the zone of proximal development. Keep raising the challenge as your skill grows.</span>";dot.setAttribute("fill","var(--moss)")}
 }
 ["#flowSkill","#flowChal"].forEach(id=>$(id).addEventListener("input",drawFlow)); drawFlow();
 
