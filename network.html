@@ -669,6 +669,12 @@ footer{padding-block:40px 0;border-top:1px solid var(--rule);color:var(--ink-sof
 .hsc-side .foot a{color:var(--moss)}
 .hsc-main #project-network > .intro{display:none}
 .hsc-main #project-network{padding-top:0!important;margin-top:0!important}
+.links-show{display:grid;gap:10px;margin:0 0 14px;scroll-margin-top:12px}
+.links-show h2{margin:0}
+.links-show p.col{margin:0;line-height:1.5}
+.links-show .fitgrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (min-width:1280px){.links-show .fitgrid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media (max-width:520px){.links-show .fitgrid{grid-template-columns:minmax(0,1fr)}}
 @media (max-width:900px){.hsc{grid-template-columns:minmax(0,1fr)}.hsc-side{position:static;max-height:none;order:2}}
 </style>
 </head>
@@ -712,6 +718,17 @@ footer{padding-block:40px 0;border-top:1px solid var(--rule);color:var(--ink-sof
   </div>
 </aside>
 <div class="hsc-main view">
+  <section id="parrots-project" class="links-show" aria-labelledby="ls-h">
+    <span class="label">The Parrots' Project</span>
+    <h2 id="ls-h">What the links show</h2>
+    <p class="col">Knowledge is usually organized by dividing academic thinking into disciplines, then fields, then subfields. This network works differently. Instead of a hierarchy of subjects, it connects the labs, researchers, published articles, funding agencies and institutions that do the work. Each line is a documented connection, not a guess, and the links come in four kinds:</p>
+    <div class="fitgrid">
+      <div><span class="from">1 · Research groups</span><p>Research groups and the topics they study. A line runs from a group to each question it works on.</p></div>
+      <div><span class="from">2 · Authors</span><p>Authors and the publications they have cited. A line runs from a writer to the work they built on.</p></div>
+      <div><span class="from">3 · Organizations</span><p>Organizations that support research and foster learning. A line shows who funds, hosts or teaches the work.</p></div>
+      <div><span class="from">4 · Learning tools</span><p>Learning tools that show what the science has found. A line runs from a tool to the research it demonstrates.</p></div>
+    </div>
+  </section>
   <section id="project-network" aria-labelledby="pn-h">
     <div class="intro col">
       <span class="label">The full network</span>
