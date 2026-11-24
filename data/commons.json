@@ -1,8 +1,23 @@
 {
- "asOf": "2026-11-16",
+ "asOf": "2026-11-24",
  "source": "Hub Space Commons",
  "license": "CC BY 4.0",
  "nodes": [
+  {
+   "id": "sporae-dispersae",
+   "name": "Sporae Dispersae",
+   "url": "https://songbird-soundscape.github.io/spores/",
+   "network": "sporae",
+   "summary": "Fossil spores, pollen and gyrogonites linked to the plants that made them, from the Silurian to today: a network that grows from the first descriptions in the 1820s to now, maps of where each genus has been found, and a time tree of plants through geologic time.",
+   "keywords": "spores pollen palynology paleobotany fossil plants coal coal balls time tree phylogeny deep time paleoecology gyrogonites charophytes discovery history of science",
+   "fits": {
+    "s": "Began with one doctoral student's question: which plants grew where in the coal swamps, and how do their spores tell us?",
+    "p": "Every link between a spore and its plant cites the study that made it, so students can check the evidence themselves.",
+    "u": "Joins paleobotany, palynology, phylogeny, geography and the history of science on one page.",
+    "o": "Free to use, with its data and R scripts on GitHub and open occurrence data from the Paleobiology Database.",
+    "h": "Shares its plants and their spores with Drifting Through Deep Time, and its swamps with the paleoecology theme."
+   }
+  },
   {
    "id": "parrots-project",
    "name": "The Parrots' Project",
@@ -414,10 +429,34 @@
  ],
  "nodeLinks": [
   {
-   "source": "parrots-project",
+   "source": "sporae",
    "target": "dtdt",
+   "w": 0.8,
+   "t": "Shared ground: plants through deep time. Sporae Dispersae supplies the fossil spores and pollen behind the vegetation that Drifting Through Deep Time maps on the globe"
+  },
+  {
+   "source": "sporae",
+   "target": "paleoecology",
    "w": 0.7,
-   "t": "Shared ground: names across languages and historical linguistics, oral history and traditional knowledge, ecology and conservation, and geoscience education"
+   "t": "The plants of ancient swamps and the spores they shed, placed by habitat"
+  },
+  {
+   "source": "dtdt",
+   "target": "paleoecology",
+   "w": 0.7,
+   "t": "What grew where, and in what climate, through deep time"
+  },
+  {
+   "source": "paleoecology",
+   "target": "ecology",
+   "w": 0.8,
+   "t": "Paleoecology is ecology carried back through geologic time"
+  },
+  {
+   "source": "ecology",
+   "target": "parrots-project",
+   "w": 0.7,
+   "t": "Parrot diets, habitats, behaviour and conservation"
   },
   {
    "source": "bhl",
@@ -450,5 +489,17 @@
   "u": "phil-univ",
   "o": "phil-open",
   "h": "phil-hubs"
- }
+ },
+ "themes": [
+  {
+   "id": "paleoecology",
+   "name": "Paleoecology",
+   "desc": "How ancient living things lived together and with their surroundings: who grew where, who ate whom, and how communities changed through time."
+  },
+  {
+   "id": "ecology",
+   "name": "Ecology",
+   "desc": "How living things relate to each other and to their surroundings, today and in the past."
+  }
+ ]
 }

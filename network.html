@@ -1069,6 +1069,8 @@ Promise.all([fetch("data/site-network.json",{cache:"no-cache"}).then(r=>{if(!r.o
   const parts=(com.nodes||[]).map(p=>{ const id=p.network||p.id; const hub=(com.hubs||[]).find(h=>h.id===id)||{};
     if(!have.has(id)){ nodes.push({id,name:p.name,native:p.name,kind:"h",el:"h",meta:"Participating node",desc:p.summary||hub.note||"",url:p.url||hub.url||"",subjects:hub.subjects||[]}); have.add(id); }
     return {...p,mapId:id}; });
+  /* shared themes, such as paleoecology and ecology, that join the participating nodes */
+  (com.themes||[]).forEach(t=>{ if(!have.has(t.id)){ nodes.push({id:t.id,name:t.name,native:t.name,kind:"h",el:"h",meta:"Shared theme",desc:t.desc||"",url:"",subjects:[]}); have.add(t.id); } });
   (com.nodeLinks||[]).forEach(l=>{ if(have.has(l.source)&&have.has(l.target)) links.push({source:l.source,target:l.target,w:0,s:+l.w||.5,t:l.t||"Draws on"}); });
   PN={nodes,links}; HSC={nodes,subjects:Object.fromEntries((com.subjects||[]).map(t=>[t.id,t.t])),parts};
   drawPN(); hscInit(); hscThreshold();

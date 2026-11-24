@@ -293,6 +293,20 @@ section{padding-block:52px;border-top:1px solid var(--rule);display:grid;gap:24p
 .statement-box{border-left:4px solid var(--ochre);padding:4px 0 4px 18px;display:grid;gap:12px}
 .statement-box p{font-size:1.12rem;line-height:1.6}
 .statement-box ol{margin:0;padding-left:1.8em;display:grid;gap:6px;font-size:1.12rem;line-height:1.6}
+.nodemap{max-width:760px;border:1px solid var(--rule);border-radius:12px;background:var(--slab);margin:0 0 10px}
+.nodemap svg{display:block;width:100%;height:auto}
+.nodemap .lk{stroke:var(--ink-soft);stroke-opacity:.45;fill:none}
+.nodemap .lk.on{stroke:var(--teal);stroke-opacity:1}
+.nodemap .nd{cursor:pointer}
+.nodemap .nd .dot{fill:var(--slab);stroke:var(--teal);stroke-width:2.5;transition:r .4s,fill .4s}
+.nodemap .nd.theme .dot{stroke:var(--ink-soft);stroke-dasharray:3 3}
+.nodemap .nd text{font:600 13px var(--display, sans-serif);fill:var(--ink);paint-order:stroke;stroke:var(--slab);stroke-width:4px}
+.nodemap .nd.theme text{font-weight:500;font-style:italic;fill:var(--ink-soft)}
+.nodemap .nd.on .dot{fill:var(--teal);r:16}
+.nodemap .nd.dim{opacity:.55}
+.nodemap .nd:focus-visible .dot{stroke-width:4}
+.node-card .kindtag{font-size:.8rem;color:var(--ink-soft)}
+@media (prefers-reduced-motion:reduce){.nodemap .nd .dot{transition:none}}
 .nodes{display:grid;grid-template-columns:minmax(0,1fr);gap:10px;max-width:660px}
 .node-card{border:1px solid var(--rule);border-radius:10px;padding:16px;background:var(--slab);display:grid;gap:8px;align-content:start}
 .node-card h3{font-family:var(--display);font-weight:600;font-size:1.1rem;margin:0}
@@ -1240,16 +1254,18 @@ footer{padding-block:40px 0;border-top:1px solid var(--rule);color:var(--ink-sof
     <div class="intro col">
       <span class="label">Joining the commons</span>
       <h2 id="nodes-h">Participating nodes</h2>
-      <p>Projects, labs, and communities that have joined the Open Commons of Learning. Each keeps its own work and its own home, and connects to the rest through shared themes. One is shown below, picked at random each visit.</p>
+      <p>Projects, labs, and communities that have joined the Open Commons of Learning. Each keeps its own work and its own home, and connects to the rest through shared themes. The map shows them and the shared themes that join them. One at a time lights up, in a random order, with a short description; click any of them to stop on it.</p>
     </div>
     <div class="nodesearch col">
       <label class="label" for="nodeQ">Find a node</label>
       <input type="search" id="nodeQ" placeholder="Type a keyword: parrots, deep time, languages, archaeology…" autocomplete="off">
       <p class="hint" id="nodeHint" aria-live="polite"></p>
     </div>
-    <div id="nodeFeature" class="nodes"></div>
+    <div class="nodemap"><svg id="nodeNet" viewBox="0 0 640 300" role="group" aria-label="Map of the participating nodes and the themes that join them"></svg></div>
+    <div id="nodeFeature" class="nodes" aria-live="polite"></div>
     <div class="nodeactions">
       <button type="button" class="chip" id="nodeShuffle">Show another</button>
+      <button type="button" class="chip" id="nodePause" aria-pressed="false">Pause</button>
       <a class="dtlink" id="nodeFull" href="network.html">Open the full network →</a>
     </div>
     <details class="more" id="nodeAll"><summary>All participating nodes (<span id="nodeCount">0</span>)</summary>
@@ -2341,7 +2357,8 @@ drawMap(); drawNet(); drawPath(); drawDay(); drawInt(); drawCoop(); setCoop(); i
     const c=el("article",{className:"node-card"},h,el("p",{textContent:n.summary}),btn,fits);
     return c;
   }
-  function show(n){ shown=n; feat.replaceChildren(card(n)); full.href="network.html#"+encodeURIComponent(n.id); }
+  function show(n){ shown=n; feat.replaceChildren(card(n)); full.href="network.html#"+encodeURIComponent(n.network||n.id);
+    if(typeof svgN!=="undefined"&&svgN){ const id=n.network||n.id; svgN.querySelectorAll(".nd").forEach(g=>{ g.classList.toggle("on",g.dataset.id===id); g.classList.toggle("dim",g.dataset.id!==id); }); svgN.querySelectorAll(".lk").forEach(l=>l.classList.toggle("on",l.dataset.a===id||l.dataset.b===id)); } }
   const rand = k => { try { const a=new Uint32Array(1); crypto.getRandomValues(a); return a[0] % k; } catch(_) { return Math.floor(Math.random()*k); } };
   function pick(){ const base=pool.length?pool:NODES; const from = shown && base.length>1 ? base.filter(n=>n!==shown) : base; if(from.length) show(from[rand(from.length)]); }
   function pickFresh(){ if(NODES.length) show(NODES[rand(NODES.length)]); }
@@ -2356,15 +2373,43 @@ drawMap(); drawNet(); drawPath(); drawDay(); drawInt(); drawCoop(); setCoop(); i
     hint.textContent = pool.length ? `${pool.length} of ${NODES.length} nodes match` : "No nodes match yet. Try another word.";
     if(pool.length && !pool.includes(shown)) show(pool[0]);
   }
-  document.getElementById("nodeShuffle").onclick=pick;
+  document.getElementById("nodeShuffle").onclick=()=>{ hold=Date.now()+6000; next(); };
   // the site switches views without reloading, so pick again each time the network page opens
   // the site swaps pages itself without reloading, so draw afresh whenever the network page is shown
   const netView=document.getElementById("network");
   if(netView && "MutationObserver" in window) new MutationObserver(()=>{ if(!netView.hidden && NODES.length){ q.value=""; pool=[]; renderList(NODES); hint.textContent=""; pickFresh(); } })
     .observe(netView,{attributes:true,attributeFilter:["hidden"]});
   q.addEventListener("input",search);
+  /* the map: participating nodes and the shared themes that join them; one lights up at a time, in a random order */
+  const svgN=document.getElementById("nodeNet"), NS="http://www.w3.org/2000/svg";
+  let MAP=[], order=[], oi=0, timer=null, paused=false, hold=0;
+  function layout(items, links){ const W=640,H=300, P=items.map((n,i)=>({n,x:W/2+Math.cos(i*2.4)*180,y:H/2+Math.sin(i*2.4)*90,vx:0,vy:0})), byId=Object.fromEntries(P.map(p=>[p.n.mid,p]));
+    for(let it=0;it<500;it++){ P.forEach(a=>P.forEach(b=>{ if(a===b) return; const dx=a.x-b.x, dy=(a.y-b.y)*1.6, d2=Math.max(60,dx*dx+dy*dy); a.vx+=dx/d2*900; a.vy+=dy/d2*500; }));
+      links.forEach(l=>{ const a=byId[l.source], b=byId[l.target]; if(!a||!b) return; const dx=b.x-a.x, dy=b.y-a.y, d=Math.hypot(dx,dy)||1, f=(d-150)*.02; a.vx+=dx/d*f; a.vy+=dy/d*f; b.vx-=dx/d*f; b.vy-=dy/d*f; });
+      P.forEach(p=>{ p.vx+=(W/2-p.x)*.004; p.vy+=(H/2-p.y)*.008; p.x+=p.vx*.5; p.y+=p.vy*.5; p.vx*=.6; p.vy*=.6; p.x=Math.max(120,Math.min(W-120,p.x)); p.y=Math.max(36,Math.min(H-36,p.y)); }); }
+    return byId; }
+  function drawMap(j){ const themes=(j.themes||[]).map(t=>({mid:t.id,name:t.name,summary:t.desc,theme:true}));
+    const parts=NODES.map(n=>({...n,mid:n.network||n.id})); MAP=[...parts,...themes];
+    const ids=new Set(MAP.map(m=>m.mid)), links=(j.nodeLinks||[]).filter(l=>ids.has(l.source)&&ids.has(l.target)), pos=layout(MAP,links);
+    svgN.replaceChildren();
+    links.forEach(l=>{ const a=pos[l.source], b=pos[l.target], p=document.createElementNS(NS,"line"); p.setAttribute("class","lk"); p.dataset.a=l.source; p.dataset.b=l.target;
+      ["x1","y1","x2","y2"].forEach((k,i)=>p.setAttribute(k,[a.x,a.y,b.x,b.y][i])); p.setAttribute("stroke-width",1+3*(+l.w||.5)); const t=document.createElementNS(NS,"title"); t.textContent=l.t||""; p.append(t); svgN.append(p); });
+    MAP.forEach(m=>{ const p=pos[m.mid], g=document.createElementNS(NS,"g"); g.setAttribute("class","nd"+(m.theme?" theme":"")); g.dataset.id=m.mid; g.setAttribute("transform",`translate(${p.x},${p.y})`);
+      g.setAttribute("tabindex","0"); g.setAttribute("role","button"); g.setAttribute("aria-label",m.name);
+      const c=document.createElementNS(NS,"circle"); c.setAttribute("class","dot"); c.setAttribute("r",m.theme?9:12); g.append(c);
+      const t=document.createElementNS(NS,"text"); t.setAttribute("text-anchor","middle"); t.setAttribute("y",m.theme?-15:-19); t.textContent=m.name; g.append(t);
+      const go=()=>{ light(m); hold=Date.now()+20000; }; g.addEventListener("click",go); g.addEventListener("keydown",e=>{ if(e.key==="Enter"||e.key===" "){ e.preventDefault(); go(); } });
+      svgN.append(g); }); }
+  function themeCard(m){ const c=el("article",{className:"node-card"}); c.append(el("h3",{textContent:m.name}), el("span",{className:"kindtag",textContent:"Shared theme"}), el("p",{textContent:m.summary})); return c; }
+  function light(m){ svgN.querySelectorAll(".nd").forEach(g=>{ g.classList.toggle("on",g.dataset.id===m.mid); g.classList.toggle("dim",g.dataset.id!==m.mid); });
+    svgN.querySelectorAll(".lk").forEach(l=>l.classList.toggle("on",l.dataset.a===m.mid||l.dataset.b===m.mid));
+    if(m.theme){ shown=null; feat.replaceChildren(themeCard(m)); full.href="network.html#"+encodeURIComponent(m.mid); } else show(NODES.find(n=>(n.network||n.id)===m.mid)||m); }
+  function shuffled(a){ const r=a.slice(); for(let i=r.length-1;i>0;i--){ const k=rand(i+1); [r[i],r[k]]=[r[k],r[i]]; } return r; }
+  function next(){ if(!MAP.length) return; if(oi>=order.length){ const last=order[order.length-1]; order=shuffled(MAP); if(order.length>1&&order[0]===last) order.push(order.shift()); oi=0; } light(order[oi++]); }
+  function startCycle(){ clearInterval(timer); timer=setInterval(()=>{ if(paused||document.hidden||Date.now()<hold) return; if(svgN.matches(":hover")||svgN.contains(document.activeElement)||feat.matches(":hover")||feat.contains(document.activeElement)) return; next(); },6000); }
+  const pz=document.getElementById("nodePause"); pz.onclick=()=>{ paused=!paused; pz.setAttribute("aria-pressed",String(paused)); pz.textContent=paused?"Resume":"Pause"; };
   fetch("data/commons.json",{cache:"no-cache"}).then(r=>r.json()).then(j=>{
-    NODES=j.nodes||[]; document.getElementById("nodeCount").textContent=NODES.length; renderList(NODES); pickFresh();
+    NODES=j.nodes||[]; document.getElementById("nodeCount").textContent=NODES.length; renderList(NODES); drawMap(j); next(); startCycle();
   }).catch(()=>{ feat.replaceChildren(el("p",{className:"hint",textContent:"The list of nodes didn't load. Reload the page, or open the full network."})); });
 })();
 </script>
