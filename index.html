@@ -3,19 +3,19 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="description" content="An open network of scholars and knowledge hubs, built for teaching, education, and research. Make a hub, join a hub, or link your lab.">
+<meta name="description" content="A proposed teaching philosophy for a rapidly changing social and technological landscape, centred on the relationships that hold a research community together. Make a hub, join a hub, or link your lab.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="The Open Commons of Learning">
 <meta property="og:title" content="Invitation to Collaborate">
-<meta property="og:description" content="An open network of scholars and knowledge hubs, built for teaching, education, and research. Make a hub, join a hub, or link your lab.">
+<meta property="og:description" content="A proposed teaching philosophy for a rapidly changing social and technological landscape, centred on the relationships that hold a research community together. Make a hub, join a hub, or link your lab.">
 <meta property="og:url" content="https://songbird-soundscape.github.io/open-commons/">
 <meta property="og:image" content="https://songbird-soundscape.github.io/open-commons/share-card.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Invitation to Collaborate: An open network of scholars and knowledge hubs, built for teaching, education, and research. Make a hub, join a hub, or link your lab.">
+<meta property="og:image:alt" content="Invitation to Collaborate: A proposed teaching philosophy for a rapidly changing social and technological landscape, centred on the relationships that hold a research community together. Make a hub, join a hub, or link your lab.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Invitation to Collaborate">
-<meta name="twitter:description" content="An open network of scholars and knowledge hubs, built for teaching, education, and research. Make a hub, join a hub, or link your lab.">
+<meta name="twitter:description" content="A proposed teaching philosophy for a rapidly changing social and technological landscape, centred on the relationships that hold a research community together. Make a hub, join a hub, or link your lab.">
 <meta name="twitter:image" content="https://songbird-soundscape.github.io/open-commons/share-card.png">
 <style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif}img{max-width:100%}[hidden]{display:none!important}
 .explore{margin:0 0 14px;padding:12px 14px;border:1px solid var(--rule);border-radius:12px;display:grid;gap:8px;scroll-margin-top:64px}
@@ -331,6 +331,9 @@ section{padding-block:52px;border-top:1px solid var(--rule);display:grid;gap:24p
 .nodelist{list-style:none;margin:0;padding:0;display:grid;gap:6px}
 .nodelist button{all:unset;cursor:pointer;display:grid;gap:2px;padding:8px 10px;border-radius:8px;width:100%;box-sizing:border-box}
 .nodelist button:hover,.nodelist button:focus-visible{background:var(--slab);outline:1px solid var(--rule)}
+.nodelist a{display:grid;gap:2px;padding:8px 10px;border-radius:8px;color:inherit;text-decoration:none}
+.nodelist a:hover,.nodelist a:focus-visible{background:var(--slab);outline:1px solid var(--rule)}
+#netResults{max-width:660px;margin:8px 0 0}
 .nodelist b{font-family:var(--display);font-weight:600}
 .nodelist span{font-size:.85rem;color:var(--ink-soft)}
 .eth-sources{display:grid;gap:8px}
@@ -684,8 +687,9 @@ footer{padding-block:40px 0;border-top:1px solid var(--rule);color:var(--ink-sof
 
   <main class="view" id="home">
   <header class="hero" id="top">
-    <span class="label">A philosophical framework for teaching, education, and research</span>
+    <span class="label">A proposed teaching philosophy</span>
     <h1>Share what we know. Learn it together. Keep the thinking human.</h1>
+    <p class="lede"><b>A proposed teaching philosophy for a rapidly changing social and technological landscape, centred on the relationships that hold a research community together.</b></p>
     <p class="lede">We now have more power to generate, connect, and share ideas than at any point in history. Education should use that power openly. That means less guarding of "my idea" and more collaboration: among specialists across fields, across institutions, across generations, and with the next generation of students as our research partners from the start.</p>
     <div class="flow" role="img" aria-label="Diagram: specialists across fields, elders, and students as research partners all contribute to open, shared knowledge, which reaches anyone who wants to learn.">
       <div class="srcs">
@@ -1263,17 +1267,16 @@ footer{padding-block:40px 0;border-top:1px solid var(--rule);color:var(--ink-sof
   <section id="participating-nodes" aria-labelledby="nodes-h">
     <div class="intro col">
       <span class="label">Joining the commons</span>
-      <h2 id="nodes-h">Participating nodes</h2>
-      <p>Projects, labs, and communities that have joined the Open Commons of Learning. Each keeps its own work and its own home, and connects to the rest through shared themes. All of them, and the shared themes that join them, are on the network map above.</p>
+      <h2 id="nodes-h">Search the network</h2>
+      <p>Look for any hub, theme, organization, thinker or book on the map above. Pick a result to light it up on the map with everything it connects to.</p>
     </div>
     <div class="nodesearch col">
-      <label class="label" for="nodeQ">Find a node</label>
-      <input type="search" id="nodeQ" placeholder="Type a keyword: parrots, deep time, languages, archaeology…" autocomplete="off">
+      <label class="label" for="nodeQ">Search the network</label>
+      <input type="search" id="nodeQ" placeholder="Type a keyword: parrots, spores, deep time, Humboldt, open access…" autocomplete="off">
       <p class="hint" id="nodeHint" aria-live="polite"></p>
     </div>
-    <div id="nodeFeature" class="nodes" aria-live="polite"></div>
+    <ul class="nodelist col" id="netResults" aria-live="polite"></ul>
     <div class="nodeactions">
-      <button type="button" class="chip" id="nodeShuffle">Show another</button>
       <a class="dtlink" id="nodeFull" href="network.html">Open the full network →</a>
     </div>
     <details class="more" id="nodeAll"><summary>All participating nodes (<span id="nodeCount">0</span>)</summary>
@@ -2373,48 +2376,27 @@ addEventListener("hashchange",xAuto);
 
 drawMap(); drawNet(); drawPath(); drawDay(); drawInt(); drawCoop(); setCoop(); initCoopFx(); drawFee(); drawClaims(); route(); xAuto();
 
-/* ---------- participating nodes ---------- */
+/* ---------- search the network: every node on the map above; a result lights up on the map ---------- */
 (function(){
-  const THREADS=[["s","Self-knowledge","var(--f1)"],["p","Praxis","var(--f3)"],["u","Universality","var(--f2)"],["o","Open access","var(--f4)"],["h","Knowledge hubs","var(--teal)"]];
-  const feat=document.getElementById("nodeFeature"), list=document.getElementById("nodeList"), q=document.getElementById("nodeQ"),
-        hint=document.getElementById("nodeHint"), all=document.getElementById("nodeAll"), full=document.getElementById("nodeFull");
-  let NODES=[], shown=null, pool=[];
+  const q=document.getElementById("nodeQ"), hint=document.getElementById("nodeHint"), out=document.getElementById("netResults"), list=document.getElementById("nodeList");
+  const KIND={h:"Knowledge hub",i:"Organization",p:"Person",b:"Book"};
   const el=(tag,props={},...kids)=>{ const e=document.createElement(tag); Object.assign(e,props); kids.forEach(k=>e.append(k)); return e; };
-  function card(n){
-    const h=el("h3"); h.append(el("a",{href:n.url,target:"_blank",rel:"noopener",textContent:n.name+" ↗"}));
-    const fits=el("ul",{className:"fits"}); fits.hidden=true;
-    THREADS.forEach(([k,label,c])=>{ if(!n.fits||!n.fits[k]) return; const i=el("i"); i.style.background=c; const t=el("div"); t.append(el("b",{textContent:label}), n.fits[k]); fits.append(el("li",{},i,t)); });
-    const btn=el("button",{type:"button",className:"chip fitbtn",textContent:"How it fits"}); btn.setAttribute("aria-expanded","false");
-    btn.onclick=()=>{ fits.hidden=!fits.hidden; btn.setAttribute("aria-expanded",String(!fits.hidden)); btn.textContent=fits.hidden?"How it fits":"Hide"; };
-    const c=el("article",{className:"node-card"},h,el("p",{textContent:n.summary}),btn,fits);
-    return c;
-  }
-  function show(n){ shown=n; feat.replaceChildren(card(n)); full.href="network.html#"+encodeURIComponent(n.network||n.id);
-    if(typeof svgN!=="undefined"&&svgN){ const id=n.network||n.id; svgN.querySelectorAll(".nd").forEach(g=>{ g.classList.toggle("on",g.dataset.id===id); g.classList.toggle("dim",g.dataset.id!==id); }); svgN.querySelectorAll(".lk").forEach(l=>l.classList.toggle("on",l.dataset.a===id||l.dataset.b===id)); } }
-  const rand = k => { try { const a=new Uint32Array(1); crypto.getRandomValues(a); return a[0] % k; } catch(_) { return Math.floor(Math.random()*k); } };
-  function pick(){ const base=pool.length?pool:NODES; const from = shown && base.length>1 ? base.filter(n=>n!==shown) : base; if(from.length) show(from[rand(from.length)]); }
-  function pickFresh(){ if(NODES.length) show(NODES[rand(NODES.length)]); }
-  function renderList(items){
-    list.replaceChildren(...items.map(n=>{ const b=el("button",{type:"button"},el("b",{textContent:n.name}),el("span",{textContent:n.summary})); b.onclick=()=>{ show(n); feat.scrollIntoView({behavior:"smooth",block:"nearest"}); }; return el("li",{},b); }));
-  }
+  function go(n){ if(window.pnDemoStop) pnDemoStop(); pnSpoke=null; pnOpen.clear(); pnOpen.add(n.id); pnLast=n.id; hiPN();
+    document.getElementById("pnet")?.scrollIntoView({behavior:"smooth",block:"center"}); }
+  function row(n){ const b=el("button",{type:"button"},el("b",{textContent:n.name}),el("span",{textContent:(n.meta==="Shared theme"?"Shared theme":KIND[n.kind]||"")+(n.desc?" · "+n.desc:"")})); b.onclick=()=>go(n); return el("li",{},b); }
   function search(){
     const terms=q.value.toLowerCase().split(/\s+/).filter(Boolean);
-    if(!terms.length){ pool=[]; renderList(NODES); hint.textContent=""; return; }
-    pool=NODES.filter(n=>{ const t=(n.name+" "+n.summary+" "+(n.keywords||"")+" "+Object.values(n.fits||{}).join(" ")).toLowerCase(); return terms.every(x=>t.includes(x)); });
-    renderList(pool); all.open=true;
-    hint.textContent = pool.length ? `${pool.length} of ${NODES.length} nodes match` : "No nodes match yet. Try another word.";
-    if(pool.length && !pool.includes(shown)) show(pool[0]);
+    if(!terms.length){ out.replaceChildren(); hint.textContent=""; return; }
+    const hits=(PN.nodes||[]).filter(n=>{ const t=(n.name+" "+(n.native||"")+" "+(n.desc||"")+" "+(n.meta||"")+" "+(n.subjects||[]).join(" ")).toLowerCase(); return terms.every(x=>t.includes(x)); })
+      .sort((a,b)=>(a.kind==="h"?0:1)-(b.kind==="h"?0:1)||a.name.localeCompare(b.name));
+    out.replaceChildren(...hits.slice(0,12).map(row));
+    hint.textContent = hits.length ? `${hits.length} on the map${hits.length>12?"; showing the first 12":""}. Pick one to light it up.` : "Nothing on the map matches yet. Try another word.";
   }
-  document.getElementById("nodeShuffle").onclick=pick;
-  // the site switches views without reloading, so pick again each time the network page opens
-  // the site swaps pages itself without reloading, so draw afresh whenever the network page is shown
-  const netView=document.getElementById("network");
-  if(netView && "MutationObserver" in window) new MutationObserver(()=>{ if(!netView.hidden && NODES.length){ q.value=""; pool=[]; renderList(NODES); hint.textContent=""; pickFresh(); } })
-    .observe(netView,{attributes:true,attributeFilter:["hidden"]});
   q.addEventListener("input",search);
-  fetch("data/commons.json",{cache:"no-cache"}).then(r=>r.json()).then(j=>{
-    NODES=j.nodes||[]; document.getElementById("nodeCount").textContent=NODES.length; renderList(NODES); pickFresh();
-  }).catch(()=>{ feat.replaceChildren(el("p",{className:"hint",textContent:"The list of nodes didn't load. Reload the page, or open the full network."})); });
+  q.addEventListener("keydown",e=>{ if(e.key==="Enter"){ const b=out.querySelector("button"); if(b){ e.preventDefault(); b.click(); } } });
+  /* the list of participating hubs stays, folded, for anyone who wants them all */
+  fetch("data/commons.json",{cache:"no-cache"}).then(r=>r.json()).then(j=>{ const N=j.nodes||[]; document.getElementById("nodeCount").textContent=N.length;
+    list.replaceChildren(...N.map(n=>el("li",{},el("a",{href:n.url,target:"_blank",rel:"noopener"},el("b",{textContent:n.name+" ↗"}),el("span",{textContent:n.summary}))))); }).catch(()=>{});
 })();
 </script>
 
