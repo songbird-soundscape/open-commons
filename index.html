@@ -307,6 +307,11 @@ section{padding-block:52px;border-top:1px solid var(--rule);display:grid;gap:24p
 .nodemap .nd:focus-visible .dot{stroke-width:4}
 .node-card .kindtag{font-size:.8rem;color:var(--ink-soft)}
 @media (prefers-reduced-motion:reduce){.nodemap .nd .dot{transition:none}}
+.hubstep{display:grid;grid-template-columns:44px minmax(0,1fr) 44px;gap:10px;align-items:center;margin:12px 0 6px;border:1px solid var(--rule);border-radius:12px;padding:10px;background:var(--slab)}
+.hubstep h3{font-family:var(--display);font-weight:600;font-size:1.1rem;margin:2px 0 4px} .hubstep p{margin:0}
+.hubstep .orglink{color:inherit}
+.hs-btn{width:40px;height:40px;border-radius:50%;border:1px solid var(--teal);background:transparent;color:var(--teal);font-size:22px;line-height:1;cursor:pointer}
+.hs-btn:hover{background:var(--teal);color:var(--slab)} .hs-btn:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
 .nodes{display:grid;grid-template-columns:minmax(0,1fr);gap:10px;max-width:660px}
 .node-card{border:1px solid var(--rule);border-radius:10px;padding:16px;background:var(--slab);display:grid;gap:8px;align-content:start}
 .node-card h3{font-family:var(--display);font-weight:600;font-size:1.1rem;margin:0}
@@ -1247,6 +1252,11 @@ footer{padding-block:40px 0;border-top:1px solid var(--rule);color:var(--ink-sof
       </div>
       </div></details>
       <p class="hint">Organizations and knowledge hubs show first. Switch on Thinkers to see where people like John Dewey fit, and Books for their works. Drag to turn the network in 3D. Click the map, then scroll or pinch to zoom, or use the buttons. Select anyone to see who they are and how they connect. This is a first shell, not a complete map, and it grows as people add to it.</p>
+      <div class="hubstep" id="hubStep" aria-label="Knowledge hubs, one at a time">
+        <button type="button" class="hs-btn" id="hsPrev" aria-label="Previous hub">‹</button>
+        <div class="hs-body" id="hsBody" aria-live="polite"></div>
+        <button type="button" class="hs-btn" id="hsNext" aria-label="Next hub">›</button>
+      </div>
       <div id="pnDetail" aria-live="polite"></div>
     </div>
   </section>
@@ -1254,18 +1264,16 @@ footer{padding-block:40px 0;border-top:1px solid var(--rule);color:var(--ink-sof
     <div class="intro col">
       <span class="label">Joining the commons</span>
       <h2 id="nodes-h">Participating nodes</h2>
-      <p>Projects, labs, and communities that have joined the Open Commons of Learning. Each keeps its own work and its own home, and connects to the rest through shared themes. The map shows them and the shared themes that join them. One at a time lights up, in a random order, with a short description; click any of them to stop on it.</p>
+      <p>Projects, labs, and communities that have joined the Open Commons of Learning. Each keeps its own work and its own home, and connects to the rest through shared themes. All of them, and the shared themes that join them, are on the network map above.</p>
     </div>
     <div class="nodesearch col">
       <label class="label" for="nodeQ">Find a node</label>
       <input type="search" id="nodeQ" placeholder="Type a keyword: parrots, deep time, languages, archaeology…" autocomplete="off">
       <p class="hint" id="nodeHint" aria-live="polite"></p>
     </div>
-    <div class="nodemap"><svg id="nodeNet" viewBox="0 0 640 300" role="group" aria-label="Map of the participating nodes and the themes that join them"></svg></div>
     <div id="nodeFeature" class="nodes" aria-live="polite"></div>
     <div class="nodeactions">
       <button type="button" class="chip" id="nodeShuffle">Show another</button>
-      <button type="button" class="chip" id="nodePause" aria-pressed="false">Pause</button>
       <a class="dtlink" id="nodeFull" href="network.html">Open the full network →</a>
     </div>
     <details class="more" id="nodeAll"><summary>All participating nodes (<span id="nodeCount">0</span>)</summary>
@@ -2108,6 +2116,23 @@ function hiPN(){ if(!PNL) return;
   d.innerHTML=`<div class="pncard"><div><span class="label">${n.kind==="h"?"Active hub":(n.kind==="p"?"Person":n.kind==="b"?"Book":"Organization")+" · "+EL[n.el].name}</span><h3>${n.url?`<a class="orglink" href="${n.url}" target="_blank" rel="noopener">${n.name} ↗</a>`:n.name}</h3>${n.native!==n.name?`<p class="native">${n.native}</p>`:""}<p class="meta">${n.meta}</p><p>${n.desc}</p>${n.kind==="h"?(r=>`<p class="meta">Participates in universality: its links reach ${r.n} of the 4 other spokes (${r.names.join(", ")}).</p>`)(pnReach(n.id)):""}${n.url?`<a class="dtlink" href="${n.url}" target="_blank" rel="noopener">${n.kind==="h"?"Open this hub":"Visit the site"} ↗</a>`:""}</div>
     <div><span class="label">Connections</span>${rel?`<ul>${rel}</ul>`:`<p class="hint">No direct links yet. It connects to the project through ${EL[n.el]?EL[n.el].name.toLowerCase():"its hub links"}.</p>`}</div></div>`;
 }
+
+/* hubs one at a time under the map: arrows step through them; on its own it moves on every 8 seconds, in a random order */
+function hubStepInit(){
+  const body=$("#hsBody"); if(!body) return;
+  const rand=k=>{ try{ const a=new Uint32Array(1); crypto.getRandomValues(a); return a[0]%k; }catch(_){ return Math.floor(Math.random()*k); } };
+  const H=PN.nodes.filter(n=>n.kind==="h"); for(let i=H.length-1;i>0;i--){ const k=rand(i+1); [H[i],H[k]]=[H[k],H[i]]; }
+  let i=0, hold=0, timer=0;
+  function show(k, focus){ i=(k+H.length)%H.length; const n=H[i];
+    body.innerHTML=`<span class="label">${n.meta==="Shared theme"?"Shared theme":"Knowledge hub"} · ${i+1} of ${H.length}</span><h3>${n.url?`<a class="orglink" href="${n.url}" target="_blank" rel="noopener">${n.name} ↗</a>`:n.name}</h3><p>${n.desc||""}</p>`;
+    if(focus!==false){ if(window.pnDemoStop) pnDemoStop(); pnSpoke="h"; pnOpen.clear(); pnOpen.add(n.id); pnLast=n.id; hiPN(); } }
+  $("#hsPrev").onclick=()=>{ hold=Date.now()+30000; show(i-1); };
+  $("#hsNext").onclick=()=>{ hold=Date.now()+30000; show(i+1); };
+  const stage=document.querySelector(".pnstage"); if(stage) stage.addEventListener("pointerdown",()=>{ hold=Date.now()+30000; },true);
+  let vis=false; if("IntersectionObserver" in window&&stage) new IntersectionObserver(es=>{vis=es[0].isIntersecting},{threshold:.3}).observe(stage); else vis=true;
+  clearInterval(timer); timer=setInterval(()=>{ if(!vis||document.hidden||Date.now()<hold||stage.closest(".view")?.hidden) return; show(i+1); },8000);
+  show(0,false);
+}
 function pnReset(){pnSpoke=null;pnLast=null;pnOpen.clear();hiPN()}
 function pnToggle(id){if(pnOpen.has(id)){pnOpen.delete(id);pnLast=pnLast===id?([...pnOpen].pop()||null):pnLast}else{pnOpen.add(id);pnLast=id}hiPN()}
 $("#pnet").addEventListener("click",e=>{const t=e.target.closest(".eltag");
@@ -2155,8 +2180,15 @@ $("#pnNative").addEventListener("change",e=>{pnNative=e.target.checked;renderPN(
   if("IntersectionObserver" in window) new IntersectionObserver(es=>{inView=es[0].isIntersecting},{threshold:.1}).observe(svg); else inView=true;
   (function spin(){ if(auto&&inView&&!document.hidden&&!svg.closest(".view").hidden){cam.yaw+=.0025;tick++;updatePN(tick%40===0)} requestAnimationFrame(spin) })();
 })();
-fetch("data/site-network.json",{cache:"no-cache"}).then(r=>{ if(!r.ok) throw new Error(r.status); return r.json(); })
-  .then(j=>{ PN={nodes:j.nodes||[],links:j.links||[]}; drawPN(); })
+Promise.all([fetch("data/site-network.json",{cache:"no-cache"}).then(r=>{ if(!r.ok) throw new Error(r.status); return r.json(); }),
+             fetch("data/commons.json",{cache:"no-cache"}).then(r=>r.ok?r.json():{}).catch(()=>({}))])
+  .then(([j,com])=>{ const nodes=(j.nodes||[]).slice(), links=(j.links||[]).slice(), have=new Set(nodes.map(n=>n.id));
+    /* every participating hub, and the shared themes (such as paleoecology and ecology) that join them */
+    (com.nodes||[]).forEach(p=>{ const id=p.network||p.id; if(!have.has(id)){ nodes.push({id,name:p.name,native:p.name,kind:"h",el:"h",meta:"Participating hub",desc:p.summary||"",url:p.url||"",subjects:[]}); have.add(id); }
+      else { const n=nodes.find(x=>x.id===id); if(n&&!n.url) n.url=p.url; } });
+    (com.themes||[]).forEach(t=>{ if(!have.has(t.id)){ nodes.push({id:t.id,name:t.name,native:t.name,kind:"h",el:"h",meta:"Shared theme",desc:t.desc||"",url:"",subjects:[]}); have.add(t.id); } });
+    (com.nodeLinks||[]).forEach(l=>{ if(have.has(l.source)&&have.has(l.target)) links.push({source:l.source,target:l.target,w:0,s:+l.w||.5,t:l.t||"Draws on"}); });
+    PN={nodes,links}; drawPN(); hubStepInit(); })
   .catch(()=>{ const m=$("#pnet"); if(m) m.insertAdjacentHTML("afterend",'<p class="hint">The network map didn\'t load. Reload the page to try again.</p>'); });
 
 /* ---------- flow ---------- */
@@ -2373,43 +2405,15 @@ drawMap(); drawNet(); drawPath(); drawDay(); drawInt(); drawCoop(); setCoop(); i
     hint.textContent = pool.length ? `${pool.length} of ${NODES.length} nodes match` : "No nodes match yet. Try another word.";
     if(pool.length && !pool.includes(shown)) show(pool[0]);
   }
-  document.getElementById("nodeShuffle").onclick=()=>{ hold=Date.now()+6000; next(); };
+  document.getElementById("nodeShuffle").onclick=pick;
   // the site switches views without reloading, so pick again each time the network page opens
   // the site swaps pages itself without reloading, so draw afresh whenever the network page is shown
   const netView=document.getElementById("network");
   if(netView && "MutationObserver" in window) new MutationObserver(()=>{ if(!netView.hidden && NODES.length){ q.value=""; pool=[]; renderList(NODES); hint.textContent=""; pickFresh(); } })
     .observe(netView,{attributes:true,attributeFilter:["hidden"]});
   q.addEventListener("input",search);
-  /* the map: participating nodes and the shared themes that join them; one lights up at a time, in a random order */
-  const svgN=document.getElementById("nodeNet"), NS="http://www.w3.org/2000/svg";
-  let MAP=[], order=[], oi=0, timer=null, paused=false, hold=0;
-  function layout(items, links){ const W=640,H=300, P=items.map((n,i)=>({n,x:W/2+Math.cos(i*2.4)*180,y:H/2+Math.sin(i*2.4)*90,vx:0,vy:0})), byId=Object.fromEntries(P.map(p=>[p.n.mid,p]));
-    for(let it=0;it<500;it++){ P.forEach(a=>P.forEach(b=>{ if(a===b) return; const dx=a.x-b.x, dy=(a.y-b.y)*1.6, d2=Math.max(60,dx*dx+dy*dy); a.vx+=dx/d2*900; a.vy+=dy/d2*500; }));
-      links.forEach(l=>{ const a=byId[l.source], b=byId[l.target]; if(!a||!b) return; const dx=b.x-a.x, dy=b.y-a.y, d=Math.hypot(dx,dy)||1, f=(d-150)*.02; a.vx+=dx/d*f; a.vy+=dy/d*f; b.vx-=dx/d*f; b.vy-=dy/d*f; });
-      P.forEach(p=>{ p.vx+=(W/2-p.x)*.004; p.vy+=(H/2-p.y)*.008; p.x+=p.vx*.5; p.y+=p.vy*.5; p.vx*=.6; p.vy*=.6; p.x=Math.max(120,Math.min(W-120,p.x)); p.y=Math.max(36,Math.min(H-36,p.y)); }); }
-    return byId; }
-  function drawMap(j){ const themes=(j.themes||[]).map(t=>({mid:t.id,name:t.name,summary:t.desc,theme:true}));
-    const parts=NODES.map(n=>({...n,mid:n.network||n.id})); MAP=[...parts,...themes];
-    const ids=new Set(MAP.map(m=>m.mid)), links=(j.nodeLinks||[]).filter(l=>ids.has(l.source)&&ids.has(l.target)), pos=layout(MAP,links);
-    svgN.replaceChildren();
-    links.forEach(l=>{ const a=pos[l.source], b=pos[l.target], p=document.createElementNS(NS,"line"); p.setAttribute("class","lk"); p.dataset.a=l.source; p.dataset.b=l.target;
-      ["x1","y1","x2","y2"].forEach((k,i)=>p.setAttribute(k,[a.x,a.y,b.x,b.y][i])); p.setAttribute("stroke-width",1+3*(+l.w||.5)); const t=document.createElementNS(NS,"title"); t.textContent=l.t||""; p.append(t); svgN.append(p); });
-    MAP.forEach(m=>{ const p=pos[m.mid], g=document.createElementNS(NS,"g"); g.setAttribute("class","nd"+(m.theme?" theme":"")); g.dataset.id=m.mid; g.setAttribute("transform",`translate(${p.x},${p.y})`);
-      g.setAttribute("tabindex","0"); g.setAttribute("role","button"); g.setAttribute("aria-label",m.name);
-      const c=document.createElementNS(NS,"circle"); c.setAttribute("class","dot"); c.setAttribute("r",m.theme?9:12); g.append(c);
-      const t=document.createElementNS(NS,"text"); t.setAttribute("text-anchor","middle"); t.setAttribute("y",m.theme?-15:-19); t.textContent=m.name; g.append(t);
-      const go=()=>{ light(m); hold=Date.now()+20000; }; g.addEventListener("click",go); g.addEventListener("keydown",e=>{ if(e.key==="Enter"||e.key===" "){ e.preventDefault(); go(); } });
-      svgN.append(g); }); }
-  function themeCard(m){ const c=el("article",{className:"node-card"}); c.append(el("h3",{textContent:m.name}), el("span",{className:"kindtag",textContent:"Shared theme"}), el("p",{textContent:m.summary})); return c; }
-  function light(m){ svgN.querySelectorAll(".nd").forEach(g=>{ g.classList.toggle("on",g.dataset.id===m.mid); g.classList.toggle("dim",g.dataset.id!==m.mid); });
-    svgN.querySelectorAll(".lk").forEach(l=>l.classList.toggle("on",l.dataset.a===m.mid||l.dataset.b===m.mid));
-    if(m.theme){ shown=null; feat.replaceChildren(themeCard(m)); full.href="network.html#"+encodeURIComponent(m.mid); } else show(NODES.find(n=>(n.network||n.id)===m.mid)||m); }
-  function shuffled(a){ const r=a.slice(); for(let i=r.length-1;i>0;i--){ const k=rand(i+1); [r[i],r[k]]=[r[k],r[i]]; } return r; }
-  function next(){ if(!MAP.length) return; if(oi>=order.length){ const last=order[order.length-1]; order=shuffled(MAP); if(order.length>1&&order[0]===last) order.push(order.shift()); oi=0; } light(order[oi++]); }
-  function startCycle(){ clearInterval(timer); timer=setInterval(()=>{ if(paused||document.hidden||Date.now()<hold) return; if(svgN.matches(":hover")||svgN.contains(document.activeElement)||feat.matches(":hover")||feat.contains(document.activeElement)) return; next(); },6000); }
-  const pz=document.getElementById("nodePause"); pz.onclick=()=>{ paused=!paused; pz.setAttribute("aria-pressed",String(paused)); pz.textContent=paused?"Resume":"Pause"; };
   fetch("data/commons.json",{cache:"no-cache"}).then(r=>r.json()).then(j=>{
-    NODES=j.nodes||[]; document.getElementById("nodeCount").textContent=NODES.length; renderList(NODES); drawMap(j); next(); startCycle();
+    NODES=j.nodes||[]; document.getElementById("nodeCount").textContent=NODES.length; renderList(NODES); pickFresh();
   }).catch(()=>{ feat.replaceChildren(el("p",{className:"hint",textContent:"The list of nodes didn't load. Reload the page, or open the full network."})); });
 })();
 </script>
